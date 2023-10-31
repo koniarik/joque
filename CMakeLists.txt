@@ -26,6 +26,6 @@ target_include_directories(joque PUBLIC include)
 find_package(GTest REQUIRED)
 
 include(CTest)
-add_executable(joque_basic_utest src/test/basic_utest.cpp)
+add_executable(joque_basic_utest test/basic_utest.cpp)
 add_test(TARGET joque_basic_utest)
 target_link_libraries(joque_basic_utest PUBLIC joque GTest::GTest gtest_main)
