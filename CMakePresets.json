@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "debug_cfg",
+      "generator": "Ninja",
+      "binaryDir": "build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug_build",
+      "configurePreset": "debug_cfg"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "debug_utest",
+      "configurePreset": "debug_cfg"
+    }
+  ]
+}
