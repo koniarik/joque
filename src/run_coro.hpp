@@ -8,16 +8,21 @@
 namespace joque
 {
 
-template < typename T >
-class task_coro
+class run_coro
 {
 public:
         struct promise_type
         {
-                [[nodiscard]] task_coro get_return_object()
+                template < typename... Args >
+                promise_type( node& n, Args&&... args )
+                  : n( n )
                 {
-                        return task_coro{
-                            std::coroutine_handle< promise_type >::from_promise( *this ) };
+                }
+
+                [[nodiscard]] run_coro get_return_object()
+                {
+                        return run_coro{
+                            n, std::coroutine_handle< promise_type >::from_promise( *this ) };
                 }
 
                 [[nodiscard]] std::suspend_always initial_suspend() const
@@ -41,21 +46,24 @@ public:
                         value = std::forward< U >( val );
                 }
 
-                std::optional< T > value;
-                std::exception_ptr excep;
+                node&                       n;
+                std::optional< run_record > value;
+                std::exception_ptr          excep;
         };
 
-        task_coro( std::coroutine_handle< promise_type > h )
-          : h_( h )
+        run_coro( node& n, std::coroutine_handle< promise_type > h )
+          : node_( n )
+          , h_( h )
         {
         }
 
-        task_coro( task_coro&& other ) noexcept
+        run_coro( run_coro&& other ) noexcept
+          : node_( other.node_ )
         {
                 std::swap( h_, other.h_ );
         }
 
-        task_coro& operator=( task_coro&& other ) noexcept
+        run_coro& operator=( run_coro&& other ) noexcept
         {
                 std::swap( h_, other.h_ );
                 return *this;
@@ -66,7 +74,7 @@ public:
                 return h_.done();
         }
 
-        T* result()
+        run_record* result()
         {
                 if ( !h_ ) {
                         return nullptr;
@@ -87,7 +95,7 @@ public:
                 }
         }
 
-        T* run()
+        run_record* run()
         {
                 while ( !done() ) {
                         tick();
@@ -96,7 +104,7 @@ public:
                 return result();
         }
 
-        ~task_coro()
+        ~run_coro()
         {
                 if ( h_ ) {
                         h_.destroy();
@@ -104,6 +112,7 @@ public:
         }
 
 private:
+        node&                                 node_;
         std::coroutine_handle< promise_type > h_;
 };
 

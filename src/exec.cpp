@@ -1,6 +1,7 @@
 #include "joque/exec.hpp"
 
 #include "joque/dag.hpp"
+#include "run_coro.hpp"
 
 #include <algorithm>
 #include <chrono>
@@ -12,21 +13,19 @@ namespace joque
 {
 using namespace std::chrono_literals;
 
-void push( exec_record& erec, run_record rrec )
-{
-        if ( rrec.skipped ) {
-                erec.skipped_count += 1;
-        }
-        if ( rrec.retcode != 0 ) {
-                erec.failed_count += 1;
-        }
-        erec.runs.push_back( std::move( rrec ) );
-}
-
 namespace
 {
 
-        using run_coro_t = task_coro< run_record >;
+        void push( exec_record& erec, run_record rrec )
+        {
+                if ( rrec.skipped ) {
+                        erec.skipped_count += 1;
+                }
+                if ( rrec.retcode != 0 ) {
+                        erec.failed_count += 1;
+                }
+                erec.runs.push_back( std::move( rrec ) );
+        }
 
         node* find_candidate(
             node&                              n,
@@ -126,7 +125,7 @@ namespace
                 std::cout.flush();
         }
 
-        run_coro_t
+        run_coro
         run( node&                        n,
              std::condition_variable&     cv,
              std::set< const resource* >& used_resources,
@@ -184,7 +183,7 @@ namespace
                 co_return result;
         }
 
-        void cleanup_coros( std::vector< run_coro_t >& coros, exec_record& erec )
+        void cleanup_coros( std::vector< run_coro >& coros, exec_record& erec )
         {
                 std::erase_if( coros, [&]( auto& coro ) {
                         if ( !coro.done() ) {
@@ -206,7 +205,7 @@ namespace
         }
 }  // namespace
 
-exec_coro_t exec( const task_set& ts, unsigned thread_count, const std::string& filter )
+exec_coro exec( const task_set& ts, unsigned thread_count, const std::string& filter )
 {
         std::condition_variable cv;
         std::mutex              m;
@@ -222,7 +221,7 @@ exec_coro_t exec( const task_set& ts, unsigned thread_count, const std::string& 
         }
 
         std::set< const resource* > used_resources;
-        std::vector< run_coro_t >   coros;
+        std::vector< run_coro >     coros;
 
         while ( !to_process.empty() && erec.failed_count == 0 ) {
                 cleanup_coros( coros, erec );

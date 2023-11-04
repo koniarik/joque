@@ -1,5 +1,7 @@
 #include "joque/junit.hpp"
 
+#include <chrono>
+#include <format>
 #include <numeric>
 
 namespace joque
