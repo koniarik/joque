@@ -130,4 +130,7 @@ private:
 
 exec_coro exec( const task_set& ts, unsigned thread_count = 0, const std::string& filter = "" );
 
+class dag;
+exec_coro exec( dag g, unsigned thread_count = 0, const std::string& filter = "" );
+
 }  // namespace joque

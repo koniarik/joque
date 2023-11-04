@@ -207,11 +207,17 @@ namespace
 
 exec_coro exec( const task_set& ts, unsigned thread_count, const std::string& filter )
 {
+
+        dag g = generate_dag( ts, filter );
+        return exec( std::move( g ), thread_count, filter );
+}
+
+exec_coro exec( dag g, unsigned thread_count, const std::string& filter )
+{
         std::condition_variable cv;
         std::mutex              m;
 
         exec_record       erec;
-        dag               g = generate_dag( ts, filter );
         std::set< node* > to_process;
         for ( node& n : g.nodes ) {
                 if ( n.t->job == nullptr ) {
