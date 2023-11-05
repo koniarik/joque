@@ -11,4 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: install deps
+      run: sudo apt install ninja-build libgtest-dev ccache
+
+    - run: make configure
+
     - run: make clang-tidy
