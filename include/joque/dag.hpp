@@ -43,6 +43,6 @@ struct dag
 /// \param filter Only nodes, and their dependencies, which match the filter are added to the dag.
 ///               Uses simple "find exact string match within a string" mechanism.
 ///
-[[nodiscard]] dag generate_dag( const task_set& ts, const std::string& filter );
+[[nodiscard]] dag generate_dag( const task_set& ts, const std::string& filter = "" );
 
 }  // namespace joque
