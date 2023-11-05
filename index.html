@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>joque: Main Page</title>
+<title>joque: joque</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,17 +84,28 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">joque Documentation</div>  </div>
+<div class="title">joque </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a>More details in <a href="https://koniarik.github.io/joque/index.html">Documentation</a> </p>
-</div></div><!-- PageDoc -->
+<div class="textblock"><p><a class="anchor" id="md_README"></a> C++20 library for ordered pararell execution of tasks.</p>
+<p>Library implements similar behavior to <code>make</code> or <code>ninja</code>. User defines tasks that shall be processed and library takes care of executing those tasks in lazy manner, with respect to dependencies.</p>
+<p>More details on API in <a href="https://koniarik.github.io/joque/index.html">Documentation</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Install</h1>
+<p>Recommended way of installing is to use CMakes FetchContent, or use git submodules.</p>
+<div class="fragment"><div class="line">FetchContent_Declare(</div>
+<div class="line">  joque</div>
+<div class="line">  GIT_REPOSITORY https://github.com/koniarik/joque</div>
+<div class="line">  GIT_TAG v0.1</div>
+<div class="line">)</div>
+<div class="line">FetchContent_MakeAvailable(joque)</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Nov 4 2023 15:47:41 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 18:59:30 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

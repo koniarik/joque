@@ -6,6 +6,6 @@ var searchData=
   ['job_5fptr_31',['job_ptr',['../structjoque_1_1job__ptr.html#a9db05b0f4f76eca2c19963d063e25a4c',1,'joque::job_ptr::job_ptr()=default'],['../structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9',1,'joque::job_ptr::job_ptr(T &amp;&amp;item)'],['../structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a',1,'joque::job_ptr::job_ptr(const job_ptr &amp;)=delete'],['../structjoque_1_1job__ptr.html#a8c93d78dd0a95c6a7e10d807a3c8e6be',1,'joque::job_ptr::job_ptr(job_ptr &amp;&amp;)=default'],['../structjoque_1_1job__ptr.html',1,'joque::job_ptr']]],
   ['job_5ftraits_32',['job_traits',['../structjoque_1_1job__traits.html',1,'joque']]],
   ['job_5ftraits_3c_20process_20_3e_33',['job_traits&lt; process &gt;',['../structjoque_1_1job__traits_3_01process_01_4.html',1,'joque']]],
-  ['joque_34',['joque',['../namespacejoque.html',1,'']]],
+  ['joque_34',['joque',['../index.html',1,'(Global Namespace)'],['../namespacejoque.html',1,'joque']]],
   ['junit_2ehpp_35',['junit.hpp',['../junit_8hpp.html',1,'']]]
 ];
