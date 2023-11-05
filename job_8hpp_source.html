@@ -139,14 +139,9 @@ $(document).ready(function(){initNavTree('job_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                new <a class="code" href="structjoque_1_1job.html">job</a>&lt; std::decay_t&lt; T &gt; &gt;{ std::forward&lt; T &gt;( item ) } )</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a">   54</a></span>&#160;        <a class="code" href="structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a">job_ptr</a>( <span class="keyword">const</span> <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; )                     = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structjoque_1_1job__ptr.html#a72d27da3dc94e971d56eb62bcc026022">   55</a></span>&#160;        <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; <a class="code" href="structjoque_1_1job__ptr.html#a72d27da3dc94e971d56eb62bcc026022">operator=</a>( <span class="keyword">const</span> <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; ) noexcept = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structjoque_1_1job__ptr.html#a8c93d78dd0a95c6a7e10d807a3c8e6be">   56</a></span>&#160;        <a class="code" href="structjoque_1_1job__ptr.html#a8c93d78dd0a95c6a7e10d807a3c8e6be">job_ptr</a>( <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp;&amp; )                          = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structjoque_1_1job__ptr.html#a4a1e86adfac78e692c4684207faf8e2b">   57</a></span>&#160;        <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; <a class="code" href="structjoque_1_1job__ptr.html#a4a1e86adfac78e692c4684207faf8e2b">operator=</a>( <a class="code" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp;&amp; ) noexcept      = default;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
 <div class="ttc" id="anamespacejoque_html_structjoque_1_1task"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task">joque::task</a></div><div class="ttdef"><b>Definition:</b> task.hpp:16</div></div>
 <div class="ttc" id="aprocess_8hpp_html"><div class="ttname"><a href="process_8hpp.html">process.hpp</a></div></div>
@@ -155,10 +150,6 @@ $(document).ready(function(){initNavTree('job_8hpp_source.html',''); initResizab
 <div class="ttc" id="astructjoque_1_1job__iface_html_a9c09700afdd5010c4b24df8e0daf287a"><div class="ttname"><a href="structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a">joque::job_iface::is_invalidated</a></div><div class="ttdeci">virtual bool is_invalidated()=0</div></div>
 <div class="ttc" id="astructjoque_1_1job__iface_html_ad8e681c455405db108697cfc80ad034b"><div class="ttname"><a href="structjoque_1_1job__iface.html#ad8e681c455405db108697cfc80ad034b">joque::job_iface::run</a></div><div class="ttdeci">virtual run_result run(const task *)=0</div></div>
 <div class="ttc" id="astructjoque_1_1job__ptr_html"><div class="ttname"><a href="structjoque_1_1job__ptr.html">joque::job_ptr</a></div><div class="ttdef"><b>Definition:</b> job.hpp:44</div></div>
-<div class="ttc" id="astructjoque_1_1job__ptr_html_a4a1e86adfac78e692c4684207faf8e2b"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a4a1e86adfac78e692c4684207faf8e2b">joque::job_ptr::operator=</a></div><div class="ttdeci">job_ptr &amp; operator=(job_ptr &amp;&amp;) noexcept=default</div></div>
-<div class="ttc" id="astructjoque_1_1job__ptr_html_a6660f07338caf7846a0ab4a401c5251a"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a">joque::job_ptr::job_ptr</a></div><div class="ttdeci">job_ptr(const job_ptr &amp;)=delete</div></div>
-<div class="ttc" id="astructjoque_1_1job__ptr_html_a72d27da3dc94e971d56eb62bcc026022"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a72d27da3dc94e971d56eb62bcc026022">joque::job_ptr::operator=</a></div><div class="ttdeci">job_ptr &amp; operator=(const job_ptr &amp;) noexcept=delete</div></div>
-<div class="ttc" id="astructjoque_1_1job__ptr_html_a8c93d78dd0a95c6a7e10d807a3c8e6be"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a8c93d78dd0a95c6a7e10d807a3c8e6be">joque::job_ptr::job_ptr</a></div><div class="ttdeci">job_ptr(job_ptr &amp;&amp;)=default</div></div>
 <div class="ttc" id="astructjoque_1_1job__ptr_html_a8d2a4465482b2535f331176f8a6922f9"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9">joque::job_ptr::job_ptr</a></div><div class="ttdeci">job_ptr(T &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> job.hpp:48</div></div>
 <div class="ttc" id="astructjoque_1_1job__ptr_html_a9db05b0f4f76eca2c19963d063e25a4c"><div class="ttname"><a href="structjoque_1_1job__ptr.html#a9db05b0f4f76eca2c19963d063e25a4c">joque::job_ptr::job_ptr</a></div><div class="ttdeci">job_ptr()=default</div></div>
 <div class="ttc" id="astructjoque_1_1job__traits_html_a415e33d8c648e79778165b4e7cb20289"><div class="ttname"><a href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">joque::job_traits::is_invalidated</a></div><div class="ttdeci">static bool is_invalidated(const T &amp;)</div><div class="ttdef"><b>Definition:</b> traits.hpp:27</div></div>
@@ -176,7 +167,7 @@ $(document).ready(function(){initNavTree('job_8hpp_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="job_8hpp.html">job.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 19:49:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 19:56:26 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

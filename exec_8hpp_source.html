@@ -181,56 +181,57 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> ( !h_ ) {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span> ( !h_.promise().value ) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span> ( h_.promise().excep ) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        std::rethrow_exception( h_.promise().excep );</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> ( h_.promise().excep ) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        std::rethrow_exception( h_.promise().excep );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">return</span> &amp;*h_.promise().value;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">  104</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a>()</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">if</span> ( h_ ) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        h_();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">  111</a></span>&#160;        <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* <a class="code" href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">run</a>()</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">while</span> ( !<a class="code" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a>() ) {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        <a class="code" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a>();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">  120</a></span>&#160;        <a class="code" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">~exec_coro</a>()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">if</span> ( h_ ) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        h_.destroy();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::coroutine_handle&lt; promise_type &gt; h_;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;[[nodiscard]] exec_coro</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">  132</a></span>&#160;<a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">  135</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::optional&lt; exec_record &gt;&amp; val = h_.promise().value;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">if</span> ( val ) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">return</span> &amp;*val;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">  105</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">if</span> ( h_ ) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        h_();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">  112</a></span>&#160;        <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* <a class="code" href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">run</a>()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">while</span> ( !<a class="code" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a>() ) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                        <a class="code" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">  121</a></span>&#160;        <a class="code" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">~exec_coro</a>()</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">if</span> ( h_ ) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        h_.destroy();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        std::coroutine_handle&lt; promise_type &gt; h_;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;[[nodiscard]] exec_coro</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">  133</a></span>&#160;<a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">  136</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html"><div class="ttname"><a href="classjoque_1_1exec__coro.html">joque::exec_coro</a></div><div class="ttdef"><b>Definition:</b> exec.hpp:33</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_a05c3cf3d010aaf4e139e3fe237e7b696"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">joque::exec_coro::result</a></div><div class="ttdeci">exec_record * result()</div><div class="ttdef"><b>Definition:</b> exec.hpp:90</div></div>
-<div class="ttc" id="aclassjoque_1_1exec__coro_html_a0b7219b3e71e0162438e981b09c82f58"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">joque::exec_coro::~exec_coro</a></div><div class="ttdeci">~exec_coro()</div><div class="ttdef"><b>Definition:</b> exec.hpp:120</div></div>
+<div class="ttc" id="aclassjoque_1_1exec__coro_html_a0b7219b3e71e0162438e981b09c82f58"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">joque::exec_coro::~exec_coro</a></div><div class="ttdeci">~exec_coro()</div><div class="ttdef"><b>Definition:</b> exec.hpp:121</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_a0d686631cdda912409752dd3fb2e64da"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da">joque::exec_coro::exec_coro</a></div><div class="ttdeci">exec_coro(std::coroutine_handle&lt; promise_type &gt; h)</div><div class="ttdef"><b>Definition:</b> exec.hpp:69</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_a522a2e01000a50094fd1bbd36b543b91"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91">joque::exec_coro::operator=</a></div><div class="ttdeci">exec_coro &amp; operator=(exec_coro &amp;&amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> exec.hpp:79</div></div>
-<div class="ttc" id="aclassjoque_1_1exec__coro_html_a58021d28420f6e6a44e93cf8ccaf92e6"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">joque::exec_coro::run</a></div><div class="ttdeci">exec_record * run()</div><div class="ttdef"><b>Definition:</b> exec.hpp:111</div></div>
-<div class="ttc" id="aclassjoque_1_1exec__coro_html_a8abf0e2f5fd80ee4a23a320454d27bae"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">joque::exec_coro::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> exec.hpp:104</div></div>
+<div class="ttc" id="aclassjoque_1_1exec__coro_html_a58021d28420f6e6a44e93cf8ccaf92e6"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">joque::exec_coro::run</a></div><div class="ttdeci">exec_record * run()</div><div class="ttdef"><b>Definition:</b> exec.hpp:112</div></div>
+<div class="ttc" id="aclassjoque_1_1exec__coro_html_a8abf0e2f5fd80ee4a23a320454d27bae"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">joque::exec_coro::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> exec.hpp:105</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_ab4e5dde509c49c339adb208f6965b7af"><div class="ttname"><a href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">joque::exec_coro::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdef"><b>Definition:</b> exec.hpp:85</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_ac22647134adc18f930929bccca258092"><div class="ttname"><a href="classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092">joque::exec_coro::exec_coro</a></div><div class="ttdeci">exec_coro(exec_coro &amp;&amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> exec.hpp:74</div></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
@@ -267,7 +268,7 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 19:49:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 19:56:26 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
