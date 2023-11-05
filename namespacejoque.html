@@ -148,11 +148,17 @@ Functions</h2></td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">requires</a> (std::same_as&lt; std::remove_cvref_t&lt; T &gt;, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;) void for_each_task(T &amp;ts</td></tr>
 <tr class="separator:af9daf6e2b940c98e701e9a28c5593433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">add_dep_to_each</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
+<tr class="separator:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b4f0c89ae3c33fcf8764c5187fabcf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0b4f0c89ae3c33fcf8764c5187fabcf7">after_all_of</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
+<tr class="separator:a0b4f0c89ae3c33fcf8764c5187fabcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a37f1bbfa04dd81677d5989bf4e12923a"><td class="memItemLeft" align="right" valign="top">Fun &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">f</a></td></tr>
 <tr class="separator:a37f1bbfa04dd81677d5989bf4e12923a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13d6d7b5bcea7aa37f16fb3f99acba72"><td class="memItemLeft" align="right" valign="top">Fun const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72">prefix</a></td></tr>
+<tr class="separator:a13d6d7b5bcea7aa37f16fb3f99acba72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structjoque_1_1dag" id="structjoque_1_1dag"></a>
@@ -456,6 +462,62 @@ tasks</td>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a5d9b1c8c103f5be314c4907ecf6eac68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9b1c8c103f5be314c4907ecf6eac68">&#9670;&nbsp;</a></span>add_dep_to_each()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::add_dep_to_each </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b4f0c89ae3c33fcf8764c5187fabcf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b4f0c89ae3c33fcf8764c5187fabcf7">&#9670;&nbsp;</a></span>after_all_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::after_all_of </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acebef9f372a853738e59ba720cc57243"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acebef9f372a853738e59ba720cc57243">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/2]</span></h2>
 
@@ -621,13 +683,40 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
+<a id="a13d6d7b5bcea7aa37f16fb3f99acba72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d6d7b5bcea7aa37f16fb3f99acba72">&#9670;&nbsp;</a></span>prefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fun const std::string&amp; joque::prefix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;/&quot;</span> )</div>
+<div class="line">{</div>
+<div class="line">        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, t] : ts.tasks ) {</div>
+<div class="line">                <a class="code" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">f</a>( ( <a class="code" href="namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72">prefix</a> + <span class="stringliteral">&quot;/&quot;</span> ).append( name ), t );</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, s] : ts.sets ) {</div>
+<div class="line">                for_each_task( s, <a class="code" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">f</a>, ( <a class="code" href="namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72">prefix</a> + <span class="stringliteral">&quot;/&quot;</span> ).append( name ) );</div>
+<div class="line">        }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> for_each_add_dep( task_set&amp; ts, <span class="keyword">const</span> task&amp; dep )</div>
+<div class="ttc" id="anamespacejoque_html_a13d6d7b5bcea7aa37f16fb3f99acba72"><div class="ttname"><a href="namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72">joque::prefix</a></div><div class="ttdeci">Fun const std::string &amp; prefix</div><div class="ttdef"><b>Definition:</b> task.hpp:35</div></div>
+<div class="ttc" id="anamespacejoque_html_a37f1bbfa04dd81677d5989bf4e12923a"><div class="ttname"><a href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:35</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 20:32:32 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 20:47:21 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

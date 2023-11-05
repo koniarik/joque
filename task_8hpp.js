@@ -16,6 +16,9 @@ var task_8hpp =
       [ "sets", "namespacejoque.html#a495874773c169e9bb323d95e093a505a", null ],
       [ "tasks", "namespacejoque.html#af62855b06aa9cfe1b2383f39dae93bcb", null ]
     ] ],
+    [ "add_dep_to_each", "task_8hpp.html#a5d9b1c8c103f5be314c4907ecf6eac68", null ],
+    [ "after_all_of", "task_8hpp.html#a0b4f0c89ae3c33fcf8764c5187fabcf7", null ],
     [ "requires", "task_8hpp.html#af9daf6e2b940c98e701e9a28c5593433", null ],
-    [ "f", "task_8hpp.html#a37f1bbfa04dd81677d5989bf4e12923a", null ]
+    [ "f", "task_8hpp.html#a37f1bbfa04dd81677d5989bf4e12923a", null ],
+    [ "prefix", "task_8hpp.html#a13d6d7b5bcea7aa37f16fb3f99acba72", null ]
 ];
