@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('structjoque_1_1exec__coro_1_1promise__
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="exec_8hpp_source.html">exec.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="exec__coro_8hpp_source.html">exec_coro.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -104,15 +104,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a26fa94ab6fc8a2835c9a9080ce3c3060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1978827295147e01f0d25f4019da2f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a1978827295147e01f0d25f4019da2f0d">unhandled_exception</a> ()</td></tr>
 <tr class="separator:a1978827295147e01f0d25f4019da2f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05d9cf373db169c5cab646940fc3e497"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a05d9cf373db169c5cab646940fc3e497"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a05d9cf373db169c5cab646940fc3e497">return_value</a> (U &amp;&amp;val)</td></tr>
-<tr class="separator:a05d9cf373db169c5cab646940fc3e497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1a1009b869ee3dc5900ed477090c2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a1b1a1009b869ee3dc5900ed477090c2f">return_value</a> (<a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> rec)</td></tr>
+<tr class="separator:a1b1a1009b869ee3dc5900ed477090c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2d0524258ae57e867c3acbe004526935"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935">value</a></td></tr>
+<tr class="memdesc:a2d0524258ae57e867c3acbe004526935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value returned at the end of execution.  <a href="structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935">More...</a><br /></td></tr>
 <tr class="separator:a2d0524258ae57e867c3acbe004526935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a687f838e3cd8dd9b099e3057b5a52f7c"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c">excep</a></td></tr>
+<tr class="memdesc:a687f838e3cd8dd9b099e3057b5a52f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Potential exception raised from within the coroutine.  <a href="structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c">More...</a><br /></td></tr>
 <tr class="separator:a687f838e3cd8dd9b099e3057b5a52f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -121,9 +122,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> joque::exec_coro::promise_type::get_return_object </td>
@@ -132,11 +130,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -146,9 +139,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::suspend_always joque::exec_coro::promise_type::initial_suspend </td>
@@ -157,11 +147,6 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -184,7 +169,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -196,9 +181,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void joque::exec_coro::promise_type::unhandled_exception </td>
@@ -207,44 +189,25 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c">excep</a>.</p>
-
 </div>
 </div>
-<a id="a05d9cf373db169c5cab646940fc3e497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05d9cf373db169c5cab646940fc3e497">&#9670;&nbsp;</a></span>return_value()</h2>
+<a id="a1b1a1009b869ee3dc5900ed477090c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1a1009b869ee3dc5900ed477090c2f">&#9670;&nbsp;</a></span>return_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void joque::exec_coro::promise_type::return_value </td>
           <td>(</td>
-          <td class="paramtype">U &amp;&amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>&#160;</td>
+          <td class="paramname"><em>rec</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935">value</a>.</p>
 
 </div>
 </div>
@@ -261,6 +224,8 @@ template&lt;typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Value returned at the end of execution. </p>
+
 </div>
 </div>
 <a id="a687f838e3cd8dd9b099e3057b5a52f7c"></a>
@@ -275,10 +240,12 @@ template&lt;typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Potential exception raised from within the coroutine. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/joque/<a class="el" href="exec_8hpp_source.html">exec.hpp</a></li>
+<li>include/joque/<a class="el" href="exec__coro_8hpp_source.html">exec_coro.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -286,7 +253,7 @@ template&lt;typename U &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a></li><li class="navelem"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html">promise_type</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 21:27:50 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

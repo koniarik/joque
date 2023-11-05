@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>joque: include/joque/dag.hpp File Reference</title>
+<title>joque: include/joque/records.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('dag_8hpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('records_8hpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -86,14 +86,17 @@ $(document).ready(function(){initNavTree('dag_8hpp.html',''); initResizable(); }
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">dag.hpp File Reference</div>  </div>
+<div class="title">records.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="task_8hpp_source.html">joque/task.hpp</a>&quot;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dag.hpp:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for records.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
@@ -101,43 +104,39 @@ $(document).ready(function(){initNavTree('dag_8hpp.html',''); initResizable(); }
 </div>
 </div>
 </div>
-<p><a href="dag_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="records_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:structjoque_1_1node"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1node">joque::node</a></td></tr>
-<tr class="memdesc:structjoque_1_1node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node representing all execution-related information for one task.  <a href="namespacejoque.html#structjoque_1_1node">More...</a><br /></td></tr>
-<tr class="separator:structjoque_1_1node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structjoque_1_1dag"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1dag">joque::dag</a></td></tr>
-<tr class="memdesc:structjoque_1_1dag"><td class="mdescLeft">&#160;</td><td class="mdescRight">DAG used to store data in single execution of tasks.  <a href="namespacejoque.html#structjoque_1_1dag">More...</a><br /></td></tr>
-<tr class="separator:structjoque_1_1dag"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1run__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__record">joque::run_record</a></td></tr>
+<tr class="separator:structjoque_1_1run__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1exec__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">joque::exec_record</a></td></tr>
+<tr class="separator:structjoque_1_1exec__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacejoque"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html">joque</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab7cbb3193a852f7af307a78ed897b9a9"><td class="memItemLeft" align="right" valign="top">dag&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9">joque::generate_dag</a> (const task_set &amp;ts, const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="memdesc:ab7cbb3193a852f7af307a78ed897b9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a DAG representing a given set of tasks for execution function.  <a href="namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9">More...</a><br /></td></tr>
-<tr class="separator:ab7cbb3193a852f7af307a78ed897b9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">joque::tp</a> = std::chrono::time_point&lt; std::chrono::system_clock &gt;</td></tr>
+<tr class="separator:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structjoque_1_1node" id="structjoque_1_1node"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1node">&#9670;&nbsp;</a></span>joque::node</h2>
+<a name="structjoque_1_1run__record" id="structjoque_1_1run__record"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1run__record">&#9670;&nbsp;</a></span>joque::run_record</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct joque::node</td>
+          <td class="memname">struct joque::run_record</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Node representing all execution-related information for one task. </p>
-</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::node:</div>
+<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_record:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
@@ -147,65 +146,70 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a0fc52435b1e735f8b5847c3a12e0ff8a"></a>string</td>
-<td class="fieldname">
-name</td>
-<td class="fielddoc">
-Full path-name of the task. </td></tr>
-<tr><td class="fieldtype">
-<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="a05ca9bd496143b3410987e3677d6bcc2"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
 <td class="fieldname">
 t</td>
 <td class="fielddoc">
-Pointer to the task. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
-<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<a id="a7603fa1d4c0d5180e976392b6bf2a084"></a>string</td>
 <td class="fieldname">
-depends_on</td>
+name</td>
 <td class="fielddoc">
-Nodes representing tasks that <code>t</code> depends on. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
-<a id="a9a314ce365c432f63a8ea712ce0f4743"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
 <td class="fieldname">
-run_after</td>
+skipped</td>
 <td class="fielddoc">
-Nodes representing tasks that should be run before <code>t</code> </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
-<a id="a41d02792ce707b2a49a7c4e0dd2d3677"></a>bool</td>
+<a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
 <td class="fieldname">
-started</td>
+retcode</td>
 <td class="fielddoc">
-Sets to <code>true</code> once the task is scheduled for execution. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
-<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
+<a id="aca4b4847dc82f3fadf9c002c0b378289"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
 <td class="fieldname">
-done</td>
+start</td>
 <td class="fielddoc">
-Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
-<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
+<a id="aaa5258498d4efdadf2e178d901f48d7c"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
 <td class="fieldname">
-failed</td>
+end</td>
 <td class="fielddoc">
-Sets to <code>fail</code> if the task failed during execution. </td></tr>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a42f7d1f6268911b281ea4283c977d5e0"></a>string</td>
+<td class="fieldname">
+std_out</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a8922bd78203e94caa8c5a7821ec3987f"></a>string</td>
+<td class="fieldname">
+std_err</td>
+<td class="fielddoc">
+</td></tr>
 </table>
 
 </div>
 </div>
-<a name="structjoque_1_1dag" id="structjoque_1_1dag"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1dag">&#9670;&nbsp;</a></span>joque::dag</h2>
+<a name="structjoque_1_1exec__record" id="structjoque_1_1exec__record"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1exec__record">&#9670;&nbsp;</a></span>joque::exec_record</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct joque::dag</td>
+          <td class="memname">struct joque::exec_record</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>DAG used to store data in single execution of tasks. </p>
-</div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::dag:</div>
+<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::exec_record:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
@@ -215,9 +219,21 @@ Sets to <code>fail</code> if the task failed during execution. </td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="afc3785c583f9cb3131b108b5d9488c0f"></a>list&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> &gt;</td>
+<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
 <td class="fieldname">
-nodes</td>
+skipped_count</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
+<td class="fieldname">
+failed_count</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa5154cd1eabbe477d3802a0098ec545a"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt;</td>
+<td class="fieldname">
+runs</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -229,7 +245,7 @@ nodes</td>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="dag_8hpp.html">dag.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="records_8hpp.html">records.hpp</a></li>
     <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -92,7 +92,10 @@ $(document).ready(function(){initNavTree('classjoque_1_1exec__coro.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="exec_8hpp_source.html">exec.hpp</a>&gt;</code></p>
+<p>Coroutine representing one execution of entire task set.  
+ <a href="classjoque_1_1exec__coro.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="exec__coro_8hpp_source.html">exec_coro.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -102,31 +105,37 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d686631cdda912409752dd3fb2e64da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da">exec_coro</a> (std::coroutine_handle&lt; <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html">promise_type</a> &gt; h)</td></tr>
+<tr class="memdesc:a0d686631cdda912409752dd3fb2e64da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructed by the coroutine mechanism from withing the promise type.  <a href="classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da">More...</a><br /></td></tr>
 <tr class="separator:a0d686631cdda912409752dd3fb2e64da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac22647134adc18f930929bccca258092"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092">exec_coro</a> (<a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ac22647134adc18f930929bccca258092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move swaps internal pointers.  <a href="classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092">More...</a><br /></td></tr>
 <tr class="separator:ac22647134adc18f930929bccca258092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a522a2e01000a50094fd1bbd36b543b91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91">operator=</a> (<a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="separator:a522a2e01000a50094fd1bbd36b543b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e5dde509c49c339adb208f6965b7af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a> () const</td></tr>
+<tr class="memdesc:ab4e5dde509c49c339adb208f6965b7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execution is done after coroutine finishes it's run.  <a href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">More...</a><br /></td></tr>
 <tr class="separator:ab4e5dde509c49c339adb208f6965b7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a> ()</td></tr>
+<tr class="memdesc:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns execution record with data on successfull run.  <a href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">More...</a><br /></td></tr>
 <tr class="separator:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a> ()</td></tr>
+<tr class="memdesc:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one iteration of the execution, either new task is executed or nothing happens due to all threads/resources being utilized.  <a href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">More...</a><br /></td></tr>
 <tr class="separator:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58021d28420f6e6a44e93cf8ccaf92e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a58021d28420f6e6a44e93cf8ccaf92e6">run</a> ()</td></tr>
-<tr class="separator:a58021d28420f6e6a44e93cf8ccaf92e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ff43324be39582c2fab1d9937ee2e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a12ff43324be39582c2fab1d9937ee2e1">run</a> (std::chrono::milliseconds period=std::chrono::milliseconds{ 5 })</td></tr>
+<tr class="memdesc:a12ff43324be39582c2fab1d9937ee2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until coroutine finishes it's run, returns pointer to <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> with exact same behavior as <code>result</code>.  <a href="classjoque_1_1exec__coro.html#a12ff43324be39582c2fab1d9937ee2e1">More...</a><br /></td></tr>
+<tr class="separator:a12ff43324be39582c2fab1d9937ee2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7219b3e71e0162438e981b09c82f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">~exec_coro</a> ()</td></tr>
+<tr class="memdesc:a0b7219b3e71e0162438e981b09c82f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the coroutine if any.  <a href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">More...</a><br /></td></tr>
 <tr class="separator:a0b7219b3e71e0162438e981b09c82f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Coroutine representing one execution of entire task set. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d686631cdda912409752dd3fb2e64da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d686631cdda912409752dd3fb2e64da">&#9670;&nbsp;</a></span>exec_coro() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">joque::exec_coro::exec_coro </td>
@@ -136,12 +145,9 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Constructed by the coroutine mechanism from withing the promise type. </p>
 
 </div>
 </div>
@@ -164,10 +170,12 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Move swaps internal pointers. </p>
 
 </div>
 </div>
@@ -176,9 +184,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">joque::exec_coro::~exec_coro </td>
@@ -187,12 +192,9 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Destroys the coroutine if any. </p>
 
 </div>
 </div>
@@ -216,7 +218,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -228,9 +230,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool joque::exec_coro::done </td>
@@ -239,12 +238,9 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Execution is done after coroutine finishes it's run. </p>
 
 </div>
 </div>
@@ -253,9 +249,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* joque::exec_coro::result </td>
@@ -264,12 +257,10 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Returns execution record with data on successfull run. </p>
+<p>Returns <code>nullptr</code> in other cases. If exception was raised during the run, result will rethrow it. </p>
 
 </div>
 </div>
@@ -278,9 +269,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void joque::exec_coro::tick </td>
@@ -289,44 +277,41 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Runs one iteration of the execution, either new task is executed or nothing happens due to all threads/resources being utilized. </p>
+<p>Does nothing after the execution finished. </p>
 
 </div>
 </div>
-<a id="a58021d28420f6e6a44e93cf8ccaf92e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58021d28420f6e6a44e93cf8ccaf92e6">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a12ff43324be39582c2fab1d9937ee2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ff43324be39582c2fab1d9937ee2e1">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* joque::exec_coro::run </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::milliseconds&#160;</td>
+          <td class="paramname"><em>period</em> = <code>std::chrono::milliseconds{&#160;5&#160;}</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done()</a>, <a class="el" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result()</a>, and <a class="el" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick()</a>.</p>
+<p>Blocks until coroutine finishes it's run, returns pointer to <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> with exact same behavior as <code>result</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>Time between attempts to resume the coroutine </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/joque/<a class="el" href="exec_8hpp_source.html">exec.hpp</a></li>
+<li>include/joque/<a class="el" href="exec__coro_8hpp_source.html">exec_coro.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -334,7 +319,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 21:27:50 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

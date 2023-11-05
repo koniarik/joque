@@ -84,17 +84,13 @@ $(document).ready(function(){initNavTree('exec_8hpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">exec.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="task_8hpp_source.html">joque/task.hpp</a>&quot;</code><br />
-<code>#include &lt;coroutine&gt;</code><br />
-<code>#include &lt;optional&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="exec__coro_8hpp_source.html">joque/exec_coro.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for exec.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -106,26 +102,10 @@ $(document).ready(function(){initNavTree('exec_8hpp.html',''); initResizable(); 
 </div>
 <p><a href="exec_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:structjoque_1_1run__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__record">joque::run_record</a></td></tr>
-<tr class="separator:structjoque_1_1run__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structjoque_1_1exec__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">joque::exec_record</a></td></tr>
-<tr class="separator:structjoque_1_1exec__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html">joque::exec_coro</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html">joque::exec_coro::promise_type</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacejoque"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html">joque</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">joque::tp</a> = std::chrono::time_point&lt; std::chrono::system_clock &gt;</td></tr>
-<tr class="separator:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -134,130 +114,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">joque::exec</a> (dag g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
 <tr class="separator:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structjoque_1_1run__record" id="structjoque_1_1run__record"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1run__record">&#9670;&nbsp;</a></span>joque::run_record</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct joque::run_record</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_record:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 1 -->
-</div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="fieldtable">
-<tr><th colspan="3">Class Members</th></tr>
-<tr><td class="fieldtype">
-<a id="a05ca9bd496143b3410987e3677d6bcc2"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
-<td class="fieldname">
-t</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a7603fa1d4c0d5180e976392b6bf2a084"></a>string</td>
-<td class="fieldname">
-name</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
-<td class="fieldname">
-skipped</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
-<td class="fieldname">
-retcode</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="aca4b4847dc82f3fadf9c002c0b378289"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
-<td class="fieldname">
-start</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="aaa5258498d4efdadf2e178d901f48d7c"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
-<td class="fieldname">
-end</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a42f7d1f6268911b281ea4283c977d5e0"></a>string</td>
-<td class="fieldname">
-std_out</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a8922bd78203e94caa8c5a7821ec3987f"></a>string</td>
-<td class="fieldname">
-std_err</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
-<a name="structjoque_1_1exec__record" id="structjoque_1_1exec__record"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1exec__record">&#9670;&nbsp;</a></span>joque::exec_record</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct joque::exec_record</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::exec_record:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 2 -->
-</div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="fieldtable">
-<tr><th colspan="3">Class Members</th></tr>
-<tr><td class="fieldtype">
-<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
-<td class="fieldname">
-skipped_count</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
-<td class="fieldname">
-failed_count</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="aa5154cd1eabbe477d3802a0098ec545a"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt;</td>
-<td class="fieldname">
-runs</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 21:27:50 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

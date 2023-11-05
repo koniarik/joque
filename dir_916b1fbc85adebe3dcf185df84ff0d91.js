@@ -2,6 +2,10 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
 [
     [ "dag.hpp", "dag_8hpp.html", "dag_8hpp" ],
     [ "exec.hpp", "exec_8hpp.html", "exec_8hpp" ],
+    [ "exec_coro.hpp", "exec__coro_8hpp.html", [
+      [ "exec_coro", "classjoque_1_1exec__coro.html", "classjoque_1_1exec__coro" ],
+      [ "promise_type", "structjoque_1_1exec__coro_1_1promise__type.html", "structjoque_1_1exec__coro_1_1promise__type" ]
+    ] ],
     [ "job.hpp", "job_8hpp.html", [
       [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
       [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
@@ -16,6 +20,7 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
       [ "process", "structjoque_1_1process.html", "structjoque_1_1process" ],
       [ "job_traits< process >", "structjoque_1_1job__traits_3_01process_01_4.html", "structjoque_1_1job__traits_3_01process_01_4" ]
     ] ],
+    [ "records.hpp", "records_8hpp.html", "records_8hpp" ],
     [ "task.hpp", "task_8hpp.html", "task_8hpp" ],
     [ "traits.hpp", "traits_8hpp.html", [
       [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
