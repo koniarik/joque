@@ -9,13 +9,16 @@
 namespace joque
 {
 
-std::filesystem::file_time_type path_to_write_time( const std::filesystem::path& p )
+namespace
 {
-        if ( exists( p ) ) {
-                return last_write_time( p );
+        std::filesystem::file_time_type path_to_write_time( const std::filesystem::path& p )
+        {
+                if ( exists( p ) ) {
+                        return last_write_time( p );
+                }
+                return {};
         }
-        return {};
-}
+}  // namespace
 
 bool job_traits< process >::is_invalidated( const process& p )
 {
@@ -61,6 +64,15 @@ run_result job_traits< process >::run( const task*, const process& p )
                 res.serr    = ec.message();
                 res.retcode = ec.value();
                 return res;
+        }
+
+        if ( res.retcode != 0 ) {
+                std::string newout = "cmd: ";
+                for ( const std::string& arg : p.cmd ) {
+                        newout += arg + " ";
+                }
+                newout += "\n" + res.sout;
+                res.sout = newout;
         }
 
         return res;
