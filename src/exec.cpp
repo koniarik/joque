@@ -154,12 +154,12 @@ namespace
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
-                                    res.serr += "job run failed due to exception: " +
-                                                std::string{ e.what() };
+                                    res.std_err += "job run failed due to exception: " +
+                                                   std::string{ e.what() };
                             }
                             catch ( ... ) {
                                     res.retcode = 1;
-                                    res.serr += "job run failed due to an unknown exception";
+                                    res.std_err += "job run failed due to an unknown exception";
                             }
                             return res;
                     },

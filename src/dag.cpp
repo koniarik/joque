@@ -23,7 +23,7 @@ namespace
         void link_dependencies( dag& g )
         {
                 for ( node& n : g.nodes ) {
-                        for ( const task* d : n.t->deps ) {
+                        for ( const task* d : n.t->depends_on ) {
                                 auto iter = std::ranges::find_if( g.nodes, [&]( const node& ch ) {
                                         return ch.t == d;
                                 } );
@@ -51,7 +51,7 @@ namespace
         void link_afters( dag& g )
         {
                 for ( node& n : g.nodes ) {
-                        for ( const task* a : n.t->after ) {
+                        for ( const task* a : n.t->run_after ) {
                                 auto iter = std::ranges::find_if( g.nodes, [&]( const node& ch ) {
                                         return ch.t == a;
                                 } );

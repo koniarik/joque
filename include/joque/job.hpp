@@ -6,13 +6,21 @@
 namespace joque
 {
 
+/// Job interface used by task and execution
 struct job_iface
 {
-        [[nodiscard]] virtual bool       is_invalidated()   = 0;
+        /// Returns true in case the job is invalidated
+        [[nodiscard]] virtual bool is_invalidated() = 0;
+
+        /// Executes one run of the task, returns `run_result` with properly filled information.
         [[nodiscard]] virtual run_result run( const task* ) = 0;
-        virtual ~job_iface()                                = default;
+
+        virtual ~job_iface() = default;
 };
 
+/// Implementation of job interface, storing the specific job type that shall be used. Uses
+/// job_traits of the job type to run specific behavior. Use the traits for any customization over
+/// overriding this.
 template < typename T >
 struct job : job_iface
 {
@@ -34,6 +42,8 @@ struct job : job_iface
         }
 };
 
+/// Custom unique_ptr wrapper that simplifies syntax of tasks. Allows writing `.job = <expr?>` in
+/// instantiation of new task as long as expr representings something convertible to valid `job<T>`.
 struct job_ptr : std::unique_ptr< job_iface >
 {
         job_ptr() = default;

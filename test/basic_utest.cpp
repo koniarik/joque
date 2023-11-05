@@ -23,8 +23,8 @@ TEST( joque, compile_test )
             .job = []( const task* ) -> run_result {
                     return { 0 };
             },
-            .deps      = { &t1 },
-            .resources = { &my_dev },
+            .depends_on = { &t1 },
+            .resources  = { &my_dev },
         };
 }
 
@@ -64,7 +64,7 @@ TEST( joque, dep )
 
         auto f = [&]( const task* t ) -> run_result {
                 std::lock_guard _{ m };
-                for ( const task* dep : t->deps ) {
+                for ( const task* dep : t->depends_on ) {
                         EXPECT_TRUE( finished.contains( dep ) );
                 }
                 finished.insert( t );
@@ -77,13 +77,13 @@ TEST( joque, dep )
                } );
         for ( std::size_t i : std::views::iota( 0u, 10u ) ) {
                 ts.tasks["my_test_" + std::to_string( i ) + "_a"] = task{
-                    .job  = f,
-                    .deps = { last },
+                    .job        = f,
+                    .depends_on = { last },
                 };
                 last =
                     &( ts.tasks["my_test_" + std::to_string( i ) + "_b"] = task{
-                           .job  = f,
-                           .deps = { last },
+                           .job        = f,
+                           .depends_on = { last },
                        } );
         }
 

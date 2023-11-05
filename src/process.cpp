@@ -20,6 +20,12 @@ namespace
         }
 }  // namespace
 
+process process::add_output( std::filesystem::path p ) &&
+{
+        output.push_back( std::move( p ) );
+        return *this;
+}
+
 bool job_traits< process >::is_invalidated( const process& p )
 {
         std::input_iterator auto oldest_output_t =
@@ -41,27 +47,27 @@ run_result job_traits< process >::run( const task*, const process& p )
         std::error_code ec = process.start( p.cmd, opts );
 
         if ( ec == std::errc::no_such_file_or_directory ) {
-                res.serr    = "Program not found. Make sure it's available from the PATH.\n";
+                res.std_err = "Program not found. Make sure it's available from the PATH.\n";
                 res.retcode = ec.value();
                 return res;
         } else if ( ec ) {
-                res.serr    = ec.message();
+                res.std_err = ec.message();
                 res.retcode = ec.value();
                 return res;
         }
 
-        reproc::sink::string sink_out( res.sout );
-        reproc::sink::string sink_err( res.serr );
+        reproc::sink::string sink_out( res.std_out );
+        reproc::sink::string sink_err( res.std_err );
         ec = reproc::drain( process, sink_out, sink_err );
         if ( ec ) {
-                res.serr    = ec.message();
+                res.std_err = ec.message();
                 res.retcode = ec.value();
                 return res;
         }
 
         std::tie( res.retcode, ec ) = process.wait( reproc::infinite );
         if ( ec ) {
-                res.serr    = ec.message();
+                res.std_err = ec.message();
                 res.retcode = ec.value();
                 return res;
         }
@@ -71,8 +77,8 @@ run_result job_traits< process >::run( const task*, const process& p )
                 for ( const std::string& arg : p.cmd ) {
                         newout += arg + " ";
                 }
-                newout += "\n" + res.sout;
-                res.sout = newout;
+                newout += "\n" + res.std_out;
+                res.std_out = newout;
         }
 
         return res;

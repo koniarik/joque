@@ -2,39 +2,51 @@
 
 #include <chrono>
 #include <format>
+#include <fstream>
 #include <numeric>
 
 namespace joque
 {
-
-using sec_time = std::chrono::duration< double >;
-
-struct xml_node
+namespace
 {
-        std::ostream& os;
-        std::string   name;
+        using sec_time = std::chrono::duration< double >;
 
-        xml_node( std::ostream& os, std::string node_name, auto&&... args )
-          : os( os )
-          , name( std::move( node_name ) )
+        struct xml_node
         {
-                os << "<" << name;
-                ( ( os << " " << args ), ... );
-                os << ">\n";
-        }
+                std::ostream& os;
+                std::string   name;
 
-        ~xml_node()
+                xml_node( std::ostream& os, std::string node_name, auto&&... args )
+                  : os( os )
+                  , name( std::move( node_name ) )
+                {
+                        os << "<" << name;
+                        ( ( os << " " << args ), ... );
+                        os << ">\n";
+                }
+
+                ~xml_node()
+                {
+                        os << "</" << name << ">\n";
+                }
+        };
+
+        auto attr( auto&& fmt, auto&& arg )
         {
-                os << "</" << name << ">\n";
-        }
-};
+                return std::vformat( std::string{ fmt } + "=\"{}\"", std::make_format_args( arg ) );
+        };
+}  // namespace
 
-auto attr( auto&& fmt, auto&& arg )
+void generate_junit_xml(
+    const std::filesystem::path& p,
+    const std::string&           ts_name,
+    const exec_record&           exec_rec )
 {
-        return std::vformat( std::string{ fmt } + "=\"{}\"", std::make_format_args( arg ) );
-};
+        std::ofstream of{ p };
+        generate_junit_xml( of, ts_name, exec_rec );
+}
 
-void render_junit_xml( std::ostream& os, const std::string& ts_name, const exec_record& exec_rec )
+void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exec_record& exec_rec )
 {
         auto t = std::chrono::duration_cast< sec_time >(
                      std::accumulate(

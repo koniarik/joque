@@ -13,8 +13,12 @@ namespace joque
 /// pararelly executes all tasks in the task_set. Tasks are limited only to those that pass the
 /// filter, or their dependencies.
 ///
+/// In case any task has defined dependencies on resource, only one task at a time would be executed
+/// for each resource.
+///
 /// During the execution, the input task set shall not be modified and any modification might result
-/// in undefined behavior.
+/// in undefined behavior. After the execution, the produced records structure is valid only for as
+/// long as the input task_set was not modified.
 ///
 /// In case 1...n threads are requested, the tasks are executed inside those worker threads and
 /// control thread is not used for execution. In case the thread count is 0, all jobs are executed
