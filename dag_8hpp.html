@@ -147,29 +147,23 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
-<td class="fieldname">
-depends_on</td>
-<td class="fielddoc">
-Nodes representing tasks that <code>t</code> depends on. </td></tr>
-<tr><td class="fieldtype">
-<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
-<td class="fieldname">
-done</td>
-<td class="fielddoc">
-Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
-<tr><td class="fieldtype">
-<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
-<td class="fieldname">
-failed</td>
-<td class="fielddoc">
-Sets to <code>fail</code> if the task failed during execution. </td></tr>
-<tr><td class="fieldtype">
 <a id="a0fc52435b1e735f8b5847c3a12e0ff8a"></a>string</td>
 <td class="fieldname">
 name</td>
 <td class="fielddoc">
 Full path-name of the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<td class="fieldname">
+t</td>
+<td class="fielddoc">
+Pointer to the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<td class="fieldname">
+depends_on</td>
+<td class="fielddoc">
+Nodes representing tasks that <code>t</code> depends on. </td></tr>
 <tr><td class="fieldtype">
 <a id="a9a314ce365c432f63a8ea712ce0f4743"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
 <td class="fieldname">
@@ -183,11 +177,17 @@ started</td>
 <td class="fielddoc">
 Sets to <code>true</code> once the task is scheduled for execution. </td></tr>
 <tr><td class="fieldtype">
-<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
 <td class="fieldname">
-t</td>
+done</td>
 <td class="fielddoc">
-Pointer to the task. </td></tr>
+Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
+<tr><td class="fieldtype">
+<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
+<td class="fieldname">
+failed</td>
+<td class="fielddoc">
+Sets to <code>fail</code> if the task failed during execution. </td></tr>
 </table>
 
 </div>
@@ -230,7 +230,7 @@ nodes</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="dag_8hpp.html">dag.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 21:24:09 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 21:26:20 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

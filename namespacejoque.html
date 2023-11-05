@@ -187,29 +187,23 @@ Variables</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
-<td class="fieldname">
-depends_on</td>
-<td class="fielddoc">
-Nodes representing tasks that <code>t</code> depends on. </td></tr>
-<tr><td class="fieldtype">
-<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
-<td class="fieldname">
-done</td>
-<td class="fielddoc">
-Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
-<tr><td class="fieldtype">
-<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
-<td class="fieldname">
-failed</td>
-<td class="fielddoc">
-Sets to <code>fail</code> if the task failed during execution. </td></tr>
-<tr><td class="fieldtype">
 <a id="a0fc52435b1e735f8b5847c3a12e0ff8a"></a>string</td>
 <td class="fieldname">
 name</td>
 <td class="fielddoc">
 Full path-name of the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<td class="fieldname">
+t</td>
+<td class="fielddoc">
+Pointer to the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<td class="fieldname">
+depends_on</td>
+<td class="fielddoc">
+Nodes representing tasks that <code>t</code> depends on. </td></tr>
 <tr><td class="fieldtype">
 <a id="a9a314ce365c432f63a8ea712ce0f4743"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
 <td class="fieldname">
@@ -223,11 +217,17 @@ started</td>
 <td class="fielddoc">
 Sets to <code>true</code> once the task is scheduled for execution. </td></tr>
 <tr><td class="fieldtype">
-<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
 <td class="fieldname">
-t</td>
+done</td>
 <td class="fielddoc">
-Pointer to the task. </td></tr>
+Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
+<tr><td class="fieldtype">
+<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
+<td class="fieldname">
+failed</td>
+<td class="fielddoc">
+Sets to <code>fail</code> if the task failed during execution. </td></tr>
 </table>
 
 </div>
@@ -286,9 +286,9 @@ nodes</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="aaa5258498d4efdadf2e178d901f48d7c"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
+<a id="a05ca9bd496143b3410987e3677d6bcc2"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
 <td class="fieldname">
-end</td>
+t</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -298,15 +298,15 @@ name</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
-<td class="fieldname">
-retcode</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
 <a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
 <td class="fieldname">
 skipped</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
+<td class="fieldname">
+retcode</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -316,9 +316,9 @@ start</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a8922bd78203e94caa8c5a7821ec3987f"></a>string</td>
+<a id="aaa5258498d4efdadf2e178d901f48d7c"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
 <td class="fieldname">
-std_err</td>
+end</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -328,9 +328,9 @@ std_out</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a05ca9bd496143b3410987e3677d6bcc2"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="a8922bd78203e94caa8c5a7821ec3987f"></a>string</td>
 <td class="fieldname">
-t</td>
+std_err</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -359,6 +359,12 @@ t</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
+<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
+<td class="fieldname">
+skipped_count</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
 <a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
 <td class="fieldname">
 failed_count</td>
@@ -368,12 +374,6 @@ failed_count</td>
 <a id="aa5154cd1eabbe477d3802a0098ec545a"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt;</td>
 <td class="fieldname">
 runs</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
-<td class="fieldname">
-skipped_count</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -433,15 +433,9 @@ name</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a672f09db535af073cde1d560f69a28ed"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
+<a id="aab2b7811ce9d51cc7c0913e23e4637ad"></a><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a></td>
 <td class="fieldname">
-after</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a8c8aa81b11bab9d7f95466077f9e6767"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
-<td class="fieldname">
-deps</td>
+job</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -451,9 +445,15 @@ hidden</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="aab2b7811ce9d51cc7c0913e23e4637ad"></a><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a></td>
+<a id="a8c8aa81b11bab9d7f95466077f9e6767"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
 <td class="fieldname">
-job</td>
+deps</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a672f09db535af073cde1d560f69a28ed"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
+<td class="fieldname">
+after</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -488,30 +488,30 @@ resources</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a73a1bb861dc34f89b8a122da960c62f5"></a>typedef map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;</td>
-<td class="fieldname">
-sets_container</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
 <a id="a412f7d99f16cadd7ce11f069042d945f"></a>typedef map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt;</td>
 <td class="fieldname">
 tasks_container</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a73a1bb861dc34f89b8a122da960c62f5"></a>typedef map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;</td>
+<td class="fieldname">
+sets_container</td>
 <td class="fielddoc">
 </td></tr>
 </table>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a495874773c169e9bb323d95e093a505a"></a><a class="el" href="namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5">sets_container</a></td>
-<td class="fieldname">
-sets</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
 <a id="af62855b06aa9cfe1b2383f39dae93bcb"></a><a class="el" href="namespacejoque.html#a412f7d99f16cadd7ce11f069042d945f">tasks_container</a></td>
 <td class="fieldname">
 tasks</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a495874773c169e9bb323d95e093a505a"></a><a class="el" href="namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5">sets_container</a></td>
+<td class="fieldname">
+sets</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -534,23 +534,23 @@ tasks</td>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5d9b1c8c103f5be314c4907ecf6eac68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d9b1c8c103f5be314c4907ecf6eac68">&#9670;&nbsp;</a></span>add_dep_to_each()</h2>
+<a id="ad07750b8cdf39c930f89caa132a51a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad07750b8cdf39c930f89caa132a51a2a">&#9670;&nbsp;</a></span>generate_dag()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void joque::add_dep_to_each </td>
+          <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> joque::generate_dag </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
-          <td class="paramname"><em>ts</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filter</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -560,33 +560,16 @@ tasks</td>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a0b4f0c89ae3c33fcf8764c5187fabcf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b4f0c89ae3c33fcf8764c5187fabcf7">&#9670;&nbsp;</a></span>after_all_of()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void joque::after_all_of </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
-          <td class="paramname"><em>ts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Generates a DAG representing a given set of tasks for execution function. </p>
+<p>The DAG becames invalidated after any change to the input task set, and any use of it can result in undefined behavior.</p>
+<p>Function adds any dependencies of task into the <code>run_after</code> vector of each node, this way the execution functions does not have to handle dependencies explicitly for order of execution.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>A set of tasks for which the dag shall be generated </td></tr>
+    <tr><td class="paramname">filter</td><td>Only nodes, and their dependencies, which match the filter are added to the dag. Uses simple "find exact string match within a string" mechanism. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -658,45 +641,6 @@ tasks</td>
 
 </div>
 </div>
-<a id="ad07750b8cdf39c930f89caa132a51a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad07750b8cdf39c930f89caa132a51a2a">&#9670;&nbsp;</a></span>generate_dag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> joque::generate_dag </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
-          <td class="paramname"><em>ts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generates a DAG representing a given set of tasks for execution function. </p>
-<p>The DAG becames invalidated after any change to the input task set, and any use of it can result in undefined behavior.</p>
-<p>Function adds any dependencies of task into the <code>run_after</code> vector of each node, this way the execution functions does not have to handle dependencies explicitly for order of execution.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ts</td><td>A set of tasks for which the dag shall be generated </td></tr>
-    <tr><td class="paramname">filter</td><td>Only nodes, and their dependencies, which match the filter are added to the dag. Uses simple "find exact string match within a string" mechanism. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="af3517a644a52b0251ea72d94d3758578"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3517a644a52b0251ea72d94d3758578">&#9670;&nbsp;</a></span>render_junit_xml()</h2>
 
@@ -751,6 +695,62 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
+<a id="a5d9b1c8c103f5be314c4907ecf6eac68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9b1c8c103f5be314c4907ecf6eac68">&#9670;&nbsp;</a></span>add_dep_to_each()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::add_dep_to_each </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b4f0c89ae3c33fcf8764c5187fabcf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b4f0c89ae3c33fcf8764c5187fabcf7">&#9670;&nbsp;</a></span>after_all_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::after_all_of </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a37f1bbfa04dd81677d5989bf4e12923a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37f1bbfa04dd81677d5989bf4e12923a">&#9670;&nbsp;</a></span>f</h2>
@@ -799,7 +799,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 21:24:09 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 21:26:20 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
