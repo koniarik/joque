@@ -171,12 +171,12 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">   85</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">   85</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> h_.done();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">   90</a></span>&#160;        <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* <a class="code" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a>()</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">   90</a></span>&#160;        [[nodiscard]] <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* <a class="code" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a>()</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> ( !h_ ) {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
@@ -217,12 +217,13 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::coroutine_handle&lt; promise_type &gt; h_;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">  131</a></span>&#160;<a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">  134</a></span>&#160;<a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;[[nodiscard]] exec_coro</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">  132</a></span>&#160;<a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">  135</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html"><div class="ttname"><a href="classjoque_1_1exec__coro.html">joque::exec_coro</a></div><div class="ttdef"><b>Definition:</b> exec.hpp:33</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_a05c3cf3d010aaf4e139e3fe237e7b696"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">joque::exec_coro::result</a></div><div class="ttdeci">exec_record * result()</div><div class="ttdef"><b>Definition:</b> exec.hpp:90</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html_a0b7219b3e71e0162438e981b09c82f58"><div class="ttname"><a href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">joque::exec_coro::~exec_coro</a></div><div class="ttdeci">~exec_coro()</div><div class="ttdef"><b>Definition:</b> exec.hpp:120</div></div>
@@ -266,7 +267,7 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 19:06:37 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 19:36:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

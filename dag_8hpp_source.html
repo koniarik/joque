@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('dag_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structjoque_1_1node.html#a275209f41269738e74292791faf87d5b">   17</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1node.html#a275209f41269738e74292791faf87d5b">done</a>        = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structjoque_1_1node.html#aa6e19c4aebfceff098f34d9a3db831e7">   18</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1node.html#aa6e19c4aebfceff098f34d9a3db831e7">invalidated</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structjoque_1_1node.html#a03cf1842542ee0515920e372ee3311e0">   20</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1node.html#a03cf1842542ee0515920e372ee3311e0">is_leaf</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structjoque_1_1node.html#a03cf1842542ee0515920e372ee3311e0">   20</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1node.html#a03cf1842542ee0515920e372ee3311e0">is_leaf</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structjoque_1_1node.html#a96aab731ca543fb149ecb2d4ac9fe987">depends_on</a>.empty();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('dag_8hpp_source.html',''); initResizab
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f">   28</a></span>&#160;        std::list&lt; node &gt; <a class="code" href="namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f">nodes</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">   31</a></span>&#160;<a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> <a class="code" href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">generate_dag</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keyword">const</span> std::string&amp; filter );</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">   31</a></span>&#160;[[nodiscard]] <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> <a class="code" href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">generate_dag</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keyword">const</span> std::string&amp; filter );</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('dag_8hpp_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="dag_8hpp.html">dag.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 19:06:37 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 19:36:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
