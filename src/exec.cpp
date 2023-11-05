@@ -128,11 +128,7 @@ namespace
                 std::cout.flush();
         }
 
-        run_coro
-        run( node&                        n,
-             std::condition_variable&     cv,
-             std::set< const resource* >& used_resources,
-             unsigned                     thread_count )
+        run_coro run( node& n, std::set< const resource* >& used_resources, unsigned thread_count )
         {
                 run_record result;
                 result.t    = n.t;
@@ -165,7 +161,6 @@ namespace
                                     res.retcode = 1;
                                     res.serr += "job run failed due to an unknown exception";
                             }
-                            cv.notify_one();
                             return res;
                     },
                     std::ref( n ) );
@@ -217,8 +212,6 @@ exec_coro exec( const task_set& ts, unsigned thread_count, const std::string& fi
 
 exec_coro exec( dag g, unsigned thread_count, const std::string& filter )
 {
-        std::condition_variable cv;
-        std::mutex              m;
 
         exec_record       erec;
         std::set< node* > to_process;
@@ -235,13 +228,11 @@ exec_coro exec( dag g, unsigned thread_count, const std::string& filter )
         while ( !to_process.empty() && erec.failed_count == 0 ) {
                 cleanup_coros( coros, erec );
 
-                std::unique_lock lk( m );
-
                 node* n = find_candidate( to_process, used_resources );
                 if ( n != nullptr ) {
                         to_process.erase( n );
 
-                        coros.push_back( run( *n, cv, used_resources, thread_count ) );
+                        coros.push_back( run( *n, used_resources, thread_count ) );
                 }
 
                 co_await std::suspend_always{};

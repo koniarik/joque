@@ -20,7 +20,7 @@ if(NOT TARGET reproc++)
 endif()
 
 add_library(joque STATIC src/exec.cpp src/dag.cpp src/junit.cpp src/process.cpp
-                         src/task.cpp)
+                         src/task.cpp src/exec_coro.cpp)
 target_link_libraries(joque PUBLIC reproc++)
 target_include_directories(joque PUBLIC include)
 
