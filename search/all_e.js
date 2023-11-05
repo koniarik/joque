@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['serr_64',['serr',['../structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632',1,'joque::run_result']]],
-  ['sets_65',['sets',['../namespacejoque.html#a495874773c169e9bb323d95e093a505a',1,'joque::task_set']]],
-  ['sets_5fcontainer_66',['sets_container',['../namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5',1,'joque::task_set']]],
-  ['skipped_67',['skipped',['../namespacejoque.html#abded0e3f3393cbe66f54467dcc7c1a24',1,'joque::run_record']]],
-  ['skipped_5fcount_68',['skipped_count',['../namespacejoque.html#a6c4c083688e0a5d3c9ec3a29b4d2c3c4',1,'joque::exec_record']]],
-  ['sout_69',['sout',['../structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925',1,'joque::run_result']]],
-  ['start_70',['start',['../namespacejoque.html#aca4b4847dc82f3fadf9c002c0b378289',1,'joque::run_record']]],
-  ['std_5ferr_71',['std_err',['../namespacejoque.html#a8922bd78203e94caa8c5a7821ec3987f',1,'joque::run_record']]],
-  ['std_5fout_72',['std_out',['../namespacejoque.html#a42f7d1f6268911b281ea4283c977d5e0',1,'joque::run_record']]]
+  ['t_72',['t',['../namespacejoque.html#a987463a4fd38385700e91bcb2a4b2b05',1,'joque::node::t()'],['../namespacejoque.html#a05ca9bd496143b3410987e3677d6bcc2',1,'joque::run_record::t()']]],
+  ['task_73',['task',['../namespacejoque.html#structjoque_1_1task',1,'joque']]],
+  ['task_2ehpp_74',['task.hpp',['../task_8hpp.html',1,'']]],
+  ['task_5fset_75',['task_set',['../namespacejoque.html#structjoque_1_1task__set',1,'joque']]],
+  ['tasks_76',['tasks',['../namespacejoque.html#af62855b06aa9cfe1b2383f39dae93bcb',1,'joque::task_set']]],
+  ['tasks_5fcontainer_77',['tasks_container',['../namespacejoque.html#a412f7d99f16cadd7ce11f069042d945f',1,'joque::task_set']]],
+  ['thing_78',['thing',['../structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081',1,'joque::job']]],
+  ['tick_79',['tick',['../classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae',1,'joque::exec_coro']]],
+  ['tp_80',['tp',['../namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde',1,'joque']]],
+  ['traits_2ehpp_81',['traits.hpp',['../traits_8hpp.html',1,'']]]
 ];

@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['initial_5fsuspend_25',['initial_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a9fa92e36ef9f44f1ef267fe60a7c7cf4',1,'joque::exec_coro::promise_type']]],
-  ['input_26',['input',['../structjoque_1_1process.html#aec664caac3a94b9b747b6b3619d0e07f',1,'joque::process']]],
-  ['invalidated_27',['invalidated',['../structjoque_1_1node.html#aa6e19c4aebfceff098f34d9a3db831e7',1,'joque::node']]],
-  ['is_5finvalidated_28',['is_invalidated',['../structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a',1,'joque::job_iface::is_invalidated()'],['../structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b',1,'joque::job::is_invalidated()'],['../structjoque_1_1job__traits_3_01process_01_4.html#a6ca6b595f24695c1f731a353366057f4',1,'joque::job_traits&lt; process &gt;::is_invalidated()'],['../structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289',1,'joque::job_traits::is_invalidated()']]],
-  ['is_5fleaf_29',['is_leaf',['../structjoque_1_1node.html#a03cf1842542ee0515920e372ee3311e0',1,'joque::node']]]
+  ['job_27',['job',['../namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad',1,'joque::task::job()'],['../structjoque_1_1job.html#a564d76aaa21838c89a4dc298ae7e7603',1,'joque::job::job()'],['../structjoque_1_1job.html',1,'joque::job&lt; T &gt;']]],
+  ['job_2ehpp_28',['job.hpp',['../job_8hpp.html',1,'']]],
+  ['job_5fiface_29',['job_iface',['../structjoque_1_1job__iface.html',1,'joque']]],
+  ['job_5fptr_30',['job_ptr',['../structjoque_1_1job__ptr.html#a9db05b0f4f76eca2c19963d063e25a4c',1,'joque::job_ptr::job_ptr()=default'],['../structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9',1,'joque::job_ptr::job_ptr(T &amp;&amp;item)'],['../structjoque_1_1job__ptr.html',1,'joque::job_ptr']]],
+  ['job_5ftraits_31',['job_traits',['../structjoque_1_1job__traits.html',1,'joque']]],
+  ['job_5ftraits_3c_20process_20_3e_32',['job_traits&lt; process &gt;',['../structjoque_1_1job__traits_3_01process_01_4.html',1,'joque']]],
+  ['joque_33',['joque',['../index.html',1,'(Global Namespace)'],['../namespacejoque.html',1,'joque']]],
+  ['junit_2ehpp_34',['junit.hpp',['../junit_8hpp.html',1,'']]]
 ];

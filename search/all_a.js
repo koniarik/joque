@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['name_38',['name',['../structjoque_1_1node.html#a0fc52435b1e735f8b5847c3a12e0ff8a',1,'joque::node::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
-  ['node_39',['node',['../structjoque_1_1node.html',1,'joque']]],
-  ['nodes_40',['nodes',['../namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f',1,'joque::dag']]]
+  ['operator_3d_38',['operator=',['../classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91',1,'joque::exec_coro']]],
+  ['out_39',['out',['../structjoque_1_1out.html',1,'joque::out'],['../structjoque_1_1out.html#a1f620c3d5f8e8e00423082c16cca519d',1,'joque::out::out()']]],
+  ['out_2ehpp_40',['out.hpp',['../out_8hpp.html',1,'']]],
+  ['out_5ftag_41',['out_tag',['../structjoque_1_1out__tag.html',1,'joque']]],
+  ['output_42',['output',['../structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c',1,'joque::process']]],
+  ['tuple_3c_20int_20_26_2c_20std_3a_3astring_20_26_2c_20std_3a_3astring_20_26_20_3e_43',['tuple&lt; int &amp;, std::string &amp;, std::string &amp; &gt;',['../structjoque_1_1run__result.html#a03a58d093ad00fe4ad28e5289654e493',1,'joque::run_result']]]
 ];

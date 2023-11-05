@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['dag_6',['dag',['../namespacejoque.html#structjoque_1_1dag',1,'joque']]],
-  ['dag_2ehpp_7',['dag.hpp',['../dag_8hpp.html',1,'']]],
-  ['depends_5fon_8',['depends_on',['../structjoque_1_1node.html#a96aab731ca543fb149ecb2d4ac9fe987',1,'joque::node']]],
-  ['deps_9',['deps',['../namespacejoque.html#a8c8aa81b11bab9d7f95466077f9e6767',1,'joque::task']]],
-  ['derive_10',['derive',['../structjoque_1_1process.html#a904a5bcd94ffe505341a4c94ad12dd9d',1,'joque::process']]],
-  ['done_11',['done',['../structjoque_1_1node.html#a275209f41269738e74292791faf87d5b',1,'joque::node::done()'],['../classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af',1,'joque::exec_coro::done()']]]
+  ['end_11',['end',['../namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c',1,'joque::run_record']]],
+  ['excep_12',['excep',['../structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c',1,'joque::exec_coro::promise_type']]],
+  ['exec_13',['exec',['../namespacejoque.html#acebef9f372a853738e59ba720cc57243',1,'joque::exec(const task_set &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)'],['../namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2',1,'joque::exec(dag g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)']]],
+  ['exec_2ehpp_14',['exec.hpp',['../exec_8hpp.html',1,'']]],
+  ['exec_5fcoro_15',['exec_coro',['../classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da',1,'joque::exec_coro::exec_coro(std::coroutine_handle&lt; promise_type &gt; h)'],['../classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092',1,'joque::exec_coro::exec_coro(exec_coro &amp;&amp;other) noexcept'],['../classjoque_1_1exec__coro.html',1,'joque::exec_coro']]],
+  ['exec_5frecord_16',['exec_record',['../namespacejoque.html#structjoque_1_1exec__record',1,'joque']]]
 ];

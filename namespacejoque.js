@@ -1,6 +1,6 @@
 var namespacejoque =
 [
-    [ "node", "structjoque_1_1node.html", "structjoque_1_1node" ],
+    [ "node", "namespacejoque.html#structjoque_1_1node", "namespacejoque_structjoque_1_1node_dup" ],
     [ "dag", "namespacejoque.html#structjoque_1_1dag", "namespacejoque_structjoque_1_1dag_dup" ],
     [ "run_record", "namespacejoque.html#structjoque_1_1run__record", "namespacejoque_structjoque_1_1run__record_dup" ],
     [ "exec_record", "namespacejoque.html#structjoque_1_1exec__record", "namespacejoque_structjoque_1_1exec__record_dup" ],

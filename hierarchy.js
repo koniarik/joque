@@ -8,7 +8,7 @@ var hierarchy =
     ] ],
     [ "joque::job_traits< T >", "structjoque_1_1job__traits.html", null ],
     [ "joque::job_traits< process >", "structjoque_1_1job__traits_3_01process_01_4.html", null ],
-    [ "joque::node", "structjoque_1_1node.html", null ],
+    [ "joque::node", "namespacejoque.html#structjoque_1_1node", null ],
     [ "joque::out_tag", "structjoque_1_1out__tag.html", [
       [ "joque::out", "structjoque_1_1out.html", null ]
     ] ],

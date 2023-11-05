@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['t_173',['t',['../structjoque_1_1node.html#a987463a4fd38385700e91bcb2a4b2b05',1,'joque::node::t()'],['../namespacejoque.html#a05ca9bd496143b3410987e3677d6bcc2',1,'joque::run_record::t()']]],
-  ['tasks_174',['tasks',['../namespacejoque.html#af62855b06aa9cfe1b2383f39dae93bcb',1,'joque::task_set']]],
-  ['thing_175',['thing',['../structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081',1,'joque::job']]]
+  ['value_174',['value',['../structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935',1,'joque::exec_coro::promise_type']]]
 ];

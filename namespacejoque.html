@@ -95,9 +95,11 @@ $(document).ready(function(){initNavTree('namespacejoque.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1node.html">node</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1node"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1node">node</a></td></tr>
+<tr class="memdesc:structjoque_1_1node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node representing all execution-related information for one task.  <a href="namespacejoque.html#structjoque_1_1node">More...</a><br /></td></tr>
+<tr class="separator:structjoque_1_1node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1dag"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a></td></tr>
+<tr class="memdesc:structjoque_1_1dag"><td class="mdescLeft">&#160;</td><td class="mdescRight">DAG used to store data in single execution of tasks.  <a href="namespacejoque.html#structjoque_1_1dag">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1dag"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1run__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a></td></tr>
 <tr class="separator:structjoque_1_1run__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +140,7 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad07750b8cdf39c930f89caa132a51a2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">generate_dag</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const std::string &amp;filter)</td></tr>
+<tr class="memdesc:ad07750b8cdf39c930f89caa132a51a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a DAG representing a given set of tasks for execution function.  <a href="namespacejoque.html#ad07750b8cdf39c930f89caa132a51a2a">More...</a><br /></td></tr>
 <tr class="separator:ad07750b8cdf39c930f89caa132a51a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acebef9f372a853738e59ba720cc57243"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
 <tr class="separator:acebef9f372a853738e59ba720cc57243"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +164,74 @@ Variables</h2></td></tr>
 <tr class="separator:a13d6d7b5bcea7aa37f16fb3f99acba72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structjoque_1_1node" id="structjoque_1_1node"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1node">&#9670;&nbsp;</a></span>joque::node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct joque::node</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Node representing all execution-related information for one task. </p>
+</div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::node:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 0 -->
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a96aab731ca543fb149ecb2d4ac9fe987"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<td class="fieldname">
+depends_on</td>
+<td class="fielddoc">
+Nodes representing tasks that <code>t</code> depends on. </td></tr>
+<tr><td class="fieldtype">
+<a id="a275209f41269738e74292791faf87d5b"></a>bool</td>
+<td class="fieldname">
+done</td>
+<td class="fielddoc">
+Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
+<tr><td class="fieldtype">
+<a id="abff87b14044b92bcb4f7e4a90bd351e7"></a>bool</td>
+<td class="fieldname">
+failed</td>
+<td class="fielddoc">
+Sets to <code>fail</code> if the task failed during execution. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0fc52435b1e735f8b5847c3a12e0ff8a"></a>string</td>
+<td class="fieldname">
+name</td>
+<td class="fielddoc">
+Full path-name of the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9a314ce365c432f63a8ea712ce0f4743"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> * &gt;</td>
+<td class="fieldname">
+run_after</td>
+<td class="fielddoc">
+Nodes representing tasks that should be run before <code>t</code> </td></tr>
+<tr><td class="fieldtype">
+<a id="a41d02792ce707b2a49a7c4e0dd2d3677"></a>bool</td>
+<td class="fieldname">
+started</td>
+<td class="fielddoc">
+Sets to <code>true</code> once the task is scheduled for execution. </td></tr>
+<tr><td class="fieldtype">
+<a id="a987463a4fd38385700e91bcb2a4b2b05"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<td class="fieldname">
+t</td>
+<td class="fielddoc">
+Pointer to the task. </td></tr>
+</table>
+
+</div>
+</div>
 <a name="structjoque_1_1dag" id="structjoque_1_1dag"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1dag">&#9670;&nbsp;</a></span>joque::dag</h2>
 
@@ -172,18 +243,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::dag:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<div class="textblock"><p>DAG used to store data in single execution of tasks. </p>
+</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::dag:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 0 -->
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 1 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="afc3785c583f9cb3131b108b5d9488c0f"></a>list&lt; <a class="el" href="structjoque_1_1node.html">node</a> &gt;</td>
+<a id="afc3785c583f9cb3131b108b5d9488c0f"></a>list&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node">node</a> &gt;</td>
 <td class="fieldname">
 nodes</td>
 <td class="fielddoc">
@@ -203,12 +275,12 @@ nodes</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_record:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_record:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 1 -->
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 2 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -276,12 +348,12 @@ t</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::exec_record:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::exec_record:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 2 -->
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 3 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -319,12 +391,12 @@ skipped_count</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::resource:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::resource:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 3 -->
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 4 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -350,12 +422,12 @@ name</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 4 -->
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 5 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -405,12 +477,12 @@ resources</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task_set:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task_set:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 5 -->
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 6 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -612,6 +684,17 @@ tasks</td>
       </table>
 </div><div class="memdoc">
 
+<p>Generates a DAG representing a given set of tasks for execution function. </p>
+<p>The DAG becames invalidated after any change to the input task set, and any use of it can result in undefined behavior.</p>
+<p>Function adds any dependencies of task into the <code>run_after</code> vector of each node, this way the execution functions does not have to handle dependencies explicitly for order of execution.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>A set of tasks for which the dag shall be generated </td></tr>
+    <tr><td class="paramname">filter</td><td>Only nodes, and their dependencies, which match the filter are added to the dag. Uses simple "find exact string match within a string" mechanism. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af3517a644a52b0251ea72d94d3758578"></a>
@@ -716,7 +799,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 20:47:21 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 21:24:09 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

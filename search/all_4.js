@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['end_12',['end',['../namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c',1,'joque::run_record']]],
-  ['excep_13',['excep',['../structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c',1,'joque::exec_coro::promise_type']]],
-  ['exec_14',['exec',['../namespacejoque.html#acebef9f372a853738e59ba720cc57243',1,'joque::exec(const task_set &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)'],['../namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2',1,'joque::exec(dag g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)']]],
-  ['exec_2ehpp_15',['exec.hpp',['../exec_8hpp.html',1,'']]],
-  ['exec_5fcoro_16',['exec_coro',['../classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da',1,'joque::exec_coro::exec_coro(std::coroutine_handle&lt; promise_type &gt; h)'],['../classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092',1,'joque::exec_coro::exec_coro(exec_coro &amp;&amp;other) noexcept'],['../classjoque_1_1exec__coro.html',1,'joque::exec_coro']]],
-  ['exec_5frecord_17',['exec_record',['../namespacejoque.html#structjoque_1_1exec__record',1,'joque']]]
+  ['f_17',['f',['../namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a',1,'joque']]],
+  ['failed_18',['failed',['../namespacejoque.html#abff87b14044b92bcb4f7e4a90bd351e7',1,'joque::node']]],
+  ['failed_5fcount_19',['failed_count',['../namespacejoque.html#ac05a009de7468d21f5b1233f924159dc',1,'joque::exec_record']]],
+  ['final_5fsuspend_20',['final_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a26fa94ab6fc8a2835c9a9080ce3c3060',1,'joque::exec_coro::promise_type']]]
 ];

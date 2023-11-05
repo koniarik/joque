@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_95',['node',['../structjoque_1_1node.html',1,'joque']]]
+  ['node_94',['node',['../namespacejoque.html#structjoque_1_1node',1,'joque']]]
 ];
