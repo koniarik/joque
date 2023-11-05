@@ -3,12 +3,6 @@
 #include "joque/process.hpp"
 #include "joque/traits.hpp"
 
-#include <filesystem>
-#include <functional>
-#include <list>
-#include <string>
-#include <vector>
-
 namespace joque
 {
 

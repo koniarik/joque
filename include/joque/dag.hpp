@@ -2,6 +2,8 @@
 
 #include "joque/task.hpp"
 
+#include <list>
+
 namespace joque
 {
 
