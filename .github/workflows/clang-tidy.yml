@@ -10,13 +10,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install deps
-      run: sudo apt install git
-    - name: Run clang-tidy
-      uses: HorstBaerbel/action-clang-tidy@1.2
-      with:
-        scandir: '.'
-        builddir: 'build'
-        excludedirs: ''
-        extensions: 'c,h,C,H,cpp,hpp,cc,hh,c++,h++,cxx,hxx'
-        cmakeoptions: ''
+
+    - run: make clang-tidy

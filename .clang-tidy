@@ -1,10 +1,10 @@
 ---
 Checks: >
   -*,
-  bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,
+  bugprone*,
   concurrency*,
-  modernize*,-modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,-modernize-use-nodiscard,
-  misc*,-misc-no-recursion,
+  modernize*,-modernize-use-trailing-return-type,
+  misc*,
   performance*,
   portability*,
   readbility*,

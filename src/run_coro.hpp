@@ -69,12 +69,12 @@ public:
                 return *this;
         }
 
-        bool done() const
+        [[nodiscard]] bool done() const
         {
                 return h_.done();
         }
 
-        run_record* result()
+        [[nodiscard]] run_record* result()
         {
                 if ( !h_ ) {
                         return nullptr;

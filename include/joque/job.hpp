@@ -14,8 +14,8 @@ namespace joque
 
 struct job_iface
 {
-        virtual [[nodiscard]] bool       is_invalidated()   = 0;
-        virtual [[nodiscard]] run_result run( const task* ) = 0;
+        [[nodiscard]] virtual bool       is_invalidated()   = 0;
+        [[nodiscard]] virtual run_result run( const task* ) = 0;
         virtual ~job_iface()                                = default;
 };
 

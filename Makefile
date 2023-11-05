@@ -1,5 +1,5 @@
 
-.PHONY: build configure test
+.PHONY: build configure test clang-tidy
 
 build:
 	cmake --build --preset "debug_build"
@@ -9,3 +9,6 @@ configure:
 
 test: build
 	ctest --preset "debug_utest"
+
+clang-tidy:
+	find src/ -iname "*.cpp" | xargs clang-tidy -p build
