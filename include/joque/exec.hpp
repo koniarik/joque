@@ -92,13 +92,14 @@ public:
                 if ( !h_ ) {
                         return nullptr;
                 }
-                if ( !h_.promise().value ) {
-                        return nullptr;
-                }
                 if ( h_.promise().excep ) {
                         std::rethrow_exception( h_.promise().excep );
                 }
-                return &*h_.promise().value;
+                std::optional< exec_record >& val = h_.promise().value;
+                if ( val ) {
+                        return &*val;
+                }
+                return nullptr;
         }
 
         void tick()

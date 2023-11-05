@@ -14,9 +14,9 @@ struct xml_node
         std::ostream& os;
         std::string   name;
 
-        xml_node( std::ostream& os, std::string name, auto&&... args )
+        xml_node( std::ostream& os, std::string node_name, auto&&... args )
           : os( os )
-          , name( std::move( name ) )
+          , name( std::move( node_name ) )
         {
                 os << "<" << name;
                 ( ( os << " " << args ), ... );

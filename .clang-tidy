@@ -1,7 +1,7 @@
 ---
 Checks: >
   -*,
-  bugprone*,
+  bugprone*,-bugprone-forwarding-reference-overload,
   concurrency*,
   modernize*,-modernize-use-trailing-return-type,
   misc*,-misc-no-recursion,
