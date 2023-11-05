@@ -17,7 +17,7 @@ struct node
         bool done        = false;
         bool invalidated = false;
 
-        bool is_leaf() const
+        [[nodiscard]] bool is_leaf() const
         {
                 return depends_on.empty();
         }
@@ -28,6 +28,6 @@ struct dag
         std::list< node > nodes;
 };
 
-dag generate_dag( const task_set& ts, const std::string& filter );
+[[nodiscard]] dag generate_dag( const task_set& ts, const std::string& filter );
 
 }  // namespace joque

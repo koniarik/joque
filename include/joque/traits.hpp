@@ -15,7 +15,7 @@ struct run_result
         std::string sout;
         std::string serr;
 
-        operator std::tuple< int&, std::string&, std::string& >() &&
+        [[nodiscard]] operator std::tuple< int&, std::string&, std::string& >() &&
         {
                 return { retcode, sout, serr };
         }
@@ -24,11 +24,11 @@ struct run_result
 template < typename T >
 struct job_traits
 {
-        static bool is_invalidated( const T& )
+        [[nodiscard]] static bool is_invalidated( const T& )
         {
                 return true;
         }
-        static run_result run( const task* t, const T& f )
+        [[nodiscard]] static run_result run( const task* t, const T& f )
         {
                 return f( t );
         }

@@ -82,12 +82,12 @@ public:
                 return *this;
         }
 
-        bool done() const
+        [[nodiscard]] bool done() const
         {
                 return h_.done();
         }
 
-        exec_record* result()
+        [[nodiscard]] exec_record* result()
         {
                 if ( !h_ ) {
                         return nullptr;
@@ -128,9 +128,10 @@ private:
         std::coroutine_handle< promise_type > h_;
 };
 
-exec_coro exec( const task_set& ts, unsigned thread_count = 0, const std::string& filter = "" );
+[[nodiscard]] exec_coro
+exec( const task_set& ts, unsigned thread_count = 0, const std::string& filter = "" );
 
 class dag;
-exec_coro exec( dag g, unsigned thread_count = 0, const std::string& filter = "" );
+[[nodiscard]] exec_coro exec( dag g, unsigned thread_count = 0, const std::string& filter = "" );
 
 }  // namespace joque

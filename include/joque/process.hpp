@@ -15,7 +15,7 @@ struct process
         std::vector< std::filesystem::path > output;
 
         template < typename... Args >
-        static process derive( Args&&... args )
+        [[nodiscard]] static process derive( Args&&... args )
         {
                 process res;
 
@@ -46,8 +46,8 @@ struct process
 template <>
 struct job_traits< process >
 {
-        static bool       is_invalidated( const process& p );
-        static run_result run( const task*, const process& p );
+        [[nodiscard]] static bool       is_invalidated( const process& p );
+        [[nodiscard]] static run_result run( const task*, const process& p );
 };
 
 }  // namespace joque

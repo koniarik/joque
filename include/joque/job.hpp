@@ -14,9 +14,9 @@ namespace joque
 
 struct job_iface
 {
-        virtual bool       is_invalidated()   = 0;
-        virtual run_result run( const task* ) = 0;
-        virtual ~job_iface()                  = default;
+        virtual [[nodiscard]] bool       is_invalidated()   = 0;
+        virtual [[nodiscard]] run_result run( const task* ) = 0;
+        virtual ~job_iface()                                = default;
 };
 
 template < typename T >
@@ -29,12 +29,12 @@ struct job : job_iface
         {
         }
 
-        bool is_invalidated() override
+        [[nodiscard]] bool is_invalidated() override
         {
                 return job_traits< T >::is_invalidated( thing );
         }
 
-        run_result run( const task* t ) override
+        [[nodiscard]] run_result run( const task* t ) override
         {
                 return job_traits< T >::run( t, thing );
         }
