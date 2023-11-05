@@ -143,10 +143,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab7cbb3193a852f7af307a78ed897b9a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9">generate_dag</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const std::string &amp;filter=&quot;&quot;)</td></tr>
 <tr class="memdesc:ab7cbb3193a852f7af307a78ed897b9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a DAG representing a given set of tasks for execution function.  <a href="namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9">More...</a><br /></td></tr>
 <tr class="separator:ab7cbb3193a852f7af307a78ed897b9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acebef9f372a853738e59ba720cc57243"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="separator:acebef9f372a853738e59ba720cc57243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">exec</a> (<a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="separator:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">More...</a><br /></td></tr>
+<tr class="separator:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">exec</a> (<a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">More...</a><br /></td></tr>
+<tr class="separator:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3517a644a52b0251ea72d94d3758578"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af3517a644a52b0251ea72d94d3758578">render_junit_xml</a> (std::ostream &amp;os, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="separator:af3517a644a52b0251ea72d94d3758578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
@@ -574,8 +576,8 @@ sets</td>
 
 </div>
 </div>
-<a id="acebef9f372a853738e59ba720cc57243"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acebef9f372a853738e59ba720cc57243">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/2]</span></h2>
+<a id="a6ac581ebef73a0b2c0a042d9f1eff8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac581ebef73a0b2c0a042d9f1eff8d6">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,7 +592,7 @@ sets</td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>thread_count</em> = <code>0</code>, </td>
+          <td class="paramname"><em>thread_count</em> = <code>std::thread::hardware_concurrency()</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -606,10 +608,16 @@ sets</td>
       </table>
 </div><div class="memdoc">
 
+<p>Runs execution of tasks within one taskset. </p>
+<p>This returns coroutine handling the execution process. Withing it lives a thread pool that pararelly executes all tasks in the <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>. Tasks are limited only to those that pass the filter, or their dependencies.</p>
+<p>During the execution, the input task set shall not be modified and any modification might result in undefined behavior.</p>
+<p>In case 1...n threads are requested, the tasks are executed inside those worker threads and control thread is not used for execution. In case the thread count is 0, all jobs are executed within the control thread itself.</p>
+<p>/param ts Input task set to process /param thread_count Number of threads to use /param filter String filtering out tasks that either match it, or are dependencies of matched tasks </p>
+
 </div>
 </div>
-<a id="a7f6f9158b8c0c89f835741f15a6dc8e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f6f9158b8c0c89f835741f15a6dc8e2">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/2]</span></h2>
+<a id="ae5674c58ec207c0fe6ac8c14e9e98c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5674c58ec207c0fe6ac8c14e9e98c06">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -624,7 +632,7 @@ sets</td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>thread_count</em> = <code>0</code>, </td>
+          <td class="paramname"><em>thread_count</em> = <code>std::thread::hardware_concurrency()</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -639,6 +647,9 @@ sets</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Overload of <code>exec</code> which uses dag as an input instead of task set. </p>
+<p>It's not recommended to use it, but it exists in case users want to customize the dag. </p>
 
 </div>
 </div>
@@ -800,7 +811,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['exec_123',['exec',['../namespacejoque.html#acebef9f372a853738e59ba720cc57243',1,'joque::exec(const task_set &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)'],['../namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2',1,'joque::exec(dag g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)']]],
+  ['exec_123',['exec',['../namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6',1,'joque::exec(const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)'],['../namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06',1,'joque::exec(dag g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)']]],
   ['exec_5fcoro_124',['exec_coro',['../classjoque_1_1exec__coro.html#a0d686631cdda912409752dd3fb2e64da',1,'joque::exec_coro::exec_coro(std::coroutine_handle&lt; promise_type &gt; h)'],['../classjoque_1_1exec__coro.html#ac22647134adc18f930929bccca258092',1,'joque::exec_coro::exec_coro(exec_coro &amp;&amp;other) noexcept']]]
 ];

@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('exec_8hpp.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="exec__coro_8hpp_source.html">joque/exec_coro.hpp</a>&quot;</code><br />
+<code>#include &lt;thread&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for exec.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,10 +110,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acebef9f372a853738e59ba720cc57243"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="separator:acebef9f372a853738e59ba720cc57243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">joque::exec</a> (dag g, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="separator:a7f6f9158b8c0c89f835741f15a6dc8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">More...</a><br /></td></tr>
+<tr class="separator:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">joque::exec</a> (dag g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">More...</a><br /></td></tr>
+<tr class="separator:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -120,7 +123,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

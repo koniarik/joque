@@ -91,20 +91,27 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exec__coro_8hpp.html">joque/exec_coro.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejoque.html">joque</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;[[nodiscard]] exec_coro</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">    9</a></span>&#160;<a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp; ts, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacejoque.html#a7f6f9158b8c0c89f835741f15a6dc8e2">   12</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">exec</a>( <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, <span class="keywordtype">unsigned</span> thread_count = 0, <span class="keyword">const</span> std::string&amp; filter = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejoque.html">joque</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">   28</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">exec</a>(</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp;    ts,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">unsigned</span>           thread_count = std::thread::hardware_concurrency(),</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> std::string&amp; filter       = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">   36</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">exec</a>(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="namespacejoque.html#structjoque_1_1dag">dag</a>                g,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">unsigned</span>           thread_count = std::thread::hardware_concurrency(),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> std::string&amp; filter       = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html"><div class="ttname"><a href="classjoque_1_1exec__coro.html">joque::exec_coro</a></div><div class="ttdoc">Coroutine representing one execution of entire task set.</div><div class="ttdef"><b>Definition:</b> exec_coro.hpp:13</div></div>
 <div class="ttc" id="aexec__coro_8hpp_html"><div class="ttname"><a href="exec__coro_8hpp.html">exec_coro.hpp</a></div></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
-<div class="ttc" id="anamespacejoque_html_acebef9f372a853738e59ba720cc57243"><div class="ttname"><a href="namespacejoque.html#acebef9f372a853738e59ba720cc57243">joque::exec</a></div><div class="ttdeci">exec_coro exec(const task_set &amp;ts, unsigned thread_count=0, const std::string &amp;filter=&quot;&quot;)</div></div>
+<div class="ttc" id="anamespacejoque_html_a6ac581ebef73a0b2c0a042d9f1eff8d6"><div class="ttname"><a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">joque::exec</a></div><div class="ttdeci">exec_coro exec(const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</div><div class="ttdoc">Runs execution of tasks within one taskset.</div></div>
 <div class="ttc" id="anamespacejoque_html_structjoque_1_1dag"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1dag">joque::dag</a></div><div class="ttdoc">DAG used to store data in single execution of tasks.</div><div class="ttdef"><b>Definition:</b> dag.hpp:30</div></div>
 <div class="ttc" id="anamespacejoque_html_structjoque_1_1task__set"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a></div><div class="ttdef"><b>Definition:</b> task.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -113,7 +120,7 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:01:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
