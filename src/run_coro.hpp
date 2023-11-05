@@ -105,6 +105,16 @@ public:
                 return result();
         }
 
+        node& get_node()
+        {
+                return node_;
+        }
+
+        const node& get_node() const
+        {
+                return node_;
+        }
+
         ~run_coro()
         {
                 if ( h_ ) {

@@ -192,8 +192,8 @@ namespace
                         }
                         run_record* rec = coro.result();
                         if ( rec == nullptr ) {
-                                // TODO: add more info here
-                                std::cerr << "Failed to get result from coro" << std::endl;
+                                std::cerr << "Failed to get result from coro for task: "
+                                          << coro.get_node().name << std::endl;
                                 return true;
                         }
                         if ( !rec->t->hidden ) {

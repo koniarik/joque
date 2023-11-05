@@ -19,7 +19,8 @@ if(NOT TARGET reproc++)
   target_compile_options(reproc++ PRIVATE -Wno-changes-meaning)
 endif()
 
-add_library(joque STATIC src/exec.cpp src/dag.cpp src/junit.cpp src/process.cpp)
+add_library(joque STATIC src/exec.cpp src/dag.cpp src/junit.cpp src/process.cpp
+                         src/task.cpp)
 target_link_libraries(joque PUBLIC reproc++)
 target_include_directories(joque PUBLIC include)
 
