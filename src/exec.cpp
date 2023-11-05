@@ -32,39 +32,42 @@ namespace
             std::set< node* >&                 seen,
             const std::set< const resource* >& used_res )
         {
-                if ( n.blocked || n.done || seen.contains( &n ) ) {
+                if ( n.started || n.done || seen.contains( &n ) ) {
                         return nullptr;
                 }
 
                 seen.insert( &n );
 
-                const bool children_are_done =
-                    std::ranges::all_of( n.after, [&]( node* ch ) -> bool {
-                            return ch->done;
-                    } );
-                const bool children_succeeded =
-                    std::ranges::none_of( n.depends_on, [&]( node* ch ) -> bool {
-                            return ch->failed;
-                    } );
-                if ( children_are_done && children_succeeded ) {
-                        const bool res_used =
-                            std::ranges::any_of( n.t->resources, [&]( const resource* p ) {
-                                    return used_res.contains( p );
-                            } );
-                        if ( res_used ) {
-                                return nullptr;
-                        }
-                        return &n;
-                }
-
-                for ( node* ch : n.after ) {
+                for ( node* ch : n.run_after ) {
                         node* res = find_candidate( *ch, seen, used_res );
                         if ( res != nullptr ) {
                                 return res;
                         }
                 }
 
-                return nullptr;
+                const bool children_are_done =
+                    std::ranges::all_of( n.run_after, [&]( node* ch ) -> bool {
+                            return ch->done;
+                    } );
+                if ( !children_are_done ) {
+                        return nullptr;
+                }
+                const bool has_failed_child =
+                    std::ranges::any_of( n.depends_on, [&]( node* ch ) -> bool {
+                            return ch->failed;
+                    } );
+                if ( has_failed_child ) {
+                        return nullptr;
+                }
+
+                const bool res_used =
+                    std::ranges::any_of( n.t->resources, [&]( const resource* p ) {
+                            return used_res.contains( p );
+                    } );
+                if ( res_used ) {
+                        return nullptr;
+                }
+                return &n;
         }
 
         node* find_candidate(
@@ -86,7 +89,7 @@ namespace
         {
                 const bool dep_invalidated =
                     std::ranges::any_of( n.depends_on, [&]( node* ch ) -> bool {
-                            return ch->invalidated;
+                            return ch->started;
                     } );
                 const bool job_invalidated = n.t->job->is_invalidated();
 
@@ -135,7 +138,8 @@ namespace
                 result.t    = n.t;
                 result.name = n.name;
 
-                n.blocked = true;
+                n.started = true;
+
                 if ( !is_invalidated( n ) ) {
                         n.done         = true;
                         result.skipped = true;
@@ -148,7 +152,6 @@ namespace
                 std::future< run_result > fut = std::async(
                     thread_count == 0 ? std::launch::deferred : std::launch::async,
                     [&]( node& n ) -> run_result {
-                            n.invalidated = true;
                             run_result res;
                             try {
                                     res = n.t->job->run( n.t );
