@@ -48,7 +48,7 @@ void render_junit_xml( std::ostream& os, const std::string& ts_name, const exec_
 
         os << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
-        xml_node ns{
+        const xml_node ns{
             os,
             "testsuite",
             attr( "name", ts_name ),
@@ -61,7 +61,7 @@ void render_junit_xml( std::ostream& os, const std::string& ts_name, const exec_
         //        data["commit"]   = git::CommitSHA1();
 
         for ( const run_record& rec : exec_rec.runs ) {
-                xml_node tc{
+                const xml_node tc{
                     os,
                     "testcase",
                     attr( "name", rec.name ),
@@ -76,12 +76,12 @@ void render_junit_xml( std::ostream& os, const std::string& ts_name, const exec_
                         os << "<failure message=\"task skipped\"/>\n";
                 }
                 if ( rec.std_out.size() != 0 ) {
-                        xml_node sout{ os, "std_out" };
+                        const xml_node sout{ os, "std_out" };
                         os << std::accumulate(
                             rec.std_out.begin(), rec.std_out.end(), std::string{ "" } );
                 }
                 if ( rec.std_err.size() != 0 ) {
-                        xml_node serr{ os, "std_err" };
+                        const xml_node serr{ os, "std_err" };
                         os << std::accumulate(
                             rec.std_err.begin(), rec.std_err.end(), std::string{ "" } );
                 }

@@ -14,7 +14,7 @@ public:
         struct promise_type
         {
                 template < typename... Args >
-                promise_type( node& n, Args&&... args )
+                promise_type( node& n, Args&&... )
                   : n( n )
                 {
                 }
@@ -79,13 +79,14 @@ public:
                 if ( !h_ ) {
                         return nullptr;
                 }
-                if ( !h_.promise().value ) {
-                        return nullptr;
-                }
                 if ( h_.promise().excep ) {
                         std::rethrow_exception( h_.promise().excep );
                 }
-                return &*h_.promise().value;
+                std::optional< run_record >& val = h_.promise().val;
+                if ( val.has_value() ) {
+                        return *val;
+                }
+                return nullptr;
         }
 
         void tick()
