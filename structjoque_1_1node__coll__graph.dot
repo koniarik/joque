@@ -13,12 +13,12 @@ digraph "joque::node"
   Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="std::basic_string\<\l Char \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" t" ,fontname="Helvetica"];
-  Node5 [label="joque::task",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacejoque.html#structjoque_1_1task",tooltip=" "];
+  Node5 [label="joque::task",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacejoque.html#structjoque_1_1task",tooltip="Single task that should be executed by the system."];
   Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" resources" ,fontname="Helvetica"];
   Node6 [label="std::vector\< const\l joque::resource * \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" job" ,fontname="Helvetica"];
-  Node8 [label="joque::job_ptr",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$structjoque_1_1job__ptr.html",tooltip=" "];
-  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" after\ndeps" ,fontname="Helvetica"];
+  Node8 [label="joque::job_ptr",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$structjoque_1_1job__ptr.html",tooltip="Custom unique_ptr wrapper that simplifies syntax of tasks."];
+  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" depends_on\nrun_after" ,fontname="Helvetica"];
   Node11 [label="std::vector\< const\l joque::task * \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node5 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
 }

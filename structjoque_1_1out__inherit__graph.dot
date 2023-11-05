@@ -3,7 +3,7 @@ digraph "joque::out"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="joque::out",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="joque::out",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Tags a filesystem path as an output filename."];
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="joque::out_tag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structjoque_1_1out__tag.html",tooltip=" "];
+  Node2 [label="joque::out_tag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structjoque_1_1out__tag.html",tooltip="Baseclass for tagging system."];
 }

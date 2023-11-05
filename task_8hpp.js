@@ -5,20 +5,19 @@ var task_8hpp =
     ] ],
     [ "task", "namespacejoque.html#structjoque_1_1task", [
       [ "job", "namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad", null ],
-      [ "hidden", "namespacejoque.html#a6339748bbc1b731785446cfa91a3798e", null ],
-      [ "deps", "namespacejoque.html#a8c8aa81b11bab9d7f95466077f9e6767", null ],
-      [ "after", "namespacejoque.html#a672f09db535af073cde1d560f69a28ed", null ],
-      [ "resources", "namespacejoque.html#a0752ded43e24b9acd78211cdaab38734", null ]
+      [ "depends_on", "namespacejoque.html#ad0086481cc7f9c86652a90409f3b0762", null ],
+      [ "run_after", "namespacejoque.html#abc65d582974120ed7aca0b76ab6b7ca8", null ],
+      [ "resources", "namespacejoque.html#a0752ded43e24b9acd78211cdaab38734", null ],
+      [ "hidden", "namespacejoque.html#a6339748bbc1b731785446cfa91a3798e", null ]
     ] ],
     [ "task_set", "namespacejoque.html#structjoque_1_1task__set", [
-      [ "tasks_container", "namespacejoque.html#a412f7d99f16cadd7ce11f069042d945f", null ],
-      [ "sets_container", "namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5", null ],
-      [ "tasks", "namespacejoque.html#af62855b06aa9cfe1b2383f39dae93bcb", null ],
-      [ "sets", "namespacejoque.html#a495874773c169e9bb323d95e093a505a", null ]
+      [ "tasks", "namespacejoque.html#a80cd0b463e34149a7c1b11b8592e4552", null ],
+      [ "sets", "namespacejoque.html#a9854101c7b1af4357c306e895989c675", null ]
     ] ],
     [ "requires", "task_8hpp.html#af9daf6e2b940c98e701e9a28c5593433", null ],
+    [ "for_each_add_dep", "task_8hpp.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7", null ],
     [ "add_dep_to_each", "task_8hpp.html#a5d9b1c8c103f5be314c4907ecf6eac68", null ],
-    [ "after_all_of", "task_8hpp.html#a0b4f0c89ae3c33fcf8764c5187fabcf7", null ],
-    [ "f", "task_8hpp.html#a37f1bbfa04dd81677d5989bf4e12923a", null ],
-    [ "prefix", "task_8hpp.html#a13d6d7b5bcea7aa37f16fb3f99acba72", null ]
+    [ "run_after_all_of", "task_8hpp.html#a9255c56d839b5272715fe46da331a6a0", null ],
+    [ "for_each_task_impl", "task_8hpp.html#af5ca33039b5b2b2459052d8090ffc937", null ],
+    [ "f", "task_8hpp.html#ac391d87f5d214cafcaf8879dfec116bc", null ]
 ];

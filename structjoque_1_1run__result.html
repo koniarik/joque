@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('structjoque_1_1run__result.html',''); 
 </div><!--header-->
 <div class="contents">
 
+<p>Result of single traits run call. Information is stored in run record.  
+ <a href="structjoque_1_1run__result.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="traits_8hpp_source.html">traits.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_result:</div>
@@ -110,13 +113,18 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5bb7a849cbd9921c9a3130667d7b73ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a></td></tr>
+<tr class="memdesc:a5bb7a849cbd9921c9a3130667d7b73ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return code of the run, 0 implies success.  <a href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">More...</a><br /></td></tr>
 <tr class="separator:a5bb7a849cbd9921c9a3130667d7b73ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c474642918256990dd48039218ed925"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">sout</a></td></tr>
-<tr class="separator:a4c474642918256990dd48039218ed925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2adf1c2b0a287131e86cdf40ae89632"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">serr</a></td></tr>
-<tr class="separator:ae2adf1c2b0a287131e86cdf40ae89632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e6907b00216406a5217417d56277e3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">std_out</a></td></tr>
+<tr class="memdesc:a10e6907b00216406a5217417d56277e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard output of the run.  <a href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">More...</a><br /></td></tr>
+<tr class="separator:a10e6907b00216406a5217417d56277e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592b706916eb4279c48b9db6738b391f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">std_err</a></td></tr>
+<tr class="memdesc:a592b706916eb4279c48b9db6738b391f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error output of the run.  <a href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">More...</a><br /></td></tr>
+<tr class="separator:a592b706916eb4279c48b9db6738b391f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Result of single traits run call. Information is stored in run record. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a03a58d093ad00fe4ad28e5289654e493"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03a58d093ad00fe4ad28e5289654e493">&#9670;&nbsp;</a></span>operator std::tuple&lt; int &amp;, std::string &amp;, std::string &amp; &gt;()</h2>
 
@@ -140,7 +148,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>, <a class="el" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">serr</a>, and <a class="el" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">sout</a>.</p>
+<p class="reference">References <a class="el" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>, <a class="el" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">std_err</a>, and <a class="el" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">std_out</a>.</p>
 
 </div>
 </div>
@@ -157,33 +165,39 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Return code of the run, 0 implies success. </p>
+
 </div>
 </div>
-<a id="a4c474642918256990dd48039218ed925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c474642918256990dd48039218ed925">&#9670;&nbsp;</a></span>sout</h2>
+<a id="a10e6907b00216406a5217417d56277e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e6907b00216406a5217417d56277e3">&#9670;&nbsp;</a></span>std_out</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string joque::run_result::sout</td>
+          <td class="memname">std::string joque::run_result::std_out</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Standard output of the run. </p>
+
 </div>
 </div>
-<a id="ae2adf1c2b0a287131e86cdf40ae89632"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2adf1c2b0a287131e86cdf40ae89632">&#9670;&nbsp;</a></span>serr</h2>
+<a id="a592b706916eb4279c48b9db6738b391f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592b706916eb4279c48b9db6738b391f">&#9670;&nbsp;</a></span>std_err</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string joque::run_result::serr</td>
+          <td class="memname">std::string joque::run_result::std_err</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Error output of the run. </p>
 
 </div>
 </div>
@@ -196,7 +210,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="structjoque_1_1run__result.html">run_result</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

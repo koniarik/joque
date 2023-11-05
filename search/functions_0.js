@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['add_5fdep_5fto_5feach_118',['add_dep_to_each',['../namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68',1,'joque']]],
-  ['add_5foutput_119',['add_output',['../structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367',1,'joque::process']]],
-  ['after_5fall_5fof_120',['after_all_of',['../namespacejoque.html#a0b4f0c89ae3c33fcf8764c5187fabcf7',1,'joque']]]
+  ['add_5fdep_5fto_5feach_113',['add_dep_to_each',['../namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68',1,'joque']]],
+  ['add_5foutput_114',['add_output',['../structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367',1,'joque::process']]]
 ];

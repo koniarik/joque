@@ -98,50 +98,52 @@ $(document).ready(function(){initNavTree('traits_8hpp_source.html',''); initResi
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">struct </span>task;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html">   12</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structjoque_1_1run__result.html">run_result</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">   14</a></span>&#160;        <span class="keywordtype">int</span>         <a class="code" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">   15</a></span>&#160;        std::string <a class="code" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">sout</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">   16</a></span>&#160;        std::string <a class="code" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">serr</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structjoque_1_1run__result.html">run_result</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">   16</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a03a58d093ad00fe4ad28e5289654e493">   18</a></span>&#160;        [[nodiscard]] <span class="keyword">operator</span> std::tuple&lt; int&amp;, std::string&amp;, std::string&amp; &gt;() &amp;&amp;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">return</span> { <a class="code" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>, <a class="code" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">sout</a>, <a class="code" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">serr</a> };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">   19</a></span>&#160;        std::string <a class="code" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">std_out</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">   22</a></span>&#160;        std::string <a class="code" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">std_err</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html">   25</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structjoque_1_1job__traits.html">job_traits</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">   27</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">is_invalidated</a>( <span class="keyword">const</span> T&amp; )</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">   32</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structjoque_1_1run__result.html">run_result</a> <a class="code" href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">run</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task">task</a>* t, <span class="keyword">const</span> T&amp; <a class="code" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">f</a> )</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">f</a>( t );</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}  <span class="comment">// namespace joque</span></div>
-<div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
-<div class="ttc" id="anamespacejoque_html_a37f1bbfa04dd81677d5989bf4e12923a"><div class="ttname"><a href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:35</div></div>
-<div class="ttc" id="anamespacejoque_html_structjoque_1_1task"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task">joque::task</a></div><div class="ttdef"><b>Definition:</b> task.hpp:16</div></div>
-<div class="ttc" id="astructjoque_1_1job__traits_html"><div class="ttname"><a href="structjoque_1_1job__traits.html">joque::job_traits</a></div><div class="ttdef"><b>Definition:</b> traits.hpp:26</div></div>
-<div class="ttc" id="astructjoque_1_1job__traits_html_a415e33d8c648e79778165b4e7cb20289"><div class="ttname"><a href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">joque::job_traits::is_invalidated</a></div><div class="ttdeci">static bool is_invalidated(const T &amp;)</div><div class="ttdef"><b>Definition:</b> traits.hpp:27</div></div>
-<div class="ttc" id="astructjoque_1_1job__traits_html_abc63db022f69cc904cb032bf23a28ca5"><div class="ttname"><a href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">joque::job_traits::run</a></div><div class="ttdeci">static run_result run(const task *t, const T &amp;f)</div><div class="ttdef"><b>Definition:</b> traits.hpp:32</div></div>
-<div class="ttc" id="astructjoque_1_1run__result_html"><div class="ttname"><a href="structjoque_1_1run__result.html">joque::run_result</a></div><div class="ttdef"><b>Definition:</b> traits.hpp:13</div></div>
-<div class="ttc" id="astructjoque_1_1run__result_html_a4c474642918256990dd48039218ed925"><div class="ttname"><a href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">joque::run_result::sout</a></div><div class="ttdeci">std::string sout</div><div class="ttdef"><b>Definition:</b> traits.hpp:15</div></div>
-<div class="ttc" id="astructjoque_1_1run__result_html_a5bb7a849cbd9921c9a3130667d7b73ae"><div class="ttname"><a href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">joque::run_result::retcode</a></div><div class="ttdeci">int retcode</div><div class="ttdef"><b>Definition:</b> traits.hpp:14</div></div>
-<div class="ttc" id="astructjoque_1_1run__result_html_ae2adf1c2b0a287131e86cdf40ae89632"><div class="ttname"><a href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">joque::run_result::serr</a></div><div class="ttdeci">std::string serr</div><div class="ttdef"><b>Definition:</b> traits.hpp:16</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structjoque_1_1run__result.html#a03a58d093ad00fe4ad28e5289654e493">   24</a></span>&#160;        [[nodiscard]] <span class="keyword">operator</span> std::tuple&lt; int&amp;, std::string&amp;, std::string&amp; &gt;() &amp;&amp;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">return</span> { <a class="code" href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">retcode</a>, <a class="code" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">std_out</a>, <a class="code" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">std_err</a> };</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html">   33</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structjoque_1_1job__traits.html">job_traits</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">   35</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">is_invalidated</a>( <span class="keyword">const</span> T&amp; )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">   40</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structjoque_1_1run__result.html">run_result</a> <a class="code" href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">run</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task">task</a>* t, <span class="keyword">const</span> T&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a> )</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>( t );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:8</div></div>
+<div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:54</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1task"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task">joque::task</a></div><div class="ttdoc">Single task that should be executed by the system.</div><div class="ttdef"><b>Definition:</b> task.hpp:19</div></div>
+<div class="ttc" id="astructjoque_1_1job__traits_html"><div class="ttname"><a href="structjoque_1_1job__traits.html">joque::job_traits</a></div><div class="ttdoc">Default job traits for all types.</div><div class="ttdef"><b>Definition:</b> traits.hpp:34</div></div>
+<div class="ttc" id="astructjoque_1_1job__traits_html_a415e33d8c648e79778165b4e7cb20289"><div class="ttname"><a href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">joque::job_traits::is_invalidated</a></div><div class="ttdeci">static bool is_invalidated(const T &amp;)</div><div class="ttdef"><b>Definition:</b> traits.hpp:35</div></div>
+<div class="ttc" id="astructjoque_1_1job__traits_html_abc63db022f69cc904cb032bf23a28ca5"><div class="ttname"><a href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">joque::job_traits::run</a></div><div class="ttdeci">static run_result run(const task *t, const T &amp;f)</div><div class="ttdef"><b>Definition:</b> traits.hpp:40</div></div>
+<div class="ttc" id="astructjoque_1_1run__result_html"><div class="ttname"><a href="structjoque_1_1run__result.html">joque::run_result</a></div><div class="ttdoc">Result of single traits run call. Information is stored in run record.</div><div class="ttdef"><b>Definition:</b> traits.hpp:14</div></div>
+<div class="ttc" id="astructjoque_1_1run__result_html_a10e6907b00216406a5217417d56277e3"><div class="ttname"><a href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">joque::run_result::std_out</a></div><div class="ttdeci">std::string std_out</div><div class="ttdoc">Standard output of the run.</div><div class="ttdef"><b>Definition:</b> traits.hpp:19</div></div>
+<div class="ttc" id="astructjoque_1_1run__result_html_a592b706916eb4279c48b9db6738b391f"><div class="ttname"><a href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">joque::run_result::std_err</a></div><div class="ttdeci">std::string std_err</div><div class="ttdoc">Error output of the run.</div><div class="ttdef"><b>Definition:</b> traits.hpp:22</div></div>
+<div class="ttc" id="astructjoque_1_1run__result_html_a5bb7a849cbd9921c9a3130667d7b73ae"><div class="ttname"><a href="structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae">joque::run_result::retcode</a></div><div class="ttdeci">int retcode</div><div class="ttdoc">Return code of the run, 0 implies success.</div><div class="ttdef"><b>Definition:</b> traits.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="traits_8hpp.html">traits.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

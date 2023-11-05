@@ -21,10 +21,12 @@ var namespacejoque =
     [ "generate_dag", "namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9", null ],
     [ "exec", "namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6", null ],
     [ "exec", "namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06", null ],
-    [ "render_junit_xml", "namespacejoque.html#af3517a644a52b0251ea72d94d3758578", null ],
+    [ "generate_junit_xml", "namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08", null ],
+    [ "generate_junit_xml", "namespacejoque.html#ab280046a1246db06f03c39cfb14a0085", null ],
     [ "requires", "namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433", null ],
+    [ "for_each_add_dep", "namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7", null ],
     [ "add_dep_to_each", "namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68", null ],
-    [ "after_all_of", "namespacejoque.html#a0b4f0c89ae3c33fcf8764c5187fabcf7", null ],
-    [ "f", "namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a", null ],
-    [ "prefix", "namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72", null ]
+    [ "run_after_all_of", "namespacejoque.html#a9255c56d839b5272715fe46da331a6a0", null ],
+    [ "for_each_task_impl", "namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937", null ],
+    [ "f", "namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['input_155',['input',['../structjoque_1_1process.html#aec664caac3a94b9b747b6b3619d0e07f',1,'joque::process']]]
+  ['job_151',['job',['../namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad',1,'joque::task']]]
 ];

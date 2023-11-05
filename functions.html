@@ -89,9 +89,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>add_output()
 : <a class="el" href="structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367">joque::process</a>
 </li>
-<li>after
-: <a class="el" href="namespacejoque.html#a672f09db535af073cde1d560f69a28ed">joque::task</a>
-</li>
 </ul>
 
 
@@ -105,12 +102,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>depends_on
 : <a class="el" href="namespacejoque.html#a96aab731ca543fb149ecb2d4ac9fe987">joque::node</a>
-</li>
-<li>deps
-: <a class="el" href="namespacejoque.html#a8c8aa81b11bab9d7f95466077f9e6767">joque::task</a>
+, <a class="el" href="namespacejoque.html#ad0086481cc7f9c86652a90409f3b0762">joque::task</a>
 </li>
 <li>derive()
-: <a class="el" href="structjoque_1_1process.html#a904a5bcd94ffe505341a4c94ad12dd9d">joque::process</a>
+: <a class="el" href="structjoque_1_1process.html#a76181542ab21eae5751f913e2629e46f">joque::process</a>
 </li>
 <li>done()
 : <a class="el" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">joque::exec_coro</a>
@@ -244,6 +239,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>run_after
 : <a class="el" href="namespacejoque.html#a9a314ce365c432f63a8ea712ce0f4743">joque::node</a>
+, <a class="el" href="namespacejoque.html#abc65d582974120ed7aca0b76ab6b7ca8">joque::task</a>
 </li>
 <li>runs
 : <a class="el" href="namespacejoque.html#aa5154cd1eabbe477d3802a0098ec545a">joque::exec_record</a>
@@ -252,23 +248,14 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>serr
-: <a class="el" href="structjoque_1_1run__result.html#ae2adf1c2b0a287131e86cdf40ae89632">joque::run_result</a>
-</li>
 <li>sets
-: <a class="el" href="namespacejoque.html#a495874773c169e9bb323d95e093a505a">joque::task_set</a>
-</li>
-<li>sets_container
-: <a class="el" href="namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5">joque::task_set</a>
+: <a class="el" href="namespacejoque.html#a9854101c7b1af4357c306e895989c675">joque::task_set</a>
 </li>
 <li>skipped
 : <a class="el" href="namespacejoque.html#abded0e3f3393cbe66f54467dcc7c1a24">joque::run_record</a>
 </li>
 <li>skipped_count
 : <a class="el" href="namespacejoque.html#a6c4c083688e0a5d3c9ec3a29b4d2c3c4">joque::exec_record</a>
-</li>
-<li>sout
-: <a class="el" href="structjoque_1_1run__result.html#a4c474642918256990dd48039218ed925">joque::run_result</a>
 </li>
 <li>start
 : <a class="el" href="namespacejoque.html#aca4b4847dc82f3fadf9c002c0b378289">joque::run_record</a>
@@ -278,9 +265,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </li>
 <li>std_err
 : <a class="el" href="namespacejoque.html#a8922bd78203e94caa8c5a7821ec3987f">joque::run_record</a>
+, <a class="el" href="structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f">joque::run_result</a>
 </li>
 <li>std_out
 : <a class="el" href="namespacejoque.html#a42f7d1f6268911b281ea4283c977d5e0">joque::run_record</a>
+, <a class="el" href="structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3">joque::run_result</a>
 </li>
 </ul>
 
@@ -291,10 +280,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 , <a class="el" href="namespacejoque.html#a05ca9bd496143b3410987e3677d6bcc2">joque::run_record</a>
 </li>
 <li>tasks
-: <a class="el" href="namespacejoque.html#af62855b06aa9cfe1b2383f39dae93bcb">joque::task_set</a>
-</li>
-<li>tasks_container
-: <a class="el" href="namespacejoque.html#a412f7d99f16cadd7ce11f069042d945f">joque::task_set</a>
+: <a class="el" href="namespacejoque.html#a80cd0b463e34149a7c1b11b8592e4552">joque::task_set</a>
 </li>
 <li>thing
 : <a class="el" href="structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081">joque::job&lt; T &gt;</a>
@@ -332,7 +318,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

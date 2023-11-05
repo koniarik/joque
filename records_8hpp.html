@@ -109,8 +109,10 @@ $(document).ready(function(){initNavTree('records_8hpp.html',''); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:structjoque_1_1run__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__record">joque::run_record</a></td></tr>
+<tr class="memdesc:structjoque_1_1run__record"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record storing information about a run of one task, produced during single execution once for each task.  <a href="namespacejoque.html#structjoque_1_1run__record">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1run__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1exec__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">joque::exec_record</a></td></tr>
+<tr class="memdesc:structjoque_1_1exec__record"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record of execution of entire task set.  <a href="namespacejoque.html#structjoque_1_1exec__record">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1exec__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -135,7 +137,9 @@ Typedefs</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Record storing information about a run of one task, produced during single execution once for each task. </p>
+<p>Note that this valid only as long as the input task set was not modified. </p>
+</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_record:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
@@ -150,49 +154,49 @@ Typedefs</h2></td></tr>
 <td class="fieldname">
 t</td>
 <td class="fielddoc">
-</td></tr>
+Executed task. </td></tr>
 <tr><td class="fieldtype">
 <a id="a7603fa1d4c0d5180e976392b6bf2a084"></a>string</td>
 <td class="fieldname">
 name</td>
 <td class="fielddoc">
-</td></tr>
+Full name of the task. </td></tr>
 <tr><td class="fieldtype">
 <a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
 <td class="fieldname">
 skipped</td>
 <td class="fielddoc">
-</td></tr>
+Whenever the task was executed or skipped. </td></tr>
 <tr><td class="fieldtype">
 <a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
 <td class="fieldname">
 retcode</td>
 <td class="fielddoc">
-</td></tr>
+Return code of the execution. Assumes that 0 means success. </td></tr>
 <tr><td class="fieldtype">
 <a id="aca4b4847dc82f3fadf9c002c0b378289"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
 <td class="fieldname">
 start</td>
 <td class="fielddoc">
-</td></tr>
+Start time of the execution. </td></tr>
 <tr><td class="fieldtype">
 <a id="aaa5258498d4efdadf2e178d901f48d7c"></a><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a></td>
 <td class="fieldname">
 end</td>
 <td class="fielddoc">
-</td></tr>
+End time of the execution. </td></tr>
 <tr><td class="fieldtype">
 <a id="a42f7d1f6268911b281ea4283c977d5e0"></a>string</td>
 <td class="fieldname">
 std_out</td>
 <td class="fielddoc">
-</td></tr>
+Standard output of the execution. </td></tr>
 <tr><td class="fieldtype">
 <a id="a8922bd78203e94caa8c5a7821ec3987f"></a>string</td>
 <td class="fieldname">
 std_err</td>
 <td class="fielddoc">
-</td></tr>
+Error output of the execution. </td></tr>
 </table>
 
 </div>
@@ -208,7 +212,9 @@ std_err</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Record of execution of entire task set. </p>
+<p>Is valid only as long as the original task set was not modified. </p>
+</div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::exec_record:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
@@ -223,19 +229,19 @@ std_err</td>
 <td class="fieldname">
 skipped_count</td>
 <td class="fielddoc">
-</td></tr>
+Number of skipped tasks. </td></tr>
 <tr><td class="fieldtype">
 <a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
 <td class="fieldname">
 failed_count</td>
 <td class="fielddoc">
-</td></tr>
+Number of failed tasks. </td></tr>
 <tr><td class="fieldtype">
 <a id="aa5154cd1eabbe477d3802a0098ec545a"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt;</td>
 <td class="fieldname">
 runs</td>
 <td class="fielddoc">
-</td></tr>
+Run record for each task in the set. </td></tr>
 </table>
 
 </div>
@@ -246,7 +252,7 @@ runs</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="records_8hpp.html">records.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

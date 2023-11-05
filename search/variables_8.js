@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['name_157',['name',['../namespacejoque.html#a0fc52435b1e735f8b5847c3a12e0ff8a',1,'joque::node::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
-  ['nodes_158',['nodes',['../namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f',1,'joque::dag']]]
+  ['output_154',['output',['../structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c',1,'joque::process']]]
 ];

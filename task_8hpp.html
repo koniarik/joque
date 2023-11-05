@@ -108,10 +108,13 @@ $(document).ready(function(){initNavTree('task_8hpp.html',''); initResizable(); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:structjoque_1_1resource"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1resource">joque::resource</a></td></tr>
+<tr class="memdesc:structjoque_1_1resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction to model resource used by tasks.  <a href="namespacejoque.html#structjoque_1_1resource">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1task"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1task">joque::task</a></td></tr>
+<tr class="memdesc:structjoque_1_1task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single task that should be executed by the system.  <a href="namespacejoque.html#structjoque_1_1task">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1task__set"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a></td></tr>
+<tr class="memdesc:structjoque_1_1task__set"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of tasks that contains either tasks or another sets.  <a href="namespacejoque.html#structjoque_1_1task__set">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1task__set"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -123,18 +126,25 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">joque::requires</a> (std::same_as&lt; std::remove_cvref_t&lt; T &gt;, task_set &gt;) void for_each_task(T &amp;ts</td></tr>
+<tr class="memdesc:af9daf6e2b940c98e701e9a28c5593433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively executes function <code>f</code> for each task in set <code>ts</code>.  <a href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">More...</a><br /></td></tr>
 <tr class="separator:af9daf6e2b940c98e701e9a28c5593433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7">joque::for_each_add_dep</a> (task_set &amp;ts, const task &amp;dep)</td></tr>
+<tr class="memdesc:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on <code>dep</code> for each task in <code>ts</code>, except for <code>dep</code> itself.  <a href="namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7">More...</a><br /></td></tr>
+<tr class="separator:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">joque::add_dep_to_each</a> (task &amp;t, const task_set &amp;ts)</td></tr>
+<tr class="memdesc:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on each task in <code>ts</code> to task <code>t</code>, except for <code>t</code> itself.  <a href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">More...</a><br /></td></tr>
 <tr class="separator:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b4f0c89ae3c33fcf8764c5187fabcf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0b4f0c89ae3c33fcf8764c5187fabcf7">joque::after_all_of</a> (task &amp;t, const task_set &amp;ts)</td></tr>
-<tr class="separator:a0b4f0c89ae3c33fcf8764c5187fabcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9255c56d839b5272715fe46da331a6a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">joque::run_after_all_of</a> (task &amp;t, const task_set &amp;ts)</td></tr>
+<tr class="memdesc:a9255c56d839b5272715fe46da331a6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that task <code>t</code> is run after all tasks in set <code>ts</code>.  <a href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">More...</a><br /></td></tr>
+<tr class="separator:a9255c56d839b5272715fe46da331a6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ca33039b5b2b2459052d8090ffc937"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
+<tr class="memitem:af5ca33039b5b2b2459052d8090ffc937"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">joque::for_each_task_impl</a> (T &amp;ts, Fun &amp;&amp;f, const std::string &amp;prefix)</td></tr>
+<tr class="separator:af5ca33039b5b2b2459052d8090ffc937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a37f1bbfa04dd81677d5989bf4e12923a"><td class="memItemLeft" align="right" valign="top">Fun &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a37f1bbfa04dd81677d5989bf4e12923a">joque::f</a></td></tr>
-<tr class="separator:a37f1bbfa04dd81677d5989bf4e12923a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d6d7b5bcea7aa37f16fb3f99acba72"><td class="memItemLeft" align="right" valign="top">Fun const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a13d6d7b5bcea7aa37f16fb3f99acba72">joque::prefix</a></td></tr>
-<tr class="separator:a13d6d7b5bcea7aa37f16fb3f99acba72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac391d87f5d214cafcaf8879dfec116bc"><td class="memItemLeft" align="right" valign="top">Fun &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></td></tr>
+<tr class="separator:ac391d87f5d214cafcaf8879dfec116bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structjoque_1_1resource" id="structjoque_1_1resource"></a>
@@ -148,7 +158,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Abstraction to model resource used by tasks. </p>
+<p>Out of all tasks that reference single resource, only one may be executed at any point in time. </p>
+</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::resource:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
@@ -179,7 +191,8 @@ name</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Single task that should be executed by the system. </p>
+</div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
@@ -194,31 +207,33 @@ name</td>
 <td class="fieldname">
 job</td>
 <td class="fielddoc">
+Job being executed for the task. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad0086481cc7f9c86652a90409f3b0762"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
+<td class="fieldname">
+depends_on</td>
+<td class="fielddoc">
+Dependencies of the task - all of these should be executed before this task. <p>In case any of these is invalidated, this task is also invalidated. </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a6339748bbc1b731785446cfa91a3798e"></a>bool</td>
+<a id="abc65d582974120ed7aca0b76ab6b7ca8"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
 <td class="fieldname">
-hidden</td>
+run_after</td>
 <td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a8c8aa81b11bab9d7f95466077f9e6767"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
-<td class="fieldname">
-deps</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a672f09db535af073cde1d560f69a28ed"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
-<td class="fieldname">
-after</td>
-<td class="fielddoc">
+Tasks that should be executed before this task. <p>(<code>depends_on</code> task are implicitly included) </p>
 </td></tr>
 <tr><td class="fieldtype">
 <a id="a0752ded43e24b9acd78211cdaab38734"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> * &gt;</td>
 <td class="fieldname">
 resources</td>
 <td class="fielddoc">
-</td></tr>
+Resources used by this task, only one task can access any resource at single point in time. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6339748bbc1b731785446cfa91a3798e"></a>bool</td>
+<td class="fieldname">
+hidden</td>
+<td class="fielddoc">
+In case this is set to true, this task should not be visible in standard reports. </td></tr>
 </table>
 
 </div>
@@ -234,7 +249,10 @@ resources</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>A set of tasks that contains either tasks or another sets. </p>
+<p>This forms a tree representing the entire task set.</p>
+<p>Convetion is that names inside the structure are concatenated to form a full path. Task <code>x</code> in root set is referred as <code>//x</code>. Task <code>y</code> in subset <code>z</code> is referred as <code>//z/y</code>. </p>
+</div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task_set:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
@@ -245,32 +263,17 @@ resources</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a412f7d99f16cadd7ce11f069042d945f"></a>typedef map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt;</td>
-<td class="fieldname">
-tasks_container</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a73a1bb861dc34f89b8a122da960c62f5"></a>typedef map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;</td>
-<td class="fieldname">
-sets_container</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-<table class="fieldtable">
-<tr><th colspan="3">Class Members</th></tr>
-<tr><td class="fieldtype">
-<a id="af62855b06aa9cfe1b2383f39dae93bcb"></a><a class="el" href="namespacejoque.html#a412f7d99f16cadd7ce11f069042d945f">tasks_container</a></td>
+<a id="a80cd0b463e34149a7c1b11b8592e4552"></a>map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt;</td>
 <td class="fieldname">
 tasks</td>
 <td class="fielddoc">
-</td></tr>
+Tasks of this set. </td></tr>
 <tr><td class="fieldtype">
-<a id="a495874773c169e9bb323d95e093a505a"></a><a class="el" href="namespacejoque.html#a73a1bb861dc34f89b8a122da960c62f5">sets_container</a></td>
+<a id="a9854101c7b1af4357c306e895989c675"></a>map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;</td>
 <td class="fieldname">
 sets</td>
 <td class="fielddoc">
-</td></tr>
+Subsets of this set. </td></tr>
 </table>
 
 </div>
@@ -281,7 +284,7 @@ sets</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="task_8hpp.html">task.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

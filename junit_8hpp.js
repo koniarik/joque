@@ -1,4 +1,5 @@
 var junit_8hpp =
 [
-    [ "render_junit_xml", "junit_8hpp.html#af3517a644a52b0251ea72d94d3758578", null ]
+    [ "generate_junit_xml", "junit_8hpp.html#ab3de9d15ac1fd3290afa6412e051ca08", null ],
+    [ "generate_junit_xml", "junit_8hpp.html#ab280046a1246db06f03c39cfb14a0085", null ]
 ];

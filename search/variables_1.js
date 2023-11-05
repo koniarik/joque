@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['cmd_145',['cmd',['../structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f',1,'joque::process']]]
+  ['depends_5fon_142',['depends_on',['../namespacejoque.html#a96aab731ca543fb149ecb2d4ac9fe987',1,'joque::node::depends_on()'],['../namespacejoque.html#ad0086481cc7f9c86652a90409f3b0762',1,'joque::task::depends_on()']]],
+  ['done_143',['done',['../namespacejoque.html#a275209f41269738e74292791faf87d5b',1,'joque::node']]]
 ];

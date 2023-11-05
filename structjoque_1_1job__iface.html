@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('structjoque_1_1job__iface.html',''); i
 </div><!--header-->
 <div class="contents">
 
+<p>Job interface used by task and execution.  
+ <a href="structjoque_1_1job__iface.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="job_8hpp_source.html">job.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for joque::job_iface:</div>
@@ -104,13 +107,17 @@ $(document).ready(function(){initNavTree('structjoque_1_1job__iface.html',''); i
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c09700afdd5010c4b24df8e0daf287a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a">is_invalidated</a> ()=0</td></tr>
+<tr class="memdesc:a9c09700afdd5010c4b24df8e0daf287a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true in case the job is invalidated.  <a href="structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a">More...</a><br /></td></tr>
 <tr class="separator:a9c09700afdd5010c4b24df8e0daf287a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8e681c455405db108697cfc80ad034b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structjoque_1_1run__result.html">run_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__iface.html#ad8e681c455405db108697cfc80ad034b">run</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *)=0</td></tr>
+<tr class="memdesc:ad8e681c455405db108697cfc80ad034b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes one run of the task, returns <code><a class="el" href="structjoque_1_1run__result.html" title="Result of single traits run call. Information is stored in run record.">run_result</a></code> with properly filled information.  <a href="structjoque_1_1job__iface.html#ad8e681c455405db108697cfc80ad034b">More...</a><br /></td></tr>
 <tr class="separator:ad8e681c455405db108697cfc80ad034b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e39b54624baa8febd660bae6b402b4a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__iface.html#a8e39b54624baa8febd660bae6b402b4a">~job_iface</a> ()=default</td></tr>
 <tr class="separator:a8e39b54624baa8febd660bae6b402b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Job interface used by task and execution. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8e39b54624baa8febd660bae6b402b4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e39b54624baa8febd660bae6b402b4a">&#9670;&nbsp;</a></span>~job_iface()</h2>
 
@@ -160,6 +167,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true in case the job is invalidated. </p>
+
 <p>Implemented in <a class="el" href="structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b">joque::job&lt; T &gt;</a>.</p>
 
 </div>
@@ -188,6 +197,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes one run of the task, returns <code><a class="el" href="structjoque_1_1run__result.html" title="Result of single traits run call. Information is stored in run record.">run_result</a></code> with properly filled information. </p>
+
 <p>Implemented in <a class="el" href="structjoque_1_1job.html#ab0abc8bad1af43a3db6ccbfdc89725b0">joque::job&lt; T &gt;</a>.</p>
 
 </div>
@@ -201,7 +212,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="structjoque_1_1job__iface.html">job_iface</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 22:12:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
