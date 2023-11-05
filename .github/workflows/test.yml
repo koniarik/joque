@@ -12,7 +12,7 @@ jobs:
           - uses: actions/checkout@v2
 
           - name: install deps
-            run: sudo apt install ninja-build googletest
+            run: sudo apt install ninja-build libgtest-dev
 
           - name: configure
             run: make configure

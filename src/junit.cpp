@@ -16,7 +16,7 @@ struct xml_node
 
         xml_node( std::ostream& os, std::string name, auto&&... args )
           : os( os )
-          , name( name )
+          , name( std::move( name ) )
         {
                 os << "<" << name;
                 ( ( os << " " << args ), ... );
@@ -57,8 +57,6 @@ void render_junit_xml( std::ostream& os, const std::string& ts_name, const exec_
             attr( "skipped", exec_rec.skipped_count ),
             attr( "time", t ),
             attr( "timestamp", std::format( "{:%FT%TZ}", std::chrono::system_clock::now() ) ) };
-
-        //        data["commit"]   = git::CommitSHA1();
 
         for ( const run_record& rec : exec_rec.runs ) {
                 const xml_node tc{

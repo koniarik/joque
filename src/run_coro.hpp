@@ -82,9 +82,9 @@ public:
                 if ( h_.promise().excep ) {
                         std::rethrow_exception( h_.promise().excep );
                 }
-                std::optional< run_record >& val = h_.promise().val;
+                std::optional< run_record >& val = h_.promise().value;
                 if ( val.has_value() ) {
-                        return *val;
+                        return &*val;
                 }
                 return nullptr;
         }

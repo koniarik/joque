@@ -4,7 +4,7 @@ Checks: >
   bugprone*,
   concurrency*,
   modernize*,-modernize-use-trailing-return-type,
-  misc*,
+  misc*,-misc-no-recursion,
   performance*,
   portability*,
   readbility*,
