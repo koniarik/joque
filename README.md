@@ -49,7 +49,7 @@ The set of tasks is given to `exec` function which builds internal DAG represent
 joque::task_set ts;
 
 // create task with process
-ts["B"] = joque::task{
+ts.tasks["B"] = joque::task{
     .job = joque::process{
         .cmd = {"my_script.sh", "--in", "in.txt", "--out", "out.txt"},
         .input = {"in.txt"},
@@ -59,7 +59,7 @@ ts["B"] = joque::task{
 };
 
 // create task with lambda
-ts["A"] = joque::task{
+ts.tasks["A"] = joque::task{
     .job = [](const joque::task*){
         std::cout << "A is running" << std::endl;
     },
