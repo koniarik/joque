@@ -26,11 +26,11 @@ namespace joque
 /// control thread is not used for execution. In case the thread count is 0, all jobs are executed
 /// within the control thread itself.
 ///
-/// /param ts Input task set to process
-/// /param thread_count Number of threads to use
-/// /param filter String filtering out tasks that either match it, or are dependencies of matched
+/// \param ts Input task set to process
+/// \param thread_count Number of threads to use
+/// \param filter String filtering out tasks that either match it, or are dependencies of matched
 /// tasks
-/// /param vis Visitor called by the execution on various events
+/// \param vis Visitor called by the execution on various events
 ///
 [[nodiscard]] exec_coro exec(
     const task_set&    ts,
