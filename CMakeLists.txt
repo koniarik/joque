@@ -31,10 +31,19 @@ add_library(
   src/task.cpp)
 target_link_libraries(joque PUBLIC reproc++)
 target_include_directories(joque PUBLIC include)
-
-find_package(GTest REQUIRED)
+target_compile_options(joque PRIVATE -Wall -Wextra -Wpedantic
+                                     -Wnon-virtual-dtor -Wunused -Wconversion)
 
 include(CTest)
-add_executable(joque_basic_utest test/basic_utest.cpp)
-add_test(joque_basic joque_basic_utest)
-target_link_libraries(joque_basic_utest PUBLIC joque GTest::GTest gtest_main)
+if(BUILD_TESTING)
+  find_package(GTest REQUIRED)
+
+  add_executable(joque_basic_utest test/basic_utest.cpp)
+  add_test(NAME joque_basic COMMAND joque_basic_utest)
+  target_link_libraries(joque_basic_utest PUBLIC joque GTest::GTest GTest::Main)
+
+  add_executable(joque_process_utest test/process_utest.cpp)
+  add_test(NAME joque_process COMMAND joque_basic_utest)
+  target_link_libraries(joque_process_utest PUBLIC joque GTest::GTest
+                                                   GTest::Main)
+endif()
