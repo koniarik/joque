@@ -51,7 +51,7 @@ joque::task_set ts;
 // create task with process
 ts["B"] = joque::task{
     .job = joque::process{
-        .cmd = {"cat in.txt > out.txt"},
+        .cmd = {"my_script.sh", "--in", "in.txt", "--out", "out.txt"},
         .input = {"in.txt"},
         .output = {"out.txt"},
     },
