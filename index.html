@@ -123,7 +123,7 @@ Example</h1>
 <div class="line"><span class="comment">// create task with process</span></div>
 <div class="line">ts[<span class="stringliteral">&quot;B&quot;</span>] = <a class="code" href="namespacejoque.html#structjoque_1_1task">joque::task</a>{</div>
 <div class="line">    .<a class="code" href="namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad">job</a> = <a class="code" href="structjoque_1_1process.html">joque::process</a>{</div>
-<div class="line">        .<a class="code" href="structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f">cmd</a> = {<span class="stringliteral">&quot;cat in.txt &gt; out.txt&quot;</span>},</div>
+<div class="line">        .<a class="code" href="structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f">cmd</a> = {<span class="stringliteral">&quot;my_script.sh&quot;</span>, <span class="stringliteral">&quot;--in&quot;</span>, <span class="stringliteral">&quot;in.txt&quot;</span>, <span class="stringliteral">&quot;--out&quot;</span>, <span class="stringliteral">&quot;out.txt&quot;</span>},</div>
 <div class="line">        .input = {<span class="stringliteral">&quot;in.txt&quot;</span>},</div>
 <div class="line">        .output = {<span class="stringliteral">&quot;out.txt&quot;</span>},</div>
 <div class="line">    },</div>
@@ -154,7 +154,7 @@ Example</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 6 2023 11:40:37 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 6 2023 14:37:02 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
