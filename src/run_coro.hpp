@@ -105,12 +105,12 @@ public:
                 return result();
         }
 
-        node& get_node()
+        [[nodiscard]] node& get_node()
         {
                 return node_;
         }
 
-        const node& get_node() const
+        [[nodiscard]] const node& get_node() const
         {
                 return node_;
         }
