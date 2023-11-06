@@ -99,13 +99,62 @@ Install</h1>
 <div class="line">  GIT_TAG v0.1</div>
 <div class="line">)</div>
 <div class="line">FetchContent_MakeAvailable(joque)</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Description</h1>
+<p>Library gives users ability to define a set of tasks. The set is represented by a tree - each set may contain tasks or another subsets.</p>
+<p>Each task or set has a name, and these are composed into a full path string. For set M, which contains task A, full name of the task is <code>//M/A</code>.</p>
+<p><code>task</code> has attributes that defines it's dependencies, run after relationships, and resources that it needs. The rules are as follows:</p><ul>
+<li>if task A depends on task B, than A has to be executed after B, and if B is invalidated, so is A</li>
+<li>if task A should run after B, than A has to be executed after B</li>
+<li>if tasks A and B relies on resource X, than only one of those can be executed at once</li>
+</ul>
+<p>Each <code>task</code> also defines what should be done for it's execution and how it becames invalidated. This is represented by it's <code>job</code> attribute. Library supports two types of jobs:</p><ul>
+<li>Callables, these are always invalidated, library just executes the callable object</li>
+<li><code>process</code>, represents a subprocess that shall be executed, it becames invalidated if some of input files are more recent than output files.</li>
+</ul>
+<p>The set of tasks is given to <code>exec</code> function which builds internal DAG representing the task set and executes the tasks in pararell, respecting dependencies and resource management.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Example</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="task_8hpp.html">joque/task.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="exec_8hpp.html">joque/exec.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a> ts;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// create task with process</span></div>
+<div class="line">ts[<span class="stringliteral">&quot;B&quot;</span>] = <a class="code" href="namespacejoque.html#structjoque_1_1task">joque::task</a>{</div>
+<div class="line">    .<a class="code" href="namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad">job</a> = <a class="code" href="structjoque_1_1process.html">joque::process</a>{</div>
+<div class="line">        .<a class="code" href="structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f">cmd</a> = {<span class="stringliteral">&quot;cat in.txt &gt; out.txt&quot;</span>},</div>
+<div class="line">        .input = {<span class="stringliteral">&quot;in.txt&quot;</span>},</div>
+<div class="line">        .output = {<span class="stringliteral">&quot;out.txt&quot;</span>},</div>
+<div class="line">    },</div>
+<div class="line">    .hidden = <span class="keyword">true</span>,</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// create task with lambda</span></div>
+<div class="line">ts[<span class="stringliteral">&quot;A&quot;</span>] = <a class="code" href="namespacejoque.html#structjoque_1_1task">joque::task</a>{</div>
+<div class="line">    .<a class="code" href="namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad">job</a> = [](<span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task">joque::task</a>*){</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;A is running&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    },</div>
+<div class="line">    .depends_on = {&amp;ts[<span class="stringliteral">&quot;B&quot;</span>]},</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// execute the tasks with one worker thread</span></div>
+<div class="line"><a class="code" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">joque::exec</a>(ts, 1);</div>
+<div class="ttc" id="aexec_8hpp_html"><div class="ttname"><a href="exec_8hpp.html">exec.hpp</a></div></div>
+<div class="ttc" id="anamespacejoque_html_aab2b7811ce9d51cc7c0913e23e4637ad"><div class="ttname"><a href="namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad">joque::task::job</a></div><div class="ttdeci">job_ptr job</div><div class="ttdoc">Job being executed for the task.</div><div class="ttdef"><b>Definition:</b> task.hpp:21</div></div>
+<div class="ttc" id="anamespacejoque_html_ae7f069c04754480cd23a827dd9abe713"><div class="ttname"><a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">joque::exec</a></div><div class="ttdeci">exec_coro exec(const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)</div><div class="ttdoc">Runs execution of tasks within one taskset.</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1task"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task">joque::task</a></div><div class="ttdoc">Single task that should be executed by the system.</div><div class="ttdef"><b>Definition:</b> task.hpp:19</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1task__set"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a></div><div class="ttdoc">A set of tasks that contains either tasks or another sets.</div><div class="ttdef"><b>Definition:</b> task.hpp:43</div></div>
+<div class="ttc" id="astructjoque_1_1process_html"><div class="ttname"><a href="structjoque_1_1process.html">joque::process</a></div><div class="ttdoc">Job-friendly structure for definition of subprocess to be executed.</div><div class="ttdef"><b>Definition:</b> process.hpp:18</div></div>
+<div class="ttc" id="astructjoque_1_1process_html_ad538f99ccdc343137d1855c3bd88ff7f"><div class="ttname"><a href="structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f">joque::process::cmd</a></div><div class="ttdeci">std::vector&lt; std::string &gt; cmd</div><div class="ttdoc">cmd for the process execution</div><div class="ttdef"><b>Definition:</b> process.hpp:20</div></div>
+<div class="ttc" id="atask_8hpp_html"><div class="ttname"><a href="task_8hpp.html">task.hpp</a></div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 6 2023 09:54:11 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 6 2023 10:56:24 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
