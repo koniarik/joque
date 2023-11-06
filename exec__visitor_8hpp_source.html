@@ -103,11 +103,14 @@ $(document).ready(function(){initNavTree('exec__visitor_8hpp_source.html',''); i
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__visitor.html#a1c66813d659d03e85d3ec3b2cb5db531">   18</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classjoque_1_1exec__visitor.html#a1c66813d659d03e85d3ec3b2cb5db531">on_run_start</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1node">node</a>&amp; ){};</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__visitor.html#a93489614c28ef49e4c242c8bb2c2e082">   22</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classjoque_1_1exec__visitor.html#a93489614c28ef49e4c242c8bb2c2e082">on_run_end</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1run__record">run_record</a>* rec, <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1node">node</a>&amp; ){};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3">   24</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3">~exec_visitor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="aclassjoque_1_1exec__visitor_html"><div class="ttname"><a href="classjoque_1_1exec__visitor.html">joque::exec_visitor</a></div><div class="ttdoc">Execution visitor interface, used by execution.</div><div class="ttdef"><b>Definition:</b> exec_visitor.hpp:12</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__visitor_html_a1c66813d659d03e85d3ec3b2cb5db531"><div class="ttname"><a href="classjoque_1_1exec__visitor.html#a1c66813d659d03e85d3ec3b2cb5db531">joque::exec_visitor::on_run_start</a></div><div class="ttdeci">virtual void on_run_start(const node &amp;)</div><div class="ttdoc">Executed once execution starts for the node.</div><div class="ttdef"><b>Definition:</b> exec_visitor.hpp:18</div></div>
+<div class="ttc" id="aclassjoque_1_1exec__visitor_html_a40ac41702bd73deda169de32636372d3"><div class="ttname"><a href="classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3">joque::exec_visitor::~exec_visitor</a></div><div class="ttdeci">virtual ~exec_visitor()=default</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__visitor_html_a5a2efc04b44360d11860a2af975cf3c1"><div class="ttname"><a href="classjoque_1_1exec__visitor.html#a5a2efc04b44360d11860a2af975cf3c1">joque::exec_visitor::on_node_enque</a></div><div class="ttdeci">virtual void on_node_enque(const node &amp;)</div><div class="ttdoc">Executed before node is enqued into internal queue of execution.</div><div class="ttdef"><b>Definition:</b> exec_visitor.hpp:15</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__visitor_html_a93489614c28ef49e4c242c8bb2c2e082"><div class="ttname"><a href="classjoque_1_1exec__visitor.html#a93489614c28ef49e4c242c8bb2c2e082">joque::exec_visitor::on_run_end</a></div><div class="ttdeci">virtual void on_run_end(const run_record *rec, const node &amp;)</div><div class="ttdoc">Executed after execution of node.</div><div class="ttdef"><b>Definition:</b> exec_visitor.hpp:22</div></div>
 <div class="ttc" id="adag_8hpp_html"><div class="ttname"><a href="dag_8hpp.html">dag.hpp</a></div></div>
@@ -121,7 +124,7 @@ $(document).ready(function(){initNavTree('exec__visitor_8hpp_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec__visitor_8hpp.html">exec_visitor.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 6 2023 10:56:24 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 6 2023 11:40:37 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
