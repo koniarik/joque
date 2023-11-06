@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('exec_8hpp.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="exec__coro_8hpp_source.html">joque/exec_coro.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exec__visitor_8hpp_source.html">joque/exec_visitor.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="print__exec__visitor_8hpp_source.html">joque/print_exec_visitor.hpp</a>&quot;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for exec.hpp:</div>
@@ -110,12 +112,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="memdesc:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">More...</a><br /></td></tr>
-<tr class="separator:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">joque::exec</a> (dag g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
-<tr class="memdesc:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#ae5674c58ec207c0fe6ac8c14e9e98c06">More...</a><br /></td></tr>
-<tr class="separator:ae5674c58ec207c0fe6ac8c14e9e98c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)</td></tr>
+<tr class="memdesc:ae7f069c04754480cd23a827dd9abe713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">More...</a><br /></td></tr>
+<tr class="separator:ae7f069c04754480cd23a827dd9abe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d633f2f5986ec0475e52f65047dfb4b"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a1d633f2f5986ec0475e52f65047dfb4b">joque::exec</a> (dag g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)</td></tr>
+<tr class="memdesc:a1d633f2f5986ec0475e52f65047dfb4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a1d633f2f5986ec0475e52f65047dfb4b">More...</a><br /></td></tr>
+<tr class="separator:a1d633f2f5986ec0475e52f65047dfb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -123,7 +125,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Nov 5 2023 23:12:35 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 6 2023 09:45:04 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

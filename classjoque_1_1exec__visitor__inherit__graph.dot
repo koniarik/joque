@@ -1,0 +1,9 @@
+digraph "joque::exec_visitor"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="joque::exec_visitor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Execution visitor interface, used by execution."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="joque::print_exec_visitor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classjoque_1_1print__exec__visitor.html",tooltip="Default visitor for execution. Prints information on stdout or stderr."];
+}

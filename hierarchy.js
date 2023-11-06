@@ -3,6 +3,9 @@ var hierarchy =
     [ "joque::dag", "namespacejoque.html#structjoque_1_1dag", null ],
     [ "joque::exec_coro", "classjoque_1_1exec__coro.html", null ],
     [ "joque::exec_record", "namespacejoque.html#structjoque_1_1exec__record", null ],
+    [ "joque::exec_visitor", "classjoque_1_1exec__visitor.html", [
+      [ "joque::print_exec_visitor", "classjoque_1_1print__exec__visitor.html", null ]
+    ] ],
     [ "joque::job_iface", "structjoque_1_1job__iface.html", [
       [ "joque::job< T >", "structjoque_1_1job.html", null ]
     ] ],
