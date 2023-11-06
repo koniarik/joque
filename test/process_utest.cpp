@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <gtest/gtest.h>
+#include <thread>
 
 namespace joque
 {
@@ -29,6 +30,8 @@ TEST_F( joque_fixture, process_no_update )
                 os << "test";
         }
 
+        std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
+
         {
                 std::ofstream os{ f2_name };
         }
@@ -40,8 +43,11 @@ TEST_F( joque_fixture, process_no_update )
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 
         // f2 should no be overwritten by f1 as f2 should be newer than f1
-        exec( ts ).run();
-
+        exec_coro    c   = exec( ts );
+        exec_record* res = c.run();
+        EXPECT_NE( res, nullptr );
+        EXPECT_EQ( res->skipped_count, 1 );
+        EXPECT_EQ( res->failed_count, 0 );
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 }
 
@@ -51,6 +57,8 @@ TEST_F( joque_fixture, update )
         {
                 std::ofstream os{ f2_name };
         }
+
+        std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
 
         {
                 std::ofstream os{ f1_name };
@@ -64,9 +72,34 @@ TEST_F( joque_fixture, update )
         EXPECT_LT( last_write_time( f2_name ), last_write_time( f1_name ) );
 
         // f2 should be overwritten by f1 as f2 should be older than f1
-        exec( ts ).run();
+        exec_coro    c   = exec( ts );
+        exec_record* res = c.run();
+        EXPECT_NE( res, nullptr );
+        EXPECT_EQ( res->skipped_count, 0 );
+        EXPECT_EQ( res->failed_count, 0 );
+
+        std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
 
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
+}
+
+TEST( joque, corner_cases )
+{
+        process p;
+        p.input.push_back( "/tmp/nothing.txt" );
+
+        // if no output is given, is invalidated is always true
+        EXPECT_TRUE( p.output.empty() );
+        EXPECT_FALSE( p.input.empty() );
+        EXPECT_TRUE( job_traits< process >::is_invalidated( p ) );
+
+        p.input.clear();
+        p.output.push_back( "/tmp/nothing.txt" );
+
+        // if no input is given, is invalidated is true if file does not exists
+        EXPECT_FALSE( p.output.empty() );
+        EXPECT_TRUE( p.input.empty() );
+        EXPECT_FALSE( job_traits< process >::is_invalidated( p ) );
 }
 
 }  // namespace joque

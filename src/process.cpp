@@ -1,6 +1,7 @@
 #include "joque/process.hpp"
 
 #include <algorithm>
+#include <bits/ranges_algo.h>
 #include <format>
 #include <iostream>
 #include <reproc++/drain.hpp>
@@ -28,13 +29,23 @@ process process::add_output( std::filesystem::path p ) &&
 
 bool job_traits< process >::is_invalidated( const process& p )
 {
+        if ( p.output.empty() ) {
+                return true;
+        }
+
+        if ( p.input.empty() ) {
+                return std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
+                        return exists( p );
+                } );
+        }
+
         std::input_iterator auto oldest_output_t =
             std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
 
         std::input_iterator auto latest_file_t =
             std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
 
-        return *oldest_output_t <= *latest_file_t;
+        return path_to_write_time( *oldest_output_t ) <= path_to_write_time( *latest_file_t );
 }
 
 run_result job_traits< process >::run( const task*, const process& p )
