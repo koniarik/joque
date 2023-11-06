@@ -656,7 +656,15 @@ Subsets of this set. </td></tr>
 <p>In case any task has defined dependencies on resource, only one task at a time would be executed for each resource.</p>
 <p>During the execution, the input task set shall not be modified and any modification might result in undefined behavior. After the execution, the produced records structure is valid only for as long as the input <a class="el" href="namespacejoque.html#structjoque_1_1task__set" title="A set of tasks that contains either tasks or another sets.">task_set</a> was not modified.</p>
 <p>In case 1...n threads are requested, the tasks are executed inside those worker threads and control thread is not used for execution. In case the thread count is 0, all jobs are executed within the control thread itself.</p>
-<p>/param ts Input task set to process /param thread_count Number of threads to use /param filter String filtering out tasks that either match it, or are dependencies of matched tasks /param vis Visitor called by the execution on various events </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>Input task set to process </td></tr>
+    <tr><td class="paramname">thread_count</td><td>Number of threads to use </td></tr>
+    <tr><td class="paramname">filter</td><td>String filtering out tasks that either match it, or are dependencies of matched tasks </td></tr>
+    <tr><td class="paramname">vis</td><td>Visitor called by the execution on various events </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1057,7 +1065,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Mon Nov 6 2023 09:45:04 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 6 2023 09:54:11 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
