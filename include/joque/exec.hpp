@@ -1,6 +1,8 @@
 #pragma once
 
 #include "joque/exec_coro.hpp"
+#include "joque/exec_visitor.hpp"
+#include "joque/print_exec_visitor.hpp"
 
 #include <thread>
 
@@ -28,11 +30,13 @@ namespace joque
 /// /param thread_count Number of threads to use
 /// /param filter String filtering out tasks that either match it, or are dependencies of matched
 /// tasks
+/// /param vis Visitor called by the execution on various events
 ///
 [[nodiscard]] exec_coro exec(
     const task_set&    ts,
     unsigned           thread_count = std::thread::hardware_concurrency(),
-    const std::string& filter       = "" );
+    const std::string& filter       = "",
+    exec_visitor&      vis          = PRINT_VISITOR );
 
 class dag;
 /// Overload of `exec` which uses dag as an input instead of task set. It's not recommended to use
@@ -40,6 +44,7 @@ class dag;
 [[nodiscard]] exec_coro exec(
     dag                g,
     unsigned           thread_count = std::thread::hardware_concurrency(),
-    const std::string& filter       = "" );
+    const std::string& filter       = "",
+    exec_visitor&      vis          = PRINT_VISITOR );
 
 }  // namespace joque
