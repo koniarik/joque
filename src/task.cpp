@@ -24,7 +24,7 @@ void run_after_all_of( task& t, const task_set& ts )
 {
         for_each_task( ts, [&]( const std::string&, const task& other ) {
                 if ( &t != &other ) {
-                        t.depends_on.push_back( &other );
+                        t.run_after.push_back( &other );
                 }
         } );
 }
