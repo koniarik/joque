@@ -171,10 +171,10 @@ exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec
 {
 
         dag g = generate_dag( ts, filter );
-        return exec( std::move( g ), thread_count, filter, vis );
+        return exec( std::move( g ), thread_count, vis );
 }
 
-exec_coro exec( dag g, unsigned thread_count, const std::string& filter, exec_visitor& vis )
+exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 {
         exec_record       erec;
         std::set< node* > to_process;

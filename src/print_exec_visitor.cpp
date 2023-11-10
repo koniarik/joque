@@ -14,6 +14,8 @@ void print_exec_visitor::on_node_enque( const node& n )
         }
 };
 
+void print_exec_visitor::on_run_start( const node& ){};
+
 void print_exec_visitor::on_run_end( const run_record* rec, const node& n )
 {
         if ( rec == nullptr ) {

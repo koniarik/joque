@@ -42,9 +42,8 @@ class dag;
 /// Overload of `exec` which uses dag as an input instead of task set. It's not recommended to use
 /// it, but it exists in case users want to customize the dag.
 [[nodiscard]] exec_coro exec(
-    dag                g,
-    unsigned           thread_count = std::thread::hardware_concurrency(),
-    const std::string& filter       = "",
-    exec_visitor&      vis          = PRINT_VISITOR );
+    dag           g,
+    unsigned      thread_count = std::thread::hardware_concurrency(),
+    exec_visitor& vis          = PRINT_VISITOR );
 
 }  // namespace joque

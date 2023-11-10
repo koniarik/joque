@@ -10,6 +10,7 @@ class print_exec_visitor : public exec_visitor
 {
 public:
         void on_node_enque( const node& n ) override;
+        void on_run_start( const node& n ) override;
         void on_run_end( const run_record* rec, const node& n ) override;
 };
 
