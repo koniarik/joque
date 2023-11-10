@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">joque </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> C++20 library for ordered pararell execution of tasks.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> C++20 library for ordered parallel execution of tasks.</p>
 <p>Library implements similar behavior to <code>make</code> or <code>ninja</code>. User defines tasks that shall be processed and library takes care of executing those tasks in lazy manner, with respect to dependencies.</p>
 <p>More details on API in <a href="https://koniarik.github.io/joque/index.html">Documentation</a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
@@ -112,7 +112,7 @@ Description</h1>
 <li>Callables, these are always invalidated, library just executes the callable object</li>
 <li><code>process</code>, represents a subprocess that shall be executed, it becames invalidated if some of input files are more recent than output files.</li>
 </ul>
-<p>The set of tasks is given to <code>exec</code> function which builds internal DAG representing the task set and executes the tasks in pararell, respecting dependencies and resource management.</p>
+<p>The set of tasks is given to <code>exec</code> function which builds internal DAG representing the task set and executes the tasks in parallel, respecting dependencies and resource management.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Example</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="task_8hpp.html">joque/task.hpp</a>&quot;</span></div>
@@ -155,7 +155,7 @@ Example</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 10 2023 19:20:57 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 10 2023 20:22:55 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
