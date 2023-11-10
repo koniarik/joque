@@ -1,7 +1,7 @@
 
 # joque
 
-C++20 library for ordered pararell execution of tasks.
+C++20 library for ordered parallel execution of tasks.
 
 Library implements similar behavior to `make` or `ninja`.
 User defines tasks that shall be processed and library takes care of executing those tasks in lazy manner, with respect to dependencies.
@@ -37,7 +37,7 @@ Each `task` also defines what should be done for it's execution and how it becam
  - Callables, these are always invalidated, library just executes the callable object
  - `process`, represents a subprocess that shall be executed, it becames invalidated if some of input files are more recent than output files.
 
-The set of tasks is given to `exec` function which builds internal DAG representing the task set and executes the tasks in pararell, respecting dependencies and resource management.
+The set of tasks is given to `exec` function which builds internal DAG representing the task set and executes the tasks in parallel, respecting dependencies and resource management.
 
 ## Example
 
