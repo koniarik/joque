@@ -166,9 +166,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
 <tr class="memdesc:ae7f069c04754480cd23a827dd9abe713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">More...</a><br /></td></tr>
 <tr class="separator:ae7f069c04754480cd23a827dd9abe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d633f2f5986ec0475e52f65047dfb4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a1d633f2f5986ec0475e52f65047dfb4b">exec</a> (<a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
-<tr class="memdesc:a1d633f2f5986ec0475e52f65047dfb4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a1d633f2f5986ec0475e52f65047dfb4b">More...</a><br /></td></tr>
-<tr class="separator:a1d633f2f5986ec0475e52f65047dfb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">exec</a> (<a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
+<tr class="memdesc:a9eb9fb3fe4cfe732504452deb2928e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">More...</a><br /></td></tr>
+<tr class="separator:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4241c12a8cd87ae62818371490932431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4241c12a8cd87ae62818371490932431">format_nested</a> (std::ostream &amp;os, std::string_view indent, std::string_view msg)</td></tr>
 <tr class="memdesc:a4241c12a8cd87ae62818371490932431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assumes that <code>msg</code> is multiline message, streams each line into <code>os</code>, and prefixes each line with <code>indent</code> string.  <a href="namespacejoque.html#a4241c12a8cd87ae62818371490932431">More...</a><br /></td></tr>
 <tr class="separator:a4241c12a8cd87ae62818371490932431"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -668,8 +668,8 @@ Subsets of this set. </td></tr>
 
 </div>
 </div>
-<a id="a1d633f2f5986ec0475e52f65047dfb4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d633f2f5986ec0475e52f65047dfb4b">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/2]</span></h2>
+<a id="a9eb9fb3fe4cfe732504452deb2928e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb9fb3fe4cfe732504452deb2928e68">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,12 +685,6 @@ Subsets of this set. </td></tr>
           <td></td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>thread_count</em> = <code>std::thread::hardware_concurrency()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1065,7 +1059,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Mon Nov 6 2023 17:05:29 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 10 2023 19:05:29 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
