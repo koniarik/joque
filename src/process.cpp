@@ -4,6 +4,7 @@
 #include <bits/ranges_algo.h>
 #include <format>
 #include <iostream>
+#include <regex>
 #include <reproc++/drain.hpp>
 #include <reproc++/reproc.hpp>
 
@@ -86,7 +87,7 @@ run_result job_traits< process >::run( const task*, const process& p )
         if ( res.retcode != 0 ) {
                 std::string newout = "cmd: ";
                 for ( const std::string& arg : p.cmd ) {
-                        newout += arg + " ";
+                        newout += std::regex_replace( arg, std::regex{ " " }, "\\ " ) + " ";
                 }
                 newout += "\n" + res.std_out;
                 res.std_out = newout;
