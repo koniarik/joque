@@ -17,6 +17,7 @@ var task_8hpp =
     [ "requires", "task_8hpp.html#af9daf6e2b940c98e701e9a28c5593433", null ],
     [ "for_each_add_dep", "task_8hpp.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7", null ],
     [ "add_dep_to_each", "task_8hpp.html#a5d9b1c8c103f5be314c4907ecf6eac68", null ],
+    [ "run_each_after", "task_8hpp.html#ad04db56a535a0af2e3801a6524c00714", null ],
     [ "run_after_all_of", "task_8hpp.html#a9255c56d839b5272715fe46da331a6a0", null ],
     [ "for_each_task_impl", "task_8hpp.html#af5ca33039b5b2b2459052d8090ffc937", null ],
     [ "f", "task_8hpp.html#ac391d87f5d214cafcaf8879dfec116bc", null ]

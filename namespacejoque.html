@@ -191,6 +191,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">add_dep_to_each</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
 <tr class="memdesc:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on each task in <code>ts</code> to task <code>t</code>, except for <code>t</code> itself.  <a href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">More...</a><br /></td></tr>
 <tr class="separator:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04db56a535a0af2e3801a6524c00714"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ad04db56a535a0af2e3801a6524c00714">run_each_after</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t)</td></tr>
+<tr class="memdesc:ad04db56a535a0af2e3801a6524c00714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that all tasks in <code>ts</code> are run after <code>t</code>.  <a href="namespacejoque.html#ad04db56a535a0af2e3801a6524c00714">More...</a><br /></td></tr>
+<tr class="separator:ad04db56a535a0af2e3801a6524c00714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9255c56d839b5272715fe46da331a6a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">run_after_all_of</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
 <tr class="memdesc:a9255c56d839b5272715fe46da331a6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that task <code>t</code> is run after all tasks in set <code>ts</code>.  <a href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">More...</a><br /></td></tr>
 <tr class="separator:a9255c56d839b5272715fe46da331a6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -942,6 +945,36 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
+<a id="ad04db56a535a0af2e3801a6524c00714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04db56a535a0af2e3801a6524c00714">&#9670;&nbsp;</a></span>run_each_after()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::run_each_after </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recursively adds run after relationship so that all tasks in <code>ts</code> are run after <code>t</code>. </p>
+
+</div>
+</div>
 <a id="a9255c56d839b5272715fe46da331a6a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9255c56d839b5272715fe46da331a6a0">&#9670;&nbsp;</a></span>run_after_all_of()</h2>
 
@@ -1049,7 +1082,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">        <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( ts, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, <span class="stringliteral">&quot;/&quot;</span> )</div>
 <div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:54</div></div>
-<div class="ttc" id="anamespacejoque_html_af5ca33039b5b2b2459052d8090ffc937"><div class="ttname"><a href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">joque::for_each_task_impl</a></div><div class="ttdeci">void for_each_task_impl(T &amp;ts, Fun &amp;&amp;f, const std::string &amp;prefix)</div><div class="ttdef"><b>Definition:</b> task.hpp:66</div></div>
+<div class="ttc" id="anamespacejoque_html_af5ca33039b5b2b2459052d8090ffc937"><div class="ttname"><a href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">joque::for_each_task_impl</a></div><div class="ttdeci">void for_each_task_impl(T &amp;ts, Fun &amp;&amp;f, const std::string &amp;prefix)</div><div class="ttdef"><b>Definition:</b> task.hpp:69</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1059,7 +1092,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Nov 12 2023 09:14:56 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Nov 28 2023 20:48:43 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -119,13 +119,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d2a4465482b2535f331176f8a6922f9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8d2a4465482b2535f331176f8a6922f9"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9">job_ptr</a> (T &amp;&amp;item)</td></tr>
 <tr class="separator:a8d2a4465482b2535f331176f8a6922f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6660f07338caf7846a0ab4a401c5251a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a">job_ptr</a> (const <a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;)=delete</td></tr>
+<tr class="separator:a6660f07338caf7846a0ab4a401c5251a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205bc603714efbb2d659c125bdc1cea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__ptr.html#a205bc603714efbb2d659c125bdc1cea0">operator=</a> (const <a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;)=delete</td></tr>
+<tr class="separator:a205bc603714efbb2d659c125bdc1cea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9edf9f1319d5a6852654027202d05391"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__ptr.html#a9edf9f1319d5a6852654027202d05391">job_ptr</a> (<a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a9edf9f1319d5a6852654027202d05391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1e86adfac78e692c4684207faf8e2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__ptr.html#a4a1e86adfac78e692c4684207faf8e2b">operator=</a> (<a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a4a1e86adfac78e692c4684207faf8e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Custom unique_ptr wrapper that simplifies syntax of tasks. </p>
 <p>Allows writing <code>.job = &lt;expr?&gt;</code> in instantiation of new task as long as expr representings something convertible to valid <code>job&lt;T&gt;</code>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9db05b0f4f76eca2c19963d063e25a4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9db05b0f4f76eca2c19963d063e25a4c">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db05b0f4f76eca2c19963d063e25a4c">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +158,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a8d2a4465482b2535f331176f8a6922f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2a4465482b2535f331176f8a6922f9">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d2a4465482b2535f331176f8a6922f9">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,6 +185,111 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a6660f07338caf7846a0ab4a401c5251a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6660f07338caf7846a0ab4a401c5251a">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">joque::job_ptr::job_ptr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9edf9f1319d5a6852654027202d05391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9edf9f1319d5a6852654027202d05391">&#9670;&nbsp;</a></span>job_ptr() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">joque::job_ptr::job_ptr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a205bc603714efbb2d659c125bdc1cea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205bc603714efbb2d659c125bdc1cea0">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; joque::job_ptr::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a1e86adfac78e692c4684207faf8e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1e86adfac78e692c4684207faf8e2b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a>&amp; joque::job_ptr::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/joque/<a class="el" href="job_8hpp_source.html">job.hpp</a></li>
 </ul>
@@ -186,7 +299,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="structjoque_1_1job__ptr.html">job_ptr</a></li>
-    <li class="footer">Generated on Sun Nov 12 2023 09:14:56 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Nov 28 2023 20:48:43 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
