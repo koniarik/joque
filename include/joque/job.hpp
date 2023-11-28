@@ -54,6 +54,12 @@ struct job_ptr : std::unique_ptr< job_iface >
                 new job< std::decay_t< T > >{ std::forward< T >( item ) } )
         {
         }
+
+        job_ptr( const job_ptr& )            = delete;
+        job_ptr& operator=( const job_ptr& ) = delete;
+
+        job_ptr( job_ptr&& ) noexcept            = default;
+        job_ptr& operator=( job_ptr&& ) noexcept = default;
 };
 
 }  // namespace joque
