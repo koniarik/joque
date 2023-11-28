@@ -20,6 +20,15 @@ void add_dep_to_each( task& t, const task_set& ts )
         } );
 }
 
+void run_each_after( task_set& ts, const task& t )
+{
+        for_each_task( ts, [&]( const std::string&, task& other ) {
+                if ( &other != &t ) {
+                        other.run_after.push_back( &t );
+                }
+        } );
+}
+
 void run_after_all_of( task& t, const task_set& ts )
 {
         for_each_task( ts, [&]( const std::string&, const task& other ) {
@@ -28,4 +37,5 @@ void run_after_all_of( task& t, const task_set& ts )
                 }
         } );
 }
+
 }  // namespace joque

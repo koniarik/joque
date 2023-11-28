@@ -59,6 +59,9 @@ void for_each_add_dep( task_set& ts, const task& dep );
 /// Recursively adds dependency on each task in `ts` to task `t`, except for `t` itself.
 void add_dep_to_each( task& t, const task_set& ts );
 
+/// Recursively adds run after relationship so that all tasks in `ts` are run after `t`.
+void run_each_after( task_set& ts, const task& t );
+
 /// Recursively adds run after relationship so that task `t` is run after all tasks in set `ts`.
 void run_after_all_of( task& t, const task_set& ts );
 
