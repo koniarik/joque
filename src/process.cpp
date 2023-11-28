@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <bits/ranges_algo.h>
+#include <filesystem>
 #include <format>
 #include <iostream>
 #include <regex>
@@ -40,13 +41,20 @@ bool job_traits< process >::is_invalidated( const process& p )
                 } );
         }
 
-        std::input_iterator auto oldest_output_t =
+        std::input_iterator auto oldest_output_iter =
             std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
 
-        std::input_iterator auto latest_file_t =
+        if ( !exists( *oldest_output_iter ) ) {
+                return true;
+        }
+
+        std::input_iterator auto latest_input_iter =
             std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
 
-        return path_to_write_time( *oldest_output_t ) <= path_to_write_time( *latest_file_t );
+        auto oldest_output_t = path_to_write_time( *oldest_output_iter );
+
+        auto latest_input_t = path_to_write_time( *latest_input_iter );
+        return oldest_output_t <= latest_input_t;
 }
 
 run_result job_traits< process >::run( const task*, const process& p )
