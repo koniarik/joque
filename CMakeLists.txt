@@ -31,8 +31,15 @@ add_library(
   src/task.cpp)
 target_link_libraries(joque PUBLIC reproc++)
 target_include_directories(joque PUBLIC include)
-target_compile_options(joque PRIVATE -Wall -Wextra -Wpedantic
-                                     -Wnon-virtual-dtor -Wunused -Wconversion -Wno-missing-field-initializers)
+target_compile_options(
+  joque
+  PRIVATE -Wall
+          -Wextra
+          -Wpedantic
+          -Wnon-virtual-dtor
+          -Wunused
+          -Wconversion
+          -Wno-missing-field-initializers)
 
 include(CTest)
 if(BUILD_TESTING)

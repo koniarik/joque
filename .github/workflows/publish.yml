@@ -10,7 +10,7 @@ permissions:
 
 jobs:
     deploy:
-        runs-on: ubuntu-22.04	
+        runs-on: ubuntu-22.04
         steps:
             - uses: DenverCoder1/doxygen-github-pages-action@v1
               with:

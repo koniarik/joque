@@ -23,7 +23,7 @@ BreakBeforeBinaryOperators: false
 BreakBeforeBraces: Custom
 BreakStringLiterals: false
 # Control of individual brace wrapping cases
-BraceWrapping: {
+BraceWrapping:
     AfterClass: 'true'
     AfterControlStatement: 'false'
     AfterEnum : 'true'
@@ -34,7 +34,6 @@ BraceWrapping: {
     BeforeCatch : 'true'
     BeforeElse : 'false'
     IndentBraces : 'false'
-}
 MaxEmptyLinesToKeep: 2
 BreakBeforeTernaryOperators: false
 BreakConstructorInitializersBeforeComma: true
@@ -50,7 +49,6 @@ IndentFunctionDeclarationAfterType: false
 IndentWidth:     8
 KeepEmptyLinesAtTheStartOfBlocks: true
 Language: Cpp
-MaxEmptyLinesToKeep: 1
 NamespaceIndentation: Inner
 ObjCSpaceBeforeProtocolList: true
 PenaltyBreakBeforeFirstCallParameter: 19

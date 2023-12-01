@@ -25,7 +25,7 @@ FetchContent_MakeAvailable(joque)
 
 Library gives users ability to define a set of tasks. The set is represented by a tree - each set may contain tasks or another subsets.
 
-Each task or set has a name, and these are composed into a full path string. 
+Each task or set has a name, and these are composed into a full path string.
 For set M, which contains task A, full name of the task is `//M/A`.
 
 `task` has attributes that defines it's dependencies, run after relationships, and resources that it needs. The rules are as follows:
