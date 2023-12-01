@@ -19,7 +19,7 @@ public:
 
         /// Executed after execution of node.
         /// \param rec If run produces a run record, it is passed, nullptr on errors
-        virtual void on_run_end( const run_record* rec, const node& ){};
+        virtual void on_run_end( const run_record* /*rec*/, const node& ){};
 
         virtual ~exec_visitor() = default;
 };
