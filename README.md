@@ -43,30 +43,50 @@ The set of tasks is given to `exec` function which builds internal DAG represent
 
 ```cpp
 
-#include "joque/task.hpp"
 #include "joque/exec.hpp"
+#include "joque/task.hpp"
 
 joque::task_set ts;
 
+std::filesystem::path input_filename{ "in.txt" };
+std::filesystem::path output_filename{ "out.txt" };
+
 // create task with process
-ts.tasks["B"] = joque::task{
-    .job = joque::process{
-        .cmd = {"my_script.sh", "--in", "in.txt", "--out", "out.txt"},
-        .input = {"in.txt"},
-        .output = {"out.txt"},
-    },
-    .hidden = true,
+ts.tasks["A"] = joque::task{
+    .job =
+        joque::process{
+            .cmd =
+                { "my_script.sh",
+                  "--in",
+                  input_filename.string(),
+                  "--out",
+                  output_filename.string() },
+            .input  = { input_filename },
+            .output = { output_filename },
+        },
+    .hidden = true,  // won't be visible in output
 };
 
-// create task with lambda
+// use smart deduction for process task
+ts.tasks["B"] = joque::task{
+    .job = joque::process::derive(
+        "my_script.sh",
+        "--in",
+        input_filename,
+        "--out",
+        joque::out( output_filename ) ),
+    .depends_on = { ts["A"] },
+};
+
+// create task with lambda function
 ts.tasks["A"] = joque::task{
-    .job = [](const joque::task*){
-        std::cout << "A is running" << std::endl;
-    },
-    .depends_on = {&ts["B"]},
+    .job =
+        []( const joque::task& ) {
+                std::cout << "A is running" << std::endl;
+        },
+    .depends_on = { ts["B"] },
 };
 
 // execute the tasks with one worker thread
-joque::exec(ts, 1);
-
+joque::exec( ts, 1 );
 ```
