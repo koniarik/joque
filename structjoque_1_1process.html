@@ -111,6 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c83d2a9e375177e756f8b9db98cf367"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1process.html">process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367">add_output</a> (std::filesystem::path p) &amp;&amp;</td></tr>
 <tr class="memdesc:a3c83d2a9e375177e756f8b9db98cf367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an output path to the output files. API is designed for tail chaining.  <a href="structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367">More...</a><br /></td></tr>
 <tr class="separator:a3c83d2a9e375177e756f8b9db98cf367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49d12c0e5829d74062597d4df8f7c74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1process.html">process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1process.html#aa49d12c0e5829d74062597d4df8f7c74">add_input</a> (std::filesystem::path p) &amp;&amp;</td></tr>
+<tr class="separator:aa49d12c0e5829d74062597d4df8f7c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56481b81e4c36e5af6958843ec20f1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1process.html">process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1process.html#a56481b81e4c36e5af6958843ec20f1ee">set_retcode_file</a> (std::filesystem::path p) &amp;&amp;</td></tr>
+<tr class="separator:a56481b81e4c36e5af6958843ec20f1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -130,6 +134,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa2cabcdaf69f47bc01e599557d09303c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::filesystem::path &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c">output</a></td></tr>
 <tr class="memdesc:aa2cabcdaf69f47bc01e599557d09303c"><td class="mdescLeft">&#160;</td><td class="mdescRight">output files that shall be monitored for timestamps  <a href="structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c">More...</a><br /></td></tr>
 <tr class="separator:aa2cabcdaf69f47bc01e599557d09303c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad88738d6d451cb0477982f7acae94e13"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::filesystem::path &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1process.html#ad88738d6d451cb0477982f7acae94e13">retcode_file</a></td></tr>
+<tr class="separator:ad88738d6d451cb0477982f7acae94e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Job-friendly structure for definition of subprocess to be executed. </p>
@@ -190,6 +196,42 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="aa49d12c0e5829d74062597d4df8f7c74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49d12c0e5829d74062597d4df8f7c74">&#9670;&nbsp;</a></span>add_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjoque_1_1process.html">process</a> joque::process::add_input </td>
+          <td>(</td>
+          <td class="paramtype">std::filesystem::path&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> &amp;&amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56481b81e4c36e5af6958843ec20f1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56481b81e4c36e5af6958843ec20f1ee">&#9670;&nbsp;</a></span>set_retcode_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjoque_1_1process.html">process</a> joque::process::set_retcode_file </td>
+          <td>(</td>
+          <td class="paramtype">std::filesystem::path&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> &amp;&amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ad538f99ccdc343137d1855c3bd88ff7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad538f99ccdc343137d1855c3bd88ff7f">&#9670;&nbsp;</a></span>cmd</h2>
@@ -239,6 +281,20 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="ad88738d6d451cb0477982f7acae94e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88738d6d451cb0477982f7acae94e13">&#9670;&nbsp;</a></span>retcode_file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::filesystem::path &gt; joque::process::retcode_file</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/joque/<a class="el" href="process_8hpp_source.html">process.hpp</a></li>
 </ul>
@@ -248,7 +304,7 @@ template&lt;typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="structjoque_1_1process.html">process</a></li>
-    <li class="footer">Generated on Sat Dec 2 2023 10:21:36 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 2 2023 21:32:11 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
