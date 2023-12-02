@@ -120,9 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae839e70ad11492f4d50d08c1c1d3572b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b">is_invalidated</a> () override</td></tr>
 <tr class="memdesc:ae839e70ad11492f4d50d08c1c1d3572b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true in case the job is invalidated.  <a href="structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b">More...</a><br /></td></tr>
 <tr class="separator:ae839e70ad11492f4d50d08c1c1d3572b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0abc8bad1af43a3db6ccbfdc89725b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1run__result.html">run_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job.html#ab0abc8bad1af43a3db6ccbfdc89725b0">run</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *t) override</td></tr>
-<tr class="memdesc:ab0abc8bad1af43a3db6ccbfdc89725b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes one run of the task, returns <code><a class="el" href="structjoque_1_1run__result.html" title="Result of single traits run call. Information is stored in run record.">run_result</a></code> with properly filled information.  <a href="structjoque_1_1job.html#ab0abc8bad1af43a3db6ccbfdc89725b0">More...</a><br /></td></tr>
-<tr class="separator:ab0abc8bad1af43a3db6ccbfdc89725b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0818587de2fb8984fbb6576f4b1b73c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjoque_1_1run__result.html">run_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job.html#a0818587de2fb8984fbb6576f4b1b73c2">run</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t) override</td></tr>
+<tr class="memdesc:a0818587de2fb8984fbb6576f4b1b73c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes one run of the task, returns <code><a class="el" href="structjoque_1_1run__result.html" title="Result of single traits run call. Information is stored in run record.">run_result</a></code> with properly filled information.  <a href="structjoque_1_1job.html#a0818587de2fb8984fbb6576f4b1b73c2">More...</a><br /></td></tr>
+<tr class="separator:a0818587de2fb8984fbb6576f4b1b73c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structjoque_1_1job__iface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structjoque_1_1job__iface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structjoque_1_1job__iface.html">joque::job_iface</a></td></tr>
 <tr class="memitem:a8e39b54624baa8febd660bae6b402b4a inherit pub_methods_structjoque_1_1job__iface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1job__iface.html#a8e39b54624baa8febd660bae6b402b4a">~job_iface</a> ()=default</td></tr>
 <tr class="separator:a8e39b54624baa8febd660bae6b402b4a inherit pub_methods_structjoque_1_1job__iface"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,8 +201,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab0abc8bad1af43a3db6ccbfdc89725b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0abc8bad1af43a3db6ccbfdc89725b0">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a0818587de2fb8984fbb6576f4b1b73c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0818587de2fb8984fbb6576f4b1b73c2">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +215,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structjoque_1_1run__result.html">run_result</a> <a class="el" href="structjoque_1_1job.html">joque::job</a>&lt; T &gt;::run </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -229,9 +229,9 @@ template&lt;typename T &gt; </div>
 
 <p>Executes one run of the task, returns <code><a class="el" href="structjoque_1_1run__result.html" title="Result of single traits run call. Information is stored in run record.">run_result</a></code> with properly filled information. </p>
 
-<p>Implements <a class="el" href="structjoque_1_1job__iface.html#ad8e681c455405db108697cfc80ad034b">joque::job_iface</a>.</p>
+<p>Implements <a class="el" href="structjoque_1_1job__iface.html#a80626abf161dda7741295fef40c814d4">joque::job_iface</a>.</p>
 
-<p class="reference">References <a class="el" href="structjoque_1_1job__traits.html#abc63db022f69cc904cb032bf23a28ca5">joque::job_traits&lt; T &gt;::run()</a>, and <a class="el" href="structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081">joque::job&lt; T &gt;::thing</a>.</p>
+<p class="reference">References <a class="el" href="structjoque_1_1job__traits.html#ac7117af1fd8928af1aa2ce7c956c5a64">joque::job_traits&lt; T &gt;::run()</a>, and <a class="el" href="structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081">joque::job&lt; T &gt;::thing</a>.</p>
 
 </div>
 </div>
@@ -261,7 +261,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="structjoque_1_1job.html">job</a></li>
-    <li class="footer">Generated on Fri Dec 1 2023 22:30:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 2 2023 10:01:18 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

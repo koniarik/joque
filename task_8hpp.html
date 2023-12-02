@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('task_8hpp.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="job_8hpp_source.html">joque/job.hpp</a>&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for task.hpp:</div>
@@ -212,21 +213,21 @@ job</td>
 <td class="fielddoc">
 Job being executed for the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="ad0086481cc7f9c86652a90409f3b0762"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
+<a id="a08d9fbd8926291bb8c3408cd00cb05a3"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt; &gt;</td>
 <td class="fieldname">
 depends_on</td>
 <td class="fielddoc">
 Dependencies of the task - all of these should be executed before this task. <p>In case any of these is invalidated, this task is also invalidated. </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="abc65d582974120ed7aca0b76ab6b7ca8"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> * &gt;</td>
+<a id="a363b8dd30145e824a7c28af8ac7d0e1c"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt; &gt;</td>
 <td class="fieldname">
 run_after</td>
 <td class="fielddoc">
 Tasks that should be executed before this task. <p>(<code>depends_on</code> task are implicitly included) </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a0752ded43e24b9acd78211cdaab38734"></a>vector&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> * &gt;</td>
+<a id="a60f97d3b9b32ce86d25e3cc373ee1425"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> &gt; &gt;</td>
 <td class="fieldname">
 resources</td>
 <td class="fielddoc">
@@ -287,7 +288,7 @@ Subsets of this set. </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="task_8hpp.html">task.hpp</a></li>
-    <li class="footer">Generated on Fri Dec 1 2023 22:30:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 2 2023 10:01:18 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['depends_5fon_167',['depends_on',['../namespacejoque.html#a96aab731ca543fb149ecb2d4ac9fe987',1,'joque::node::depends_on()'],['../namespacejoque.html#ad0086481cc7f9c86652a90409f3b0762',1,'joque::task::depends_on()']]],
+  ['depends_5fon_167',['depends_on',['../namespacejoque.html#a614a8d975d19d0f7ddaec410917d259d',1,'joque::node::depends_on()'],['../namespacejoque.html#a08d9fbd8926291bb8c3408cd00cb05a3',1,'joque::task::depends_on()']]],
   ['done_168',['done',['../namespacejoque.html#a275209f41269738e74292791faf87d5b',1,'joque::node']]]
 ];
