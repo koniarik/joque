@@ -4,6 +4,7 @@
 #include "joque/traits.hpp"
 
 #include <filesystem>
+#include <optional>
 
 namespace joque
 {
@@ -23,6 +24,8 @@ struct process
         /// output files that shall be monitored for timestamps
         std::vector< std::filesystem::path > output;
 
+        std::optional< std::filesystem::path > retcode_file;  // TODO: write tests for this
+
         /// Takes input command for process as any arguments and builds process instance out of
         /// those.
         ///
@@ -36,6 +39,10 @@ struct process
 
         /// Adds an output path to the output files. API is designed for tail chaining.
         process add_output( std::filesystem::path p ) &&;
+
+        process add_input( std::filesystem::path p ) &&;
+
+        process set_retcode_file( std::filesystem::path p ) &&;
 };
 
 /// Traits overload so that process can be used in combination with the library.

@@ -4,6 +4,7 @@
 #include <bits/ranges_algo.h>
 #include <filesystem>
 #include <format>
+#include <fstream>
 #include <iostream>
 #include <regex>
 #include <reproc++/drain.hpp>
@@ -28,9 +29,31 @@ process process::add_output( std::filesystem::path p ) &&
         output.push_back( std::move( p ) );
         return *this;
 }
+process process::add_input( std::filesystem::path p ) &&
+{
+        input.push_back( ( std::move( p ) ) );
+        return *this;
+}
+process process::set_retcode_file( std::filesystem::path p ) &&
+{
+        retcode_file = std::move( p );
+        return *this;
+}
 
 bool job_traits< process >::is_invalidated( const process& p )
 {
+        if ( p.retcode_file ) {
+                if ( !std::filesystem::exists( *p.retcode_file ) ) {
+                        return true;
+                }
+                int           last_retcode = 0;
+                std::ifstream retfile( *p.retcode_file );
+                retfile >> last_retcode;
+                if ( last_retcode != 0 ) {
+                        return true;
+                }
+        }
+
         if ( p.output.empty() ) {
                 return true;
         }
@@ -99,6 +122,12 @@ run_result job_traits< process >::run( const task&, const process& p )
                 }
                 newout += "\n" + res.std_out;
                 res.std_out = newout;
+        }
+
+        if ( p.retcode_file.has_value() ) {
+                std::filesystem::remove( *p.retcode_file );
+                std::ofstream retof{ *p.retcode_file };
+                retof << res.retcode;
         }
 
         return res;
