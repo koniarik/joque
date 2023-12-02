@@ -9,7 +9,7 @@ namespace joque
 
 void print_exec_visitor::on_node_enque( const node& n )
 {
-        if ( n.t->job == nullptr ) {
+        if ( n.t.get().job == nullptr ) {
                 std::cerr << "Task " << n.name << " has no job" << std::endl;
         }
 };
@@ -22,7 +22,7 @@ void print_exec_visitor::on_run_end( const run_record* rec, const node& n )
                 std::cerr << "Failed to get result from coro for task: " << n.name << std::endl;
                 return;
         }
-        if ( !rec->t->hidden ) {
+        if ( !rec->t.get().hidden ) {
                 format_record( std::cout, *rec );
                 std::cout.flush();
         }

@@ -50,7 +50,7 @@ struct job_traits< process >
 
         /// Executes the process, captures output of both stdout and stderr. Returns failure in case
         /// return code of subprocess is not 0.
-        [[nodiscard]] static run_result run( const task*, const process& p );
+        [[nodiscard]] static run_result run( const task&, const process& p );
 };
 
 template < typename... Args >

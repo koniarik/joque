@@ -28,22 +28,22 @@ namespace
 
         bool all_done( const auto& nodes )
         {
-                return std::ranges::all_of( nodes, [&]( node* ch ) -> bool {
-                        return ch->done;
+                return std::ranges::all_of( nodes, [&]( node& ch ) -> bool {
+                        return ch.done;
                 } );
         }
 
         bool any_failed( const auto& nodes )
         {
-                return std::ranges::any_of( nodes, [&]( node* ch ) -> bool {
-                        return ch->failed;
+                return std::ranges::any_of( nodes, [&]( node& ch ) -> bool {
+                        return ch.failed;
                 } );
         }
 
         bool any_resource_used( const auto& resources, const auto& usage_set )
         {
-                return std::ranges::any_of( resources, [&]( const resource* p ) {
-                        return usage_set.contains( p );
+                return std::ranges::any_of( resources, [&]( const resource& p ) {
+                        return usage_set.contains( &p );
                 } );
         }
 
@@ -58,15 +58,15 @@ namespace
 
                 seen.insert( &n );
 
-                for ( node* ch : n.run_after ) {
-                        node* res = find_candidate( *ch, seen, used_res );
+                for ( node& ch : n.run_after ) {
+                        node* res = find_candidate( ch, seen, used_res );
                         if ( res != nullptr ) {
                                 return res;
                         }
                 }
 
                 if ( !all_done( n.run_after ) || any_failed( n.depends_on ) ||
-                     any_resource_used( n.t->resources, used_res ) ) {
+                     any_resource_used( n.t.get().resources, used_res ) ) {
                         return nullptr;
                 }
                 return &n;
@@ -90,11 +90,11 @@ namespace
         bool is_invalidated( node& n )
         {
                 const bool dep_invalidated =
-                    std::ranges::any_of( n.depends_on, [&]( node* ch ) -> bool {
-                            return ch->started;
+                    std::ranges::any_of( n.depends_on, [&]( node& ch ) -> bool {
+                            return ch.started;
                     } );
 
-                return dep_invalidated || n.t->job->is_invalidated();
+                return dep_invalidated || n.t.get().job->is_invalidated();
         }
 
         run_coro run( node& n, std::set< const resource* >& used_resources, unsigned thread_count )
@@ -108,8 +108,8 @@ namespace
                 }
 
                 n.started = true;
-                for ( const resource* r : n.t->resources ) {
-                        used_resources.insert( r );
+                for ( const resource& r : n.t.get().resources ) {
+                        used_resources.insert( &r );
                 }
 
                 std::future< run_result > fut = std::async(
@@ -117,7 +117,7 @@ namespace
                     []( node& n ) -> run_result {
                             run_result res;
                             try {
-                                    res = n.t->job->run( n.t );
+                                    res = n.t.get().job->run( n.t );
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
@@ -137,8 +137,8 @@ namespace
                 }
                 std::tie( result.retcode, result.std_out, result.std_err ) = fut.get();
 
-                for ( const resource* r : n.t->resources ) {
-                        used_resources.erase( r );
+                for ( const resource& r : n.t.get().resources ) {
+                        used_resources.erase( &r );
                 }
                 if ( result.retcode != 0 ) {
                         n.failed = true;

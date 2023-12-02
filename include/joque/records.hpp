@@ -3,6 +3,7 @@
 #include "joque/task.hpp"
 
 #include <chrono>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -16,7 +17,7 @@ using tp = std::chrono::time_point< std::chrono::system_clock >;
 struct run_record
 {
         /// Executed task
-        const task* t;
+        std::reference_wrapper< const task > t;
 
         /// Full name of the task
         std::string name;

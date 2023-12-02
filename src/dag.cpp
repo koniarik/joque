@@ -15,21 +15,22 @@ namespace
                         return;
                 }
                 seen.insert( &n );
-                for ( node* child : n.depends_on ) {
-                        dfs( *child, seen );
+                for ( node& child : n.depends_on ) {
+                        dfs( child, seen );
                 }
         }
 
         void link_dependencies( dag& g )
         {
                 for ( node& n : g.nodes ) {
-                        for ( const task* d : n.t->depends_on ) {
+                        for ( const task& d : n.t.get().depends_on ) {
                                 auto iter = std::ranges::find_if( g.nodes, [&]( const node& ch ) {
-                                        return ch.t == d;
+                                        // TODO: is pointer compare really wanted?
+                                        return &ch.t.get() == &d;
                                 } );
                                 if ( iter != g.nodes.end() ) {
-                                        n.depends_on.push_back( &*iter );
-                                        n.run_after.push_back( &*iter );
+                                        n.depends_on.emplace_back( *iter );
+                                        n.run_after.emplace_back( *iter );
                                 }
                         }
                 }
@@ -51,12 +52,12 @@ namespace
         void link_afters( dag& g )
         {
                 for ( node& n : g.nodes ) {
-                        for ( const task* a : n.t->run_after ) {
+                        for ( const task& a : n.t.get().run_after ) {
                                 auto iter = std::ranges::find_if( g.nodes, [&]( const node& ch ) {
-                                        return ch.t == a;
+                                        return &ch.t.get() == &a;
                                 } );
                                 if ( iter != g.nodes.end() ) {
-                                        n.run_after.push_back( &*iter );
+                                        n.run_after.emplace_back( *iter );
                                 }
                         }
                 }
@@ -67,7 +68,7 @@ dag generate_dag( const task_set& ts, const std::string& filter )
 {
         dag g;
         for_each_task( ts, [&]( const std::string& name, const task& t ) {
-                g.nodes.push_back( node{ .name = name, .t = &t } );
+                g.nodes.push_back( node{ .name = name, .t = t } );
         } );
 
         link_dependencies( g );

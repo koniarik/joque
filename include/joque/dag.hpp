@@ -2,6 +2,7 @@
 
 #include "joque/task.hpp"
 
+#include <functional>
 #include <list>
 
 namespace joque
@@ -12,12 +13,12 @@ struct node
 {
         /// Full path-name of the task
         std::string name;
-        /// Pointer to the task
-        const task* t;
+        /// Reference to the task
+        std::reference_wrapper< const task > t;
         /// Nodes representing tasks that `t` depends on
-        std::vector< node* > depends_on{};
+        std::vector< std::reference_wrapper< node > > depends_on{};
         /// Nodes representing tasks that should be run before `t`
-        std::vector< node* > run_after{};
+        std::vector< std::reference_wrapper< node > > run_after{};
 
         /// Sets to `true` once the task is scheduled for execution
         bool started = false;

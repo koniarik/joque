@@ -16,15 +16,15 @@ TEST( joque, compile_test )
         task& t1 =
             ( ts.tasks["my_test"] = task{
                   .job       = process::derive( "ls", "./", out( "/tmp/out.txt" ) ),
-                  .resources = { &my_dev },
+                  .resources = { my_dev },
               } );
 
         ts.tasks["my_test2"] = task{
-            .job = []( const task* ) -> run_result {
+            .job = []( const task& ) -> run_result {
                     return { 0 };
             },
-            .depends_on = { &t1 },
-            .resources  = { &my_dev },
+            .depends_on = { t1 },
+            .resources  = { my_dev },
         };
 }
 
@@ -39,7 +39,7 @@ TEST( joque, basic )
         task_set ts{};
         for ( int i : sequence ) {
                 ts.tasks["my_test_" + std::to_string( i )] = task{
-                    .job = [&, i = i]( const task* ) -> run_result {
+                    .job = [&, i = i]( const task& ) -> run_result {
                             std::lock_guard _{ w_m };
                             result.push_back( i );
                             return { 0 };
@@ -62,12 +62,12 @@ TEST( joque, dep )
         std::mutex              m;
         std::set< const task* > finished;
 
-        auto f = [&]( const task* t ) -> run_result {
+        auto f = [&]( const task& t ) -> run_result {
                 std::lock_guard _{ m };
-                for ( const task* dep : t->depends_on ) {
-                        EXPECT_TRUE( finished.contains( dep ) );
+                for ( const task& dep : t.depends_on ) {
+                        EXPECT_TRUE( finished.contains( &dep ) );
                 }
-                finished.insert( t );
+                finished.insert( &t );
                 return { 0 };
         };
 
@@ -78,12 +78,12 @@ TEST( joque, dep )
         for ( std::size_t i : std::views::iota( 0u, 10u ) ) {
                 ts.tasks["my_test_" + std::to_string( i ) + "_a"] = task{
                     .job        = f,
-                    .depends_on = { last },
+                    .depends_on = { *last },
                 };
                 last =
                     &( ts.tasks["my_test_" + std::to_string( i ) + "_b"] = task{
                            .job        = f,
-                           .depends_on = { last },
+                           .depends_on = { *last },
                        } );
         }
 

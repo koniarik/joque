@@ -2,6 +2,7 @@
 
 #include "joque/job.hpp"
 
+#include <functional>
 #include <map>
 
 namespace joque
@@ -22,13 +23,13 @@ struct task
 
         /// Dependencies of the task - all of these should be executed before this task. In case any
         /// of these is invalidated, this task is also invalidated.
-        std::vector< const task* > depends_on = {};
+        std::vector< std::reference_wrapper< const task > > depends_on = {};
         /// Tasks that should be executed before this task. (`depends_on` task are implicitly
         /// included)
-        std::vector< const task* > run_after = {};
+        std::vector< std::reference_wrapper< const task > > run_after = {};
         /// Resources used by this task, only one task can access any resource at single point in
         /// time.
-        std::vector< const resource* > resources = {};
+        std::vector< std::reference_wrapper< const resource > > resources = {};
 
         /// In case this is set to true, this task should not be visible in standard reports.
         bool hidden = false;
