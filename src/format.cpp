@@ -19,7 +19,7 @@ void format_nested( std::ostream& os, std::string_view indent, std::string_view 
 void format_record( std::ostream& os, const run_record& rec )
 {
         os << std::format(
-            " {:>5}  {:<60} ",
+            " {:>7}  {:<60} ",
             rec.skipped      ? "SKIPPED" :
             rec.retcode == 0 ? "OK" :
                                "FAIL",
