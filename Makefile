@@ -11,4 +11,4 @@ test: build
 	ctest --preset "debug_utest"
 
 clang-tidy:
-	find src/ -iname "*.cpp" | xargs clang-tidy -p build
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) | xargs clang-tidy -p build
