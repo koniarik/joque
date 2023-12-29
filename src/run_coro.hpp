@@ -1,5 +1,8 @@
 #pragma once
 
+#include "joque/dag.hpp"
+#include "joque/records.hpp"
+
 #include <coroutine>
 #include <exception>
 #include <optional>
