@@ -175,6 +175,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a87a397c892568829c53fe1cdb330c8bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">format_record</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
 <tr class="memdesc:a87a397c892568829c53fe1cdb330c8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">More...</a><br /></td></tr>
 <tr class="separator:a87a397c892568829c53fe1cdb330c8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff910573c74886895eaccde9dafefdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ff910573c74886895eaccde9dafefdf">format_dag</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> &amp;d, const std::function&lt; void(std::string_view) &gt; &amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
+<tr class="separator:a6ff910573c74886895eaccde9dafefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> &amp;d)</td></tr>
+<tr class="separator:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3de9d15ac1fd3290afa6412e051ca08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a> (const std::filesystem::path &amp;p, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="memdesc:ab3de9d15ac1fd3290afa6412e051ca08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates JUnit XML file, expects that execution record represents some form of test execution.  <a href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">More...</a><br /></td></tr>
 <tr class="separator:ab3de9d15ac1fd3290afa6412e051ca08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -774,6 +778,62 @@ Subsets of this set. </td></tr>
 
 </div>
 </div>
+<a id="a6ff910573c74886895eaccde9dafefdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff910573c74886895eaccde9dafefdf">&#9670;&nbsp;</a></span>format_dag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::format_dag </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void(std::string_view) &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a646df1df475ba3ef43de01c38e5b1b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646df1df475ba3ef43de01c38e5b1b5a">&#9670;&nbsp;</a></span>print_dag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::print_dag </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1dag">dag</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab3de9d15ac1fd3290afa6412e051ca08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3de9d15ac1fd3290afa6412e051ca08">&#9670;&nbsp;</a></span>generate_junit_xml() <span class="overload">[1/2]</span></h2>
 
@@ -1092,7 +1152,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Fri Dec 29 2023 12:46:19 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 29 2023 13:31:25 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

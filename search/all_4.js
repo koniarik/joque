@@ -7,6 +7,8 @@ var searchData=
   ['for_5feach_5fadd_5fdep_22',['for_each_add_dep',['../namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7',1,'joque']]],
   ['for_5feach_5ftask_5fimpl_23',['for_each_task_impl',['../namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937',1,'joque']]],
   ['format_2ehpp_24',['format.hpp',['../format_8hpp.html',1,'']]],
-  ['format_5fnested_25',['format_nested',['../namespacejoque.html#a4241c12a8cd87ae62818371490932431',1,'joque']]],
-  ['format_5frecord_26',['format_record',['../namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf',1,'joque']]]
+  ['format_5fdag_25',['format_dag',['../namespacejoque.html#a6ff910573c74886895eaccde9dafefdf',1,'joque']]],
+  ['format_5fdag_2ehpp_26',['format_dag.hpp',['../format__dag_8hpp.html',1,'']]],
+  ['format_5fnested_27',['format_nested',['../namespacejoque.html#a4241c12a8cd87ae62818371490932431',1,'joque']]],
+  ['format_5frecord_28',['format_record',['../namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf',1,'joque']]]
 ];

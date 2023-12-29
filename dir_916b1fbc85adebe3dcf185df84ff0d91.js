@@ -10,6 +10,7 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
       [ "exec_visitor", "classjoque_1_1exec__visitor.html", "classjoque_1_1exec__visitor" ]
     ] ],
     [ "format.hpp", "format_8hpp.html", "format_8hpp" ],
+    [ "format_dag.hpp", "format__dag_8hpp.html", "format__dag_8hpp" ],
     [ "job.hpp", "job_8hpp.html", [
       [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
       [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
