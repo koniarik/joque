@@ -151,8 +151,8 @@ namespace
         void cleanup_coros( std::vector< run_coro >& coros, exec_record& erec, exec_visitor& vis )
         {
                 std::erase_if( coros, [&]( auto& coro ) {
+                        coro.tick();
                         if ( !coro.done() ) {
-                                coro.tick();
                                 return false;
                         }
                         run_record* rec = coro.result();
