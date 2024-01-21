@@ -1,16 +1,23 @@
 var dag_8hpp =
 [
-    [ "node", "namespacejoque.html#structjoque_1_1node", [
-      [ "name", "namespacejoque.html#a0fc52435b1e735f8b5847c3a12e0ff8a", null ],
-      [ "t", "namespacejoque.html#a7903255d1f00ad3c8cf81951ec8ad44f", null ],
-      [ "depends_on", "namespacejoque.html#a614a8d975d19d0f7ddaec410917d259d", null ],
-      [ "run_after", "namespacejoque.html#a8a8468e16d5994e9c9b819112d0731c8", null ],
-      [ "started", "namespacejoque.html#a41d02792ce707b2a49a7c4e0dd2d3677", null ],
-      [ "done", "namespacejoque.html#a275209f41269738e74292791faf87d5b", null ],
-      [ "failed", "namespacejoque.html#abff87b14044b92bcb4f7e4a90bd351e7", null ]
+    [ "dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", [
+      [ "is_dependency", "namespacejoque.html#a3fad7e541830a26e9565c803ceed70e9", null ],
+      [ "target", "namespacejoque.html#a4145fdb211ce985d43c500840043433c", null ],
+      [ "lnode", "namespacejoque.html#af2033745bdeba6b870de93c4ea053857", null ]
+    ] ],
+    [ "dag_edge_accessor", "structjoque_1_1dag__edge__accessor.html", "structjoque_1_1dag__edge__accessor" ],
+    [ "dag_node", "namespacejoque.html#structjoque_1_1dag__node", [
+      [ "name", "namespacejoque.html#ac87ab4b4d82628aa0e7aefd23582c876", null ],
+      [ "t", "namespacejoque.html#a3821f86d3d5b5f079796bf5b80f8bcc7", null ],
+      [ "runs_after", "namespacejoque.html#a8bd8b47d5202ad3530e4b9ba72248cd3", null ],
+      [ "started", "namespacejoque.html#a8b2a2f9332fb1b12233ab1815bbb13f8", null ],
+      [ "done", "namespacejoque.html#a1b6b0036e8fe121c50ce5edad1d36344", null ],
+      [ "failed", "namespacejoque.html#ad0728a29b54c94226aab396d3408cf64", null ]
     ] ],
     [ "dag", "namespacejoque.html#structjoque_1_1dag", [
-      [ "nodes", "namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f", null ]
+      [ "nodes", "namespacejoque.html#aa493eb545284e59ff177ea7cdc379b3e", null ]
     ] ],
+    [ "dag_edge_lnode", "dag_8hpp.html#a15ff4ac8556618ebeac1421101090176", null ],
+    [ "dag_edge_list", "dag_8hpp.html#afe5ef8fe3451ca11702a565f605e8a91", null ],
     [ "generate_dag", "dag_8hpp.html#ab7cbb3193a852f7af307a78ed897b9a9", null ]
 ];

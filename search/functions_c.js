@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unhandled_5fexception_174',['unhandled_exception',['../structjoque_1_1exec__coro_1_1promise__type.html#a1978827295147e01f0d25f4019da2f0d',1,'joque::exec_coro::promise_type']]]
+  ['set_5fretcode_5ffile_231',['set_retcode_file',['../structjoque_1_1process.html#a56481b81e4c36e5af6958843ec20f1ee',1,'joque::process']]]
 ];

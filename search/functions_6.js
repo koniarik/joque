@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['job_156',['job',['../structjoque_1_1job.html#a564d76aaa21838c89a4dc298ae7e7603',1,'joque::job']]],
-  ['job_5fptr_157',['job_ptr',['../structjoque_1_1job__ptr.html#a9db05b0f4f76eca2c19963d063e25a4c',1,'joque::job_ptr::job_ptr()=default'],['../structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9',1,'joque::job_ptr::job_ptr(T &amp;&amp;item)'],['../structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a',1,'joque::job_ptr::job_ptr(const job_ptr &amp;)=delete'],['../structjoque_1_1job__ptr.html#a9edf9f1319d5a6852654027202d05391',1,'joque::job_ptr::job_ptr(job_ptr &amp;&amp;) noexcept=default']]]
+  ['initial_5fsuspend_204',['initial_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a9fa92e36ef9f44f1ef267fe60a7c7cf4',1,'joque::exec_coro::promise_type']]],
+  ['is_5finvalidated_205',['is_invalidated',['../structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a',1,'joque::job_iface::is_invalidated()'],['../structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b',1,'joque::job::is_invalidated()'],['../structjoque_1_1job__traits_3_01process_01_4.html#a6ca6b595f24695c1f731a353366057f4',1,'joque::job_traits&lt; process &gt;::is_invalidated()'],['../structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289',1,'joque::job_traits::is_invalidated()']]]
 ];

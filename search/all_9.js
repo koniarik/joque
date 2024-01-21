@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['name_44',['name',['../namespacejoque.html#a0fc52435b1e735f8b5847c3a12e0ff8a',1,'joque::node::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
-  ['node_45',['node',['../namespacejoque.html#structjoque_1_1node',1,'joque']]],
-  ['nodes_46',['nodes',['../namespacejoque.html#afc3785c583f9cb3131b108b5d9488c0f',1,'joque::dag']]]
+  ['job_51',['job',['../namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad',1,'joque::task::job()'],['../structjoque_1_1job.html#a564d76aaa21838c89a4dc298ae7e7603',1,'joque::job::job()'],['../structjoque_1_1job.html',1,'joque::job&lt; T &gt;']]],
+  ['job_2ehpp_52',['job.hpp',['../job_8hpp.html',1,'']]],
+  ['job_5fiface_53',['job_iface',['../structjoque_1_1job__iface.html',1,'joque']]],
+  ['job_5fptr_54',['job_ptr',['../structjoque_1_1job__ptr.html#a9db05b0f4f76eca2c19963d063e25a4c',1,'joque::job_ptr::job_ptr()=default'],['../structjoque_1_1job__ptr.html#a8d2a4465482b2535f331176f8a6922f9',1,'joque::job_ptr::job_ptr(T &amp;&amp;item)'],['../structjoque_1_1job__ptr.html#a6660f07338caf7846a0ab4a401c5251a',1,'joque::job_ptr::job_ptr(const job_ptr &amp;)=delete'],['../structjoque_1_1job__ptr.html#a9edf9f1319d5a6852654027202d05391',1,'joque::job_ptr::job_ptr(job_ptr &amp;&amp;) noexcept=default'],['../structjoque_1_1job__ptr.html',1,'joque::job_ptr']]],
+  ['job_5ftraits_55',['job_traits',['../structjoque_1_1job__traits.html',1,'joque']]],
+  ['job_5ftraits_3c_20process_20_3e_56',['job_traits&lt; process &gt;',['../structjoque_1_1job__traits_3_01process_01_4.html',1,'joque']]],
+  ['joque_57',['joque',['../index.html',1,'(Global Namespace)'],['../namespacejoque.html',1,'joque']]],
+  ['junit_2ehpp_58',['junit.hpp',['../junit_8hpp.html',1,'']]]
 ];

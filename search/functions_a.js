@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['set_5fretcode_5ffile_172',['set_retcode_file',['../structjoque_1_1process.html#a56481b81e4c36e5af6958843ec20f1ee',1,'joque::process']]]
+  ['print_5fdag_223',['print_dag',['../namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a',1,'joque']]],
+  ['print_5fexec_5fvisitor_224',['print_exec_visitor',['../classjoque_1_1print__exec__visitor.html#a3da99edd9f32d951b4bd9eb1042c2300',1,'joque::print_exec_visitor']]]
 ];

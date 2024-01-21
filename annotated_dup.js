@@ -1,13 +1,18 @@
 var annotated_dup =
 [
     [ "joque", "namespacejoque.html", [
-      [ "node", "namespacejoque.html#structjoque_1_1node", "namespacejoque_structjoque_1_1node_dup" ],
+      [ "dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", "namespacejoque_structjoque_1_1dag__edge_dup" ],
+      [ "dag_edge_accessor", "structjoque_1_1dag__edge__accessor.html", "structjoque_1_1dag__edge__accessor" ],
+      [ "dag_node", "namespacejoque.html#structjoque_1_1dag__node", "namespacejoque_structjoque_1_1dag__node_dup" ],
       [ "dag", "namespacejoque.html#structjoque_1_1dag", "namespacejoque_structjoque_1_1dag_dup" ],
       [ "exec_coro", "classjoque_1_1exec__coro.html", "classjoque_1_1exec__coro" ],
       [ "exec_visitor", "classjoque_1_1exec__visitor.html", "classjoque_1_1exec__visitor" ],
       [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
       [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
       [ "job_ptr", "structjoque_1_1job__ptr.html", "structjoque_1_1job__ptr" ],
+      [ "list_node", "namespacejoque.html#structjoque_1_1list__node", "namespacejoque_structjoque_1_1list__node_dup" ],
+      [ "list_iterator", "classjoque_1_1list__iterator.html", "classjoque_1_1list__iterator" ],
+      [ "list", "classjoque_1_1list.html", "classjoque_1_1list" ],
       [ "out_tag", "structjoque_1_1out__tag.html", null ],
       [ "out", "structjoque_1_1out.html", "structjoque_1_1out" ],
       [ "print_exec_visitor", "classjoque_1_1print__exec__visitor.html", "classjoque_1_1print__exec__visitor" ],
