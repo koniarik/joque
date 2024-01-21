@@ -54,4 +54,7 @@ if(BUILD_TESTING)
   add_test(NAME joque_process COMMAND joque_process_utest)
   target_link_libraries(joque_process_utest PUBLIC joque GTest::GTest
                                                    GTest::Main)
+  add_executable(joque_list_utest test/list_utest.cpp)
+  add_test(NAME joque_list COMMAND joque_list_utest)
+  target_link_libraries(joque_list_utest PUBLIC joque GTest::GTest GTest::Main)
 endif()

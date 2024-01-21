@@ -12,14 +12,14 @@ class exec_visitor
 {
 public:
         /// Executed before node is enqued into internal queue of execution.
-        virtual void on_node_enque( const node& ){};
+        virtual void on_node_enque( const dag_node& ){};
 
         /// Executed once execution starts for the node.
-        virtual void on_run_start( const node& ){};
+        virtual void on_run_start( const dag_node& ){};
 
         /// Executed after execution of node.
         /// \param rec If run produces a run record, it is passed, nullptr on errors
-        virtual void on_run_end( const run_record* /*rec*/, const node& ){};
+        virtual void on_run_end( const run_record* /*rec*/, const dag_node& ){};
 
         virtual ~exec_visitor() = default;
 };

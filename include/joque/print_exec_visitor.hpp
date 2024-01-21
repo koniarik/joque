@@ -11,9 +11,9 @@ class print_exec_visitor : public exec_visitor
 public:
         print_exec_visitor( bool verbose = false );
 
-        void on_node_enque( const node& n ) override;
-        void on_run_start( const node& n ) override;
-        void on_run_end( const run_record* rec, const node& n ) override;
+        void on_node_enque( const dag_node& n ) override;
+        void on_run_start( const dag_node& n ) override;
+        void on_run_end( const run_record* rec, const dag_node& n ) override;
 
 private:
         bool verbose_;

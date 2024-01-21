@@ -26,17 +26,10 @@ namespace
                 erec.runs.push_back( std::move( rrec ) );
         }
 
-        bool all_done( const auto& nodes )
+        bool all_ready( const auto& edges )
         {
-                return std::ranges::all_of( nodes, [&]( node& ch ) -> bool {
-                        return ch.done;
-                } );
-        }
-
-        bool any_failed( const auto& nodes )
-        {
-                return std::ranges::any_of( nodes, [&]( node& ch ) -> bool {
-                        return ch.failed;
+                return std::ranges::all_of( edges, [&]( const dag_edge& e ) -> bool {
+                        return e.target->done && !( e.is_dependency && e.target->failed );
                 } );
         }
 
@@ -47,9 +40,9 @@ namespace
                 } );
         }
 
-        node* find_candidate(
-            node&                              n,
-            std::set< node* >&                 seen,
+        dag_node* find_candidate(
+            dag_node&                          n,
+            std::set< dag_node* >&             seen,
             const std::set< const resource* >& used_res )
         {
                 if ( n.started || n.done || seen.contains( &n ) ) {
@@ -58,27 +51,27 @@ namespace
 
                 seen.insert( &n );
 
-                for ( node& ch : n.run_after ) {
-                        node* res = find_candidate( ch, seen, used_res );
+                for ( dag_edge& e : n.runs_after ) {
+                        dag_node* res = find_candidate( *e.target, seen, used_res );
                         if ( res != nullptr ) {
                                 return res;
                         }
                 }
 
-                if ( !all_done( n.run_after ) || any_failed( n.depends_on ) ||
+                if ( !all_ready( n.runs_after ) ||
                      any_resource_used( n.t.get().resources, used_res ) ) {
                         return nullptr;
                 }
                 return &n;
         }
 
-        node* find_candidate(
-            std::set< node* >&                 nodes,
+        dag_node* find_candidate(
+            std::set< dag_node* >&             nodes,
             const std::set< const resource* >& used_resources )
         {
-                node*             n = nullptr;
-                std::set< node* > seen;
-                for ( node* cand : nodes ) {
+                dag_node*             n = nullptr;
+                std::set< dag_node* > seen;
+                for ( dag_node* cand : nodes ) {
                         n = find_candidate( *cand, seen, used_resources );
                         if ( n != nullptr ) {
                                 break;
@@ -87,17 +80,18 @@ namespace
                 return n;
         }
 
-        bool is_invalidated( node& n )
+        bool is_invalidated( dag_node& n )
         {
                 const bool dep_invalidated =
-                    std::ranges::any_of( n.depends_on, [&]( node& ch ) -> bool {
-                            return ch.started;
+                    std::ranges::any_of( n.runs_after, [&]( dag_edge& e ) -> bool {
+                            return e.is_dependency && e.target->started;
                     } );
 
                 return dep_invalidated || n.t.get().job->is_invalidated();
         }
 
-        run_coro run( node& n, std::set< const resource* >& used_resources, unsigned thread_count )
+        run_coro
+        run( dag_node& n, std::set< const resource* >& used_resources, unsigned thread_count )
         {
                 run_record result{ .t = n.t, .name = n.name };
 
@@ -114,7 +108,7 @@ namespace
 
                 std::future< run_result > fut = std::async(
                     thread_count == 0 ? std::launch::deferred : std::launch::async,
-                    []( node& n ) -> run_result {
+                    []( dag_node& n ) -> run_result {
                             run_result res;
                             try {
                                     res = n.t.get().job->run( n.t );
@@ -176,9 +170,9 @@ exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec
 
 exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 {
-        exec_record       erec;
-        std::set< node* > to_process;
-        for ( node& n : g.nodes ) {
+        exec_record           erec;
+        std::set< dag_node* > to_process;
+        for ( dag_node& n : g.nodes ) {
                 vis.on_node_enque( n );
                 to_process.insert( &n );
         }
@@ -189,7 +183,7 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
         while ( !to_process.empty() && erec.failed_count == 0 ) {
                 cleanup_coros( coros, erec, vis );
 
-                node* n = find_candidate( to_process, used_resources );
+                dag_node* n = find_candidate( to_process, used_resources );
                 if ( n != nullptr ) {
                         to_process.erase( n );
 

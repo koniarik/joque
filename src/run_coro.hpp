@@ -17,7 +17,7 @@ public:
         struct promise_type
         {
                 template < typename... Args >
-                promise_type( node& n, Args&&... )
+                promise_type( dag_node& n, Args&&... )
                   : n( n )
                 {
                 }
@@ -49,12 +49,12 @@ public:
                         value = std::forward< U >( val );
                 }
 
-                node&                       n;
+                dag_node&                   n;
                 std::optional< run_record > value;
                 std::exception_ptr          excep;
         };
 
-        run_coro( node& n, std::coroutine_handle< promise_type > h )
+        run_coro( dag_node& n, std::coroutine_handle< promise_type > h )
           : node_( n )
           , h_( h )
         {
@@ -108,12 +108,12 @@ public:
                 return result();
         }
 
-        [[nodiscard]] node& get_node()
+        [[nodiscard]] dag_node& get_node()
         {
                 return node_;
         }
 
-        [[nodiscard]] const node& get_node() const
+        [[nodiscard]] const dag_node& get_node() const
         {
                 return node_;
         }
@@ -126,7 +126,7 @@ public:
         }
 
 private:
-        node&                                 node_;
+        dag_node&                             node_;
         std::coroutine_handle< promise_type > h_;
 };
 

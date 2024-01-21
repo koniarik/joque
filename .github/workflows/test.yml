@@ -18,7 +18,7 @@ jobs:
             run: sudo apt install ninja-build libgtest-dev ccache
 
           - name: configure
-            run: make configure
+            run: make configure SANITIZER=address
 
           - name: build
             run: make build

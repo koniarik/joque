@@ -15,9 +15,9 @@ namespace
                 if ( nodes.empty() ) {
                         return res;
                 }
-                res = " " + nodes.front().get().name;
-                for ( const node& n : nodes | std::views::drop( 1 ) ) {
-                        res += ", " + n.name;
+                res = " " + nodes.begin()->target->name;
+                for ( const dag_edge& e : nodes | std::views::drop( 1 ) ) {
+                        res += ", " + e.target->name;
                 }
                 res += " ";
 
@@ -28,10 +28,9 @@ namespace
 void format_dag( const dag& d, const std::function< void( std::string_view ) >& f )
 {
 
-        for ( const node& n : d.nodes ) {
+        for ( const dag_node& n : d.nodes ) {
                 f( n.name );
-                f( "   -> depends on {" + join_names( n.depends_on ) + "}" );
-                f( "   -> runs after {" + join_names( n.run_after ) + "}" );
+                f( "   -> runs after {" + join_names( n.runs_after ) + "}" );
         }
 }
 
