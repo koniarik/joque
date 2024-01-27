@@ -69,12 +69,10 @@ void run_after_all_of( task& t, const task_set& ts );
 template < typename T, typename Fun >
 void for_each_task_impl( T& ts, Fun&& f, const std::string& prefix )
 {
-        for ( auto& [name, t] : ts.tasks ) {
+        for ( auto& [name, t] : ts.tasks )
                 f( ( prefix + "/" ).append( name ), t );
-        }
-        for ( auto& [name, s] : ts.sets ) {
+        for ( auto& [name, s] : ts.sets )
                 for_each_task_impl( s, f, ( prefix + "/" ).append( name ) );
-        }
 }
 
 template < typename T, typename Fun >

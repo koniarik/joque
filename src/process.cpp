@@ -17,9 +17,8 @@ namespace
 {
         std::filesystem::file_time_type path_to_write_time( const std::filesystem::path& p )
         {
-                if ( exists( p ) ) {
+                if ( exists( p ) )
                         return last_write_time( p );
-                }
                 return {};
         }
 }  // namespace
@@ -43,20 +42,17 @@ process process::set_retcode_file( std::filesystem::path p ) &&
 bool job_traits< process >::is_invalidated( const process& p )
 {
         if ( p.retcode_file ) {
-                if ( !std::filesystem::exists( *p.retcode_file ) ) {
+                if ( !std::filesystem::exists( *p.retcode_file ) )
                         return true;
-                }
                 int           last_retcode = 0;
                 std::ifstream retfile( *p.retcode_file );
                 retfile >> last_retcode;
-                if ( last_retcode != 0 ) {
+                if ( last_retcode != 0 )
                         return true;
-                }
         }
 
-        if ( p.output.empty() ) {
+        if ( p.output.empty() )
                 return true;
-        }
 
         if ( p.input.empty() ) {
                 return std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
@@ -67,9 +63,8 @@ bool job_traits< process >::is_invalidated( const process& p )
         std::input_iterator auto oldest_output_iter =
             std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
 
-        if ( !exists( *oldest_output_iter ) ) {
+        if ( !exists( *oldest_output_iter ) )
                 return true;
-        }
 
         std::input_iterator auto latest_input_iter =
             std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
@@ -117,9 +112,8 @@ run_result job_traits< process >::run( const task&, const process& p )
 
         if ( res.retcode != 0 ) {
                 std::string newout = "cmd: ";
-                for ( const std::string& arg : p.cmd ) {
+                for ( const std::string& arg : p.cmd )
                         newout += std::regex_replace( arg, std::regex{ " " }, "\\ " ) + " ";
-                }
                 newout += "\n" + res.std_out;
                 res.std_out = newout;
         }

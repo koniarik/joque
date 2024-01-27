@@ -1,10 +1,10 @@
 
-#include "joque/list_node.hpp"
+#include "joque/bits/list.hpp"
 
 #include <gtest/gtest.h>
 #include <iterator>
 
-namespace joque
+namespace joque::bits
 {
 
 struct node_accessor;
@@ -13,23 +13,23 @@ struct node
 {
         int i;
 
-        list_node< node, node_accessor > lnode = {};
+        list_header< node, node_accessor > lheader = {};
 };
 
 struct node_accessor
 {
         static auto& get( auto& n )
         {
-                return n.lnode;
+                return n.lheader;
         }
 };
 
-using titer = list_iterator< list_node< node, node_accessor > >;
-using tlist = list< list_node< node, node_accessor > >;
+using titer = list_iterator< list_header< node, node_accessor > >;
+using tlist = list< list_header< node, node_accessor >, true >;
 
 static_assert( std::bidirectional_iterator< titer > );
 
-TEST( list_node, empty )
+TEST( list_header, empty )
 {
         tlist l{};
 
@@ -37,7 +37,7 @@ TEST( list_node, empty )
         EXPECT_EQ( l.begin(), l.end() );
 }
 
-TEST( list_node, sizeone )
+TEST( list_header, sizeone )
 {
         tlist l{};
         l.emplace_front( 42 );
@@ -47,7 +47,7 @@ TEST( list_node, sizeone )
         EXPECT_EQ( l.begin()->i, 42 );
 }
 
-TEST( list_node, multiple )
+TEST( list_header, multiple )
 {
         tlist l{};
         l.emplace_front( 3 );
@@ -62,4 +62,4 @@ TEST( list_node, multiple )
         EXPECT_EQ( i, 3 );
 }
 
-}  // namespace joque
+}  // namespace joque::bits

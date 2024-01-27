@@ -79,12 +79,10 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
                         "time",
                         std::chrono::duration_cast< sec_time >( rec.end - rec.start ).count() ) };
 
-                if ( rec.retcode != 0 ) {
+                if ( rec.retcode != 0 )
                         os << "<failure message=\"task failed\"/>\n";
-                }
-                if ( rec.skipped ) {
+                if ( rec.skipped )
                         os << "<failure message=\"task skipped\"/>\n";
-                }
                 if ( rec.std_out.size() != 0 ) {
                         const xml_node sout{ os, "std_out" };
                         os << std::accumulate(

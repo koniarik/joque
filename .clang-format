@@ -60,6 +60,7 @@ PenaltyReturnTypeOnItsOwnLine: 90
 PointerAlignment: Left
 PointerBindsToType: false
 ReflowComments: true
+RemoveBracesLLVM: true
 SortIncludes: true
 SpaceAfterCStyleCast: true
 SpaceAfterControlStatementKeyword: true

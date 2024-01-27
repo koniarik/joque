@@ -31,7 +31,7 @@ This theme is an attemt to update the visuals of Doxygen without changing it's o
 
 - Sidebar-Only theme: [Documentation of this repository](https://jothepro.github.io/doxygen-awesome-css/)
 - Base theme: [libsl3](https://a4z.github.io/libsl3/)
- 
+
 ## Installation
 
 Copy the file `doxygen-awesome.css` from this repository into your project or add this repository as submodule and check out the latest release:

@@ -64,9 +64,8 @@ TEST( joque, dep )
 
         auto f = [&]( const task& t ) -> run_result {
                 std::lock_guard _{ m };
-                for ( const task& dep : t.depends_on ) {
+                for ( const task& dep : t.depends_on )
                         EXPECT_TRUE( finished.contains( &dep ) );
-                }
                 finished.insert( &t );
                 return { 0 };
         };

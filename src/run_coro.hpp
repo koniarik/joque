@@ -79,31 +79,26 @@ public:
 
         [[nodiscard]] run_record* result()
         {
-                if ( !h_ ) {
+                if ( !h_ )
                         return nullptr;
-                }
-                if ( h_.promise().excep ) {
+                if ( h_.promise().excep )
                         std::rethrow_exception( h_.promise().excep );
-                }
                 std::optional< run_record >& val = h_.promise().value;
-                if ( val.has_value() ) {
+                if ( val.has_value() )
                         return &*val;
-                }
                 return nullptr;
         }
 
         void tick()
         {
-                if ( h_ ) {
+                if ( h_ )
                         h_();
-                }
         }
 
         run_record* run()
         {
-                while ( !done() ) {
+                while ( !done() )
                         tick();
-                }
 
                 return result();
         }
@@ -120,9 +115,8 @@ public:
 
         ~run_coro()
         {
-                if ( h_ ) {
+                if ( h_ )
                         h_.destroy();
-                }
         }
 
 private:

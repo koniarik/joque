@@ -52,24 +52,20 @@ exec_coro& exec_coro::operator=( exec_coro&& other ) noexcept
 
 [[nodiscard]] exec_record* exec_coro::result()
 {
-        if ( !h_ ) {
+        if ( !h_ )
                 return nullptr;
-        }
-        if ( h_.promise().excep ) {
+        if ( h_.promise().excep )
                 std::rethrow_exception( h_.promise().excep );
-        }
         std::optional< exec_record >& val = h_.promise().value;
-        if ( val ) {
+        if ( val )
                 return &*val;
-        }
         return nullptr;
 }
 
 void exec_coro::tick()
 {
-        if ( h_ ) {
+        if ( h_ )
                 h_();
-        }
 }
 
 exec_record* exec_coro::run( std::chrono::milliseconds period )
@@ -86,9 +82,8 @@ exec_record* exec_coro::run( std::chrono::milliseconds period )
 
 exec_coro::~exec_coro()
 {
-        if ( h_ ) {
+        if ( h_ )
                 h_.destroy();
-        }
 }
 
 }  // namespace joque

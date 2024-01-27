@@ -1,6 +1,6 @@
 #pragma once
 
-#include "joque/list_node.hpp"
+#include "joque/bits/list.hpp"
 #include "joque/task.hpp"
 
 #include <functional>
@@ -9,28 +9,29 @@
 namespace joque
 {
 
-struct dag_node;
-struct dag_edge;
-struct dag_edge_accessor;
-
-using dag_edge_lnode = list_node< dag_edge, dag_edge_accessor >;
-
-struct dag_edge
-{
-        bool           is_dependency = false;
-        dag_node*      target        = nullptr;
-        dag_edge_lnode lnode;
-};
-
-using dag_edge_list = list< dag_edge_lnode >;
-
-struct dag_edge_accessor
+struct dag_lheader_accessor
 {
         static auto& get( auto& n )
         {
-                return n.lnode;
+                return n.lheader;
         }
 };
+
+struct dag_node;
+struct dag_edge;
+
+using dag_edge_lheader = bits::list_header< dag_edge, dag_lheader_accessor >;
+
+struct dag_edge
+{
+        bool             is_dependency = false;
+        dag_node*        target        = nullptr;
+        dag_edge_lheader lheader;
+};
+
+using dag_edge_list = bits::list< dag_edge_lheader, true >;
+
+using dag_node_lheader = bits::list_header< dag_node, dag_lheader_accessor >;
 
 /// Node representing all execution-related information for one task.
 struct dag_node
@@ -38,7 +39,7 @@ struct dag_node
         /// Full path-name of the task
         std::string name;
         /// Reference to the task
-        std::reference_wrapper< const task > t;
+        const task* t = nullptr;
 
         /// Nodes representing tasks that should be run before `t`
         dag_edge_list runs_after{};
@@ -49,26 +50,61 @@ struct dag_node
         bool done = false;
         /// Sets to `fail` if the task failed during execution
         bool failed = false;
+
+        dag_node_lheader lheader;
 };
+
+using dag_node_list = bits::list< dag_node_lheader, true >;
 
 /// DAG used to store data in single execution of tasks
-struct dag
+class dag
 {
-        std::list< dag_node > nodes;
-};
+public:
+        dag() = default;
 
-/// Generates a DAG representing a given set of tasks for execution function.
-///
-/// The DAG becames invalidated after any change to the input task set, and any use of it can result
-/// in undefined behavior.
-///
-/// Function adds any dependencies of task into the `run_after` vector of each node, this way the
-/// execution functions does not have to handle dependencies explicitly for order of execution.
-///
-/// \param ts A set of tasks for which the dag shall be generated
-/// \param filter Only nodes, and their dependencies, which match the filter are added to the dag.
-///               Uses simple "find exact string match within a string" mechanism.
-///
-[[nodiscard]] dag generate_dag( const task_set& ts, const std::string& filter = "" );
+        auto begin()
+        {
+                return nodes_.begin();
+        }
+        auto begin() const
+        {
+                return nodes_.begin();
+        }
+        auto end()
+        {
+                return nodes_.end();
+        }
+        auto end() const
+        {
+                return nodes_.end();
+        }
+
+        void clear_if( auto&& f )
+        {
+                nodes_.clear_if( f );
+        }
+
+        dag_node& emplace( const std::string& name, const task& t )
+        {
+                return nodes_.emplace_front( name, &t );
+        }
+
+        /// The DAG becames invalidated after any change to the input task set, and any use of it
+        /// can result in undefined behavior.
+        ///
+        /// Function adds any dependencies of task into the `run_after` vector of each node, this
+        /// way the execution functions does not have to handle dependencies explicitly for order of
+        /// execution.
+        ///
+        /// \param ts A set of tasks for which the dag shall be generated
+        /// \param filter Only nodes, and their dependencies, which match the filter are added to
+        /// the dag.
+        ///               Uses simple "find exact string match within a string" mechanism.
+        ///
+        void insert_set( const task_set& ts, const std::string& filter );
+
+private:
+        dag_node_list nodes_;
+};
 
 }  // namespace joque

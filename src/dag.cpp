@@ -2,6 +2,8 @@
 
 #include <ranges>
 #include <set>
+#include <unordered_map>
+#include <unordered_set>
 
 namespace joque
 {
@@ -10,11 +12,10 @@ namespace
 
         template < typename T >
                 requires( std::same_as< std::remove_cvref_t< T >, dag_node > )
-        void dfs( T& n, std::set< dag_node* >& seen )
+        void dfs( T& n, std::unordered_set< dag_node* >& seen )
         {
-                if ( seen.contains( &n ) ) {
+                if ( seen.contains( &n ) )
                         return;
-                }
                 seen.insert( &n );
                 for ( dag_edge& e : n.runs_after | std::views::filter( []( const dag_edge& e ) {
                                             return e.is_dependency;
@@ -23,64 +24,41 @@ namespace
                 }
         }
 
-        void link_dependencies( dag& g )
+        void link_dependencies( dag& g, std::unordered_map< const task*, dag_node* >& index )
         {
-                for ( dag_node& n : g.nodes ) {
-                        for ( const task& d : n.t.get().depends_on ) {
-                                auto iter =
-                                    std::ranges::find_if( g.nodes, [&]( const dag_node& ch ) {
-                                            // TODO: is pointer compare really wanted?
-                                            return &ch.t.get() == &d;
-                                    } );
-                                if ( iter != g.nodes.end() ) {
-                                        n.runs_after.emplace_front( true, &*iter );
-                                }
-                        }
+                for ( dag_node& n : g ) {
+                        for ( const task& d : n.t->depends_on )
+                                n.runs_after.emplace_front( true, index[&d] );
+                        for ( const task& d : n.t->run_after )
+                                n.runs_after.emplace_front( false, index[&d] );
                 }
         }
 
         void filter_nodes( dag& g, const std::string& filter )
         {
-                std::set< dag_node* > seen;
-                for ( dag_node& n : g.nodes ) {
-                        if ( filter == "" || n.name.find( filter ) != std::string::npos ) {
+                if ( filter == "" )
+                        return;
+                std::unordered_set< dag_node* > seen;
+                for ( dag_node& n : g )
+                        if ( n.name.find( filter ) != std::string::npos )
                                 dfs( n, seen );
-                        }
-                }
-                std::erase_if( g.nodes, [&]( dag_node& n ) {
-                        return !seen.contains( &n );
+
+                g.clear_if( [&]( dag_node& node ) {
+                        return !seen.contains( &node );
                 } );
         }
 
-        void link_afters( dag& g )
-        {
-                for ( dag_node& n : g.nodes ) {
-                        for ( const task& a : n.t.get().run_after ) {
-                                auto iter =
-                                    std::ranges::find_if( g.nodes, [&]( const dag_node& ch ) {
-                                            return &ch.t.get() == &a;
-                                    } );
-                                if ( iter != g.nodes.end() ) {
-                                        n.runs_after.emplace_front( false, &*iter );
-                                }
-                        }
-                }
-        }
 }  // namespace
 
-dag generate_dag( const task_set& ts, const std::string& filter )
+void dag::insert_set( const task_set& ts, const std::string& filter )
 {
-        dag g;
+
+        std::unordered_map< const task*, dag_node* > index;
         for_each_task( ts, [&]( const std::string& name, const task& t ) {
-                g.nodes.push_back( dag_node{ .name = name, .t = t } );
+                index[&t] = &emplace( name, t );
         } );
 
-        link_dependencies( g );
-
-        filter_nodes( g, filter );
-
-        link_afters( g );
-
-        return g;
+        link_dependencies( *this, index );
+        filter_nodes( *this, filter );
 }
 }  // namespace joque
