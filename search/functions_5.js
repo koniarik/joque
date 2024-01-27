@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['generate_5fdag_200',['generate_dag',['../namespacejoque.html#ab7cbb3193a852f7af307a78ed897b9a9',1,'joque']]],
-  ['generate_5fjunit_5fxml_201',['generate_junit_xml',['../namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08',1,'joque::generate_junit_xml(const std::filesystem::path &amp;p, const std::string &amp;ts_name, const exec_record &amp;exec_rec)'],['../namespacejoque.html#ab280046a1246db06f03c39cfb14a0085',1,'joque::generate_junit_xml(std::ostream &amp;os, const std::string &amp;ts_name, const exec_record &amp;exec_rec)']]],
-  ['get_202',['get',['../structjoque_1_1dag__edge__accessor.html#a1912cfd091359d893e8daa8ab72abb4d',1,'joque::dag_edge_accessor']]],
-  ['get_5freturn_5fobject_203',['get_return_object',['../structjoque_1_1exec__coro_1_1promise__type.html#a415f6e017da78ca9e183de5bc436640f',1,'joque::exec_coro::promise_type']]]
+  ['final_5fsuspend_208',['final_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a26fa94ab6fc8a2835c9a9080ce3c3060',1,'joque::exec_coro::promise_type']]],
+  ['for_5feach_5fadd_5fdep_209',['for_each_add_dep',['../namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7',1,'joque']]],
+  ['for_5feach_5ftask_5fimpl_210',['for_each_task_impl',['../namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937',1,'joque']]],
+  ['format_5fdag_211',['format_dag',['../namespacejoque.html#a6ff910573c74886895eaccde9dafefdf',1,'joque']]],
+  ['format_5fnested_212',['format_nested',['../namespacejoque.html#a4241c12a8cd87ae62818371490932431',1,'joque']]],
+  ['format_5frecord_213',['format_record',['../namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf',1,'joque']]]
 ];

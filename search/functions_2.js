@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['derive_187',['derive',['../structjoque_1_1process.html#a76181542ab21eae5751f913e2629e46f',1,'joque::process']]],
-  ['done_188',['done',['../classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af',1,'joque::exec_coro']]]
+  ['clear_5fif_198',['clear_if',['../classjoque_1_1bits_1_1list.html#a8826acb6a8dd72ae0bd85f9b32688fb6',1,'joque::bits::list::clear_if()'],['../classjoque_1_1dag.html#ad1d0332490cd46189a788f78bdf87324',1,'joque::dag::clear_if()']]]
 ];

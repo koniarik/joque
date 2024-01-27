@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['joque_166',['joque',['../namespacejoque.html',1,'']]]
+  ['bits_176',['bits',['../namespacejoque_1_1bits.html',1,'joque']]],
+  ['joque_177',['joque',['../namespacejoque.html',1,'']]]
 ];

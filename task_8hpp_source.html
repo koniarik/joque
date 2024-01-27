@@ -134,24 +134,22 @@ $(document).ready(function(){initNavTree('task_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;template &lt; typename T, typename Fun &gt;</div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( T&amp; ts, Fun&amp;&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, const std::<span class="keywordtype">string</span>&amp; prefix )</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, t] : ts.tasks ) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, t] : ts.tasks )</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>( ( prefix + <span class="stringliteral">&quot;/&quot;</span> ).append( name ), t );</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, s] : ts.sets ) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( s, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, ( prefix + <span class="stringliteral">&quot;/&quot;</span> ).append( name ) );</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Fun &gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">requires</a>( std::same_as&lt; std::remove_cvref_t&lt; T &gt;, task_set &gt; )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;void for_each_task( T&amp; ts, Fun&amp;&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a> )</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( ts, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, <span class="stringliteral">&quot;/&quot;</span> );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; [name, s] : ts.sets )</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( s, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, ( prefix + <span class="stringliteral">&quot;/&quot;</span> ).append( name ) );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Fun &gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">requires</a>( std::same_as&lt; std::remove_cvref_t&lt; T &gt;, task_set &gt; )</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;void for_each_task( T&amp; ts, Fun&amp;&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a> )</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( ts, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, <span class="stringliteral">&quot;/&quot;</span> );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="ajob_8hpp_html"><div class="ttname"><a href="job_8hpp.html">job.hpp</a></div></div>
-<div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:10</div></div>
+<div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> list.hpp:10</div></div>
 <div class="ttc" id="anamespacejoque_html_a01271751837bb5f8ae157756d2b82acf"><div class="ttname"><a href="namespacejoque.html#a01271751837bb5f8ae157756d2b82acf">joque::resource::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> task.hpp:15</div></div>
 <div class="ttc" id="anamespacejoque_html_a08d9fbd8926291bb8c3408cd00cb05a3"><div class="ttname"><a href="namespacejoque.html#a08d9fbd8926291bb8c3408cd00cb05a3">joque::task::depends_on</a></div><div class="ttdeci">std::vector&lt; std::reference_wrapper&lt; const task &gt; &gt; depends_on</div><div class="ttdoc">Dependencies of the task - all of these should be executed before this task.</div><div class="ttdef"><b>Definition:</b> task.hpp:26</div></div>
 <div class="ttc" id="anamespacejoque_html_a363b8dd30145e824a7c28af8ac7d0e1c"><div class="ttname"><a href="namespacejoque.html#a363b8dd30145e824a7c28af8ac7d0e1c">joque::task::run_after</a></div><div class="ttdeci">std::vector&lt; std::reference_wrapper&lt; const task &gt; &gt; run_after</div><div class="ttdoc">Tasks that should be executed before this task.</div><div class="ttdef"><b>Definition:</b> task.hpp:29</div></div>
@@ -177,7 +175,7 @@ $(document).ready(function(){initNavTree('task_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="task_8hpp.html">task.hpp</a></li>
-    <li class="footer">Generated on Sun Jan 21 2024 16:24:08 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:29:16 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

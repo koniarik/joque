@@ -87,9 +87,9 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>accessor_type
-: <a class="el" href="classjoque_1_1list.html#aeacf380f5ca5f070f2a20a7b2a2427e3">joque::list&lt; ListNodeType &gt;</a>
-, <a class="el" href="classjoque_1_1list__iterator.html#a7ff48b18bf3e77e224b36646a2f8d092">joque::list_iterator&lt; ListNodeType &gt;</a>
-, <a class="el" href="namespacejoque.html#af9c67f1fa06cc03f35e5f5e8f8894eeb">joque::list_node&lt; Node, Accessor &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a26abdea66fa579d26a5cb74524262c58">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="structjoque_1_1bits_1_1list__header.html#a0ee49a9480d4bf7e69aa2f2e1993ccf4">joque::bits::list_header&lt; Node, Accessor &gt;</a>
+, <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a7a617ca839b004e805db2a78dfbd99ed">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>add_input()
 : <a class="el" href="structjoque_1_1process.html#aa49d12c0e5829d74062597d4df8f7c74">joque::process</a>
@@ -102,22 +102,30 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>begin()
-: <a class="el" href="classjoque_1_1list.html#adc292d220163b2701fb12abdf9da3c1b">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#ab08dfd3006305ad11077a6c90c41f26d">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="classjoque_1_1dag.html#a43fa7377a0a4fb52ce372e02898f1fc9">joque::dag</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>clear_if()
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a8826acb6a8dd72ae0bd85f9b32688fb6">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="classjoque_1_1dag.html#ad1d0332490cd46189a788f78bdf87324">joque::dag</a>
+</li>
 <li>cmd
 : <a class="el" href="structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f">joque::process</a>
 </li>
 <li>const_iterator
-: <a class="el" href="classjoque_1_1list.html#a1f3602f20a087dcfdb371e181d1bf3a3">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a001d416d2c67a39a563c8cc47d20501d">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>dag()
+: <a class="el" href="classjoque_1_1dag.html#a4126993b3af9e0cd672ead934f6a7615">joque::dag</a>
+</li>
 <li>depends_on
 : <a class="el" href="namespacejoque.html#a08d9fbd8926291bb8c3408cd00cb05a3">joque::task</a>
 </li>
@@ -125,7 +133,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structjoque_1_1process.html#a76181542ab21eae5751f913e2629e46f">joque::process</a>
 </li>
 <li>difference_type
-: <a class="el" href="classjoque_1_1list__iterator.html#a3d418bef92dbee42c8aa928092a91d50">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#ac1b50ad2260147e7c987e33a19d70262">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>done
 : <a class="el" href="namespacejoque.html#a1b6b0036e8fe121c50ce5edad1d36344">joque::dag_node</a>
@@ -135,14 +143,18 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
+<li>emplace()
+: <a class="el" href="classjoque_1_1dag.html#a1505adc76b7feb8e64f479add839c72e">joque::dag</a>
+</li>
 <li>emplace_front()
-: <a class="el" href="classjoque_1_1list.html#a3a6b7648098f65116e01d07f0bf82b51">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#accc51de7cc9e67ea8f2e6c1c19fedc96">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
 </li>
 <li>empty()
-: <a class="el" href="classjoque_1_1list.html#a1d891d0a144a37959e6cc496564156bf">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a013b5a1808fe65d6c5383d8e6d658996">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
 </li>
 <li>end()
-: <a class="el" href="classjoque_1_1list.html#a43b6999fd1c8e9a29d903588ef0a5b9e">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a40bc4f63ec6bde671883cc3fd3bce986">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="classjoque_1_1dag.html#a0b2b632ca033f4e2389b558a36eba21b">joque::dag</a>
 , <a class="el" href="namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c">joque::run_record</a>
 </li>
 <li>excep
@@ -169,7 +181,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>get()
-: <a class="el" href="structjoque_1_1dag__edge__accessor.html#a1912cfd091359d893e8daa8ab72abb4d">joque::dag_edge_accessor</a>
+: <a class="el" href="structjoque_1_1dag__lheader__accessor.html#a2e61bde1ca78a8f149301aa37a1204b8">joque::dag_lheader_accessor</a>
 </li>
 <li>get_return_object()
 : <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a415f6e017da78ca9e183de5bc436640f">joque::exec_coro::promise_type</a>
@@ -191,8 +203,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>input
 : <a class="el" href="structjoque_1_1process.html#aec664caac3a94b9b747b6b3619d0e07f">joque::process</a>
 </li>
+<li>insert_set()
+: <a class="el" href="classjoque_1_1dag.html#a89c1bda34d215dd4c0411935452dd3ca">joque::dag</a>
+</li>
 <li>is_const
-: <a class="el" href="classjoque_1_1list__iterator.html#ac10ad67299284c376b65db17ff803654">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a209155c7fcfd780c72035b9badce28f1">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>is_dependency
 : <a class="el" href="namespacejoque.html#a3fad7e541830a26e9565c803ceed70e9">joque::dag_edge</a>
@@ -204,7 +219,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 , <a class="el" href="structjoque_1_1job__traits_3_01process_01_4.html#a6ca6b595f24695c1f731a353366057f4">joque::job_traits&lt; process &gt;</a>
 </li>
 <li>iterator
-: <a class="el" href="classjoque_1_1list.html#a58790916ce4d6da6cda87a2373e41a72">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#acf2adee5666bb2b4707bfbadd264c103">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
 </li>
 </ul>
 
@@ -221,15 +236,22 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>lheader
+: <a class="el" href="namespacejoque.html#a715a25c590c77f150e32948affdd8ec8">joque::dag_edge</a>
+, <a class="el" href="namespacejoque.html#a1f98b3b952e6a15a155ea9d1232cc596">joque::dag_node</a>
+</li>
+<li>list()
+: <a class="el" href="classjoque_1_1bits_1_1list.html#aa24b2eca8fb2373e4e26bfefefd79537">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+</li>
+<li>list_header()
+: <a class="el" href="structjoque_1_1bits_1_1list__header.html#a78671966399cfcf097fb6b57385a4819">joque::bits::list_header&lt; Node, Accessor &gt;</a>
+</li>
+<li>list_header_type
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a077955d5d3a447a2c9e71c3f45ae169a">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#ade32d26367304a0b398b21c81fa5372f">joque::bits::list_iterator&lt; ListHeader &gt;</a>
+</li>
 <li>list_iterator()
-: <a class="el" href="classjoque_1_1list__iterator.html#a303a444cb857b27cb501d06b82585811">joque::list_iterator&lt; ListNodeType &gt;</a>
-</li>
-<li>list_node_type
-: <a class="el" href="classjoque_1_1list.html#a7dce0200de62a40ec7fee71fea377d58">joque::list&lt; ListNodeType &gt;</a>
-, <a class="el" href="classjoque_1_1list__iterator.html#a27274cbb8d4fd899c8ec60eb8e396f49">joque::list_iterator&lt; ListNodeType &gt;</a>
-</li>
-<li>lnode
-: <a class="el" href="namespacejoque.html#af2033745bdeba6b870de93c4ea053857">joque::dag_edge</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#abe44622e67908787df11ec88432c8cf7">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 </ul>
 
@@ -241,14 +263,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 , <a class="el" href="namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084">joque::run_record</a>
 </li>
 <li>next
-: <a class="el" href="namespacejoque.html#add780e825828359c7ea7e5616ba9c872">joque::list_node&lt; Node, Accessor &gt;</a>
+: <a class="el" href="structjoque_1_1bits_1_1list__header.html#a5581c564c823eb9b946808c5d38bd05f">joque::bits::list_header&lt; Node, Accessor &gt;</a>
 </li>
 <li>node_type
-: <a class="el" href="classjoque_1_1list.html#a04ff62b6234de150110fda003e97dd4a">joque::list&lt; ListNodeType &gt;</a>
-, <a class="el" href="namespacejoque.html#a27eb0d1408dadfc81b6f33dcf5ad0175">joque::list_node&lt; Node, Accessor &gt;</a>
-</li>
-<li>nodes
-: <a class="el" href="namespacejoque.html#aa493eb545284e59ff177ea7cdc379b3e">joque::dag</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a3918da4bdd5e34a2861e26ea75f9c149">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="structjoque_1_1bits_1_1list__header.html#a6d0d9fa88af244b6de78abc2891826a6">joque::bits::list_header&lt; Node, Accessor &gt;</a>
 </li>
 </ul>
 
@@ -270,19 +289,24 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structjoque_1_1run__result.html#a03a58d093ad00fe4ad28e5289654e493">joque::run_result</a>
 </li>
 <li>operator*()
-: <a class="el" href="classjoque_1_1list__iterator.html#a113c25c777e71357fde9cda7f4172d97">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a6fb7df91e3cb9e21b0dda4b8b32ed684">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator++()
-: <a class="el" href="classjoque_1_1list__iterator.html#a619e1d5ebe239168c61b7c8deff807fe">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#ad0b97707cdf39a6d58f4ef4d47174a24">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator--()
-: <a class="el" href="classjoque_1_1list__iterator.html#a68f6fef1f94d877b12df921eddc234ce">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#ad40ca59645958c368eaae0ae3bd575cd">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator-&gt;()
-: <a class="el" href="classjoque_1_1list__iterator.html#a41267358157c11eb713fb8ac20f54394">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#adae9d44f5cce7192640c1fd4639e752c">joque::bits::list_iterator&lt; ListHeader &gt;</a>
+</li>
+<li>operator&lt;=&gt;()
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#aae5bcb6fd9a79a585995e02611e86290">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91">joque::exec_coro</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#a1b5628550b888a93a3d2f356503af05a">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+, <a class="el" href="structjoque_1_1bits_1_1list__header.html#ad5b3ff2b38b468c37f4863843617fac4">joque::bits::list_header&lt; Node, Accessor &gt;</a>
+, <a class="el" href="classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91">joque::exec_coro</a>
 , <a class="el" href="structjoque_1_1job__ptr.html#a205bc603714efbb2d659c125bdc1cea0">joque::job_ptr</a>
 </li>
 <li>out()
@@ -299,7 +323,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structjoque_1_1out.html#a0c05495528cc88ba3942e5c11b051592">joque::out</a>
 </li>
 <li>prev
-: <a class="el" href="namespacejoque.html#a90bc00c98239a51370fe3601cffb1e59">joque::list_node&lt; Node, Accessor &gt;</a>
+: <a class="el" href="structjoque_1_1bits_1_1list__header.html#ad813c49f8b98deff524f64251e498542">joque::bits::list_header&lt; Node, Accessor &gt;</a>
 </li>
 <li>print_exec_visitor()
 : <a class="el" href="classjoque_1_1print__exec__visitor.html#a3da99edd9f32d951b4bd9eb1042c2300">joque::print_exec_visitor</a>
@@ -375,7 +399,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>t
-: <a class="el" href="namespacejoque.html#a3821f86d3d5b5f079796bf5b80f8bcc7">joque::dag_node</a>
+: <a class="el" href="namespacejoque.html#ac11d57794b71bc06b83252a83c2beb70">joque::dag_node</a>
 , <a class="el" href="namespacejoque.html#a379e3f69b4013da0858c1cfbf8cb1e33">joque::run_record</a>
 </li>
 <li>target
@@ -405,7 +429,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935">joque::exec_coro::promise_type</a>
 </li>
 <li>value_type
-: <a class="el" href="classjoque_1_1list__iterator.html#a6ed84179f9413537b489fe3850b7fff8">joque::list_iterator&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a8f6057d738bca88fa68da89444b68e4e">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 </ul>
 
@@ -421,7 +445,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 : <a class="el" href="structjoque_1_1job__iface.html#a8e39b54624baa8febd660bae6b402b4a">joque::job_iface</a>
 </li>
 <li>~list()
-: <a class="el" href="classjoque_1_1list.html#ae9b16c5fcc8c8bae798ec92aa9525019">joque::list&lt; ListNodeType &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list.html#af1143bd4db5d11c24b98afc326043e52">joque::bits::list&lt; ListHeader, IsOwning &gt;</a>
+</li>
+<li>~list_header()
+: <a class="el" href="structjoque_1_1bits_1_1list__header.html#a6baceeb29792ea235ac47b12e4060140">joque::bits::list_header&lt; Node, Accessor &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -429,7 +456,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jan 21 2024 16:24:08 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:29:16 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tick_232',['tick',['../classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae',1,'joque::exec_coro']]]
+  ['set_5fretcode_5ffile_247',['set_retcode_file',['../structjoque_1_1process.html#a56481b81e4c36e5af6958843ec20f1ee',1,'joque::process']]]
 ];

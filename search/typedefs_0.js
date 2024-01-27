@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['accessor_5ftype_277',['accessor_type',['../namespacejoque.html#af9c67f1fa06cc03f35e5f5e8f8894eeb',1,'joque::list_node::accessor_type()'],['../classjoque_1_1list__iterator.html#a7ff48b18bf3e77e224b36646a2f8d092',1,'joque::list_iterator::accessor_type()'],['../classjoque_1_1list.html#aeacf380f5ca5f070f2a20a7b2a2427e3',1,'joque::list::accessor_type()']]]
+  ['accessor_5ftype_294',['accessor_type',['../structjoque_1_1bits_1_1list__header.html#a0ee49a9480d4bf7e69aa2f2e1993ccf4',1,'joque::bits::list_header::accessor_type()'],['../classjoque_1_1bits_1_1list__iterator.html#a7a617ca839b004e805db2a78dfbd99ed',1,'joque::bits::list_iterator::accessor_type()'],['../classjoque_1_1bits_1_1list.html#a26abdea66fa579d26a5cb74524262c58',1,'joque::bits::list::accessor_type()']]]
 ];

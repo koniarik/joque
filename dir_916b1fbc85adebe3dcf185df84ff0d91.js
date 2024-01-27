@@ -1,5 +1,6 @@
 var dir_916b1fbc85adebe3dcf185df84ff0d91 =
 [
+    [ "bits", "dir_4088e79be6624661209e69bb81b5c917.html", "dir_4088e79be6624661209e69bb81b5c917" ],
     [ "dag.hpp", "dag_8hpp.html", "dag_8hpp" ],
     [ "exec.hpp", "exec_8hpp.html", "exec_8hpp" ],
     [ "exec_coro.hpp", "exec__coro_8hpp.html", [
@@ -17,7 +18,6 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
       [ "job_ptr", "structjoque_1_1job__ptr.html", "structjoque_1_1job__ptr" ]
     ] ],
     [ "junit.hpp", "junit_8hpp.html", "junit_8hpp" ],
-    [ "list_node.hpp", "list__node_8hpp.html", "list__node_8hpp" ],
     [ "out.hpp", "out_8hpp.html", [
       [ "out_tag", "structjoque_1_1out__tag.html", null ],
       [ "out", "structjoque_1_1out.html", "structjoque_1_1out" ]
