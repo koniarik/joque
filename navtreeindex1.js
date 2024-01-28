@@ -1,8 +1,15 @@
 var NAVTREEINDEX1 =
 {
-"structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3":[4,0,0,20,2],
-"structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f":[4,0,0,20,3],
-"structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae":[4,0,0,20,1],
+"structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c":[4,0,0,14,6],
+"structjoque_1_1process.html#aa49d12c0e5829d74062597d4df8f7c74":[4,0,0,14,2],
+"structjoque_1_1process.html#ad538f99ccdc343137d1855c3bd88ff7f":[4,0,0,14,4],
+"structjoque_1_1process.html#ad88738d6d451cb0477982f7acae94e13":[4,0,0,14,7],
+"structjoque_1_1process.html#aec664caac3a94b9b747b6b3619d0e07f":[4,0,0,14,5],
+"structjoque_1_1run__result.html":[4,0,0,21],
+"structjoque_1_1run__result.html#a03a58d093ad00fe4ad28e5289654e493":[4,0,0,21,0],
+"structjoque_1_1run__result.html#a10e6907b00216406a5217417d56277e3":[4,0,0,21,2],
+"structjoque_1_1run__result.html#a592b706916eb4279c48b9db6738b391f":[4,0,0,21,3],
+"structjoque_1_1run__result.html#a5bb7a849cbd9921c9a3130667d7b73ae":[4,0,0,21,1],
 "task_8hpp.html":[5,0,0,0,13],
 "task_8hpp.html#a5d9b1c8c103f5be314c4907ecf6eac68":[5,0,0,0,13,5],
 "task_8hpp.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7":[5,0,0,0,13,4],

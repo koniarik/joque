@@ -2,6 +2,7 @@ var namespacejoque =
 [
     [ "bits", "namespacejoque_1_1bits.html", "namespacejoque_1_1bits" ],
     [ "dag_lheader_accessor", "structjoque_1_1dag__lheader__accessor.html", "structjoque_1_1dag__lheader__accessor" ],
+    [ "dag_lrheader_accessor", "structjoque_1_1dag__lrheader__accessor.html", "structjoque_1_1dag__lrheader__accessor" ],
     [ "dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", "namespacejoque_structjoque_1_1dag__edge_dup" ],
     [ "dag_node", "namespacejoque.html#structjoque_1_1dag__node", "namespacejoque_structjoque_1_1dag__node_dup" ],
     [ "dag", "classjoque_1_1dag.html", "classjoque_1_1dag" ],
@@ -23,7 +24,9 @@ var namespacejoque =
     [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
     [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ],
     [ "dag_edge_lheader", "namespacejoque.html#a1ae17de529d3c92a9178c67e5c51cc77", null ],
+    [ "dag_edge_lrheader", "namespacejoque.html#afcb8d3cb967c3313b30e3f17033e9ccc", null ],
     [ "dag_edge_list", "namespacejoque.html#a6608418cad2419bccd25dc18eae2ac7a", null ],
+    [ "dag_edge_rlist", "namespacejoque.html#a714686fea0422d36cfda4cce69c2567c", null ],
     [ "dag_node_lheader", "namespacejoque.html#a0e2220943cd960b46c8f1c33755bfc84", null ],
     [ "dag_node_list", "namespacejoque.html#a38732260750c444b843de2f595563775", null ],
     [ "tp", "namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde", null ],

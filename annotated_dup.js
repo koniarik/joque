@@ -7,6 +7,7 @@ var annotated_dup =
         [ "list", "classjoque_1_1bits_1_1list.html", "classjoque_1_1bits_1_1list" ]
       ] ],
       [ "dag_lheader_accessor", "structjoque_1_1dag__lheader__accessor.html", "structjoque_1_1dag__lheader__accessor" ],
+      [ "dag_lrheader_accessor", "structjoque_1_1dag__lrheader__accessor.html", "structjoque_1_1dag__lrheader__accessor" ],
       [ "dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", "namespacejoque_structjoque_1_1dag__edge_dup" ],
       [ "dag_node", "namespacejoque.html#structjoque_1_1dag__node", "namespacejoque_structjoque_1_1dag__node_dup" ],
       [ "dag", "classjoque_1_1dag.html", "classjoque_1_1dag" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tick_248',['tick',['../classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae',1,'joque::exec_coro']]]
+  ['tick_260',['tick',['../classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae',1,'joque::exec_coro']]]
 ];
