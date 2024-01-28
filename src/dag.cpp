@@ -27,10 +27,16 @@ namespace
         void link_dependencies( dag& g, std::unordered_map< const task*, dag_node* >& index )
         {
                 for ( dag_node& n : g ) {
-                        for ( const task& d : n.t->depends_on )
-                                n.runs_after.emplace_front( true, index[&d] );
-                        for ( const task& d : n.t->run_after )
-                                n.runs_after.emplace_front( false, index[&d] );
+                        for ( const task& d : n.t->depends_on ) {
+                                dag_node* target = index[&d];
+                                dag_edge& e      = n.runs_after.emplace_front( true, target );
+                                target->in_edges.link_front( e );
+                        }
+                        for ( const task& d : n.t->run_after ) {
+                                dag_node* target = index[&d];
+                                dag_edge& e      = n.runs_after.emplace_front( false, target );
+                                target->in_edges.link_front( e );
+                        }
                 }
         }
 

@@ -5,6 +5,7 @@
 
 #include <functional>
 #include <list>
+#include <memory>
 
 namespace joque
 {
@@ -17,19 +18,30 @@ struct dag_lheader_accessor
         }
 };
 
+struct dag_lrheader_accessor
+{
+        static auto& get( auto& n )
+        {
+                return n.lrheader;
+        }
+};
+
 struct dag_node;
 struct dag_edge;
 
-using dag_edge_lheader = bits::list_header< dag_edge, dag_lheader_accessor >;
+using dag_edge_lheader  = bits::list_header< dag_edge, dag_lheader_accessor >;
+using dag_edge_lrheader = bits::list_header< dag_edge, dag_lrheader_accessor >;
 
 struct dag_edge
 {
-        bool             is_dependency = false;
-        dag_node*        target        = nullptr;
-        dag_edge_lheader lheader;
+        bool              is_dependency = false;
+        dag_node*         target        = nullptr;
+        dag_edge_lheader  lheader;
+        dag_edge_lrheader lrheader;
 };
 
-using dag_edge_list = bits::list< dag_edge_lheader, true >;
+using dag_edge_list  = bits::list< dag_edge_lheader, true >;
+using dag_edge_rlist = bits::list< dag_edge_lrheader, true >;
 
 using dag_node_lheader = bits::list_header< dag_node, dag_lheader_accessor >;
 
@@ -42,7 +54,8 @@ struct dag_node
         const task* t = nullptr;
 
         /// Nodes representing tasks that should be run before `t`
-        dag_edge_list runs_after{};
+        dag_edge_list  runs_after{};
+        dag_edge_rlist in_edges{};
 
         /// Sets to `true` once the task is scheduled for execution
         bool started = false;
@@ -64,29 +77,29 @@ public:
 
         auto begin()
         {
-                return nodes_.begin();
+                return nodes_->begin();
         }
-        auto begin() const
+        [[nodiscard]] auto begin() const
         {
-                return nodes_.begin();
+                return nodes_->begin();
         }
         auto end()
         {
-                return nodes_.end();
+                return nodes_->end();
         }
-        auto end() const
+        [[nodiscard]] auto end() const
         {
-                return nodes_.end();
+                return nodes_->end();
         }
 
         void clear_if( auto&& f )
         {
-                nodes_.clear_if( f );
+                nodes_->clear_if( f );
         }
 
         dag_node& emplace( const std::string& name, const task& t )
         {
-                return nodes_.emplace_front( name, &t );
+                return nodes_->emplace_front( name, &t );
         }
 
         /// The DAG becames invalidated after any change to the input task set, and any use of it
@@ -104,7 +117,7 @@ public:
         void insert_set( const task_set& ts, const std::string& filter );
 
 private:
-        dag_node_list nodes_;
+        std::unique_ptr< dag_node_list > nodes_ = std::make_unique< dag_node_list >();
 };
 
 }  // namespace joque

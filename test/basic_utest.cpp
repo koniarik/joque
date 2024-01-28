@@ -1,5 +1,6 @@
 #include "joque/exec.hpp"
 #include "joque/task.hpp"
+#include "joque/traits.hpp"
 
 #include <gtest/gtest.h>
 #include <numeric>
@@ -32,9 +33,9 @@ TEST( joque, basic )
 {
 
         std::vector< int > sequence( 10 );
+        std::iota( sequence.begin(), sequence.end(), 0 );
         std::vector< int > result;
         std::mutex         w_m;
-        std::iota( sequence.begin(), sequence.end(), 0 );
 
         task_set ts{};
         for ( int i : sequence ) {
@@ -90,6 +91,40 @@ TEST( joque, dep )
                 finished.clear();
                 exec( ts, i ).run();
                 EXPECT_EQ( finished.size(), ts.tasks.size() ) << "thread count: " << i;
+        }
+}
+
+TEST( joque, filter )
+{
+
+        std::vector< int > sequence( 2 );
+        std::iota( sequence.begin(), sequence.end(), 0 );
+        std::vector< int > result;
+        std::mutex         w_m;
+
+        task_set ts{};
+        ts.tasks["unwanted_test"] = task{ .job = [&]( const task& ) -> run_result {
+                ADD_FAILURE();
+                return { 0 };
+        } };
+        for ( int i : sequence ) {
+                ts.tasks["my_test_" + std::to_string( i )] = task{
+                    .job = [&, i = i]( const task& ) -> run_result {
+                            std::lock_guard _{ w_m };
+                            result.push_back( i );
+                            return { 0 };
+                    },
+                    .run_after = { ts.tasks["unwanted_test"] },
+                };
+        }
+
+
+        for ( unsigned i : { 0u, 4u } ) {
+                result.clear();
+                exec( ts, i, "//my_test" ).run();
+                std::sort( result.begin(), result.end() );
+
+                EXPECT_EQ( sequence, result ) << "thread count: " << i;
         }
 }
 

@@ -61,6 +61,9 @@ template < typename Accessor, typename Node, typename... Args >
 Node& list_emplace_next( Node& node, Args&&... args );
 
 template < typename Accessor, typename Node >
+void list_link_next( Node& current, Node& next );
+
+template < typename Accessor, typename Node >
 void list_delete_all_next( Node& node );
 
 template < typename ListHeader >
@@ -118,11 +121,7 @@ public:
         using iterator         = list_iterator< list_header_type >;
         using const_iterator   = list_iterator< const list_header_type >;
 
-        list()                         = default;
-        list( const list& )            = delete;
-        list& operator=( const list& ) = delete;
-        list( list&& other ) noexcept( false );
-        list& operator=( list&& other ) noexcept( false );
+        list() = default;
 
         iterator       begin();
         const_iterator begin() const;
@@ -133,6 +132,8 @@ public:
         template < typename... Args >
         node_type& emplace_front( Args&&... args );
 
+        void link_front( node_type& node );
+
         [[nodiscard]] bool empty() const;
 
         void clear_if( auto&& f );
@@ -142,7 +143,7 @@ public:
 private:
         static auto& list_header( auto& node );
 
-        std::unique_ptr< node_type > first_ = std::make_unique< node_type >();
+        node_type first_;
 };
 
 
@@ -175,17 +176,22 @@ template < typename Accessor, typename Node, typename... Args >
 Node& list_emplace_next( Node& node, Args&&... args )
 {
         Node* nnode = new Node{ std::forward< Args >( args )... };
-        auto& lnode = Accessor::get( *nnode );
-        auto& fnode = Accessor::get( node );
-
-        lnode.next = fnode.next;
-        if ( lnode.next != nullptr )
-                Accessor::get( *lnode.next ).prev = nnode;
-
-        fnode.next = nnode;
-        lnode.prev = &node;
-
+        list_link_next< Accessor >( node, *nnode );
         return *nnode;
+}
+
+template < typename Accessor, typename Node >
+void list_link_next( Node& current, Node& next )
+{
+        auto& nnode = Accessor::get( next );
+        auto& cnode = Accessor::get( current );
+
+        nnode.next = cnode.next;
+        if ( nnode.next != nullptr )
+                Accessor::get( *nnode.next ).prev = &next;
+
+        cnode.next = &next;
+        nnode.prev = &current;
 }
 
 template < typename Accessor, typename Node >
@@ -257,33 +263,16 @@ list_iterator< ListHeader > list_iterator< ListHeader >::operator--( int )
 }
 
 template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::list( list&& other ) noexcept( false )
-{
-        *this = std::move( other );
-}
-
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >&
-list< ListHeader, IsOwning >::operator=( list&& other ) noexcept( false )
-{
-        if ( &other != this )
-                first_ = std::exchange( other.first_, std::make_unique< node_type >() );
-        return *this;
-}
-
-template < typename ListHeader, bool IsOwning >
 list< ListHeader, IsOwning >::iterator list< ListHeader, IsOwning >::begin()
 {
-        iterator res{ first_.get() };
-        ++res;
+        iterator res{ list_header( first_ ).next };
         return res;
 }
 
 template < typename ListHeader, bool IsOwning >
 list< ListHeader, IsOwning >::const_iterator list< ListHeader, IsOwning >::begin() const
 {
-        const_iterator res{ first_.get() };
-        ++res;
+        const_iterator res{ list_header( first_ ).next };
         return res;
 }
 
@@ -304,13 +293,19 @@ template < typename... Args >
 list< ListHeader, IsOwning >::node_type&
 list< ListHeader, IsOwning >::emplace_front( Args&&... args )
 {
-        return list_emplace_next< accessor_type >( *first_, std::forward< Args >( args )... );
+        return list_emplace_next< accessor_type >( first_, std::forward< Args >( args )... );
+}
+
+template < typename ListHeader, bool IsOwning >
+void list< ListHeader, IsOwning >::link_front( node_type& node )
+{
+        list_link_next< accessor_type >( first_, node );
 }
 
 template < typename ListHeader, bool IsOwning >
 bool list< ListHeader, IsOwning >::empty() const
 {
-        return list_header( *first_ ).next == nullptr;
+        return list_header( first_ ).next == nullptr;
 }
 
 template < typename ListHeader, bool IsOwning >
@@ -318,7 +313,7 @@ void list< ListHeader, IsOwning >::clear_if( auto&& f )
 {
         for ( auto iter = begin(); iter != end(); ) {
                 auto* node = &*( iter++ );
-                if ( !f( *node ) )
+                if ( f( *node ) )
                         delete node;
         }
 }
@@ -327,7 +322,7 @@ template < typename ListHeader, bool IsOwning >
 list< ListHeader, IsOwning >::~list()
 {
         if constexpr ( IsOwning )
-                list_delete_all_next< accessor_type >( *first_ );
+                list_delete_all_next< accessor_type >( first_ );
 }
 
 template < typename ListHeader, bool IsOwning >
