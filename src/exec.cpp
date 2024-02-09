@@ -1,6 +1,7 @@
 #include "joque/exec.hpp"
 
 #include "joque/dag.hpp"
+#include "joque/traits.hpp"
 #include "run_coro.hpp"
 
 #include <algorithm>
@@ -107,12 +108,18 @@ namespace
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
-                                    res.std_err += "job run failed due to exception: " +
-                                                   std::string{ e.what() };
+                                    record_output(
+                                        res,
+                                        output_chunk::ERROR,
+                                        "job run failed due to exception: " +
+                                            std::string{ e.what() } );
                             }
                             catch ( ... ) {
                                     res.retcode = 1;
-                                    res.std_err += "job run failed due to an unknown exception";
+                                    record_output(
+                                        res,
+                                        output_chunk::ERROR,
+                                        "job run failed due to an unknown exception" );
                             }
                             return res;
                     },
@@ -120,7 +127,7 @@ namespace
 
                 while ( fut.wait_for( 0ms ) == std::future_status::timeout )
                         co_await std::suspend_always{};
-                std::tie( result.retcode, result.std_out, result.std_err ) = fut.get();
+                std::tie( result.retcode, result.output ) = fut.get();
 
                 for ( const resource& r : n.t->resources )
                         used_resources.erase( &r );

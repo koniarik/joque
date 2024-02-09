@@ -1,5 +1,7 @@
 #include "joque/process.hpp"
 
+#include "joque/traits.hpp"
+
 #include <algorithm>
 #include <bits/ranges_algo.h>
 #include <filesystem>
@@ -9,6 +11,7 @@
 #include <regex>
 #include <reproc++/drain.hpp>
 #include <reproc++/reproc.hpp>
+#include <system_error>
 
 namespace joque
 {
@@ -85,37 +88,47 @@ run_result job_traits< process >::run( const task&, const process& p )
         std::error_code ec = process.start( p.cmd, opts );
 
         if ( ec == std::errc::no_such_file_or_directory ) {
-                res.std_err = "Program not found. Make sure it's available from the PATH.\n";
+                res.output.emplace_back(
+                    output_chunk::ERROR,
+                    "Program not found. Make sure it's available from the PATH.\n" );
                 res.retcode = ec.value();
                 return res;
         } else if ( ec ) {
-                res.std_err = ec.message();
+                res.output.emplace_back( output_chunk::ERROR, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
-        reproc::sink::string sink_out( res.std_out );
-        reproc::sink::string sink_err( res.std_err );
-        ec = reproc::drain( process, sink_out, sink_err );
+
+        auto f =
+            [&]( reproc::stream s, const uint8_t* buffer, std::size_t size ) -> std::error_code {
+                record_output(
+                    res,
+                    s == reproc::stream::out ? output_chunk::STANDARD : output_chunk::ERROR,
+                    std::string_view( reinterpret_cast< const char* >( buffer ), size ) );
+                return {};
+        };
+        ec = reproc::drain( process, f, f );
         if ( ec ) {
-                res.std_err = ec.message();
+                record_output( res, output_chunk::ERROR, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
         std::tie( res.retcode, ec ) = process.wait( reproc::infinite );
         if ( ec ) {
-                res.std_err = ec.message();
+                record_output( res, output_chunk::ERROR, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
         if ( res.retcode != 0 ) {
-                std::string newout = "cmd: ";
+                std::string cmdline = "cmd: ";
                 for ( const std::string& arg : p.cmd )
-                        newout += std::regex_replace( arg, std::regex{ " " }, "\\ " ) + " ";
-                newout += "\n" + res.std_out;
-                res.std_out = newout;
+                        cmdline += std::regex_replace( arg, std::regex{ " " }, "\\ " ) + " ";
+                cmdline += "\n";
+
+                res.output.emplace_front( output_chunk::STANDARD, cmdline );
         }
 
         if ( p.retcode_file.has_value() ) {

@@ -4,6 +4,7 @@
 
 #include <chrono>
 #include <functional>
+#include <list>
 #include <string>
 #include <vector>
 
@@ -34,11 +35,7 @@ struct run_record
         /// End time of the execution
         tp end = std::chrono::system_clock::now();
 
-        /// Standard output of the execution
-        std::string std_out;
-
-        /// Error output of the execution
-        std::string std_err;
+        std::list< output_chunk > output;
 };
 
 /// Record of execution of entire task set. Is valid only as long as the original task set was not

@@ -5,6 +5,7 @@
 
 #include <filesystem>
 #include <optional>
+#include <vector>
 
 namespace joque
 {

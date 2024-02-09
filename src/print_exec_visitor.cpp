@@ -1,6 +1,7 @@
 #include "joque/print_exec_visitor.hpp"
 
 #include "joque/format.hpp"
+#include "joque/traits.hpp"
 
 #include <iostream>
 
@@ -36,8 +37,9 @@ void print_exec_visitor::on_run_end( const run_record* rec, const dag_node& n )
         }
 
         if ( verbose_ ) {
-                std::cout << rec->std_out << std::endl;
-                std::cout << rec->std_err << std::endl;
+                for ( const output_chunk& ch : rec->output )
+                        std::cout << ch.data;
+                std::cout << std::endl;
         }
 };
 

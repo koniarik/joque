@@ -1,13 +1,24 @@
 #pragma once
 
+#include <list>
 #include <string>
 #include <tuple>
-#include <vector>
 
 namespace joque
 {
 
 struct task;
+
+struct output_chunk
+{
+        enum type_e
+        {
+                ERROR,
+                STANDARD
+        };
+        type_e      type;
+        std::string data;
+};
 
 /// Result of single traits run call. Information is stored in run record.
 struct run_result
@@ -15,17 +26,18 @@ struct run_result
         /// Return code of the run, 0 implies success.
         int retcode;
 
-        /// Standard output of the run
-        std::string std_out;
+        std::list< output_chunk > output;
 
-        /// Error output of the run
-        std::string std_err;
-
-        [[nodiscard]] operator std::tuple< int&, std::string&, std::string& >() &&
+        [[nodiscard]] operator std::tuple< int&, std::list< output_chunk >& >() &&
         {
-                return { retcode, std_out, std_err };
+                return { retcode, output };
         }
 };
+
+inline void record_output( run_result& res, output_chunk::type_e type, std::string_view data )
+{
+        res.output.emplace_back( type, std::string( data ) );
+}
 
 /// Default job traits for all types. Assumes that the type is callable with signature
 /// `run_result(const task*)`.

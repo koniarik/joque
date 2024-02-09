@@ -83,16 +83,6 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
                         os << "<failure message=\"task failed\"/>\n";
                 if ( rec.skipped )
                         os << "<failure message=\"task skipped\"/>\n";
-                if ( rec.std_out.size() != 0 ) {
-                        const xml_node sout{ os, "std_out" };
-                        os << std::accumulate(
-                            rec.std_out.begin(), rec.std_out.end(), std::string{ "" } );
-                }
-                if ( rec.std_err.size() != 0 ) {
-                        const xml_node serr{ os, "std_err" };
-                        os << std::accumulate(
-                            rec.std_err.begin(), rec.std_err.end(), std::string{ "" } );
-                }
         }
 }
 
