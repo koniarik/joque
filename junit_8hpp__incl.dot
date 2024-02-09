@@ -8,11 +8,11 @@ digraph "include/joque/junit.hpp"
   Node2 [label="joque/exec.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exec_8hpp.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="joque/exec_coro.hpp",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$exec__coro_8hpp.html",tooltip=" "];
-  Node2 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node19 [label="joque/exec_visitor.hpp",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$exec__visitor_8hpp.html",tooltip=" "];
+  Node2 -> Node20 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="joque/exec_visitor.hpp",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$exec__visitor_8hpp.html",tooltip=" "];
   Node2 -> Node28 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node28 [label="joque/print_exec_visitor.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$print__exec__visitor_8hpp.html",tooltip=" "];
-  Node28 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node28 -> Node20 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node29 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node29 [label="thread",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

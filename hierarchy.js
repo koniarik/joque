@@ -26,6 +26,7 @@ var hierarchy =
     [ "joque::out_tag", "structjoque_1_1out__tag.html", [
       [ "joque::out", "structjoque_1_1out.html", null ]
     ] ],
+    [ "joque::output_chunk", "structjoque_1_1output__chunk.html", null ],
     [ "joque::process", "structjoque_1_1process.html", null ],
     [ "joque::exec_coro::promise_type", "structjoque_1_1exec__coro_1_1promise__type.html", null ],
     [ "joque::resource", "namespacejoque.html#structjoque_1_1resource", null ],

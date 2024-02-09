@@ -29,8 +29,5 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
     ] ],
     [ "records.hpp", "records_8hpp.html", "records_8hpp" ],
     [ "task.hpp", "task_8hpp.html", "task_8hpp" ],
-    [ "traits.hpp", "traits_8hpp.html", [
-      [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
-      [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ]
-    ] ]
+    [ "traits.hpp", "traits_8hpp.html", "traits_8hpp" ]
 ];

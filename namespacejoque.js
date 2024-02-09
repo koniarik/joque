@@ -21,6 +21,7 @@ var namespacejoque =
     [ "resource", "namespacejoque.html#structjoque_1_1resource", "namespacejoque_structjoque_1_1resource_dup" ],
     [ "task", "namespacejoque.html#structjoque_1_1task", "namespacejoque_structjoque_1_1task_dup" ],
     [ "task_set", "namespacejoque.html#structjoque_1_1task__set", "namespacejoque_structjoque_1_1task__set_dup" ],
+    [ "output_chunk", "structjoque_1_1output__chunk.html", "structjoque_1_1output__chunk" ],
     [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
     [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ],
     [ "dag_edge_lheader", "namespacejoque.html#a1ae17de529d3c92a9178c67e5c51cc77", null ],
@@ -44,6 +45,7 @@ var namespacejoque =
     [ "run_each_after", "namespacejoque.html#ad04db56a535a0af2e3801a6524c00714", null ],
     [ "run_after_all_of", "namespacejoque.html#a9255c56d839b5272715fe46da331a6a0", null ],
     [ "for_each_task_impl", "namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937", null ],
+    [ "record_output", "namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb", null ],
     [ "PRINT_VISITOR", "namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530", null ],
     [ "f", "namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc", null ]
 ];

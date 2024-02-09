@@ -26,6 +26,7 @@ var annotated_dup =
       [ "resource", "namespacejoque.html#structjoque_1_1resource", "namespacejoque_structjoque_1_1resource_dup" ],
       [ "task", "namespacejoque.html#structjoque_1_1task", "namespacejoque_structjoque_1_1task_dup" ],
       [ "task_set", "namespacejoque.html#structjoque_1_1task__set", "namespacejoque_structjoque_1_1task__set_dup" ],
+      [ "output_chunk", "structjoque_1_1output__chunk.html", "structjoque_1_1output__chunk" ],
       [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
       [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ]
     ] ]

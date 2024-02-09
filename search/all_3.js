@@ -12,8 +12,9 @@ var searchData=
   ['dag_5fnode_17',['dag_node',['../namespacejoque.html#structjoque_1_1dag__node',1,'joque']]],
   ['dag_5fnode_5flheader_18',['dag_node_lheader',['../namespacejoque.html#a0e2220943cd960b46c8f1c33755bfc84',1,'joque']]],
   ['dag_5fnode_5flist_19',['dag_node_list',['../namespacejoque.html#a38732260750c444b843de2f595563775',1,'joque']]],
-  ['depends_5fon_20',['depends_on',['../namespacejoque.html#a08d9fbd8926291bb8c3408cd00cb05a3',1,'joque::task']]],
-  ['derive_21',['derive',['../structjoque_1_1process.html#a76181542ab21eae5751f913e2629e46f',1,'joque::process']]],
-  ['difference_5ftype_22',['difference_type',['../classjoque_1_1bits_1_1list__iterator.html#ac1b50ad2260147e7c987e33a19d70262',1,'joque::bits::list_iterator']]],
-  ['done_23',['done',['../classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af',1,'joque::exec_coro::done()'],['../namespacejoque.html#a1b6b0036e8fe121c50ce5edad1d36344',1,'joque::dag_node::done()']]]
+  ['data_20',['data',['../structjoque_1_1output__chunk.html#abe2645d6dbc23711958c9fef09e609c6',1,'joque::output_chunk']]],
+  ['depends_5fon_21',['depends_on',['../namespacejoque.html#a08d9fbd8926291bb8c3408cd00cb05a3',1,'joque::task']]],
+  ['derive_22',['derive',['../structjoque_1_1process.html#a76181542ab21eae5751f913e2629e46f',1,'joque::process']]],
+  ['difference_5ftype_23',['difference_type',['../classjoque_1_1bits_1_1list__iterator.html#ac1b50ad2260147e7c987e33a19d70262',1,'joque::bits::list_iterator']]],
+  ['done_24',['done',['../classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af',1,'joque::exec_coro::done()'],['../namespacejoque.html#a1b6b0036e8fe121c50ce5edad1d36344',1,'joque::dag_node::done()']]]
 ];
