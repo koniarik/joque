@@ -169,16 +169,16 @@ template < typename T, typename Fun >
 void for_each_task( T& ts, Fun&& f );
 
 /// Recursively adds dependency on `dep` for each task in `ts`, except for `dep` itself.
-void for_each_add_dep( task_set& ts, const task_ptr& dep );
+void for_each_add_dep( task_set& ts, const task_iface& dep );
 
 /// Recursively adds dependency on each task in `ts` to task `t`, except for `t` itself.
-void add_dep_to_each( task_ptr& t, const task_set& ts );
+void add_dep_to_each( task_iface& t, const task_set& ts );
 
 /// Recursively adds run after relationship so that all tasks in `ts` are run after `t`.
-void run_each_after( task_set& ts, const task_ptr& t );
+void run_each_after( task_set& ts, const task_iface& t );
 
 /// Recursively adds run after relationship so that task `t` is run after all tasks in set `ts`.
-void run_after_all_of( task_ptr& t, const task_set& ts );
+void run_after_all_of( task_iface& t, const task_set& ts );
 
 template < typename T, typename Fun >
 void for_each_task_impl( T& ts, Fun&& f, const std::string& prefix )
