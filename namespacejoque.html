@@ -152,9 +152,19 @@ Classes</h2></td></tr>
 <tr class="memitem:structjoque_1_1resource"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a></td></tr>
 <tr class="memdesc:structjoque_1_1resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction to model resource used by tasks.  <a href="namespacejoque.html#structjoque_1_1resource">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1task__iface.html">task_iface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1task__traits"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1task__traits">task_traits</a></td></tr>
+<tr class="separator:structjoque_1_1task__traits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1task__wrapper.html">task_wrapper</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1task"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a></td></tr>
 <tr class="memdesc:structjoque_1_1task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single task that should be executed by the system.  <a href="namespacejoque.html#structjoque_1_1task">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1task__traits_3_01task_01_4.html">task_traits&lt; task &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1task__set"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a></td></tr>
 <tr class="memdesc:structjoque_1_1task__set"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of tasks that contains either tasks or another sets.  <a href="namespacejoque.html#structjoque_1_1task__set">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1task__set"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +193,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:a38732260750c444b843de2f595563775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a> = std::chrono::time_point&lt; std::chrono::system_clock &gt;</td></tr>
 <tr class="separator:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25cd9ec04bcdb672e2ce36b7b477b2c4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a25cd9ec04bcdb672e2ce36b7b477b2c4">const_task_iface_ref</a> = std::reference_wrapper&lt; const <a class="el" href="structjoque_1_1task__iface.html">task_iface</a> &gt;</td></tr>
+<tr class="separator:a25cd9ec04bcdb672e2ce36b7b477b2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264fa0751f74c79156cfbcaec924cd05"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a264fa0751f74c79156cfbcaec924cd05">const_resource_ref</a> = std::reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> &gt;</td></tr>
+<tr class="separator:a264fa0751f74c79156cfbcaec924cd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -212,18 +226,18 @@ Functions</h2></td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">requires</a> (std::same_as&lt; std::remove_cvref_t&lt; T &gt;, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;) void for_each_task(T &amp;ts</td></tr>
 <tr class="memdesc:af9daf6e2b940c98e701e9a28c5593433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively executes function <code>f</code> for each task in set <code>ts</code>.  <a href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">More...</a><br /></td></tr>
 <tr class="separator:af9daf6e2b940c98e701e9a28c5593433"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7">for_each_add_dep</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;dep)</td></tr>
-<tr class="memdesc:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on <code>dep</code> for each task in <code>ts</code>, except for <code>dep</code> itself.  <a href="namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7">More...</a><br /></td></tr>
-<tr class="separator:a8e3b0f45b1aa8c495527fae2d1dbd0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">add_dep_to_each</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
-<tr class="memdesc:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on each task in <code>ts</code> to task <code>t</code>, except for <code>t</code> itself.  <a href="namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68">More...</a><br /></td></tr>
-<tr class="separator:a5d9b1c8c103f5be314c4907ecf6eac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad04db56a535a0af2e3801a6524c00714"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ad04db56a535a0af2e3801a6524c00714">run_each_after</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t)</td></tr>
-<tr class="memdesc:ad04db56a535a0af2e3801a6524c00714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that all tasks in <code>ts</code> are run after <code>t</code>.  <a href="namespacejoque.html#ad04db56a535a0af2e3801a6524c00714">More...</a><br /></td></tr>
-<tr class="separator:ad04db56a535a0af2e3801a6524c00714"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9255c56d839b5272715fe46da331a6a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">run_after_all_of</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
-<tr class="memdesc:a9255c56d839b5272715fe46da331a6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that task <code>t</code> is run after all tasks in set <code>ts</code>.  <a href="namespacejoque.html#a9255c56d839b5272715fe46da331a6a0">More...</a><br /></td></tr>
-<tr class="separator:a9255c56d839b5272715fe46da331a6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a6f99b26c14a0d1c5217f3bbaa7f558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7a6f99b26c14a0d1c5217f3bbaa7f558">for_each_add_dep</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const <a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;dep)</td></tr>
+<tr class="memdesc:a7a6f99b26c14a0d1c5217f3bbaa7f558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on <code>dep</code> for each task in <code>ts</code>, except for <code>dep</code> itself.  <a href="namespacejoque.html#a7a6f99b26c14a0d1c5217f3bbaa7f558">More...</a><br /></td></tr>
+<tr class="separator:a7a6f99b26c14a0d1c5217f3bbaa7f558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d8300bc16cb6707d54b9b632a3dc2ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7d8300bc16cb6707d54b9b632a3dc2ce">add_dep_to_each</a> (<a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
+<tr class="memdesc:a7d8300bc16cb6707d54b9b632a3dc2ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds dependency on each task in <code>ts</code> to task <code>t</code>, except for <code>t</code> itself.  <a href="namespacejoque.html#a7d8300bc16cb6707d54b9b632a3dc2ce">More...</a><br /></td></tr>
+<tr class="separator:a7d8300bc16cb6707d54b9b632a3dc2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaebafa7d677585f9216d8baa4f2be6fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aaebafa7d677585f9216d8baa4f2be6fd">run_each_after</a> (<a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const <a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;t)</td></tr>
+<tr class="memdesc:aaebafa7d677585f9216d8baa4f2be6fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that all tasks in <code>ts</code> are run after <code>t</code>.  <a href="namespacejoque.html#aaebafa7d677585f9216d8baa4f2be6fd">More...</a><br /></td></tr>
+<tr class="separator:aaebafa7d677585f9216d8baa4f2be6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089b05800cd4bb598ab17d9035af91f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a089b05800cd4bb598ab17d9035af91f1">run_after_all_of</a> (<a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;t, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts)</td></tr>
+<tr class="memdesc:a089b05800cd4bb598ab17d9035af91f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively adds run after relationship so that task <code>t</code> is run after all tasks in set <code>ts</code>.  <a href="namespacejoque.html#a089b05800cd4bb598ab17d9035af91f1">More...</a><br /></td></tr>
+<tr class="separator:a089b05800cd4bb598ab17d9035af91f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ca33039b5b2b2459052d8090ffc937"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
 <tr class="memitem:af5ca33039b5b2b2459052d8090ffc937"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a> (T &amp;ts, Fun &amp;&amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, const std::string &amp;prefix)</td></tr>
 <tr class="separator:af5ca33039b5b2b2459052d8090ffc937"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -317,7 +331,7 @@ name</td>
 <td class="fielddoc">
 Full path-name of the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="ac11d57794b71bc06b83252a83c2beb70"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="ad392e3c2fed585faaa9d1ba1807db9b1"></a>const <a class="el" href="structjoque_1_1task__iface.html">task_iface</a> *</td>
 <td class="fieldname">
 t</td>
 <td class="fielddoc">
@@ -386,7 +400,7 @@ lheader</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a379e3f69b4013da0858c1cfbf8cb1e33"></a>reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt;</td>
+<a id="a2b58c2cd78fd0e9249682101f985b850"></a>reference_wrapper&lt; const <a class="el" href="structjoque_1_1task__iface.html">task_iface</a> &gt;</td>
 <td class="fieldname">
 t</td>
 <td class="fielddoc">
@@ -509,6 +523,23 @@ name</td>
 
 </div>
 </div>
+<a name="structjoque_1_1task__traits" id="structjoque_1_1task__traits"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1task__traits">&#9670;&nbsp;</a></span>joque::task_traits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct joque::task_traits</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+struct joque::task_traits&lt; T &gt;</h3>
+
+</div>
+</div>
+</div>
 <a name="structjoque_1_1task" id="structjoque_1_1task"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1task">&#9670;&nbsp;</a></span>joque::task</h2>
 
@@ -538,21 +569,21 @@ job</td>
 <td class="fielddoc">
 Job being executed for the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="a08d9fbd8926291bb8c3408cd00cb05a3"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt; &gt;</td>
+<a id="a7e543eb6533d1a974aed34a5fc55d40a"></a>vector&lt; <a class="el" href="namespacejoque.html#a25cd9ec04bcdb672e2ce36b7b477b2c4">const_task_iface_ref</a> &gt;</td>
 <td class="fieldname">
 depends_on</td>
 <td class="fielddoc">
 Dependencies of the task - all of these should be executed before this task. <p>In case any of these is invalidated, this task is also invalidated. </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a363b8dd30145e824a7c28af8ac7d0e1c"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt; &gt;</td>
+<a id="a59feff1347b015682c43ad56b8abbc2c"></a>vector&lt; <a class="el" href="namespacejoque.html#a25cd9ec04bcdb672e2ce36b7b477b2c4">const_task_iface_ref</a> &gt;</td>
 <td class="fieldname">
 run_after</td>
 <td class="fielddoc">
 Tasks that should be executed before this task. <p>(<code>depends_on</code> task are implicitly included) </p>
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a60f97d3b9b32ce86d25e3cc373ee1425"></a>vector&lt; reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> &gt; &gt;</td>
+<a id="afd19b2f3ed631b15c011f1049be1c18d"></a>vector&lt; <a class="el" href="namespacejoque.html#a264fa0751f74c79156cfbcaec924cd05">const_resource_ref</a> &gt;</td>
 <td class="fieldname">
 resources</td>
 <td class="fielddoc">
@@ -592,7 +623,7 @@ In case this is set to true, this task should not be visible in standard reports
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a80cd0b463e34149a7c1b11b8592e4552"></a>map&lt; string, <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &gt;</td>
+<a id="aae2b3ca8147d52a2adcc59729846bea9"></a>map&lt; string, <a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &gt;</td>
 <td class="fieldname">
 tasks</td>
 <td class="fielddoc">
@@ -700,6 +731,34 @@ Subsets of this set. </td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">joque::tp</a> = typedef std::chrono::time_point&lt; std::chrono::system_clock &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25cd9ec04bcdb672e2ce36b7b477b2c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25cd9ec04bcdb672e2ce36b7b477b2c4">&#9670;&nbsp;</a></span>const_task_iface_ref</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacejoque.html#a25cd9ec04bcdb672e2ce36b7b477b2c4">joque::const_task_iface_ref</a> = typedef std::reference_wrapper&lt; const <a class="el" href="structjoque_1_1task__iface.html">task_iface</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a264fa0751f74c79156cfbcaec924cd05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264fa0751f74c79156cfbcaec924cd05">&#9670;&nbsp;</a></span>const_resource_ref</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacejoque.html#a264fa0751f74c79156cfbcaec924cd05">joque::const_resource_ref</a> = typedef std::reference_wrapper&lt; const <a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1032,8 +1091,8 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
-<a id="a8e3b0f45b1aa8c495527fae2d1dbd0e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e3b0f45b1aa8c495527fae2d1dbd0e7">&#9670;&nbsp;</a></span>for_each_add_dep()</h2>
+<a id="a7a6f99b26c14a0d1c5217f3bbaa7f558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a6f99b26c14a0d1c5217f3bbaa7f558">&#9670;&nbsp;</a></span>for_each_add_dep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1047,7 +1106,7 @@ template&lt;typename T , typename Fun &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;&#160;</td>
           <td class="paramname"><em>dep</em>&#160;</td>
         </tr>
         <tr>
@@ -1062,8 +1121,8 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
-<a id="a5d9b1c8c103f5be314c4907ecf6eac68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d9b1c8c103f5be314c4907ecf6eac68">&#9670;&nbsp;</a></span>add_dep_to_each()</h2>
+<a id="a7d8300bc16cb6707d54b9b632a3dc2ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d8300bc16cb6707d54b9b632a3dc2ce">&#9670;&nbsp;</a></span>add_dep_to_each()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1071,7 +1130,7 @@ template&lt;typename T , typename Fun &gt; </div>
         <tr>
           <td class="memname">void joque::add_dep_to_each </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
@@ -1092,8 +1151,8 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
-<a id="ad04db56a535a0af2e3801a6524c00714"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad04db56a535a0af2e3801a6524c00714">&#9670;&nbsp;</a></span>run_each_after()</h2>
+<a id="aaebafa7d677585f9216d8baa4f2be6fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaebafa7d677585f9216d8baa4f2be6fd">&#9670;&nbsp;</a></span>run_each_after()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1107,7 +1166,7 @@ template&lt;typename T , typename Fun &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
@@ -1122,8 +1181,8 @@ template&lt;typename T , typename Fun &gt; </div>
 
 </div>
 </div>
-<a id="a9255c56d839b5272715fe46da331a6a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9255c56d839b5272715fe46da331a6a0">&#9670;&nbsp;</a></span>run_after_all_of()</h2>
+<a id="a089b05800cd4bb598ab17d9035af91f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089b05800cd4bb598ab17d9035af91f1">&#9670;&nbsp;</a></span>run_after_all_of()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1131,7 +1190,7 @@ template&lt;typename T , typename Fun &gt; </div>
         <tr>
           <td class="memname">void joque::run_after_all_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structjoque_1_1task__ptr.html">task_ptr</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
@@ -1272,8 +1331,8 @@ template&lt;typename T , typename Fun &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">        <a class="code" href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">for_each_task_impl</a>( ts, <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, <span class="stringliteral">&quot;/&quot;</span> )</div>
-<div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:55</div></div>
-<div class="ttc" id="anamespacejoque_html_af5ca33039b5b2b2459052d8090ffc937"><div class="ttname"><a href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">joque::for_each_task_impl</a></div><div class="ttdeci">void for_each_task_impl(T &amp;ts, Fun &amp;&amp;f, const std::string &amp;prefix)</div><div class="ttdef"><b>Definition:</b> task.hpp:70</div></div>
+<div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:169</div></div>
+<div class="ttc" id="anamespacejoque_html_af5ca33039b5b2b2459052d8090ffc937"><div class="ttname"><a href="namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937">joque::for_each_task_impl</a></div><div class="ttdeci">void for_each_task_impl(T &amp;ts, Fun &amp;&amp;f, const std::string &amp;prefix)</div><div class="ttdef"><b>Definition:</b> task.hpp:184</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1283,7 +1342,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Fri Feb 9 2024 20:19:16 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 23 2024 19:11:06 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -33,8 +33,14 @@ var hierarchy =
     [ "joque::run_record", "namespacejoque.html#structjoque_1_1run__record", null ],
     [ "joque::run_result", "structjoque_1_1run__result.html", null ],
     [ "joque::task", "namespacejoque.html#structjoque_1_1task", null ],
+    [ "joque::task_iface", "structjoque_1_1task__iface.html", [
+      [ "joque::task_wrapper< T >", "structjoque_1_1task__wrapper.html", null ]
+    ] ],
     [ "joque::task_set", "namespacejoque.html#structjoque_1_1task__set", null ],
+    [ "joque::task_traits< T >", "namespacejoque.html#structjoque_1_1task__traits", null ],
+    [ "joque::task_traits< task >", "structjoque_1_1task__traits_3_01task_01_4.html", null ],
     [ "std::unique_ptr< T >", null, [
-      [ "joque::job_ptr", "structjoque_1_1job__ptr.html", null ]
+      [ "joque::job_ptr", "structjoque_1_1job__ptr.html", null ],
+      [ "joque::task_ptr", "structjoque_1_1task__ptr.html", null ]
     ] ]
 ];

@@ -6,6 +6,6 @@ var classjoque_1_1dag =
     [ "end", "classjoque_1_1dag.html#a0b2b632ca033f4e2389b558a36eba21b", null ],
     [ "end", "classjoque_1_1dag.html#a3d77e2d9c94729c27ce738581587d5da", null ],
     [ "clear_if", "classjoque_1_1dag.html#ad1d0332490cd46189a788f78bdf87324", null ],
-    [ "emplace", "classjoque_1_1dag.html#a1505adc76b7feb8e64f479add839c72e", null ],
+    [ "emplace", "classjoque_1_1dag.html#aca99f6137a5d796bcaa486ccb8ea2f9d", null ],
     [ "insert_set", "classjoque_1_1dag.html#a89c1bda34d215dd4c0411935452dd3ca", null ]
 ];
