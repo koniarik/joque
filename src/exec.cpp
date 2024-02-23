@@ -55,7 +55,7 @@ namespace
                                 return res;
                 }
 
-                if ( !all_ready( n.runs_after ) || any_resource_used( n.t->resources, used_res ) )
+                if ( !all_ready( n.runs_after ) || any_resource_used( n.t->resources(), used_res ) )
                         return nullptr;
                 return &n;
         }
@@ -81,7 +81,7 @@ namespace
                             return e.is_dependency && e.target->started;
                     } );
 
-                return dep_invalidated || n.t->job->is_invalidated();
+                return dep_invalidated || n.t->job()->is_invalidated();
         }
 
         run_coro
@@ -96,7 +96,7 @@ namespace
                 }
 
                 n.started = true;
-                for ( const resource& r : n.t->resources )
+                for ( const resource& r : n.t->resources() )
                         used_resources.insert( &r );
 
                 std::future< run_result > fut = std::async(
@@ -104,7 +104,7 @@ namespace
                     []( dag_node& n ) -> run_result {
                             run_result res;
                             try {
-                                    res = n.t->job->run( *n.t );
+                                    res = n.t->job()->run( *n.t );
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
@@ -129,7 +129,7 @@ namespace
                         co_await std::suspend_always{};
                 std::tie( result.retcode, result.output ) = fut.get();
 
-                for ( const resource& r : n.t->resources )
+                for ( const resource& r : n.t->resources() )
                         used_resources.erase( &r );
                 if ( result.retcode != 0 )
                         n.failed = true;

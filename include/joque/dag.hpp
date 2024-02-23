@@ -51,7 +51,7 @@ struct dag_node
         /// Full path-name of the task
         std::string name;
         /// Reference to the task
-        const task* t = nullptr;
+        const task_iface* t = nullptr;
 
         /// Nodes representing tasks that should be run before `t`
         dag_edge_list  runs_after{};
@@ -97,7 +97,7 @@ public:
                 nodes_->clear_if( f );
         }
 
-        dag_node& emplace( const std::string& name, const task& t )
+        dag_node& emplace( const std::string& name, const task_iface& t )
         {
                 return nodes_->emplace_front( name, &t );
         }

@@ -18,7 +18,7 @@ using tp = std::chrono::time_point< std::chrono::system_clock >;
 struct run_record
 {
         /// Executed task
-        std::reference_wrapper< const task > t;
+        std::reference_wrapper< const task_iface > t;
 
         /// Full name of the task
         std::string name;

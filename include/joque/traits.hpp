@@ -7,7 +7,7 @@
 namespace joque
 {
 
-struct task;
+struct task_iface;
 
 struct output_chunk
 {
@@ -49,7 +49,7 @@ struct job_traits
                 return true;
         }
 
-        [[nodiscard]] static run_result run( const task& t, const T& f )
+        [[nodiscard]] static run_result run( const task_iface& t, const T& f )
         {
                 return f( t );
         }

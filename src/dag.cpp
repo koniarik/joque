@@ -24,15 +24,15 @@ namespace
                 }
         }
 
-        void link_dependencies( dag& g, std::unordered_map< const task*, dag_node* >& index )
+        void link_dependencies( dag& g, std::unordered_map< const task_iface*, dag_node* >& index )
         {
                 for ( dag_node& n : g ) {
-                        for ( const task& d : n.t->depends_on ) {
+                        for ( const task_iface& d : n.t->depends_on() ) {
                                 dag_node* target = index[&d];
                                 dag_edge& e      = n.runs_after.emplace_front( true, target );
                                 target->in_edges.link_front( e );
                         }
-                        for ( const task& d : n.t->run_after ) {
+                        for ( const task_iface& d : n.t->run_after() ) {
                                 dag_node* target = index[&d];
                                 dag_edge& e      = n.runs_after.emplace_front( false, target );
                                 target->in_edges.link_front( e );
@@ -59,8 +59,8 @@ namespace
 void dag::insert_set( const task_set& ts, const std::string& filter )
 {
 
-        std::unordered_map< const task*, dag_node* > index;
-        for_each_task( ts, [&]( const std::string& name, const task& t ) {
+        std::unordered_map< const task_iface*, dag_node* > index;
+        for_each_task( ts, [&]( const std::string& name, const task_iface& t ) {
                 index[&t] = &emplace( name, t );
         } );
 

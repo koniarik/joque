@@ -15,7 +15,7 @@ print_exec_visitor::print_exec_visitor( bool verbose )
 
 void print_exec_visitor::on_node_enque( const dag_node& n )
 {
-        if ( n.t->job == nullptr )
+        if ( n.t->job() == nullptr )
                 std::cerr << "Task " << n.name << " has no job" << std::endl;
 };
 
@@ -31,7 +31,7 @@ void print_exec_visitor::on_run_end( const run_record* rec, const dag_node& n )
                 std::cerr << "Failed to get result from coro for task: " << n.name << std::endl;
                 return;
         }
-        if ( !rec->t.get().hidden || verbose_ ) {
+        if ( !rec->t.get().is_hidden() || verbose_ ) {
                 format_record( std::cout, *rec );
                 std::cout.flush();
         }

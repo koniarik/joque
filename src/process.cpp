@@ -78,7 +78,7 @@ bool job_traits< process >::is_invalidated( const process& p )
         return oldest_output_t <= latest_input_t;
 }
 
-run_result job_traits< process >::run( const task&, const process& p )
+run_result job_traits< process >::run( const task_iface&, const process& p )
 {
         run_result      res;
         reproc::process process;
