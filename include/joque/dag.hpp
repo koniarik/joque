@@ -1,5 +1,6 @@
 #pragma once
 
+#include "joque/bits/dag.hpp"
 #include "joque/bits/list.hpp"
 #include "joque/task.hpp"
 
@@ -10,40 +11,25 @@
 namespace joque
 {
 
-struct dag_lheader_accessor
-{
-        static auto& get( auto& n )
-        {
-                return n.lheader;
-        }
-};
-
-struct dag_lrheader_accessor
-{
-        static auto& get( auto& n )
-        {
-                return n.lrheader;
-        }
-};
-
 struct dag_node;
 struct dag_edge;
 
-using dag_edge_lheader  = bits::list_header< dag_edge, dag_lheader_accessor >;
-using dag_edge_lrheader = bits::list_header< dag_edge, dag_lrheader_accessor >;
+using dag_edge_lheader  = bits::list_header< dag_edge, bits::dag_lheader_accessor >;
+using dag_edge_lrheader = bits::list_header< dag_edge, bits::dag_lrheader_accessor >;
 
 struct dag_edge
 {
         bool              is_dependency = false;
+        dag_node*         source        = nullptr;
         dag_node*         target        = nullptr;
         dag_edge_lheader  lheader;
         dag_edge_lrheader lrheader;
 };
 
-using dag_edge_list  = bits::list< dag_edge_lheader, true >;
-using dag_edge_rlist = bits::list< dag_edge_lrheader, true >;
+using dag_edge_list  = bits::list< dag_edge_lheader >;
+using dag_edge_rlist = bits::list< dag_edge_lrheader >;
 
-using dag_node_lheader = bits::list_header< dag_node, dag_lheader_accessor >;
+using dag_node_lheader = bits::list_header< dag_node, bits::dag_lheader_accessor >;
 
 /// Node representing all execution-related information for one task.
 struct dag_node
@@ -54,7 +40,7 @@ struct dag_node
         const task_iface* t = nullptr;
 
         /// Nodes representing tasks that should be run before `t`
-        dag_edge_list  runs_after{};
+        dag_edge_list  out_edges{};
         dag_edge_rlist in_edges{};
 
         /// Sets to `true` once the task is scheduled for execution
@@ -67,7 +53,7 @@ struct dag_node
         dag_node_lheader lheader;
 };
 
-using dag_node_list = bits::list< dag_node_lheader, true >;
+using dag_node_list = bits::list< dag_node_lheader >;
 
 /// DAG used to store data in single execution of tasks
 class dag

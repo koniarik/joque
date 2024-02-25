@@ -25,7 +25,7 @@ struct node_accessor
 };
 
 using titer = list_iterator< list_header< node, node_accessor > >;
-using tlist = list< list_header< node, node_accessor >, true >;
+using tlist = list< list_header< node, node_accessor > >;
 
 static_assert( std::bidirectional_iterator< titer > );
 

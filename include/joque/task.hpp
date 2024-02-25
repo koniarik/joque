@@ -23,13 +23,13 @@ using const_resource_ref   = std::reference_wrapper< const resource >;
 
 struct task_iface
 {
-        virtual const job_ptr&                                job() const                      = 0;
-        virtual const std::span< const const_task_iface_ref > depends_on() const               = 0;
-        virtual void add_dependency( const task_iface& )                                       = 0;
-        virtual const std::span< const const_task_iface_ref > run_after() const                = 0;
-        virtual void                                        add_run_after( const task_iface& ) = 0;
-        virtual const std::span< const const_resource_ref > resources() const                  = 0;
-        virtual bool                                        is_hidden() const                  = 0;
+        virtual const job_ptr&                          job() const                         = 0;
+        virtual std::span< const const_task_iface_ref > depends_on() const                  = 0;
+        virtual void                                    add_dependency( const task_iface& ) = 0;
+        virtual std::span< const const_task_iface_ref > run_after() const                   = 0;
+        virtual void                                    add_run_after( const task_iface& )  = 0;
+        virtual std::span< const const_resource_ref >   resources() const                   = 0;
+        virtual bool                                    is_hidden() const                   = 0;
 
         virtual ~task_iface() = default;
 };
@@ -51,7 +51,7 @@ struct task_wrapper : task_iface
         {
                 return task_traits< T >::ptr( item );
         }
-        const std::span< const const_task_iface_ref > depends_on() const override
+        std::span< const const_task_iface_ref > depends_on() const override
         {
                 return task_traits< T >::depends_on( item );
         }
@@ -59,7 +59,7 @@ struct task_wrapper : task_iface
         {
                 return task_traits< T >::add_dependency( item, t );
         }
-        const std::span< const const_task_iface_ref > run_after() const override
+        std::span< const const_task_iface_ref > run_after() const override
         {
                 return task_traits< T >::run_after( item );
         }
@@ -67,7 +67,7 @@ struct task_wrapper : task_iface
         {
                 return task_traits< T >::add_run_after( item, t );
         }
-        const std::span< const const_resource_ref > resources() const override
+        std::span< const const_resource_ref > resources() const override
         {
                 return task_traits< T >::resources( item );
         }
@@ -104,7 +104,7 @@ struct task_traits< task >
         {
                 return t.job;
         }
-        static const std::span< const const_task_iface_ref > depends_on( const task& t )
+        static std::span< const const_task_iface_ref > depends_on( const task& t )
         {
                 return t.depends_on;
         }
@@ -112,7 +112,7 @@ struct task_traits< task >
         {
                 t.depends_on.emplace_back( dep );
         }
-        static const std::span< const const_task_iface_ref > run_after( const task& t )
+        static std::span< const const_task_iface_ref > run_after( const task& t )
         {
                 return t.run_after;
         }
@@ -120,7 +120,7 @@ struct task_traits< task >
         {
                 t.run_after.emplace_back( dep );
         }
-        static const std::span< const const_resource_ref > resources( const task& t )
+        static std::span< const const_resource_ref > resources( const task& t )
         {
                 return t.resources;
         }

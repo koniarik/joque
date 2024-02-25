@@ -28,7 +28,7 @@ void format_dag( const dag& d, const std::function< void( std::string_view ) >& 
 
         for ( const dag_node& n : d ) {
                 f( n.name );
-                f( "   -> runs after {" + join_names( n.runs_after ) + "}" );
+                f( "   -> runs after {" + join_names( n.out_edges ) + "}" );
         }
 }
 

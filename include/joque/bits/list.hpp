@@ -111,7 +111,7 @@ private:
         value_type* node = nullptr;
 };
 
-template < typename ListHeader, bool IsOwning >
+template < typename ListHeader >
 class list
 {
 public:
@@ -262,54 +262,53 @@ list_iterator< ListHeader > list_iterator< ListHeader >::operator--( int )
         return res;
 }
 
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::iterator list< ListHeader, IsOwning >::begin()
+template < typename ListHeader >
+list< ListHeader >::iterator list< ListHeader >::begin()
 {
         iterator res{ list_header( first_ ).next };
         return res;
 }
 
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::const_iterator list< ListHeader, IsOwning >::begin() const
+template < typename ListHeader >
+list< ListHeader >::const_iterator list< ListHeader >::begin() const
 {
         const_iterator res{ list_header( first_ ).next };
         return res;
 }
 
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::iterator list< ListHeader, IsOwning >::end()
+template < typename ListHeader >
+list< ListHeader >::iterator list< ListHeader >::end()
 {
         return iterator{ nullptr };
 }
 
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::const_iterator list< ListHeader, IsOwning >::end() const
+template < typename ListHeader >
+list< ListHeader >::const_iterator list< ListHeader >::end() const
 {
         return const_iterator{ nullptr };
 }
 
-template < typename ListHeader, bool IsOwning >
+template < typename ListHeader >
 template < typename... Args >
-list< ListHeader, IsOwning >::node_type&
-list< ListHeader, IsOwning >::emplace_front( Args&&... args )
+list< ListHeader >::node_type& list< ListHeader >::emplace_front( Args&&... args )
 {
         return list_emplace_next< accessor_type >( first_, std::forward< Args >( args )... );
 }
 
-template < typename ListHeader, bool IsOwning >
-void list< ListHeader, IsOwning >::link_front( node_type& node )
+template < typename ListHeader >
+void list< ListHeader >::link_front( node_type& node )
 {
         list_link_next< accessor_type >( first_, node );
 }
 
-template < typename ListHeader, bool IsOwning >
-bool list< ListHeader, IsOwning >::empty() const
+template < typename ListHeader >
+bool list< ListHeader >::empty() const
 {
         return list_header( first_ ).next == nullptr;
 }
 
-template < typename ListHeader, bool IsOwning >
-void list< ListHeader, IsOwning >::clear_if( auto&& f )
+template < typename ListHeader >
+void list< ListHeader >::clear_if( auto&& f )
 {
         for ( auto iter = begin(); iter != end(); ) {
                 auto* node = &*( iter++ );
@@ -318,15 +317,14 @@ void list< ListHeader, IsOwning >::clear_if( auto&& f )
         }
 }
 
-template < typename ListHeader, bool IsOwning >
-list< ListHeader, IsOwning >::~list()
+template < typename ListHeader >
+list< ListHeader >::~list()
 {
-        if constexpr ( IsOwning )
-                list_delete_all_next< accessor_type >( first_ );
+        list_delete_all_next< accessor_type >( first_ );
 }
 
-template < typename ListHeader, bool IsOwning >
-auto& list< ListHeader, IsOwning >::list_header( auto& node )
+template < typename ListHeader >
+auto& list< ListHeader >::list_header( auto& node )
 {
         return accessor_type::get( node );
 }

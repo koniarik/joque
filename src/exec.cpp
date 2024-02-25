@@ -49,13 +49,13 @@ namespace
 
                 seen.insert( &n );
 
-                for ( dag_edge& e : n.runs_after ) {
+                for ( dag_edge& e : n.out_edges ) {
                         dag_node* res = find_candidate( *e.target, seen, used_res );
                         if ( res != nullptr )
                                 return res;
                 }
 
-                if ( !all_ready( n.runs_after ) || any_resource_used( n.t->resources(), used_res ) )
+                if ( !all_ready( n.out_edges ) || any_resource_used( n.t->resources(), used_res ) )
                         return nullptr;
                 return &n;
         }
@@ -77,7 +77,7 @@ namespace
         bool is_invalidated( dag_node& n )
         {
                 const bool dep_invalidated =
-                    std::ranges::any_of( n.runs_after, [&]( dag_edge& e ) -> bool {
+                    std::ranges::any_of( n.out_edges, [&]( dag_edge& e ) -> bool {
                             return e.is_dependency && e.target->started;
                     } );
 

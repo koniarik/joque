@@ -17,7 +17,7 @@ namespace
                 if ( seen.contains( &n ) )
                         return;
                 seen.insert( &n );
-                for ( dag_edge& e : n.runs_after | std::views::filter( []( const dag_edge& e ) {
+                for ( dag_edge& e : n.out_edges | std::views::filter( []( const dag_edge& e ) {
                                             return e.is_dependency;
                                     } ) ) {
                         dfs( *e.target, seen );
@@ -29,12 +29,12 @@ namespace
                 for ( dag_node& n : g ) {
                         for ( const task_iface& d : n.t->depends_on() ) {
                                 dag_node* target = index[&d];
-                                dag_edge& e      = n.runs_after.emplace_front( true, target );
+                                dag_edge& e      = n.out_edges.emplace_front( true, &n, target );
                                 target->in_edges.link_front( e );
                         }
                         for ( const task_iface& d : n.t->run_after() ) {
                                 dag_node* target = index[&d];
-                                dag_edge& e      = n.runs_after.emplace_front( false, target );
+                                dag_edge& e      = n.out_edges.emplace_front( false, &n, target );
                                 target->in_edges.link_front( e );
                         }
                 }
