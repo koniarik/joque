@@ -28,6 +28,9 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
       [ "job_traits< process >", "structjoque_1_1job__traits_3_01process_01_4.html", "structjoque_1_1job__traits_3_01process_01_4" ]
     ] ],
     [ "records.hpp", "records_8hpp.html", "records_8hpp" ],
+    [ "run_result.hpp", "run__result_8hpp.html", "run__result_8hpp" ],
     [ "task.hpp", "task_8hpp.html", "task_8hpp" ],
-    [ "traits.hpp", "traits_8hpp.html", "traits_8hpp" ]
+    [ "traits.hpp", "traits_8hpp.html", [
+      [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ]
+    ] ]
 ];

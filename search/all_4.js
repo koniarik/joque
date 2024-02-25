@@ -1,9 +1,9 @@
 var searchData=
 [
   ['emplace_29',['emplace',['../classjoque_1_1dag.html#aca99f6137a5d796bcaa486ccb8ea2f9d',1,'joque::dag']]],
-  ['emplace_5ffront_30',['emplace_front',['../classjoque_1_1bits_1_1list.html#accc51de7cc9e67ea8f2e6c1c19fedc96',1,'joque::bits::list']]],
-  ['empty_31',['empty',['../classjoque_1_1bits_1_1list.html#a013b5a1808fe65d6c5383d8e6d658996',1,'joque::bits::list']]],
-  ['end_32',['end',['../classjoque_1_1dag.html#a3d77e2d9c94729c27ce738581587d5da',1,'joque::dag::end() const'],['../classjoque_1_1dag.html#a0b2b632ca033f4e2389b558a36eba21b',1,'joque::dag::end()'],['../namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c',1,'joque::run_record::end()'],['../classjoque_1_1bits_1_1list.html#a40bc4f63ec6bde671883cc3fd3bce986',1,'joque::bits::list::end()'],['../classjoque_1_1bits_1_1list.html#af435ba6d2d724d6f5c2e90a6e2cb298b',1,'joque::bits::list::end() const']]],
+  ['emplace_5ffront_30',['emplace_front',['../classjoque_1_1bits_1_1list.html#ae5c9ea4380ea28c64d7ec36a0379121f',1,'joque::bits::list']]],
+  ['empty_31',['empty',['../classjoque_1_1bits_1_1list.html#a13ebbead1000ee7eabe25acc7716ab4c',1,'joque::bits::list']]],
+  ['end_32',['end',['../classjoque_1_1dag.html#a3d77e2d9c94729c27ce738581587d5da',1,'joque::dag::end() const'],['../classjoque_1_1dag.html#a0b2b632ca033f4e2389b558a36eba21b',1,'joque::dag::end()'],['../namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c',1,'joque::run_record::end()'],['../classjoque_1_1bits_1_1list.html#ac0bdf400b32a4e5b9a57827a57b68383',1,'joque::bits::list::end()'],['../classjoque_1_1bits_1_1list.html#a0242f74f06c9371078684cfe9b159dbf',1,'joque::bits::list::end() const']]],
   ['error_33',['ERROR',['../structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30aadcf3cb07c0fa4ac5d7576185d48171b5',1,'joque::output_chunk']]],
   ['excep_34',['excep',['../structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c',1,'joque::exec_coro::promise_type']]],
   ['exec_35',['exec',['../namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68',1,'joque::exec(dag g, unsigned thread_count=std::thread::hardware_concurrency(), exec_visitor &amp;vis=PRINT_VISITOR)'],['../namespacejoque.html#ae7f069c04754480cd23a827dd9abe713',1,'joque::exec(const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)']]],

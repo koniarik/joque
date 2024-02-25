@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dag_2ehpp_212',['dag.hpp',['../dag_8hpp.html',1,'']]]
+  ['dag_2ehpp_214',['dag.hpp',['../bits_2dag_8hpp.html',1,'(Global Namespace)'],['../dag_8hpp.html',1,'(Global Namespace)']]]
 ];
