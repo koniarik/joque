@@ -7,6 +7,6 @@ var structjoque_1_1task__wrapper =
     [ "run_after", "structjoque_1_1task__wrapper.html#a2e60a2aae918f6c11645c8b6b5ee150f", null ],
     [ "add_run_after", "structjoque_1_1task__wrapper.html#a1f82ffb279d6d12d51c6bc476b54d2be", null ],
     [ "resources", "structjoque_1_1task__wrapper.html#a2f482825f14d7dd005328c3bb422a044", null ],
-    [ "is_hidden", "structjoque_1_1task__wrapper.html#aed7f4d8a3293a992ff0b8c924aca2d5c", null ],
+    [ "is_hidden", "structjoque_1_1task__wrapper.html#a78baf41d280f86294b7c694124ee509b", null ],
     [ "item", "structjoque_1_1task__wrapper.html#a294d4d9300435802cd22f8d1e8c507d6", null ]
 ];
