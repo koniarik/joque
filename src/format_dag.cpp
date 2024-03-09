@@ -1,8 +1,13 @@
 
 #include "joque/format_dag.hpp"
 
+#include "joque/dag.hpp"
+
+#include <functional>
+#include <ostream>
 #include <ranges>
 #include <string>
+#include <string_view>
 
 namespace joque
 {

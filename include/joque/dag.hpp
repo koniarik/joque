@@ -4,9 +4,8 @@
 #include "joque/bits/list.hpp"
 #include "joque/task.hpp"
 
-#include <functional>
-#include <list>
 #include <memory>
+#include <string>
 
 namespace joque
 {

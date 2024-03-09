@@ -4,7 +4,11 @@
 
 #include <functional>
 #include <map>
+#include <memory>
 #include <span>
+#include <string>
+#include <type_traits>
+#include <vector>
 
 namespace joque
 {
@@ -23,13 +27,13 @@ using const_resource_ref   = std::reference_wrapper< const resource >;
 
 struct task_iface
 {
-        virtual const job_ptr&                          job() const                         = 0;
-        virtual std::span< const const_task_iface_ref > depends_on() const                  = 0;
-        virtual void                                    add_dependency( const task_iface& ) = 0;
-        virtual std::span< const const_task_iface_ref > run_after() const                   = 0;
-        virtual void                                    add_run_after( const task_iface& )  = 0;
-        virtual std::span< const const_resource_ref >   resources() const                   = 0;
-        virtual bool                                    is_hidden() const                   = 0;
+        [[nodiscard]] virtual const job_ptr&                          job() const        = 0;
+        [[nodiscard]] virtual std::span< const const_task_iface_ref > depends_on() const = 0;
+        virtual void add_dependency( const task_iface& )                                 = 0;
+        [[nodiscard]] virtual std::span< const const_task_iface_ref > run_after() const  = 0;
+        virtual void add_run_after( const task_iface& )                                  = 0;
+        [[nodiscard]] virtual std::span< const const_resource_ref > resources() const    = 0;
+        [[nodiscard]] virtual bool                                  is_hidden() const    = 0;
 
         virtual ~task_iface() = default;
 };
@@ -47,11 +51,11 @@ struct task_wrapper : task_iface
         {
         }
 
-        const job_ptr& job() const override
+        [[nodiscard]] const job_ptr& job() const override
         {
                 return task_traits< T >::ptr( item );
         }
-        std::span< const const_task_iface_ref > depends_on() const override
+        [[nodiscard]] std::span< const const_task_iface_ref > depends_on() const override
         {
                 return task_traits< T >::depends_on( item );
         }
@@ -59,7 +63,7 @@ struct task_wrapper : task_iface
         {
                 return task_traits< T >::add_dependency( item, t );
         }
-        std::span< const const_task_iface_ref > run_after() const override
+        [[nodiscard]] std::span< const const_task_iface_ref > run_after() const override
         {
                 return task_traits< T >::run_after( item );
         }
@@ -67,11 +71,11 @@ struct task_wrapper : task_iface
         {
                 return task_traits< T >::add_run_after( item, t );
         }
-        std::span< const const_resource_ref > resources() const override
+        [[nodiscard]] std::span< const const_resource_ref > resources() const override
         {
                 return task_traits< T >::resources( item );
         }
-        bool is_hidden() const
+        [[nodiscard]] bool is_hidden() const override
         {
                 return task_traits< T >::is_hidden( item );
         }

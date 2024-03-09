@@ -1,6 +1,9 @@
 #include "joque/print_exec_visitor.hpp"
 
+#include "joque/dag.hpp"
 #include "joque/format.hpp"
+#include "joque/records.hpp"
+#include "joque/run_result.hpp"
 #include "joque/traits.hpp"
 
 #include <iostream>

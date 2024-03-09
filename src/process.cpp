@@ -1,17 +1,24 @@
 #include "joque/process.hpp"
 
+#include "joque/run_result.hpp"
 #include "joque/traits.hpp"
 
 #include <algorithm>
 #include <bits/ranges_algo.h>
+#include <cstddef>
+#include <cstdint>
 #include <filesystem>
-#include <format>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <regex>
 #include <reproc++/drain.hpp>
 #include <reproc++/reproc.hpp>
+#include <string>
+#include <string_view>
 #include <system_error>
+#include <tuple>
+#include <utility>
 
 namespace joque
 {

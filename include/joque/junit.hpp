@@ -1,6 +1,10 @@
 #pragma once
 
-#include "joque/exec.hpp"
+#include "joque/records.hpp"
+
+#include <filesystem>
+#include <ostream>
+#include <string>
 
 namespace joque
 {

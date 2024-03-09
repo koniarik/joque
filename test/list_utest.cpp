@@ -1,8 +1,6 @@
-
 #include "joque/bits/list.hpp"
 
 #include <gtest/gtest.h>
-#include <iterator>
 
 namespace joque::bits
 {
@@ -55,7 +53,7 @@ TEST( list_header, multiple )
         l.emplace_front( 1 );
 
         int i = 0;
-        for ( node& n : l ) {
+        for ( const node& n : l ) {
                 i += 1;
                 EXPECT_EQ( n.i, i );
         }

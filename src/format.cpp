@@ -1,8 +1,13 @@
 #include "joque/format.hpp"
 
-#include "joque/traits.hpp"
+#include "joque/records.hpp"
+#include "joque/run_result.hpp"
 
+#include <chrono>
+#include <format>
 #include <iostream>
+#include <list>
+#include <string_view>
 
 namespace joque
 {
@@ -13,7 +18,7 @@ void format_nested(
     const std::list< output_chunk >& output )
 {
         for ( const output_chunk& ch : output )
-                for ( char c : ch.data )
+                for ( const char c : ch.data )
                         if ( c != '\n' )
                                 os << c;
                         else

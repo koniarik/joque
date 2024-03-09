@@ -1,6 +1,13 @@
 #include "joque/exec_coro.hpp"
 
+#include "joque/records.hpp"
+
+#include <chrono>
+#include <coroutine>
+#include <exception>
+#include <optional>
 #include <thread>
+#include <utility>
 
 namespace joque
 {

@@ -1,10 +1,17 @@
 #include "joque/exec.hpp"
+#include "joque/process.hpp"
+#include "joque/run_result.hpp"
 #include "joque/task.hpp"
 #include "joque/traits.hpp"
 
+#include <algorithm>
 #include <gtest/gtest.h>
+#include <mutex>
 #include <numeric>
 #include <ranges>
+#include <set>
+#include <string>
+#include <vector>
 
 namespace joque
 {
@@ -38,17 +45,17 @@ TEST( joque, basic )
         std::mutex         w_m;
 
         task_set ts{};
-        for ( int i : sequence ) {
+        for ( const int i : sequence ) {
                 ts.tasks["my_test_" + std::to_string( i )] = task{
                     .job = [&, i = i]( const task_iface& ) -> run_result {
-                            std::lock_guard _{ w_m };
+                            const std::lock_guard _{ w_m };
                             result.push_back( i );
                             return { 0 };
                     },
                 };
         }
 
-        for ( unsigned i : { 0u, 4u } ) {
+        for ( const unsigned i : { 0u, 4u } ) {
                 result.clear();
                 exec( ts, i ).run();
                 std::sort( result.begin(), result.end() );
@@ -64,7 +71,7 @@ TEST( joque, dep )
         std::set< const task_iface* > finished;
 
         auto f = [&]( const task_iface& t ) -> run_result {
-                std::lock_guard _{ m };
+                const std::lock_guard _{ m };
                 for ( const task_iface& dep : t.depends_on() )
                         EXPECT_TRUE( finished.contains( &dep ) );
                 finished.insert( &t );
@@ -75,7 +82,7 @@ TEST( joque, dep )
             &( ts.tasks["my_test"] = task{
                    .job = f,
                } );
-        for ( std::size_t i : std::views::iota( 0u, 10u ) ) {
+        for ( const std::size_t i : std::views::iota( 0u, 10u ) ) {
                 ts.tasks["my_test_" + std::to_string( i ) + "_a"] = task{
                     .job        = f,
                     .depends_on = { **last },
@@ -87,7 +94,7 @@ TEST( joque, dep )
                        } );
         }
 
-        for ( unsigned i : { 0u, 4u } ) {
+        for ( const unsigned i : { 0u, 4u } ) {
                 finished.clear();
                 exec( ts, i ).run();
                 EXPECT_EQ( finished.size(), ts.tasks.size() ) << "thread count: " << i;
@@ -107,10 +114,10 @@ TEST( joque, filter )
                 ADD_FAILURE();
                 return { 0 };
         } };
-        for ( int i : sequence ) {
+        for ( const int i : sequence ) {
                 ts.tasks["my_test_" + std::to_string( i )] = task{
                     .job = [&, i = i]( const task_iface& ) -> run_result {
-                            std::lock_guard _{ w_m };
+                            const std::lock_guard _{ w_m };
                             result.push_back( i );
                             return { 0 };
                     },
@@ -119,7 +126,7 @@ TEST( joque, filter )
         }
 
 
-        for ( unsigned i : { 0u, 4u } ) {
+        for ( const unsigned i : { 0u, 4u } ) {
                 result.clear();
                 exec( ts, i, "//my_test" ).run();
                 std::sort( result.begin(), result.end() );

@@ -1,7 +1,13 @@
 #include "joque/exec.hpp"
+#include "joque/exec_coro.hpp"
+#include "joque/out.hpp"
 #include "joque/process.hpp"
+#include "joque/records.hpp"
 #include "joque/task.hpp"
 
+#include <chrono>
+#include <cstdio>
+#include <filesystem>
 #include <fstream>
 #include <gtest/gtest.h>
 #include <thread>

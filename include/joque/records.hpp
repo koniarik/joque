@@ -1,8 +1,10 @@
 #pragma once
 
+#include "joque/run_result.hpp"
 #include "joque/task.hpp"
 
 #include <chrono>
+#include <cstddef>
 #include <functional>
 #include <list>
 #include <string>

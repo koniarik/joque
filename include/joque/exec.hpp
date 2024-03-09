@@ -3,7 +3,9 @@
 #include "joque/exec_coro.hpp"
 #include "joque/exec_visitor.hpp"
 #include "joque/print_exec_visitor.hpp"
+#include "joque/task.hpp"
 
+#include <string>
 #include <thread>
 
 namespace joque

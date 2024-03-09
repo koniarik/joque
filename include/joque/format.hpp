@@ -3,6 +3,7 @@
 #include "joque/records.hpp"
 
 #include <ostream>
+#include <string_view>
 
 namespace joque
 {

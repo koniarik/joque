@@ -2,7 +2,9 @@
 
 #include "joque/records.hpp"
 
+#include <chrono>
 #include <coroutine>
+#include <exception>
 #include <optional>
 
 namespace joque

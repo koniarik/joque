@@ -1,6 +1,8 @@
 #pragma once
 
+#include "joque/dag.hpp"
 #include "joque/exec_visitor.hpp"
+#include "joque/records.hpp"
 
 namespace joque
 {

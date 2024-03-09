@@ -1,13 +1,26 @@
 #include "joque/exec.hpp"
 
 #include "joque/dag.hpp"
+#include "joque/exec_coro.hpp"
+#include "joque/exec_visitor.hpp"
+#include "joque/records.hpp"
+#include "joque/run_result.hpp"
+#include "joque/task.hpp"
 #include "joque/traits.hpp"
 #include "run_coro.hpp"
 
 #include <algorithm>
+#include <bits/chrono.h>
 #include <chrono>
+#include <coroutine>
+#include <exception>
+#include <functional>
 #include <future>
 #include <set>
+#include <string>
+#include <tuple>
+#include <utility>
+#include <vector>
 
 namespace joque
 {
@@ -49,7 +62,7 @@ namespace
 
                 seen.insert( &n );
 
-                for ( dag_edge& e : n.out_edges ) {
+                for ( const dag_edge& e : n.out_edges ) {
                         dag_node* res = find_candidate( *e.target, seen, used_res );
                         if ( res != nullptr )
                                 return res;

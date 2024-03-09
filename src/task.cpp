@@ -1,5 +1,7 @@
 #include "joque/task.hpp"
 
+#include <string>
+
 namespace joque
 {
 void for_each_add_dep( task_set& ts, const task_iface& dep )

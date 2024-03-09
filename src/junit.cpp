@@ -1,9 +1,15 @@
 #include "joque/junit.hpp"
 
+#include "joque/records.hpp"
+
 #include <chrono>
+#include <filesystem>
 #include <format>
 #include <fstream>
 #include <numeric>
+#include <ostream>
+#include <string>
+#include <utility>
 
 namespace joque
 {

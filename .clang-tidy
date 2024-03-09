@@ -1,11 +1,11 @@
 ---
 Checks: >
   -*,
-  bugprone*,-bugprone-forwarding-reference-overload,
+  bugprone*,-bugprone-forwarding-reference-overload,-bugprone-easily-swappable-parameters,
   concurrency*,
   modernize*,-modernize-use-trailing-return-type,
   misc*,-misc-no-recursion,
-  performance*,
+  performance*,-performance-avoid-endl,
   portability*,
   readbility*,
 WarningsAsErrors: true

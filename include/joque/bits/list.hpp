@@ -1,8 +1,6 @@
 #pragma once
 
-#include <concepts>
 #include <cstddef>
-#include <memory>
 #include <type_traits>
 #include <utility>
 
@@ -123,11 +121,11 @@ public:
 
         list() = default;
 
-        iterator       begin();
-        const_iterator begin() const;
+        [[nodiscard]] iterator       begin();
+        [[nodiscard]] const_iterator begin() const;
 
-        iterator       end();
-        const_iterator end() const;
+        [[nodiscard]] iterator       end();
+        [[nodiscard]] const_iterator end() const;
 
         template < typename... Args >
         node_type& emplace_front( Args&&... args );

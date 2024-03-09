@@ -2,6 +2,7 @@
 
 #include <list>
 #include <string>
+#include <string_view>
 #include <tuple>
 
 namespace joque

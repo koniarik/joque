@@ -1,7 +1,10 @@
 #pragma once
 
-#include "joque/process.hpp"
+#include "joque/run_result.hpp"
 #include "joque/traits.hpp"
+
+#include <memory>
+#include <type_traits>
 
 namespace joque
 {

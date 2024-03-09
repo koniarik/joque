@@ -1,7 +1,10 @@
 #include "joque/dag.hpp"
 
+#include "joque/task.hpp"
+
 #include <ranges>
-#include <set>
+#include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -17,9 +20,10 @@ namespace
                 if ( seen.contains( &n ) )
                         return;
                 seen.insert( &n );
-                for ( dag_edge& e : n.out_edges | std::views::filter( []( const dag_edge& e ) {
-                                            return e.is_dependency;
-                                    } ) ) {
+                for ( const dag_edge& e :
+                      n.out_edges | std::views::filter( []( const dag_edge& e ) {
+                              return e.is_dependency;
+                      } ) ) {
                         dfs( *e.target, seen );
                 }
         }
