@@ -46,10 +46,26 @@ struct list_header
 
         list_header() = default;
 
-        list_header( const list_header& )                      = delete;
-        list_header& operator=( const list_header& )           = delete;
-        list_header( list_header&& other ) noexcept            = delete;
-        list_header& operator=( list_header&& other ) noexcept = delete;
+        list_header( const list_header& )            = delete;
+        list_header& operator=( const list_header& ) = delete;
+        list_header( list_header&& other ) noexcept
+        {
+                *this = std::move( other );
+        }
+        list_header& operator=( list_header&& other ) noexcept
+        {
+                if ( this == &other )
+                        return *this;
+
+                next = std::exchange( other.next, nullptr );
+                prev = std::exchange( other.prev, nullptr );
+                if ( auto* h = next.find_header() )
+                        h->prev = this;
+                if ( auto* h = prev.find_header() )
+                        h->next = next;
+
+                return *this;
+        }
 
         ~list_header();
 };
@@ -122,13 +138,35 @@ public:
         using const_iterator = list_iterator< const header_type >;
         using ptr_type       = list_ptr< node_type, header_type, accessor_type >;
 
-        list() = default;
+        list()                         = default;
+        list( const list& )            = delete;
+        list( list&& )                 = default;
+        list& operator=( const list& ) = delete;
+        list& operator=( list&& )      = default;
 
         [[nodiscard]] iterator       begin();
         [[nodiscard]] const_iterator begin() const;
 
         [[nodiscard]] iterator       end();
         [[nodiscard]] const_iterator end() const;
+
+        [[nodiscard]] node_type& front()
+        {
+                return *begin();
+        }
+        [[nodiscard]] const node_type& front() const
+        {
+                return *begin();
+        };
+
+        [[nodiscard]] node_type& back()
+        {
+                return *++end();
+        }
+        [[nodiscard]] const node_type& back() const
+        {
+                return *++end();
+        };
 
         template < typename... Args >
         node_type& emplace_front( Args&&... args );

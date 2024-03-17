@@ -1,5 +1,6 @@
 #pragma once
 
+#include "joque/dag.hpp"
 #include "joque/exec_coro.hpp"
 #include "joque/exec_visitor.hpp"
 #include "joque/print_exec_visitor.hpp"
@@ -40,7 +41,6 @@ namespace joque
     const std::string& filter       = "",
     exec_visitor&      vis          = PRINT_VISITOR );
 
-class dag;
 /// Overload of `exec` which uses dag as an input instead of task set. It's not recommended to use
 /// it, but it exists in case users want to customize the dag.
 [[nodiscard]] exec_coro exec(

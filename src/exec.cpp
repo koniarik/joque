@@ -41,7 +41,7 @@ namespace
         bool all_ready( const auto& edges )
         {
                 return std::ranges::all_of( edges, [&]( const dag_edge& e ) -> bool {
-                        return e.target->done && !( e.is_dependency && e.target->failed );
+                        return e->target->done && !( e->is_dependency && e->target->failed );
                 } );
         }
 
@@ -57,18 +57,18 @@ namespace
             std::set< dag_node* >&             seen,
             const std::set< const resource* >& used_res )
         {
-                if ( n.started || n.done || seen.contains( &n ) )
+                if ( n->started || n->done || seen.contains( &n ) )
                         return nullptr;
 
                 seen.insert( &n );
 
-                for ( const dag_edge& e : n.out_edges ) {
-                        dag_node* res = find_candidate( *e.target, seen, used_res );
+                for ( const dag_edge& e : n.out_edges() ) {
+                        dag_node* res = find_candidate( e->target, seen, used_res );
                         if ( res != nullptr )
                                 return res;
                 }
 
-                if ( !all_ready( n.out_edges ) || any_resource_used( n.t->resources, used_res ) )
+                if ( !all_ready( n.out_edges() ) || any_resource_used( n->t.resources, used_res ) )
                         return nullptr;
                 return &n;
         }
@@ -90,26 +90,26 @@ namespace
         bool is_invalidated( dag_node& n )
         {
                 const bool dep_invalidated =
-                    std::ranges::any_of( n.out_edges, [&]( dag_edge& e ) -> bool {
-                            return e.is_dependency && e.target->started;
+                    std::ranges::any_of( n.out_edges(), [&]( dag_edge& e ) -> bool {
+                            return e->is_dependency && e->target->started;
                     } );
 
-                return dep_invalidated || n.t->job->is_invalidated();
+                return dep_invalidated || n->t.job->is_invalidated();
         }
 
         run_coro
         run( dag_node& n, std::set< const resource* >& used_resources, unsigned thread_count )
         {
-                run_record result{ .t = *n.t, .name = n.name };
+                run_record result{ .t = n->t, .name = n->name };
 
                 if ( !is_invalidated( n ) ) {
-                        n.done         = true;
+                        n->done        = true;
                         result.skipped = true;
                         co_return result;
                 }
 
-                n.started = true;
-                for ( const resource& r : n.t->resources )
+                n->started = true;
+                for ( const resource& r : n->t.resources )
                         used_resources.insert( &r );
 
                 std::future< run_result > fut = std::async(
@@ -117,7 +117,7 @@ namespace
                     []( dag_node& n ) -> run_result {
                             run_result res;
                             try {
-                                    res = n.t->job->run( *n.t );
+                                    res = n->t.job->run( n->t );
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
@@ -142,11 +142,11 @@ namespace
                         co_await std::suspend_always{};
                 std::tie( result.retcode, result.output ) = fut.get();
 
-                for ( const resource& r : n.t->resources )
+                for ( const resource& r : n->t.resources )
                         used_resources.erase( &r );
                 if ( result.retcode != 0 )
-                        n.failed = true;
-                n.done     = true;
+                        n->failed = true;
+                n->done    = true;
                 result.end = std::chrono::system_clock::now();
                 co_return result;
         }
@@ -171,7 +171,7 @@ exec_coro
 exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec_visitor& vis )
 {
         dag g;
-        g.insert_set( ts, filter );
+        insert_set( g, ts, filter );
         return exec( std::move( g ), thread_count, vis );
 }
 

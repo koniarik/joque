@@ -21,25 +21,25 @@ namespace
                         return;
                 seen.insert( &n );
                 for ( const dag_edge& e :
-                      n.out_edges | std::views::filter( []( const dag_edge& e ) {
-                              return e.is_dependency;
+                      n.out_edges() | std::views::filter( []( const dag_edge& e ) {
+                              return e->is_dependency;
                       } ) ) {
-                        dfs( *e.target, seen );
+                        dfs( e->target, seen );
                 }
         }
 
         void link_dependencies( dag& g, std::unordered_map< const task*, dag_node* >& index )
         {
                 for ( dag_node& n : g ) {
-                        for ( const task& d : n.t->depends_on ) {
+                        for ( const task& d : n->t.depends_on ) {
                                 dag_node* target = index[&d];
-                                dag_edge& e      = n.out_edges.emplace_front( true, &n, target );
-                                target->in_edges.link_front( e );
+                                dag_edge& e      = n.out_edges().emplace_front( true, n, *target );
+                                target->in_edges().link_front( e );
                         }
-                        for ( const task& d : n.t->run_after ) {
+                        for ( const task& d : n->t.run_after ) {
                                 dag_node* target = index[&d];
-                                dag_edge& e      = n.out_edges.emplace_front( false, &n, target );
-                                target->in_edges.link_front( e );
+                                dag_edge& e      = n.out_edges().emplace_front( false, n, *target );
+                                target->in_edges().link_front( e );
                         }
                 }
         }
@@ -50,7 +50,7 @@ namespace
                         return;
                 std::unordered_set< dag_node* > seen;
                 for ( dag_node& n : g )
-                        if ( n.name.find( filter ) != std::string::npos )
+                        if ( n->name.find( filter ) != std::string::npos )
                                 dfs( n, seen );
 
                 g.clear_if( [&]( dag_node& node ) {
@@ -60,15 +60,15 @@ namespace
 
 }  // namespace
 
-void dag::insert_set( const task_set& ts, const std::string& filter )
+void insert_set( dag& dag, const task_set& ts, const std::string& filter )
 {
 
         std::unordered_map< const task*, dag_node* > index;
         for_each_task( ts, [&]( const std::string& name, const task& t ) {
-                index[&t] = &emplace( name, t );
+                index[&t] = &dag.emplace( name, t );
         } );
 
-        link_dependencies( *this, index );
-        filter_nodes( *this, filter );
+        link_dependencies( dag, index );
+        filter_nodes( dag, filter );
 }
 }  // namespace joque
