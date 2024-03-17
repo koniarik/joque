@@ -1,5 +1,7 @@
 #pragma once
 
+#include "joque/bits/list_ptr.hpp"
+
 #include <cstddef>
 #include <type_traits>
 #include <utility>
@@ -22,7 +24,6 @@ concept header_accessor = requires( Node& n, const Node& cn ) {
         } -> std::convertible_to< const list_header< Node, T >& >;
 };
 
-
 // \brief List header (next/prev pointer) for double linked list node.
 //
 // Stores next/prev pointers for list node. Models a pattern where header stores pointers to the
@@ -38,9 +39,10 @@ struct list_header
 
         using node_type     = Node;
         using accessor_type = Accessor;
+        using ptr_type      = list_ptr< Node, list_header, Accessor >;
 
-        Node* next = nullptr;
-        Node* prev = nullptr;
+        ptr_type next = nullptr;
+        ptr_type prev = nullptr;
 
         list_header() = default;
 
@@ -55,14 +57,14 @@ struct list_header
 template < typename Accessor, typename Node >
 void list_unlink( Node& node );
 
-template < typename Accessor, typename Node, typename... Args >
-Node& list_emplace_next( Node& node, Args&&... args );
+template < typename Ptr, typename... Args >
+auto& list_emplace_next( Ptr ptr, Args&&... args );
 
-template < typename Accessor, typename Node >
-void list_link_next( Node& current, Node& next );
+template < typename Ptr, typename Node >
+void list_link_next( Ptr ptr, Node& next );
 
-template < typename Accessor, typename Node >
-void list_delete_all_next( Node& node );
+template < typename Header >
+void list_delete_all_next( Header& header );
 
 template < typename ListHeader >
 class list_iterator
@@ -70,13 +72,13 @@ class list_iterator
 public:
         static constexpr bool is_const = std::is_const_v< ListHeader >;
 
-        using list_header_type = ListHeader;
-        using difference_type  = std::ptrdiff_t;
-        using value_type       = std::conditional_t<
+        using header_type     = ListHeader;
+        using difference_type = std::ptrdiff_t;
+        using value_type      = std::conditional_t<
             is_const,
-            const typename list_header_type::node_type,
-            typename list_header_type::node_type >;
-        using accessor_type = typename list_header_type::accessor_type;
+            const typename header_type::node_type,
+            typename header_type::node_type >;
+        using accessor_type = typename header_type::accessor_type;
 
         list_iterator() = default;
 
@@ -101,23 +103,24 @@ public:
         auto operator<=>( const list_iterator& ) const = default;
 
 private:
-        list_header_type& list_header()
+        header_type& list_header()
         {
-                return accessor_type::get( *node );
+                return accessor_type::get( *node_ );
         }
 
-        value_type* node = nullptr;
+        value_type* node_ = nullptr;
 };
 
 template < typename ListHeader >
 class list
 {
 public:
-        using list_header_type = ListHeader;
-        using node_type        = typename list_header_type::node_type;
-        using accessor_type    = typename list_header_type::accessor_type;
-        using iterator         = list_iterator< list_header_type >;
-        using const_iterator   = list_iterator< const list_header_type >;
+        using header_type    = ListHeader;
+        using node_type      = typename header_type::node_type;
+        using accessor_type  = typename header_type::accessor_type;
+        using iterator       = list_iterator< header_type >;
+        using const_iterator = list_iterator< const header_type >;
+        using ptr_type       = list_ptr< node_type, header_type, accessor_type >;
 
         list() = default;
 
@@ -139,9 +142,7 @@ public:
         ~list();
 
 private:
-        static auto& list_header( auto& node );
-
-        node_type first_;
+        header_type header_;
 };
 
 
@@ -150,10 +151,11 @@ list_header< Node, Accessor >::~list_header()
 {
         static_assert( header_accessor< Accessor, Node > );
 
-        if ( next != nullptr )
-                Accessor::get( *next ).prev = prev;
-        if ( prev != nullptr )
-                Accessor::get( *prev ).next = next;
+        if ( auto* h = next.find_header() )
+                h->prev = prev;
+
+        if ( auto* h = prev.find_header() )
+                h->next = next;
 }
 
 template < typename Accessor, typename Node >
@@ -170,77 +172,81 @@ void list_unlink( Node& node )
         lnode.next = nullptr;
 }
 
-template < typename Accessor, typename Node, typename... Args >
-Node& list_emplace_next( Node& node, Args&&... args )
+template < typename Ptr, typename... Args >
+auto& list_emplace_next( Ptr ptr, Args&&... args )
 {
+        using Node = typename Ptr::node_type;
+
         Node* nnode = new Node{ std::forward< Args >( args )... };
-        list_link_next< Accessor >( node, *nnode );
+        list_link_next( ptr, *nnode );
         return *nnode;
 }
 
-template < typename Accessor, typename Node >
-void list_link_next( Node& current, Node& next )
+template < typename Ptr, typename Node >
+void list_link_next( Ptr ptr, Node& next )
 {
-        auto& nnode = Accessor::get( next );
-        auto& cnode = Accessor::get( current );
+        static_assert( std::same_as< typename Ptr::node_type, Node > );
+        using Accessor = typename Ptr::accessor_type;
+        using Header   = typename Ptr::header_type;
 
-        nnode.next = cnode.next;
+        Header& nnode = Accessor::get( next );
+
+        nnode.next = ptr.find_header()->next;
         if ( nnode.next != nullptr )
-                Accessor::get( *nnode.next ).prev = &next;
+                nnode.next.find_header()->prev = &next;
 
-        cnode.next = &next;
-        nnode.prev = &current;
+        ptr.find_header()->next = &next;
+        nnode.prev              = ptr;
 }
 
-template < typename Accessor, typename Node >
-void list_delete_all_next( Node& node )
+template < typename Header >
+void list_delete_all_next( Header& header )
 {
-        auto& lnode = Accessor::get( node );
-        while ( lnode.next != nullptr )
-                delete lnode.next;
+        while ( auto* node = header.next.get_node() )
+                delete node;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >::list_iterator( value_type* node )
-  : node( node )
+  : node_( node )
 {
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*()
 {
-        return *node;
+        return *node_;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*() const
 {
-        return *node;
+        return *node_;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->()
 {
-        return node;
+        return node_;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->() const
 {
-        return node;
+        return node_;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >& list_iterator< ListHeader >::operator++()
 {
-        node = list_header().next;
+        node_ = list_header().next.get_node();
         return *this;
 }
 
 template < typename ListHeader >
 list_iterator< ListHeader >& list_iterator< ListHeader >::operator--()
 {
-        node = list_header().prev;
+        node_ = list_header().prev.get_node();
         return *this;
 }
 
@@ -263,14 +269,14 @@ list_iterator< ListHeader > list_iterator< ListHeader >::operator--( int )
 template < typename ListHeader >
 list< ListHeader >::iterator list< ListHeader >::begin()
 {
-        iterator res{ list_header( first_ ).next };
+        iterator res{ header_.next.get_node() };
         return res;
 }
 
 template < typename ListHeader >
 list< ListHeader >::const_iterator list< ListHeader >::begin() const
 {
-        const_iterator res{ list_header( first_ ).next };
+        const_iterator res{ header_.next.get_node() };
         return res;
 }
 
@@ -290,19 +296,19 @@ template < typename ListHeader >
 template < typename... Args >
 list< ListHeader >::node_type& list< ListHeader >::emplace_front( Args&&... args )
 {
-        return list_emplace_next< accessor_type >( first_, std::forward< Args >( args )... );
+        return list_emplace_next( ptr_type{ &header_ }, std::forward< Args >( args )... );
 }
 
 template < typename ListHeader >
 void list< ListHeader >::link_front( node_type& node )
 {
-        list_link_next< accessor_type >( first_, node );
+        list_link_next( ptr_type{ &header_ }, node );
 }
 
 template < typename ListHeader >
 bool list< ListHeader >::empty() const
 {
-        return list_header( first_ ).next == nullptr;
+        return header_.next == nullptr;
 }
 
 template < typename ListHeader >
@@ -318,13 +324,7 @@ void list< ListHeader >::clear_if( auto&& f )
 template < typename ListHeader >
 list< ListHeader >::~list()
 {
-        list_delete_all_next< accessor_type >( first_ );
-}
-
-template < typename ListHeader >
-auto& list< ListHeader >::list_header( auto& node )
-{
-        return accessor_type::get( node );
+        list_delete_all_next( header_ );
 }
 
 

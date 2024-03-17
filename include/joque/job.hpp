@@ -16,7 +16,7 @@ struct job_iface
         [[nodiscard]] virtual bool is_invalidated() = 0;
 
         /// Executes one run of the task, returns `run_result` with properly filled information.
-        [[nodiscard]] virtual run_result run( const task_iface& ) = 0;
+        [[nodiscard]] virtual run_result run( const task& ) = 0;
 
         virtual ~job_iface() = default;
 };
@@ -39,7 +39,7 @@ struct job : job_iface
                 return job_traits< T >::is_invalidated( thing );
         }
 
-        [[nodiscard]] run_result run( const task_iface& t ) override
+        [[nodiscard]] run_result run( const task& t ) override
         {
                 return job_traits< T >::run( t, thing );
         }

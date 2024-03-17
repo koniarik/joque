@@ -5,16 +5,16 @@
 namespace joque::bits
 {
 
-struct node_accessor;
+struct taccessor;
 
-struct node
+struct tnode
 {
         int i;
 
-        list_header< node, node_accessor > lheader = {};
+        list_header< tnode, taccessor > lheader = {};
 };
 
-struct node_accessor
+struct taccessor
 {
         static auto& get( auto& n )
         {
@@ -22,8 +22,8 @@ struct node_accessor
         }
 };
 
-using titer = list_iterator< list_header< node, node_accessor > >;
-using tlist = list< list_header< node, node_accessor > >;
+using titer = list_iterator< list_header< tnode, taccessor > >;
+using tlist = list< list_header< tnode, taccessor > >;
 
 static_assert( std::bidirectional_iterator< titer > );
 
@@ -53,7 +53,7 @@ TEST( list_header, multiple )
         l.emplace_front( 1 );
 
         int i = 0;
-        for ( const node& n : l ) {
+        for ( const tnode& n : l ) {
                 i += 1;
                 EXPECT_EQ( n.i, i );
         }

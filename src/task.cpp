@@ -4,35 +4,35 @@
 
 namespace joque
 {
-void for_each_add_dep( task_set& ts, const task_iface& dep )
+void for_each_add_dep( task_set& ts, const task& dep )
 {
-        for_each_task( ts, [&]( const std::string&, task_iface& t ) {
+        for_each_task( ts, [&]( const std::string&, task& t ) {
                 if ( &t != &dep )
-                        t.add_dependency( dep );
+                        t.depends_on.emplace_back( dep );
         } );
 }
 
-void add_dep_to_each( task_iface& t, const task_set& ts )
+void add_dep_to_each( task& t, const task_set& ts )
 {
-        for_each_task( ts, [&]( const std::string&, const task_iface& other ) {
+        for_each_task( ts, [&]( const std::string&, const task& other ) {
                 if ( &t != &other )
-                        t.add_dependency( other );
+                        t.depends_on.emplace_back( other );
         } );
 }
 
-void run_each_after( task_set& ts, const task_iface& t )
+void run_each_after( task_set& ts, const task& t )
 {
-        for_each_task( ts, [&]( const std::string&, task_iface& other ) {
+        for_each_task( ts, [&]( const std::string&, task& other ) {
                 if ( &other != &t )
-                        other.add_run_after( t );
+                        other.run_after.emplace_back( t );
         } );
 }
 
-void run_after_all_of( task_iface& t, const task_set& ts )
+void run_after_all_of( task& t, const task_set& ts )
 {
-        for_each_task( ts, [&]( const std::string&, const task_iface& other ) {
+        for_each_task( ts, [&]( const std::string&, const task& other ) {
                 if ( &t != &other )
-                        t.add_run_after( other );
+                        t.run_after.emplace_back( other );
         } );
 }
 

@@ -20,7 +20,7 @@ using tp = std::chrono::time_point< std::chrono::system_clock >;
 struct run_record
 {
         /// Executed task
-        std::reference_wrapper< const task_iface > t;
+        std::reference_wrapper< const task > t;
 
         /// Full name of the task
         std::string name;
@@ -48,7 +48,7 @@ struct exec_record
         std::size_t skipped_count = 0;
         /// Number of failed tasks
         std::size_t failed_count = 0;
-        /// Run record for each task in the set.
+        /// Run record for each finished task in the set.
         std::vector< run_record > runs;
 };
 

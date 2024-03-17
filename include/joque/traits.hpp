@@ -6,7 +6,7 @@
 namespace joque
 {
 
-struct task_iface;
+struct task;
 
 /// Default job traits for all types. Assumes that the type is callable with signature
 /// `run_result(const task*)`.
@@ -18,7 +18,7 @@ struct job_traits
                 return true;
         }
 
-        [[nodiscard]] static run_result run( const task_iface& t, const T& f )
+        [[nodiscard]] static run_result run( const task& t, const T& f )
         {
                 return f( t );
         }
