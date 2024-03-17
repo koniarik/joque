@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lheader_314',['lheader',['../namespacejoque.html#a715a25c590c77f150e32948affdd8ec8',1,'joque::dag_edge::lheader()'],['../namespacejoque.html#a1f98b3b952e6a15a155ea9d1232cc596',1,'joque::dag_node::lheader()']]],
-  ['lrheader_315',['lrheader',['../namespacejoque.html#a98a3ab28b2b93caa8fe29fbc07d60708',1,'joque::dag_edge']]]
+  ['name_324',['name',['../namespacejoque.html#a525ab45d04dea0f5f92bf758b40ddd87',1,'joque::node_content::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
+  ['next_325',['next',['../structjoque_1_1bits_1_1list__header.html#aeb5a633deae35b8569cd2e7e2161ac17',1,'joque::bits::list_header']]]
 ];

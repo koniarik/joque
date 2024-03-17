@@ -1,30 +1,30 @@
 var hierarchy =
 [
-    [ "joque::dag", "classjoque_1_1dag.html", null ],
-    [ "joque::dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", null ],
-    [ "joque::bits::dag_lheader_accessor", "structjoque_1_1bits_1_1dag__lheader__accessor.html", null ],
-    [ "joque::bits::dag_lrheader_accessor", "structjoque_1_1bits_1_1dag__lrheader__accessor.html", null ],
-    [ "joque::dag_node", "namespacejoque.html#structjoque_1_1dag__node", null ],
+    [ "joque::edge_content", "namespacejoque.html#structjoque_1_1edge__content", null ],
     [ "joque::exec_coro", "classjoque_1_1exec__coro.html", null ],
     [ "joque::exec_record", "namespacejoque.html#structjoque_1_1exec__record", null ],
     [ "joque::exec_visitor", "classjoque_1_1exec__visitor.html", [
       [ "joque::print_exec_visitor", "classjoque_1_1print__exec__visitor.html", null ]
     ] ],
+    [ "joque::bits::gedge< T >", "classjoque_1_1bits_1_1gedge.html", null ],
+    [ "joque::bits::gnode< T, EdgeType >", "classjoque_1_1bits_1_1gnode.html", null ],
+    [ "joque::bits::graph< NodeType >", "classjoque_1_1bits_1_1graph.html", null ],
     [ "joque::job_iface", "structjoque_1_1job__iface.html", [
       [ "joque::job< T >", "structjoque_1_1job.html", null ]
     ] ],
     [ "joque::job_traits< T >", "structjoque_1_1job__traits.html", null ],
     [ "joque::job_traits< process >", "structjoque_1_1job__traits_3_01process_01_4.html", null ],
+    [ "joque::bits::lheader_accessor", "structjoque_1_1bits_1_1lheader__accessor.html", null ],
     [ "joque::bits::list< ListHeader >", "classjoque_1_1bits_1_1list.html", null ],
-    [ "joque::bits::list< dag_edge_lheader >", "classjoque_1_1bits_1_1list.html", null ],
-    [ "joque::bits::list< dag_edge_lrheader >", "classjoque_1_1bits_1_1list.html", null ],
     [ "joque::bits::list_header< Node, Accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
-    [ "joque::bits::list_header< dag_edge, bits::dag_lheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
-    [ "joque::bits::list_header< dag_edge, bits::dag_lrheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
-    [ "joque::bits::list_header< dag_node, bits::dag_lheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
+    [ "joque::bits::list_header< gedge, lheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
+    [ "joque::bits::list_header< gedge, lrheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
+    [ "joque::bits::list_header< gnode, lheader_accessor >", "structjoque_1_1bits_1_1list__header.html", null ],
     [ "joque::bits::list_iterator< ListHeader >", "classjoque_1_1bits_1_1list__iterator.html", null ],
     [ "joque::bits::list_ptr< Node, Header, Accessor >", "classjoque_1_1bits_1_1list__ptr.html", null ],
     [ "joque::bits::list_ptr< Node, list_header, Accessor >", "classjoque_1_1bits_1_1list__ptr.html", null ],
+    [ "joque::bits::lrheader_accessor", "structjoque_1_1bits_1_1lrheader__accessor.html", null ],
+    [ "joque::node_content", "namespacejoque.html#structjoque_1_1node__content", null ],
     [ "joque::out_tag", "structjoque_1_1out__tag.html", [
       [ "joque::out", "structjoque_1_1out.html", null ]
     ] ],

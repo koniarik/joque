@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['task_206',['task',['../namespacejoque.html#structjoque_1_1task',1,'joque']]],
-  ['task_5fset_207',['task_set',['../namespacejoque.html#structjoque_1_1task__set',1,'joque']]]
+  ['resource_208',['resource',['../namespacejoque.html#structjoque_1_1resource',1,'joque']]],
+  ['run_5frecord_209',['run_record',['../namespacejoque.html#structjoque_1_1run__record',1,'joque']]],
+  ['run_5fresult_210',['run_result',['../structjoque_1_1run__result.html',1,'joque']]]
 ];

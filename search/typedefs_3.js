@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['header_5ftype_349',['header_type',['../classjoque_1_1bits_1_1list__iterator.html#ac98a38a359ea1d58fc177efd7e5c8884',1,'joque::bits::list_iterator::header_type()'],['../classjoque_1_1bits_1_1list.html#a0b23a9fb7b7a0692747591f315875bcd',1,'joque::bits::list::header_type()'],['../classjoque_1_1bits_1_1list__ptr.html#a96ffda37a4a5eafa3e06ad43262c4469',1,'joque::bits::list_ptr::header_type()']]]
+  ['edge_5flist_353',['edge_list',['../classjoque_1_1bits_1_1gnode.html#a47d93e0197e40efcd79432a5da510be5',1,'joque::bits::gnode']]],
+  ['edge_5frlist_354',['edge_rlist',['../classjoque_1_1bits_1_1gnode.html#aa1833f8bf04543cdabf65c081bf5bb6f',1,'joque::bits::gnode']]],
+  ['edge_5ftype_355',['edge_type',['../classjoque_1_1bits_1_1gnode.html#a70007150ea1c91be8757efd5c224bf43',1,'joque::bits::gnode::edge_type()'],['../classjoque_1_1bits_1_1graph.html#a2cff53d38dc0ea873ef0e7658f85e203',1,'joque::bits::graph::edge_type()']]]
 ];

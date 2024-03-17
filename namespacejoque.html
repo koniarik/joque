@@ -101,14 +101,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:structjoque_1_1dag__edge"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1dag__edge">dag_edge</a></td></tr>
-<tr class="separator:structjoque_1_1dag__edge"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structjoque_1_1dag__node"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1dag__node">dag_node</a></td></tr>
-<tr class="memdesc:structjoque_1_1dag__node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node representing all execution-related information for one task.  <a href="namespacejoque.html#structjoque_1_1dag__node">More...</a><br /></td></tr>
-<tr class="separator:structjoque_1_1dag__node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1dag.html">dag</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DAG used to store data in single execution of tasks.  <a href="classjoque_1_1dag.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1edge__content"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1edge__content">edge_content</a></td></tr>
+<tr class="separator:structjoque_1_1edge__content"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1node__content"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1node__content">node_content</a></td></tr>
+<tr class="separator:structjoque_1_1node__content"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine representing one execution of entire task set.  <a href="classjoque_1_1exec__coro.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,27 +161,24 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a428908b4fd655d3988f1404d8e0e91f4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a428908b4fd655d3988f1404d8e0e91f4">dag_edge_lheader</a> = <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__edge">dag_edge</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lheader__accessor.html">bits::dag_lheader_accessor</a> &gt;</td></tr>
-<tr class="separator:a428908b4fd655d3988f1404d8e0e91f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba59b2067b740c66898aa94c052fa8f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#adba59b2067b740c66898aa94c052fa8f">dag_edge_lrheader</a> = <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__edge">dag_edge</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lrheader__accessor.html">bits::dag_lrheader_accessor</a> &gt;</td></tr>
-<tr class="separator:adba59b2067b740c66898aa94c052fa8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126e695f2f67fd88419545da88a9541d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a126e695f2f67fd88419545da88a9541d">dag_edge_list</a> = <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#a428908b4fd655d3988f1404d8e0e91f4">dag_edge_lheader</a> &gt;</td></tr>
-<tr class="separator:a126e695f2f67fd88419545da88a9541d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1a25d0febf91e45095e6acaa84051e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab1a25d0febf91e45095e6acaa84051e6">dag_edge_rlist</a> = <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#adba59b2067b740c66898aa94c052fa8f">dag_edge_lrheader</a> &gt;</td></tr>
-<tr class="separator:ab1a25d0febf91e45095e6acaa84051e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28ac2deabf12526528ebd65c8baea250"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a28ac2deabf12526528ebd65c8baea250">dag_node_lheader</a> = <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__node">dag_node</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lheader__accessor.html">bits::dag_lheader_accessor</a> &gt;</td></tr>
-<tr class="separator:a28ac2deabf12526528ebd65c8baea250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c47b6a72e688983136d173c93fc04a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae3c47b6a72e688983136d173c93fc04a">dag_node_list</a> = <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#a28ac2deabf12526528ebd65c8baea250">dag_node_lheader</a> &gt;</td></tr>
-<tr class="separator:ae3c47b6a72e688983136d173c93fc04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e100f690840702713226e3c77f5b98c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0e100f690840702713226e3c77f5b98c">dag_edge</a> = <a class="el" href="classjoque_1_1bits_1_1gedge.html">bits::gedge</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1edge__content">edge_content</a> &gt;</td></tr>
+<tr class="separator:a0e100f690840702713226e3c77f5b98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c249b4b822aa877e8bca4e5048a717"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> = <a class="el" href="classjoque_1_1bits_1_1gnode.html">bits::gnode</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node__content">node_content</a>, <a class="el" href="namespacejoque.html#a0e100f690840702713226e3c77f5b98c">dag_edge</a> &gt;</td></tr>
+<tr class="separator:a18c249b4b822aa877e8bca4e5048a717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf93bc50c67e1f9c2e23d68924c0e4b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> = <a class="el" href="classjoque_1_1bits_1_1graph.html">bits::graph</a>&lt; <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &gt;</td></tr>
+<tr class="memdesc:abf93bc50c67e1f9c2e23d68924c0e4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">DAG used to store data in single execution of tasks.  <a href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">More...</a><br /></td></tr>
+<tr class="separator:abf93bc50c67e1f9c2e23d68924c0e4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">tp</a> = std::chrono::time_point&lt; std::chrono::system_clock &gt;</td></tr>
 <tr class="separator:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:abda511d9833d4dabfe4d9b53741dc248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248">insert_set</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a>, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const std::string &amp;filter)</td></tr>
+<tr class="separator:abda511d9833d4dabfe4d9b53741dc248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
 <tr class="memdesc:ae7f069c04754480cd23a827dd9abe713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">More...</a><br /></td></tr>
 <tr class="separator:ae7f069c04754480cd23a827dd9abe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">exec</a> (<a class="el" href="classjoque_1_1dag.html">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
+<tr class="memitem:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">exec</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
 <tr class="memdesc:a9eb9fb3fe4cfe732504452deb2928e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">More...</a><br /></td></tr>
 <tr class="separator:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4241c12a8cd87ae62818371490932431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4241c12a8cd87ae62818371490932431">format_nested</a> (std::ostream &amp;os, std::string_view indent, std::string_view msg)</td></tr>
@@ -194,9 +187,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a87a397c892568829c53fe1cdb330c8bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">format_record</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
 <tr class="memdesc:a87a397c892568829c53fe1cdb330c8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">More...</a><br /></td></tr>
 <tr class="separator:a87a397c892568829c53fe1cdb330c8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ff910573c74886895eaccde9dafefdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ff910573c74886895eaccde9dafefdf">format_dag</a> (const <a class="el" href="classjoque_1_1dag.html">dag</a> &amp;d, const std::function&lt; void(std::string_view) &gt; &amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
+<tr class="memitem:a6ff910573c74886895eaccde9dafefdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ff910573c74886895eaccde9dafefdf">format_dag</a> (const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d, const std::function&lt; void(std::string_view) &gt; &amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
 <tr class="separator:a6ff910573c74886895eaccde9dafefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="classjoque_1_1dag.html">dag</a> &amp;d)</td></tr>
+<tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d)</td></tr>
 <tr class="separator:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3de9d15ac1fd3290afa6412e051ca08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a> (const std::filesystem::path &amp;p, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="memdesc:ab3de9d15ac1fd3290afa6412e051ca08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates JUnit XML file, expects that execution record represents some form of test execution.  <a href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">More...</a><br /></td></tr>
@@ -235,19 +228,19 @@ Variables</h2></td></tr>
 <tr class="separator:ac391d87f5d214cafcaf8879dfec116bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structjoque_1_1dag__edge" id="structjoque_1_1dag__edge"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1dag__edge">&#9670;&nbsp;</a></span>joque::dag_edge</h2>
+<a name="structjoque_1_1edge__content" id="structjoque_1_1edge__content"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1edge__content">&#9670;&nbsp;</a></span>joque::edge_content</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct joque::dag_edge</td>
+          <td class="memname">struct joque::edge_content</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::dag_edge:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::edge_content:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
@@ -257,53 +250,40 @@ Variables</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a3fad7e541830a26e9565c803ceed70e9"></a>bool</td>
+<a id="a99a738098079725d3a466310e6decf36"></a>bool</td>
 <td class="fieldname">
 is_dependency</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a9a285081b3f68399ff90fb8f1520b627"></a><a class="el" href="namespacejoque.html#structjoque_1_1dag__node">dag_node</a> *</td>
+<a id="a7b901f44437116a976cbe16b48774042"></a><a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;</td>
 <td class="fieldname">
 source</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a4145fdb211ce985d43c500840043433c"></a><a class="el" href="namespacejoque.html#structjoque_1_1dag__node">dag_node</a> *</td>
+<a id="a85659438daf59848ee085b1d69a908d4"></a><a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;</td>
 <td class="fieldname">
 target</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a715a25c590c77f150e32948affdd8ec8"></a><a class="el" href="namespacejoque.html#a428908b4fd655d3988f1404d8e0e91f4">dag_edge_lheader</a></td>
-<td class="fieldname">
-lheader</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a98a3ab28b2b93caa8fe29fbc07d60708"></a><a class="el" href="namespacejoque.html#adba59b2067b740c66898aa94c052fa8f">dag_edge_lrheader</a></td>
-<td class="fieldname">
-lrheader</td>
 <td class="fielddoc">
 </td></tr>
 </table>
 
 </div>
 </div>
-<a name="structjoque_1_1dag__node" id="structjoque_1_1dag__node"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1dag__node">&#9670;&nbsp;</a></span>joque::dag_node</h2>
+<a name="structjoque_1_1node__content" id="structjoque_1_1node__content"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1node__content">&#9670;&nbsp;</a></span>joque::node_content</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct joque::dag_node</td>
+          <td class="memname">struct joque::node_content</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Node representing all execution-related information for one task. </p>
-</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::dag_node:</div>
+<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::node_content:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
@@ -313,53 +293,35 @@ lrheader</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="ac87ab4b4d82628aa0e7aefd23582c876"></a>string</td>
+<a id="a525ab45d04dea0f5f92bf758b40ddd87"></a>string</td>
 <td class="fieldname">
 name</td>
 <td class="fielddoc">
 Full path-name of the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="ac11d57794b71bc06b83252a83c2beb70"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> *</td>
+<a id="a4d2cbeafddfab680ac1004ff5efad270"></a>const <a class="el" href="namespacejoque.html#structjoque_1_1task">task</a> &amp;</td>
 <td class="fieldname">
 t</td>
 <td class="fielddoc">
 Reference to the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="a210aadb6592e5d19c3407c1249482658"></a><a class="el" href="namespacejoque.html#a126e695f2f67fd88419545da88a9541d">dag_edge_list</a></td>
-<td class="fieldname">
-out_edges</td>
-<td class="fielddoc">
-Nodes representing tasks that should be run before <code>t</code> </td></tr>
-<tr><td class="fieldtype">
-<a id="aee89682c88011fdc293db29e8ada633f"></a><a class="el" href="namespacejoque.html#ab1a25d0febf91e45095e6acaa84051e6">dag_edge_rlist</a></td>
-<td class="fieldname">
-in_edges</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a8b2a2f9332fb1b12233ab1815bbb13f8"></a>bool</td>
+<a id="a2d12112e6bfdbfd376f492dd2504b524"></a>bool</td>
 <td class="fieldname">
 started</td>
 <td class="fielddoc">
 Sets to <code>true</code> once the task is scheduled for execution. </td></tr>
 <tr><td class="fieldtype">
-<a id="a1b6b0036e8fe121c50ce5edad1d36344"></a>bool</td>
+<a id="afe3a3778b918f8848f3c870712f83c70"></a>bool</td>
 <td class="fieldname">
 done</td>
 <td class="fielddoc">
 Sets to <code>done</code> if the task finished it's execution (correctly or incorrectly) </td></tr>
 <tr><td class="fieldtype">
-<a id="ad0728a29b54c94226aab396d3408cf64"></a>bool</td>
+<a id="ae674c4bfdca171003f8e847318928ba8"></a>bool</td>
 <td class="fieldname">
 failed</td>
 <td class="fielddoc">
 Sets to <code>fail</code> if the task failed during execution. </td></tr>
-<tr><td class="fieldtype">
-<a id="a1f98b3b952e6a15a155ea9d1232cc596"></a><a class="el" href="namespacejoque.html#a28ac2deabf12526528ebd65c8baea250">dag_node_lheader</a></td>
-<td class="fieldname">
-lheader</td>
-<td class="fielddoc">
-</td></tr>
 </table>
 
 </div>
@@ -610,87 +572,47 @@ Subsets of this set. </td></tr>
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a428908b4fd655d3988f1404d8e0e91f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a428908b4fd655d3988f1404d8e0e91f4">&#9670;&nbsp;</a></span>dag_edge_lheader</h2>
+<a id="a0e100f690840702713226e3c77f5b98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e100f690840702713226e3c77f5b98c">&#9670;&nbsp;</a></span>dag_edge</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#a428908b4fd655d3988f1404d8e0e91f4">joque::dag_edge_lheader</a> = typedef <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__edge">dag_edge</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lheader__accessor.html">bits::dag_lheader_accessor</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespacejoque.html#a0e100f690840702713226e3c77f5b98c">joque::dag_edge</a> = typedef <a class="el" href="classjoque_1_1bits_1_1gedge.html">bits::gedge</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1edge__content">edge_content</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="adba59b2067b740c66898aa94c052fa8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adba59b2067b740c66898aa94c052fa8f">&#9670;&nbsp;</a></span>dag_edge_lrheader</h2>
+<a id="a18c249b4b822aa877e8bca4e5048a717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c249b4b822aa877e8bca4e5048a717">&#9670;&nbsp;</a></span>dag_node</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#adba59b2067b740c66898aa94c052fa8f">joque::dag_edge_lrheader</a> = typedef <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__edge">dag_edge</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lrheader__accessor.html">bits::dag_lrheader_accessor</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">joque::dag_node</a> = typedef <a class="el" href="classjoque_1_1bits_1_1gnode.html">bits::gnode</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1node__content">node_content</a>, <a class="el" href="namespacejoque.html#a0e100f690840702713226e3c77f5b98c">dag_edge</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a126e695f2f67fd88419545da88a9541d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a126e695f2f67fd88419545da88a9541d">&#9670;&nbsp;</a></span>dag_edge_list</h2>
+<a id="abf93bc50c67e1f9c2e23d68924c0e4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf93bc50c67e1f9c2e23d68924c0e4b1">&#9670;&nbsp;</a></span>dag</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#a126e695f2f67fd88419545da88a9541d">joque::dag_edge_list</a> = typedef <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#a428908b4fd655d3988f1404d8e0e91f4">dag_edge_lheader</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">joque::dag</a> = typedef <a class="el" href="classjoque_1_1bits_1_1graph.html">bits::graph</a>&lt; <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ab1a25d0febf91e45095e6acaa84051e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1a25d0febf91e45095e6acaa84051e6">&#9670;&nbsp;</a></span>dag_edge_rlist</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#ab1a25d0febf91e45095e6acaa84051e6">joque::dag_edge_rlist</a> = typedef <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#adba59b2067b740c66898aa94c052fa8f">dag_edge_lrheader</a> &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a28ac2deabf12526528ebd65c8baea250"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28ac2deabf12526528ebd65c8baea250">&#9670;&nbsp;</a></span>dag_node_lheader</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#a28ac2deabf12526528ebd65c8baea250">joque::dag_node_lheader</a> = typedef <a class="el" href="structjoque_1_1bits_1_1list__header.html">bits::list_header</a>&lt; <a class="el" href="namespacejoque.html#structjoque_1_1dag__node">dag_node</a>, <a class="el" href="structjoque_1_1bits_1_1dag__lheader__accessor.html">bits::dag_lheader_accessor</a> &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae3c47b6a72e688983136d173c93fc04a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3c47b6a72e688983136d173c93fc04a">&#9670;&nbsp;</a></span>dag_node_list</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacejoque.html#ae3c47b6a72e688983136d173c93fc04a">joque::dag_node_list</a> = typedef <a class="el" href="classjoque_1_1bits_1_1list.html">bits::list</a>&lt; <a class="el" href="namespacejoque.html#a28ac2deabf12526528ebd65c8baea250">dag_node_lheader</a> &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>DAG used to store data in single execution of tasks. </p>
 
 </div>
 </div>
@@ -709,6 +631,40 @@ Subsets of this set. </td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="abda511d9833d4dabfe4d9b53741dc248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda511d9833d4dabfe4d9b53741dc248">&#9670;&nbsp;</a></span>insert_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::insert_set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;&#160;</td>
+          <td class="paramname"><em>dag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae7f069c04754480cd23a827dd9abe713"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7f069c04754480cd23a827dd9abe713">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/2]</span></h2>
 
@@ -773,7 +729,7 @@ Subsets of this set. </td></tr>
         <tr>
           <td class="memname"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> joque::exec </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classjoque_1_1dag.html">dag</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a>&#160;</td>
           <td class="paramname"><em>g</em>, </td>
         </tr>
         <tr>
@@ -876,7 +832,7 @@ Subsets of this set. </td></tr>
         <tr>
           <td class="memname">void joque::format_dag </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classjoque_1_1dag.html">dag</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;&#160;</td>
           <td class="paramname"><em>d</em>, </td>
         </tr>
         <tr>
@@ -910,7 +866,7 @@ Subsets of this set. </td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classjoque_1_1dag.html">dag</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;&#160;</td>
           <td class="paramname"><em>d</em>&#160;</td>
         </tr>
         <tr>
@@ -1285,7 +1241,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Mar 17 2024 20:40:42 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 17 2024 21:54:47 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

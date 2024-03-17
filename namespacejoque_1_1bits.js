@@ -1,7 +1,10 @@
 var namespacejoque_1_1bits =
 [
-    [ "dag_lheader_accessor", "structjoque_1_1bits_1_1dag__lheader__accessor.html", "structjoque_1_1bits_1_1dag__lheader__accessor" ],
-    [ "dag_lrheader_accessor", "structjoque_1_1bits_1_1dag__lrheader__accessor.html", "structjoque_1_1bits_1_1dag__lrheader__accessor" ],
+    [ "lheader_accessor", "structjoque_1_1bits_1_1lheader__accessor.html", "structjoque_1_1bits_1_1lheader__accessor" ],
+    [ "lrheader_accessor", "structjoque_1_1bits_1_1lrheader__accessor.html", "structjoque_1_1bits_1_1lrheader__accessor" ],
+    [ "gedge", "classjoque_1_1bits_1_1gedge.html", "classjoque_1_1bits_1_1gedge" ],
+    [ "gnode", "classjoque_1_1bits_1_1gnode.html", "classjoque_1_1bits_1_1gnode" ],
+    [ "graph", "classjoque_1_1bits_1_1graph.html", "classjoque_1_1bits_1_1graph" ],
     [ "list_header", "structjoque_1_1bits_1_1list__header.html", "structjoque_1_1bits_1_1list__header" ],
     [ "list_iterator", "classjoque_1_1bits_1_1list__iterator.html", "classjoque_1_1bits_1_1list__iterator" ],
     [ "list", "classjoque_1_1bits_1_1list.html", "classjoque_1_1bits_1_1list" ],
