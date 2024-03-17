@@ -1,10 +1,11 @@
 var classjoque_1_1bits_1_1list =
 [
-    [ "list_header_type", "classjoque_1_1bits_1_1list.html#a5d94412608f7c24af27af66fa33648df", null ],
-    [ "node_type", "classjoque_1_1bits_1_1list.html#adc096007f9038c3e716a9fa5c3a4853b", null ],
-    [ "accessor_type", "classjoque_1_1bits_1_1list.html#aaa564f2ff674ba34f61bae29cbc70576", null ],
-    [ "iterator", "classjoque_1_1bits_1_1list.html#aea01e35304277bb054ed9a6a7501d5cf", null ],
-    [ "const_iterator", "classjoque_1_1bits_1_1list.html#a8d9fbbb5783da952ea397f07cbe86add", null ],
+    [ "header_type", "classjoque_1_1bits_1_1list.html#a0b23a9fb7b7a0692747591f315875bcd", null ],
+    [ "node_type", "classjoque_1_1bits_1_1list.html#aecce6d49892922f91d206d2d7ecf62bc", null ],
+    [ "accessor_type", "classjoque_1_1bits_1_1list.html#a6b4d7b86f5ee80cba86796351675983c", null ],
+    [ "iterator", "classjoque_1_1bits_1_1list.html#a1406c43ef5e605294d35e5cda61f0686", null ],
+    [ "const_iterator", "classjoque_1_1bits_1_1list.html#a329afe80d3d670d88c1ab793000973ca", null ],
+    [ "ptr_type", "classjoque_1_1bits_1_1list.html#aed26857dfc3db286a33f0d33916c6868", null ],
     [ "list", "classjoque_1_1bits_1_1list.html#aa4e7c60ea508854b437217402daad931", null ],
     [ "~list", "classjoque_1_1bits_1_1list.html#a4728d5c3b5e7c8af39fc3772bcccb3b2", null ],
     [ "begin", "classjoque_1_1bits_1_1list.html#aeb06a74257c3d9be0ef19b3a0499b600", null ],

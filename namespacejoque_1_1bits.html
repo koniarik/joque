@@ -104,21 +104,23 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1bits_1_1list.html">list</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1bits_1_1list__ptr.html">list_ptr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa9f59846c9edd448a49597bae06389ea"><td class="memTemplParams" colspan="2">template&lt;typename Accessor , typename Node &gt; </td></tr>
 <tr class="memitem:aa9f59846c9edd448a49597bae06389ea"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#aa9f59846c9edd448a49597bae06389ea">list_unlink</a> (Node &amp;node)</td></tr>
 <tr class="separator:aa9f59846c9edd448a49597bae06389ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9dd03349df0eb8d34ce8d3ae1a2b28e"><td class="memTemplParams" colspan="2">template&lt;typename Accessor , typename Node , typename... Args&gt; </td></tr>
-<tr class="memitem:af9dd03349df0eb8d34ce8d3ae1a2b28e"><td class="memTemplItemLeft" align="right" valign="top">Node &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#af9dd03349df0eb8d34ce8d3ae1a2b28e">list_emplace_next</a> (Node &amp;node, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:af9dd03349df0eb8d34ce8d3ae1a2b28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7001bf0e808ba1e8685e1a6dafd8b978"><td class="memTemplParams" colspan="2">template&lt;typename Accessor , typename Node &gt; </td></tr>
-<tr class="memitem:a7001bf0e808ba1e8685e1a6dafd8b978"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#a7001bf0e808ba1e8685e1a6dafd8b978">list_link_next</a> (Node &amp;current, Node &amp;next)</td></tr>
-<tr class="separator:a7001bf0e808ba1e8685e1a6dafd8b978"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf93b1289742aeb1b089ffc6e88311b"><td class="memTemplParams" colspan="2">template&lt;typename Accessor , typename Node &gt; </td></tr>
-<tr class="memitem:a2bf93b1289742aeb1b089ffc6e88311b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#a2bf93b1289742aeb1b089ffc6e88311b">list_delete_all_next</a> (Node &amp;node)</td></tr>
-<tr class="separator:a2bf93b1289742aeb1b089ffc6e88311b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd9645f9fb32a7cb312b8694fec357c"><td class="memTemplParams" colspan="2">template&lt;typename Ptr , typename... Args&gt; </td></tr>
+<tr class="memitem:a1dd9645f9fb32a7cb312b8694fec357c"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#a1dd9645f9fb32a7cb312b8694fec357c">list_emplace_next</a> (Ptr ptr, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a1dd9645f9fb32a7cb312b8694fec357c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb956582a5b75f0586d05cfaaf43fa03"><td class="memTemplParams" colspan="2">template&lt;typename Ptr , typename Node &gt; </td></tr>
+<tr class="memitem:adb956582a5b75f0586d05cfaaf43fa03"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03">list_link_next</a> (Ptr ptr, Node &amp;next)</td></tr>
+<tr class="separator:adb956582a5b75f0586d05cfaaf43fa03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bdb6c3348984157e9c5e0f09919d00c"><td class="memTemplParams" colspan="2">template&lt;typename Header &gt; </td></tr>
+<tr class="memitem:a9bdb6c3348984157e9c5e0f09919d00c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque_1_1bits.html#a9bdb6c3348984157e9c5e0f09919d00c">list_delete_all_next</a> (Header &amp;header)</td></tr>
+<tr class="separator:a9bdb6c3348984157e9c5e0f09919d00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -148,19 +150,19 @@ template&lt;typename Accessor , typename Node &gt; </div>
 
 </div>
 </div>
-<a id="af9dd03349df0eb8d34ce8d3ae1a2b28e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9dd03349df0eb8d34ce8d3ae1a2b28e">&#9670;&nbsp;</a></span>list_emplace_next()</h2>
+<a id="a1dd9645f9fb32a7cb312b8694fec357c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd9645f9fb32a7cb312b8694fec357c">&#9670;&nbsp;</a></span>list_emplace_next()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Accessor , typename Node , typename... Args&gt; </div>
+template&lt;typename Ptr , typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Node &amp; joque::bits::list_emplace_next </td>
+          <td class="memname">auto &amp; joque::bits::list_emplace_next </td>
           <td>(</td>
-          <td class="paramtype">Node &amp;&#160;</td>
-          <td class="paramname"><em>node</em>, </td>
+          <td class="paramtype">Ptr&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -176,21 +178,23 @@ template&lt;typename Accessor , typename Node , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03">list_link_next()</a>.</p>
+
 </div>
 </div>
-<a id="a7001bf0e808ba1e8685e1a6dafd8b978"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7001bf0e808ba1e8685e1a6dafd8b978">&#9670;&nbsp;</a></span>list_link_next()</h2>
+<a id="adb956582a5b75f0586d05cfaaf43fa03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb956582a5b75f0586d05cfaaf43fa03">&#9670;&nbsp;</a></span>list_link_next()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Accessor , typename Node &gt; </div>
+template&lt;typename Ptr , typename Node &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void joque::bits::list_link_next </td>
           <td>(</td>
-          <td class="paramtype">Node &amp;&#160;</td>
-          <td class="paramname"><em>current</em>, </td>
+          <td class="paramtype">Ptr&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -208,19 +212,19 @@ template&lt;typename Accessor , typename Node &gt; </div>
 
 </div>
 </div>
-<a id="a2bf93b1289742aeb1b089ffc6e88311b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bf93b1289742aeb1b089ffc6e88311b">&#9670;&nbsp;</a></span>list_delete_all_next()</h2>
+<a id="a9bdb6c3348984157e9c5e0f09919d00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdb6c3348984157e9c5e0f09919d00c">&#9670;&nbsp;</a></span>list_delete_all_next()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Accessor , typename Node &gt; </div>
+template&lt;typename Header &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void joque::bits::list_delete_all_next </td>
           <td>(</td>
-          <td class="paramtype">Node &amp;&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
+          <td class="paramtype">Header &amp;&#160;</td>
+          <td class="paramname"><em>header</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -263,7 +267,7 @@ template&lt;typename T , typename Node &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="namespacejoque_1_1bits.html">bits</a></li>
-    <li class="footer">Generated on Sat Mar 9 2024 09:59:53 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 17 2024 20:30:31 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

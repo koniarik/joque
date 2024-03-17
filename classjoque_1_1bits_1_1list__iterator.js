@@ -1,9 +1,9 @@
 var classjoque_1_1bits_1_1list__iterator =
 [
-    [ "list_header_type", "classjoque_1_1bits_1_1list__iterator.html#ade32d26367304a0b398b21c81fa5372f", null ],
+    [ "header_type", "classjoque_1_1bits_1_1list__iterator.html#ac98a38a359ea1d58fc177efd7e5c8884", null ],
     [ "difference_type", "classjoque_1_1bits_1_1list__iterator.html#ac1b50ad2260147e7c987e33a19d70262", null ],
-    [ "value_type", "classjoque_1_1bits_1_1list__iterator.html#a8f6057d738bca88fa68da89444b68e4e", null ],
-    [ "accessor_type", "classjoque_1_1bits_1_1list__iterator.html#a7a617ca839b004e805db2a78dfbd99ed", null ],
+    [ "value_type", "classjoque_1_1bits_1_1list__iterator.html#a87a8f8b940f080df66837738b22f436a", null ],
+    [ "accessor_type", "classjoque_1_1bits_1_1list__iterator.html#aec21202220e17cfe551db8092444764b", null ],
     [ "list_iterator", "classjoque_1_1bits_1_1list__iterator.html#abe44622e67908787df11ec88432c8cf7", null ],
     [ "list_iterator", "classjoque_1_1bits_1_1list__iterator.html#a05912a6feb16ad3483c39d0acaac39d3", null ],
     [ "operator*", "classjoque_1_1bits_1_1list__iterator.html#a6fb7df91e3cb9e21b0dda4b8b32ed684", null ],

@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('traits_8hpp_source.html',''); initResi
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejoque.html">joque</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">struct </span>task_iface;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">struct </span>task;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html">   14</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structjoque_1_1job__traits.html">job_traits</a></div>
@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('traits_8hpp_source.html',''); initResi
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#a60373537a7986eb946efedab7af34b8c">   21</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structjoque_1_1run__result.html">run_result</a> <a class="code" href="structjoque_1_1job__traits.html#a60373537a7986eb946efedab7af34b8c">run</a>( <span class="keyword">const</span> <a class="code" href="structjoque_1_1task__iface.html">task_iface</a>&amp; t, <span class="keyword">const</span> T&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a> )</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structjoque_1_1job__traits.html#ac7117af1fd8928af1aa2ce7c956c5a64">   21</a></span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structjoque_1_1run__result.html">run_result</a> <a class="code" href="structjoque_1_1job__traits.html#ac7117af1fd8928af1aa2ce7c956c5a64">run</a>( <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task">task</a>&amp; t, <span class="keyword">const</span> T&amp; <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a> )</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>( t );</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
@@ -113,20 +113,20 @@ $(document).ready(function(){initNavTree('traits_8hpp_source.html',''); initResi
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:4</div></div>
-<div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:173</div></div>
+<div class="ttc" id="anamespacejoque_html_ac391d87f5d214cafcaf8879dfec116bc"><div class="ttname"><a href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">joque::f</a></div><div class="ttdeci">Fun &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> task.hpp:61</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1task"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task">joque::task</a></div><div class="ttdoc">Single task that should be executed by the system.</div><div class="ttdef"><b>Definition:</b> task.hpp:25</div></div>
 <div class="ttc" id="arun__result_8hpp_html"><div class="ttname"><a href="run__result_8hpp.html">run_result.hpp</a></div></div>
 <div class="ttc" id="astructjoque_1_1job__traits_html"><div class="ttname"><a href="structjoque_1_1job__traits.html">joque::job_traits</a></div><div class="ttdoc">Default job traits for all types.</div><div class="ttdef"><b>Definition:</b> traits.hpp:15</div></div>
 <div class="ttc" id="astructjoque_1_1job__traits_html_a415e33d8c648e79778165b4e7cb20289"><div class="ttname"><a href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">joque::job_traits::is_invalidated</a></div><div class="ttdeci">static bool is_invalidated(const T &amp;)</div><div class="ttdef"><b>Definition:</b> traits.hpp:16</div></div>
-<div class="ttc" id="astructjoque_1_1job__traits_html_a60373537a7986eb946efedab7af34b8c"><div class="ttname"><a href="structjoque_1_1job__traits.html#a60373537a7986eb946efedab7af34b8c">joque::job_traits::run</a></div><div class="ttdeci">static run_result run(const task_iface &amp;t, const T &amp;f)</div><div class="ttdef"><b>Definition:</b> traits.hpp:21</div></div>
+<div class="ttc" id="astructjoque_1_1job__traits_html_ac7117af1fd8928af1aa2ce7c956c5a64"><div class="ttname"><a href="structjoque_1_1job__traits.html#ac7117af1fd8928af1aa2ce7c956c5a64">joque::job_traits::run</a></div><div class="ttdeci">static run_result run(const task &amp;t, const T &amp;f)</div><div class="ttdef"><b>Definition:</b> traits.hpp:21</div></div>
 <div class="ttc" id="astructjoque_1_1run__result_html"><div class="ttname"><a href="structjoque_1_1run__result.html">joque::run_result</a></div><div class="ttdoc">Result of single traits run call. Information is stored in run record.</div><div class="ttdef"><b>Definition:</b> run_result.hpp:25</div></div>
-<div class="ttc" id="astructjoque_1_1task__iface_html"><div class="ttname"><a href="structjoque_1_1task__iface.html">joque::task_iface</a></div><div class="ttdef"><b>Definition:</b> task.hpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="traits_8hpp.html">traits.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 9 2024 09:59:53 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 17 2024 20:30:31 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

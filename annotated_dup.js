@@ -6,7 +6,8 @@ var annotated_dup =
         [ "dag_lrheader_accessor", "structjoque_1_1bits_1_1dag__lrheader__accessor.html", "structjoque_1_1bits_1_1dag__lrheader__accessor" ],
         [ "list_header", "structjoque_1_1bits_1_1list__header.html", "structjoque_1_1bits_1_1list__header" ],
         [ "list_iterator", "classjoque_1_1bits_1_1list__iterator.html", "classjoque_1_1bits_1_1list__iterator" ],
-        [ "list", "classjoque_1_1bits_1_1list.html", "classjoque_1_1bits_1_1list" ]
+        [ "list", "classjoque_1_1bits_1_1list.html", "classjoque_1_1bits_1_1list" ],
+        [ "list_ptr", "classjoque_1_1bits_1_1list__ptr.html", "classjoque_1_1bits_1_1list__ptr" ]
       ] ],
       [ "dag_edge", "namespacejoque.html#structjoque_1_1dag__edge", "namespacejoque_structjoque_1_1dag__edge_dup" ],
       [ "dag_node", "namespacejoque.html#structjoque_1_1dag__node", "namespacejoque_structjoque_1_1dag__node_dup" ],
@@ -26,12 +27,7 @@ var annotated_dup =
       [ "output_chunk", "structjoque_1_1output__chunk.html", "structjoque_1_1output__chunk" ],
       [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
       [ "resource", "namespacejoque.html#structjoque_1_1resource", "namespacejoque_structjoque_1_1resource_dup" ],
-      [ "task_iface", "structjoque_1_1task__iface.html", "structjoque_1_1task__iface" ],
-      [ "task_traits", "namespacejoque.html#structjoque_1_1task__traits", null ],
-      [ "task_wrapper", "structjoque_1_1task__wrapper.html", "structjoque_1_1task__wrapper" ],
       [ "task", "namespacejoque.html#structjoque_1_1task", "namespacejoque_structjoque_1_1task_dup" ],
-      [ "task_traits< task >", "structjoque_1_1task__traits_3_01task_01_4.html", "structjoque_1_1task__traits_3_01task_01_4" ],
-      [ "task_ptr", "structjoque_1_1task__ptr.html", "structjoque_1_1task__ptr" ],
       [ "task_set", "namespacejoque.html#structjoque_1_1task__set", "namespacejoque_structjoque_1_1task__set_dup" ],
       [ "job_traits", "structjoque_1_1job__traits.html", "structjoque_1_1job__traits" ]
     ] ]

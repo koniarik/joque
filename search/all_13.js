@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['_7eexec_5fcoro_169',['~exec_coro',['../classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58',1,'joque::exec_coro']]],
-  ['_7eexec_5fvisitor_170',['~exec_visitor',['../classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3',1,'joque::exec_visitor']]],
-  ['_7ejob_5fiface_171',['~job_iface',['../structjoque_1_1job__iface.html#a8e39b54624baa8febd660bae6b402b4a',1,'joque::job_iface']]],
-  ['_7elist_172',['~list',['../classjoque_1_1bits_1_1list.html#a4728d5c3b5e7c8af39fc3772bcccb3b2',1,'joque::bits::list']]],
-  ['_7elist_5fheader_173',['~list_header',['../structjoque_1_1bits_1_1list__header.html#a6baceeb29792ea235ac47b12e4060140',1,'joque::bits::list_header']]],
-  ['_7etask_5fiface_174',['~task_iface',['../structjoque_1_1task__iface.html#a5ee8237a7dc52e4d56ce09338ebccd34',1,'joque::task_iface']]]
+  ['value_167',['value',['../structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935',1,'joque::exec_coro::promise_type']]],
+  ['value_5ftype_168',['value_type',['../classjoque_1_1bits_1_1list__iterator.html#a87a8f8b940f080df66837738b22f436a',1,'joque::bits::list_iterator']]]
 ];

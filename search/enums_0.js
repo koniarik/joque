@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_5fe_364',['type_e',['../structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a',1,'joque::output_chunk']]]
+  ['mark_355',['mark',['../classjoque_1_1bits_1_1list__ptr.html#a462a98a22d1486061a1d72141d73246b',1,'joque::bits::list_ptr']]]
 ];
