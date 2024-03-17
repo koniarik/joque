@@ -99,6 +99,9 @@ public:
                 return ptr_ == nullptr;
         }
 
+        bool operator==( const list_ptr& other ) const  = default;
+        auto operator<=>( const list_ptr& other ) const = default;
+
 private:
         template < typename RetType, typename K >
         static RetType* get_impl( auto& self )

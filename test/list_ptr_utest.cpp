@@ -40,6 +40,8 @@ TEST( list_header, empty )
         EXPECT_EQ( cp.get_node(), nullptr );
         EXPECT_EQ( p.find_header(), nullptr );
         EXPECT_EQ( cp.find_header(), nullptr );
+        EXPECT_EQ( p, nullptr );
+        EXPECT_EQ( cp, nullptr );
 
         p.match(
             []( tnode& ) {
@@ -55,6 +57,28 @@ TEST( list_header, empty )
             []( const theader& ) {
                     FAIL();
             } );
+
+        {
+                tnode       n;
+                tptr        np{ &n };
+                const tptr& cnp = np;
+
+                EXPECT_NE( p, np );
+                EXPECT_NE( cp, np );
+                EXPECT_NE( p, cnp );
+                EXPECT_NE( cp, cnp );
+        }
+
+        {
+                theader     h;
+                tptr        hp{ &h };
+                const tptr& chp = hp;
+
+                EXPECT_NE( p, hp );
+                EXPECT_NE( cp, hp );
+                EXPECT_NE( p, chp );
+                EXPECT_NE( cp, chp );
+        }
 }
 
 TEST( list_header, node )
@@ -92,6 +116,17 @@ TEST( list_header, node )
                     FAIL();
             } );
         EXPECT_EQ( node_counter, 2 );
+
+        {
+                theader     h;
+                tptr        hp{ &h };
+                const tptr& chp = hp;
+
+                EXPECT_NE( p, hp );
+                EXPECT_NE( cp, hp );
+                EXPECT_NE( p, chp );
+                EXPECT_NE( cp, chp );
+        }
 }
 
 TEST( list_header, header )
