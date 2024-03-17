@@ -50,11 +50,13 @@ var NAVTREEINDEX0 =
 "classjoque_1_1bits_1_1list__ptr.html#a734f8f6a79160f8283239deb988672ab":[4,0,0,0,5,11],
 "classjoque_1_1bits_1_1list__ptr.html#a7bc8df9a048a6ac1b1cab765011cc572":[4,0,0,0,5,6],
 "classjoque_1_1bits_1_1list__ptr.html#a7d777e1f6494a433f04f42fb4f995130":[4,0,0,0,5,5],
+"classjoque_1_1bits_1_1list__ptr.html#a7e4134bcdf40db06f4c3db297ca5a257":[4,0,0,0,5,19],
 "classjoque_1_1bits_1_1list__ptr.html#a80982333b31eff1529bc4fddfb6f1418":[4,0,0,0,5,4],
 "classjoque_1_1bits_1_1list__ptr.html#a9257339bf8a79e3dc7816c858c4a2e34":[4,0,0,0,5,2],
 "classjoque_1_1bits_1_1list__ptr.html#a96ffda37a4a5eafa3e06ad43262c4469":[4,0,0,0,5,1],
 "classjoque_1_1bits_1_1list__ptr.html#aa67966ccab7100112c17e9f7805e8eda":[4,0,0,0,5,17],
 "classjoque_1_1bits_1_1list__ptr.html#aa6898ff31010ead021361e97d45e2fc0":[4,0,0,0,5,10],
+"classjoque_1_1bits_1_1list__ptr.html#aab15be43c4fb142c36285d22366f3b8b":[4,0,0,0,5,18],
 "classjoque_1_1bits_1_1list__ptr.html#ad97aa40676f50150493cdde6e3aed7b4":[4,0,0,0,5,12],
 "classjoque_1_1bits_1_1list__ptr.html#ade2fa188a3bc181cee57325f7b5e6043":[4,0,0,0,5,7],
 "classjoque_1_1bits_1_1list__ptr.html#aea5e9797e8aac98de932a11cde4b63df":[4,0,0,0,5,13],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "structjoque_1_1bits_1_1list__header.html#ad5b3ff2b38b468c37f4863843617fac4":[4,0,0,0,2,7],
 "structjoque_1_1bits_1_1list__header.html#aeb5a633deae35b8569cd2e7e2161ac17":[4,0,0,0,2,9],
 "structjoque_1_1exec__coro_1_1promise__type.html":[4,0,0,4,0],
-"structjoque_1_1exec__coro_1_1promise__type.html#a1978827295147e01f0d25f4019da2f0d":[4,0,0,4,0,3],
-"structjoque_1_1exec__coro_1_1promise__type.html#a1b1a1009b869ee3dc5900ed477090c2f":[4,0,0,4,0,4],
-"structjoque_1_1exec__coro_1_1promise__type.html#a26fa94ab6fc8a2835c9a9080ce3c3060":[4,0,0,4,0,2]
+"structjoque_1_1exec__coro_1_1promise__type.html#a1978827295147e01f0d25f4019da2f0d":[4,0,0,4,0,3]
 };

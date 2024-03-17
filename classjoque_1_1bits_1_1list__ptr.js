@@ -21,5 +21,7 @@ var classjoque_1_1bits_1_1list__ptr =
     [ "find_header", "classjoque_1_1bits_1_1list__ptr.html#a58c36c619024e11bc8fe83c2a7617e97", null ],
     [ "match", "classjoque_1_1bits_1_1list__ptr.html#af5b5fab7e9070f869c59056bf259995b", null ],
     [ "match", "classjoque_1_1bits_1_1list__ptr.html#a20320ad913b8a110d68f7b73797bf2a2", null ],
-    [ "operator==", "classjoque_1_1bits_1_1list__ptr.html#aa67966ccab7100112c17e9f7805e8eda", null ]
+    [ "operator==", "classjoque_1_1bits_1_1list__ptr.html#aa67966ccab7100112c17e9f7805e8eda", null ],
+    [ "operator==", "classjoque_1_1bits_1_1list__ptr.html#aab15be43c4fb142c36285d22366f3b8b", null ],
+    [ "operator<=>", "classjoque_1_1bits_1_1list__ptr.html#a7e4134bcdf40db06f4c3db297ca5a257", null ]
 ];

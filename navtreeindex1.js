@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"structjoque_1_1exec__coro_1_1promise__type.html#a1b1a1009b869ee3dc5900ed477090c2f":[4,0,0,4,0,4],
+"structjoque_1_1exec__coro_1_1promise__type.html#a26fa94ab6fc8a2835c9a9080ce3c3060":[4,0,0,4,0,2],
 "structjoque_1_1exec__coro_1_1promise__type.html#a2d0524258ae57e867c3acbe004526935":[4,0,0,4,0,5],
 "structjoque_1_1exec__coro_1_1promise__type.html#a415f6e017da78ca9e183de5bc436640f":[4,0,0,4,0,0],
 "structjoque_1_1exec__coro_1_1promise__type.html#a687f838e3cd8dd9b099e3057b5a52f7c":[4,0,0,4,0,6],
