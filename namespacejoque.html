@@ -184,9 +184,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a4241c12a8cd87ae62818371490932431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4241c12a8cd87ae62818371490932431">format_nested</a> (std::ostream &amp;os, std::string_view indent, std::string_view msg)</td></tr>
 <tr class="memdesc:a4241c12a8cd87ae62818371490932431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assumes that <code>msg</code> is multiline message, streams each line into <code>os</code>, and prefixes each line with <code>indent</code> string.  <a href="namespacejoque.html#a4241c12a8cd87ae62818371490932431">More...</a><br /></td></tr>
 <tr class="separator:a4241c12a8cd87ae62818371490932431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87a397c892568829c53fe1cdb330c8bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">format_record</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
-<tr class="memdesc:a87a397c892568829c53fe1cdb330c8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a87a397c892568829c53fe1cdb330c8bf">More...</a><br /></td></tr>
-<tr class="separator:a87a397c892568829c53fe1cdb330c8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6e417cbe50c1bc604a82b7283fa8f6e2">format_record</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
+<tr class="memdesc:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a6e417cbe50c1bc604a82b7283fa8f6e2">More...</a><br /></td></tr>
+<tr class="separator:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9008b6ac4dae49a587ff6a8f806db684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9008b6ac4dae49a587ff6a8f806db684">format_end</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec)</td></tr>
+<tr class="separator:a9008b6ac4dae49a587ff6a8f806db684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff910573c74886895eaccde9dafefdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ff910573c74886895eaccde9dafefdf">format_dag</a> (const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d, const std::function&lt; void(std::string_view) &gt; &amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
 <tr class="separator:a6ff910573c74886895eaccde9dafefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d)</td></tr>
@@ -197,6 +199,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ab280046a1246db06f03c39cfb14a0085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">generate_junit_xml</a> (std::ostream &amp;os, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="memdesc:ab280046a1246db06f03c39cfb14a0085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>generate_junit_xml</code> that uses ostream instead of filename.  <a href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">More...</a><br /></td></tr>
 <tr class="separator:ab280046a1246db06f03c39cfb14a0085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19a8aecc5eb247a481d327aa0523edc"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aa19a8aecc5eb247a481d327aa0523edc">runtime_sum</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec)</td></tr>
+<tr class="separator:aa19a8aecc5eb247a481d327aa0523edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1849e3487447c3dfdca638a01904e4fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb">record_output</a> (<a class="el" href="structjoque_1_1run__result.html">run_result</a> &amp;res, <a class="el" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">output_chunk::type_e</a> type, std::string_view data)</td></tr>
 <tr class="separator:a1849e3487447c3dfdca638a01904e4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
@@ -430,6 +434,12 @@ Number of skipped tasks. </td></tr>
 failed_count</td>
 <td class="fielddoc">
 Number of failed tasks. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab56e55c8b5fee3ca73a362f610c94968"></a>size_t</td>
+<td class="fieldname">
+total_count</td>
+<td class="fielddoc">
+Total number of jobs. </td></tr>
 <tr><td class="fieldtype">
 <a id="aa5154cd1eabbe477d3802a0098ec545a"></a>vector&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt;</td>
 <td class="fieldname">
@@ -793,8 +803,8 @@ Subsets of this set. </td></tr>
 
 </div>
 </div>
-<a id="a87a397c892568829c53fe1cdb330c8bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87a397c892568829c53fe1cdb330c8bf">&#9670;&nbsp;</a></span>format_record()</h2>
+<a id="a6e417cbe50c1bc604a82b7283fa8f6e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e417cbe50c1bc604a82b7283fa8f6e2">&#9670;&nbsp;</a></span>format_record()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -804,6 +814,12 @@ Subsets of this set. </td></tr>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>erec</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -820,6 +836,34 @@ Subsets of this set. </td></tr>
 </div><div class="memdoc">
 
 <p>Formats information about record <code>rec</code> and streams it into <code>os</code>. </p>
+
+</div>
+</div>
+<a id="a9008b6ac4dae49a587ff6a8f806db684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9008b6ac4dae49a587ff6a8f806db684">&#9670;&nbsp;</a></span>format_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::format_end </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>erec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -964,6 +1008,24 @@ Subsets of this set. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa19a8aecc5eb247a481d327aa0523edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19a8aecc5eb247a481d327aa0523edc">&#9670;&nbsp;</a></span>runtime_sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::seconds joque::runtime_sum </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>erec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1241,7 +1303,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Mar 17 2024 21:54:47 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 19 2024 20:44:48 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

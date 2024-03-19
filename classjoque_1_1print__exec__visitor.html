@@ -122,9 +122,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c3dbae94d6d17a085b8b50cdbc3b226"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1print__exec__visitor.html#a2c3dbae94d6d17a085b8b50cdbc3b226">on_run_start</a> (const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;n) override</td></tr>
 <tr class="memdesc:a2c3dbae94d6d17a085b8b50cdbc3b226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed once execution starts for the node.  <a href="classjoque_1_1print__exec__visitor.html#a2c3dbae94d6d17a085b8b50cdbc3b226">More...</a><br /></td></tr>
 <tr class="separator:a2c3dbae94d6d17a085b8b50cdbc3b226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9533aedde4f0da0bc379303e03d95eb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1print__exec__visitor.html#a9533aedde4f0da0bc379303e03d95eb3">on_run_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *rec, const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;n) override</td></tr>
-<tr class="memdesc:a9533aedde4f0da0bc379303e03d95eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed after execution of node.  <a href="classjoque_1_1print__exec__visitor.html#a9533aedde4f0da0bc379303e03d95eb3">More...</a><br /></td></tr>
-<tr class="separator:a9533aedde4f0da0bc379303e03d95eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6788e58d09038ec1cfb8832c9c947e89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1print__exec__visitor.html#a6788e58d09038ec1cfb8832c9c947e89">on_run_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *rec, const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;n) override</td></tr>
+<tr class="memdesc:a6788e58d09038ec1cfb8832c9c947e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed after execution of node.  <a href="classjoque_1_1print__exec__visitor.html#a6788e58d09038ec1cfb8832c9c947e89">More...</a><br /></td></tr>
+<tr class="separator:a6788e58d09038ec1cfb8832c9c947e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add87df308b435a612c1342a4f9aa254a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1print__exec__visitor.html#add87df308b435a612c1342a4f9aa254a">on_exec_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;) override</td></tr>
+<tr class="separator:add87df308b435a612c1342a4f9aa254a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classjoque_1_1exec__visitor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classjoque_1_1exec__visitor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classjoque_1_1exec__visitor.html">joque::exec_visitor</a></td></tr>
 <tr class="memitem:a40ac41702bd73deda169de32636372d3 inherit pub_methods_classjoque_1_1exec__visitor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3">~exec_visitor</a> ()=default</td></tr>
 <tr class="separator:a40ac41702bd73deda169de32636372d3 inherit pub_methods_classjoque_1_1exec__visitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,8 +213,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9533aedde4f0da0bc379303e03d95eb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9533aedde4f0da0bc379303e03d95eb3">&#9670;&nbsp;</a></span>on_run_end()</h2>
+<a id="a6788e58d09038ec1cfb8832c9c947e89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6788e58d09038ec1cfb8832c9c947e89">&#9670;&nbsp;</a></span>on_run_end()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,6 +225,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void joque::print_exec_visitor::on_run_end </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *&#160;</td>
           <td class="paramname">, </td>
         </tr>
@@ -253,7 +261,35 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classjoque_1_1exec__visitor.html#a70519b762eb81419af542223e7ced385">joque::exec_visitor</a>.</p>
+<p>Reimplemented from <a class="el" href="classjoque_1_1exec__visitor.html#a0154ede464e91c3bb38cb9b87a2d2588">joque::exec_visitor</a>.</p>
+
+</div>
+</div>
+<a id="add87df308b435a612c1342a4f9aa254a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add87df308b435a612c1342a4f9aa254a">&#9670;&nbsp;</a></span>on_exec_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::print_exec_visitor::on_exec_end </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classjoque_1_1exec__visitor.html#a47f3ae82b13f924c2876cebb02a67dd6">joque::exec_visitor</a>.</p>
 
 </div>
 </div>
@@ -266,7 +302,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="classjoque_1_1print__exec__visitor.html">print_exec_visitor</a></li>
-    <li class="footer">Generated on Sun Mar 17 2024 21:54:47 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 19 2024 20:44:48 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -112,9 +112,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e54a57e7bf5a2d80263118fe46e54ac"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a4e54a57e7bf5a2d80263118fe46e54ac">on_run_start</a> (const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;)</td></tr>
 <tr class="memdesc:a4e54a57e7bf5a2d80263118fe46e54ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed once execution starts for the node.  <a href="classjoque_1_1exec__visitor.html#a4e54a57e7bf5a2d80263118fe46e54ac">More...</a><br /></td></tr>
 <tr class="separator:a4e54a57e7bf5a2d80263118fe46e54ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70519b762eb81419af542223e7ced385"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a70519b762eb81419af542223e7ced385">on_run_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *, const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;)</td></tr>
-<tr class="memdesc:a70519b762eb81419af542223e7ced385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed after execution of node.  <a href="classjoque_1_1exec__visitor.html#a70519b762eb81419af542223e7ced385">More...</a><br /></td></tr>
-<tr class="separator:a70519b762eb81419af542223e7ced385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0154ede464e91c3bb38cb9b87a2d2588"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a0154ede464e91c3bb38cb9b87a2d2588">on_run_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *, const <a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;)</td></tr>
+<tr class="memdesc:a0154ede464e91c3bb38cb9b87a2d2588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executed after execution of node.  <a href="classjoque_1_1exec__visitor.html#a0154ede464e91c3bb38cb9b87a2d2588">More...</a><br /></td></tr>
+<tr class="separator:a0154ede464e91c3bb38cb9b87a2d2588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f3ae82b13f924c2876cebb02a67dd6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a47f3ae82b13f924c2876cebb02a67dd6">on_exec_end</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;)</td></tr>
+<tr class="separator:a47f3ae82b13f924c2876cebb02a67dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40ac41702bd73deda169de32636372d3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3">~exec_visitor</a> ()=default</td></tr>
 <tr class="separator:a40ac41702bd73deda169de32636372d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -208,8 +210,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a70519b762eb81419af542223e7ced385"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70519b762eb81419af542223e7ced385">&#9670;&nbsp;</a></span>on_run_end()</h2>
+<a id="a0154ede464e91c3bb38cb9b87a2d2588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0154ede464e91c3bb38cb9b87a2d2588">&#9670;&nbsp;</a></span>on_run_end()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,6 +222,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void joque::exec_visitor::on_run_end </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> *&#160;</td>
           <td class="paramname">, </td>
         </tr>
@@ -250,7 +258,35 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classjoque_1_1print__exec__visitor.html#a9533aedde4f0da0bc379303e03d95eb3">joque::print_exec_visitor</a>.</p>
+<p>Reimplemented in <a class="el" href="classjoque_1_1print__exec__visitor.html#a6788e58d09038ec1cfb8832c9c947e89">joque::print_exec_visitor</a>.</p>
+
+</div>
+</div>
+<a id="a47f3ae82b13f924c2876cebb02a67dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f3ae82b13f924c2876cebb02a67dd6">&#9670;&nbsp;</a></span>on_exec_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void joque::exec_visitor::on_exec_end </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classjoque_1_1print__exec__visitor.html#add87df308b435a612c1342a4f9aa254a">joque::print_exec_visitor</a>.</p>
 
 </div>
 </div>
@@ -263,7 +299,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a></li>
-    <li class="footer">Generated on Sun Mar 17 2024 21:54:47 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 19 2024 20:44:48 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
