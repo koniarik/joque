@@ -54,15 +54,7 @@ void generate_junit_xml(
 
 void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exec_record& exec_rec )
 {
-        auto t = std::chrono::duration_cast< sec_time >(
-                     std::accumulate(
-                         exec_rec.runs.begin(),
-                         exec_rec.runs.end(),
-                         std::chrono::system_clock::duration{ 0u },
-                         [&]( auto sum, const run_record& rec ) {
-                                 return sum + ( rec.end - rec.start );
-                         } ) )
-                     .count();
+        auto t = runtime_sum( exec_rec );
 
         os << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 

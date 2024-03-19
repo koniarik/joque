@@ -28,14 +28,17 @@ void print_exec_visitor::on_run_start( const dag_node& n )
                 std::cout << "Running task " << n->name << std::endl;
 };
 
-void print_exec_visitor::on_run_end( const run_record* rec, const dag_node& n )
+void print_exec_visitor::on_run_end(
+    const exec_record& erec,
+    const run_record*  rec,
+    const dag_node&    n )
 {
         if ( rec == nullptr ) {
                 std::cerr << "Failed to get result from coro for task: " << n->name << std::endl;
                 return;
         }
         if ( !rec->t.get().hidden || verbose_ || rec->retcode != 0 ) {
-                format_record( std::cout, *rec );
+                format_record( std::cout, erec, *rec );
                 std::cout.flush();
         }
 
@@ -45,6 +48,11 @@ void print_exec_visitor::on_run_end( const run_record* rec, const dag_node& n )
                 std::cout << std::endl;
         }
 };
+
+void print_exec_visitor::on_exec_end( const exec_record& rec )
+{
+        format_end( std::cout, rec );
+}
 
 print_exec_visitor PRINT_VISITOR;
 

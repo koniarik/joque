@@ -48,8 +48,12 @@ struct exec_record
         std::size_t skipped_count = 0;
         /// Number of failed tasks
         std::size_t failed_count = 0;
+        /// Total number of jobs
+        std::size_t total_count = 0;
         /// Run record for each finished task in the set.
         std::vector< run_record > runs;
 };
+
+std::chrono::seconds runtime_sum( const exec_record& erec );
 
 }  // namespace joque

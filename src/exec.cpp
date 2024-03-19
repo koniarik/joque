@@ -97,8 +97,7 @@ namespace
                 return dep_invalidated || n->t.job->is_invalidated();
         }
 
-        run_coro
-        run( dag_node& n, std::set< const resource* >& used_resources, unsigned thread_count )
+        run_coro run( dag_node& n, std::set< const resource* >& used_resources, std::launch l )
         {
                 run_record result{ .t = n->t, .name = n->name };
 
@@ -113,7 +112,7 @@ namespace
                         used_resources.insert( &r );
 
                 std::future< run_result > fut = std::async(
-                    thread_count == 0 ? std::launch::deferred : std::launch::async,
+                    l,
                     []( dag_node& n ) -> run_result {
                             run_result res;
                             try {
@@ -158,7 +157,7 @@ namespace
                         if ( !coro.done() )
                                 return false;
                         run_record* rec = coro.result();
-                        vis.on_run_end( rec, coro.get_node() );
+                        vis.on_run_end( erec, rec, coro.get_node() );
 
                         if ( rec != nullptr )
                                 push( erec, std::move( *rec ) );
@@ -177,12 +176,12 @@ exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec
 
 exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 {
-        exec_record           erec;
         std::set< dag_node* > to_process;
         for ( dag_node& n : g ) {
                 vis.on_node_enque( n );
                 to_process.insert( &n );
         }
+        exec_record erec{ .total_count = to_process.size() };
 
         std::set< const resource* > used_resources;
         std::vector< run_coro >     coros;
@@ -195,13 +194,18 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                         to_process.erase( n );
 
                         vis.on_run_start( *n );
-                        coros.push_back( run( *n, used_resources, thread_count ) );
+                        coros.push_back(
+                            run( *n,
+                                 used_resources,
+                                 thread_count == 0 ? std::launch::deferred : std::launch::async ) );
                 }
 
                 co_await std::suspend_always{};
         }
         while ( !coros.empty() )
                 cleanup_coros( coros, erec, vis );
+
+        vis.on_exec_end( erec );
 
         co_return erec;
 }

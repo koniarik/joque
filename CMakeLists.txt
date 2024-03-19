@@ -27,6 +27,7 @@ add_library(
   src/format.cpp
   src/format_dag.cpp
   src/junit.cpp
+  src/records.cpp
   src/print_exec_visitor.cpp
   src/process.cpp
   src/task.cpp)

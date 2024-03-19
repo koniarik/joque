@@ -15,7 +15,10 @@ public:
 
         void on_node_enque( const dag_node& n ) override;
         void on_run_start( const dag_node& n ) override;
-        void on_run_end( const run_record* rec, const dag_node& n ) override;
+        void
+        on_run_end( const exec_record& erec, const run_record* rec, const dag_node& n ) override;
+
+        void on_exec_end( const exec_record& ) override;
 
 private:
         bool verbose_;
