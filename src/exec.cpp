@@ -186,7 +186,7 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
         std::set< const resource* > used_resources;
         std::vector< run_coro >     coros;
 
-        while ( !to_process.empty() && erec.failed_count == 0 ) {
+        while ( !to_process.empty() ) {
                 cleanup_coros( coros, erec, vis );
 
                 dag_node* n = find_candidate( to_process, used_resources );

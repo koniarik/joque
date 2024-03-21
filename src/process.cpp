@@ -112,7 +112,7 @@ run_result job_traits< process >::run( const task&, const process& p )
                 record_output(
                     res,
                     s == reproc::stream::out ? output_chunk::STANDARD : output_chunk::ERROR,
-                    std::string_view( reinterpret_cast< const char* >( buffer ), size ) );
+                    std::string( reinterpret_cast< const char* >( buffer ), size ) );
                 return {};
         };
         ec = reproc::drain( process, f, f );

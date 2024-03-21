@@ -34,9 +34,9 @@ struct run_result
         }
 };
 
-inline void record_output( run_result& res, output_chunk::type_e type, std::string_view data )
+inline void record_output( run_result& res, output_chunk::type_e type, std::string data )
 {
-        res.output.emplace_back( type, std::string( data ) );
+        res.output.emplace_back( type, std::move( data ) );
 }
 
 }  // namespace joque
