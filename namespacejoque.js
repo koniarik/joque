@@ -36,7 +36,7 @@ var namespacejoque =
     [ "generate_junit_xml", "namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08", null ],
     [ "generate_junit_xml", "namespacejoque.html#ab280046a1246db06f03c39cfb14a0085", null ],
     [ "runtime_sum", "namespacejoque.html#aa19a8aecc5eb247a481d327aa0523edc", null ],
-    [ "record_output", "namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb", null ],
+    [ "record_output", "namespacejoque.html#a05c87c802e15f061e48c75764e7b3ca4", null ],
     [ "requires", "namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433", null ],
     [ "for_each_add_dep", "namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7", null ],
     [ "add_dep_to_each", "namespacejoque.html#a5d9b1c8c103f5be314c4907ecf6eac68", null ],

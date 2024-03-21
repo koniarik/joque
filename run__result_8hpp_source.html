@@ -121,14 +121,14 @@ $(document).ready(function(){initNavTree('run__result_8hpp_source.html',''); ini
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb">   37</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb">record_output</a>( <a class="code" href="structjoque_1_1run__result.html">run_result</a>&amp; res, <a class="code" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">output_chunk::type_e</a> type, std::string_view data )</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacejoque.html#a05c87c802e15f061e48c75764e7b3ca4">   37</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#a05c87c802e15f061e48c75764e7b3ca4">record_output</a>( <a class="code" href="structjoque_1_1run__result.html">run_result</a>&amp; res, <a class="code" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">output_chunk::type_e</a> type, std::string data )</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        res.<a class="code" href="structjoque_1_1run__result.html#aec4795a84e52bc0aadbbaa050e71dfaf">output</a>.emplace_back( type, std::string( data ) );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        res.<a class="code" href="structjoque_1_1run__result.html#aec4795a84e52bc0aadbbaa050e71dfaf">output</a>.emplace_back( type, std::move( data ) );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
-<div class="ttc" id="anamespacejoque_html_a1849e3487447c3dfdca638a01904e4fb"><div class="ttname"><a href="namespacejoque.html#a1849e3487447c3dfdca638a01904e4fb">joque::record_output</a></div><div class="ttdeci">void record_output(run_result &amp;res, output_chunk::type_e type, std::string_view data)</div><div class="ttdef"><b>Definition:</b> run_result.hpp:37</div></div>
+<div class="ttc" id="anamespacejoque_html_a05c87c802e15f061e48c75764e7b3ca4"><div class="ttname"><a href="namespacejoque.html#a05c87c802e15f061e48c75764e7b3ca4">joque::record_output</a></div><div class="ttdeci">void record_output(run_result &amp;res, output_chunk::type_e type, std::string data)</div><div class="ttdef"><b>Definition:</b> run_result.hpp:37</div></div>
 <div class="ttc" id="astructjoque_1_1output__chunk_html"><div class="ttname"><a href="structjoque_1_1output__chunk.html">joque::output_chunk</a></div><div class="ttdef"><b>Definition:</b> run_result.hpp:13</div></div>
 <div class="ttc" id="astructjoque_1_1output__chunk_html_abe2645d6dbc23711958c9fef09e609c6"><div class="ttname"><a href="structjoque_1_1output__chunk.html#abe2645d6dbc23711958c9fef09e609c6">joque::output_chunk::data</a></div><div class="ttdeci">std::string data</div><div class="ttdef"><b>Definition:</b> run_result.hpp:20</div></div>
 <div class="ttc" id="astructjoque_1_1output__chunk_html_acb8ce61924e5ad8a65fca3508dd5d30a"><div class="ttname"><a href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">joque::output_chunk::type_e</a></div><div class="ttdeci">type_e</div><div class="ttdef"><b>Definition:</b> run_result.hpp:15</div></div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('run__result_8hpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="run__result_8hpp.html">run_result.hpp</a></li>
-    <li class="footer">Generated on Tue Mar 19 2024 20:44:48 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 21 2024 18:48:01 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
