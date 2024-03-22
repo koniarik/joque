@@ -16,5 +16,7 @@ var records_8hpp =
       [ "runs", "namespacejoque.html#aa5154cd1eabbe477d3802a0098ec545a", null ]
     ] ],
     [ "tp", "records_8hpp.html#a46bf345485d4e1c535a63a3d5ad3ecde", null ],
-    [ "runtime_sum", "records_8hpp.html#aa19a8aecc5eb247a481d327aa0523edc", null ]
+    [ "map", "records_8hpp.html#ad653661fdbccfefc758c582a6f36c80a", null ],
+    [ "runtime_sum", "records_8hpp.html#aa19a8aecc5eb247a481d327aa0523edc", null ],
+    [ "map", "records_8hpp.html#ad23123cce8071889c8858b190e5e539d", null ]
 ];

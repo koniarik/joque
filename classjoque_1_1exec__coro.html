@@ -115,15 +115,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4e5dde509c49c339adb208f6965b7af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">done</a> () const</td></tr>
 <tr class="memdesc:ab4e5dde509c49c339adb208f6965b7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execution is done after coroutine finishes it's run.  <a href="classjoque_1_1exec__coro.html#ab4e5dde509c49c339adb208f6965b7af">More...</a><br /></td></tr>
 <tr class="separator:ab4e5dde509c49c339adb208f6965b7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">result</a> ()</td></tr>
-<tr class="memdesc:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns execution record with data on successfull run.  <a href="classjoque_1_1exec__coro.html#a05c3cf3d010aaf4e139e3fe237e7b696">More...</a><br /></td></tr>
-<tr class="separator:a05c3cf3d010aaf4e139e3fe237e7b696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f79a004ae1f08089a58d62df2a8c299"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a2f79a004ae1f08089a58d62df2a8c299">result</a> ()</td></tr>
+<tr class="memdesc:a2f79a004ae1f08089a58d62df2a8c299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns execution record with data on successfull run.  <a href="classjoque_1_1exec__coro.html#a2f79a004ae1f08089a58d62df2a8c299">More...</a><br /></td></tr>
+<tr class="separator:a2f79a004ae1f08089a58d62df2a8c299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">tick</a> ()</td></tr>
 <tr class="memdesc:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one iteration of the execution, either new task is executed or nothing happens due to all threads/resources being utilized.  <a href="classjoque_1_1exec__coro.html#a8abf0e2f5fd80ee4a23a320454d27bae">More...</a><br /></td></tr>
 <tr class="separator:a8abf0e2f5fd80ee4a23a320454d27bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12ff43324be39582c2fab1d9937ee2e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a12ff43324be39582c2fab1d9937ee2e1">run</a> (std::chrono::milliseconds period=std::chrono::milliseconds{ 5 })</td></tr>
-<tr class="memdesc:a12ff43324be39582c2fab1d9937ee2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until coroutine finishes it's run, returns pointer to <a class="el" href="namespacejoque.html#structjoque_1_1exec__record" title="Record of execution of entire task set.">exec_record</a> with exact same behavior as <code>result</code>.  <a href="classjoque_1_1exec__coro.html#a12ff43324be39582c2fab1d9937ee2e1">More...</a><br /></td></tr>
-<tr class="separator:a12ff43324be39582c2fab1d9937ee2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace38e0ab5b64b40929d8f2e719278a44"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#ace38e0ab5b64b40929d8f2e719278a44">run</a> (std::chrono::milliseconds period=std::chrono::milliseconds{ 5 })</td></tr>
+<tr class="memdesc:ace38e0ab5b64b40929d8f2e719278a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until coroutine finishes it's run, returns pointer to <a class="el" href="namespacejoque.html#structjoque_1_1exec__record" title="Record of execution of entire task set.">exec_record</a> with exact same behavior as <code>result</code>.  <a href="classjoque_1_1exec__coro.html#ace38e0ab5b64b40929d8f2e719278a44">More...</a><br /></td></tr>
+<tr class="separator:ace38e0ab5b64b40929d8f2e719278a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7219b3e71e0162438e981b09c82f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">~exec_coro</a> ()</td></tr>
 <tr class="memdesc:a0b7219b3e71e0162438e981b09c82f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the coroutine if any.  <a href="classjoque_1_1exec__coro.html#a0b7219b3e71e0162438e981b09c82f58">More...</a><br /></td></tr>
 <tr class="separator:a0b7219b3e71e0162438e981b09c82f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,14 +244,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a05c3cf3d010aaf4e139e3fe237e7b696"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c3cf3d010aaf4e139e3fe237e7b696">&#9670;&nbsp;</a></span>result()</h2>
+<a id="a2f79a004ae1f08089a58d62df2a8c299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f79a004ae1f08089a58d62df2a8c299">&#9670;&nbsp;</a></span>result()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* joque::exec_coro::result </td>
+          <td class="memname">std::optional&lt; <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &gt; joque::exec_coro::result </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -260,7 +260,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns execution record with data on successfull run. </p>
-<p>Returns <code>nullptr</code> in other cases. If exception was raised during the run, result will rethrow it. </p>
+<p>Returns empty otherwise. If exception was raised during the run, result will rethrow it. </p>
 
 </div>
 </div>
@@ -284,14 +284,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a12ff43324be39582c2fab1d9937ee2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12ff43324be39582c2fab1d9937ee2e1">&#9670;&nbsp;</a></span>run()</h2>
+<a id="ace38e0ab5b64b40929d8f2e719278a44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace38e0ab5b64b40929d8f2e719278a44">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>* joque::exec_coro::run </td>
+          <td class="memname">std::optional&lt; <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &gt; joque::exec_coro::run </td>
           <td>(</td>
           <td class="paramtype">std::chrono::milliseconds&#160;</td>
           <td class="paramname"><em>period</em> = <code>std::chrono::milliseconds{&#160;5&#160;}</code></td><td>)</td>
@@ -319,7 +319,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li><li class="navelem"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a></li>
-    <li class="footer">Generated on Thu Mar 21 2024 18:48:01 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 22 2024 22:39:31 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
