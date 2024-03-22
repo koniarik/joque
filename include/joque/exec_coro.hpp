@@ -44,9 +44,9 @@ public:
         /// Execution is done after coroutine finishes it's run
         [[nodiscard]] bool done() const;
 
-        /// Returns execution record with data on successfull run. Returns `nullptr` in other cases.
+        /// Returns execution record with data on successfull run. Returns empty otherwise.
         /// If exception was raised during the run, result will rethrow it.
-        [[nodiscard]] exec_record* result();
+        [[nodiscard]] std::optional< exec_record > result();
 
         /// Runs one iteration of the execution, either new task is executed or nothing happens due
         /// to all threads/resources being utilized. Does nothing after the execution finished.
@@ -56,7 +56,8 @@ public:
         /// behavior as `result`.
         ///
         /// \param period Time between attempts to resume the coroutine
-        exec_record* run( std::chrono::milliseconds period = std::chrono::milliseconds{ 5 } );
+        std::optional< exec_record >
+        run( std::chrono::milliseconds period = std::chrono::milliseconds{ 5 } );
 
         /// Destroys the coroutine if any.
         ~exec_coro();

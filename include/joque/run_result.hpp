@@ -20,6 +20,12 @@ struct output_chunk
         std::string data;
 };
 
+void map( std::convertible_to< output_chunk > auto& rec, auto&& f )
+{
+        f( "type", rec.type );
+        f( "data", rec.data );
+}
+
 /// Result of single traits run call. Information is stored in run record.
 struct run_result
 {

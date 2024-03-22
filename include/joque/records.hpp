@@ -5,6 +5,7 @@
 
 #include <chrono>
 #include <cstddef>
+#include <format>
 #include <functional>
 #include <list>
 #include <string>
@@ -40,6 +41,17 @@ struct run_record
         std::list< output_chunk > output;
 };
 
+void map( std::convertible_to< run_record > auto& rec, auto&& f )
+{
+        f( "t", rec.t );
+        f( "name", rec.name );
+        f( "skipped", rec.skipped );
+        f( "retcode", rec.retcode );
+        f( "start", rec.start );
+        f( "end", rec.end );
+        f( "output", rec.output );
+}
+
 /// Record of execution of entire task set. Is valid only as long as the original task set was not
 /// modified.
 struct exec_record
@@ -55,5 +67,42 @@ struct exec_record
 };
 
 std::chrono::seconds runtime_sum( const exec_record& erec );
+
+void map( std::convertible_to< exec_record > auto& rec, auto&& f )
+{
+        f( "skipped_count", rec.skipped_count );
+        f( "failed_count", rec.failed_count );
+        f( "total_count", rec.total_count );
+        f( "runs", rec.runs );
+}
+
+#ifdef NLOHMANN_JSON_NAMESPACE_VERSION
+
+
+inline void to_json( nlohmann::json& j, const output_chunk& rec )
+{
+        map( rec, [&]( const char* key, auto& val ) {
+                j[key] = val;
+        } );
+}
+
+inline void to_json( nlohmann::json& j, const run_record& rec )
+{
+        map( rec, [&]< typename T >( const char* key, T& val ) {
+                if constexpr ( std::same_as< T, const tp > )
+                        j[key] = std::format( "{}", val );
+                else if constexpr ( !std::same_as< T, const std::reference_wrapper< const task > > )
+                        j[key] = val;
+        } );
+}
+
+inline void to_json( nlohmann::json& j, const exec_record& rec )
+{
+        map( rec, [&]( const char* key, auto& val ) {
+                j[key] = val;
+        } );
+}
+
+#endif
 
 }  // namespace joque

@@ -49,9 +49,9 @@ TEST_F( joque_fixture, process_no_update )
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 
         // f2 should no be overwritten by f1 as f2 should be newer than f1
-        exec_coro    c   = exec( ts );
-        exec_record* res = c.run();
-        EXPECT_NE( res, nullptr );
+        exec_coro                    c   = exec( ts );
+        std::optional< exec_record > res = c.run();
+        EXPECT_TRUE( res.has_value() );
         EXPECT_EQ( res->skipped_count, 1 );
         EXPECT_EQ( res->failed_count, 0 );
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
@@ -78,9 +78,9 @@ TEST_F( joque_fixture, update )
         EXPECT_LT( last_write_time( f2_name ), last_write_time( f1_name ) );
 
         // f2 should be overwritten by f1 as f2 should be older than f1
-        exec_coro    c   = exec( ts );
-        exec_record* res = c.run();
-        EXPECT_NE( res, nullptr );
+        exec_coro                    c   = exec( ts );
+        std::optional< exec_record > res = c.run();
+        EXPECT_TRUE( res.has_value() );
         EXPECT_EQ( res->skipped_count, 0 );
         EXPECT_EQ( res->failed_count, 0 );
 

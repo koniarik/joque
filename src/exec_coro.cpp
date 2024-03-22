@@ -57,16 +57,14 @@ exec_coro& exec_coro::operator=( exec_coro&& other ) noexcept
         return h_.done();
 }
 
-[[nodiscard]] exec_record* exec_coro::result()
+[[nodiscard]] std::optional< exec_record > exec_coro::result()
 {
         if ( !h_ )
-                return nullptr;
+                return std::nullopt;
         if ( h_.promise().excep )
                 std::rethrow_exception( h_.promise().excep );
         std::optional< exec_record >& val = h_.promise().value;
-        if ( val )
-                return &*val;
-        return nullptr;
+        return val;
 }
 
 void exec_coro::tick()
@@ -75,7 +73,7 @@ void exec_coro::tick()
                 h_();
 }
 
-exec_record* exec_coro::run( std::chrono::milliseconds period )
+std::optional< exec_record > exec_coro::run( std::chrono::milliseconds period )
 {
         auto next = std::chrono::steady_clock::now();
         while ( !done() ) {
