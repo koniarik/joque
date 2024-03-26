@@ -129,9 +129,6 @@ void format_record( std::ostream& os, const exec_record& erec, const run_record&
                     rec.end - rec.start ) );
 
         os << "\n";
-
-        if ( rec.retcode != 0 )
-                format_nested( os, "      ", rec.output );
 }
 
 void format_end( std::ostream& os, const exec_record& erec )

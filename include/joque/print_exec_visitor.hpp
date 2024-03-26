@@ -11,7 +11,7 @@ namespace joque
 class print_exec_visitor : public exec_visitor
 {
 public:
-        print_exec_visitor( bool verbose = false );
+        print_exec_visitor( bool verbose = false, bool print_out = false );
 
         void on_node_enque( const dag_node& n ) override;
         void on_run_start( const dag_node& n ) override;
@@ -22,6 +22,7 @@ public:
 
 private:
         bool verbose_;
+        bool print_out_;
 };
 
 /// Global instnace of print visitor used as default argument for `exec`

@@ -11,8 +11,9 @@
 namespace joque
 {
 
-print_exec_visitor::print_exec_visitor( bool verbose )
+print_exec_visitor::print_exec_visitor( bool verbose, bool print_out )
   : verbose_( verbose )
+  , print_out_( print_out )
 {
 }
 
@@ -42,11 +43,8 @@ void print_exec_visitor::on_run_end(
                 std::cout.flush();
         }
 
-        if ( verbose_ ) {
-                for ( const output_chunk& ch : rec->output )
-                        std::cout << ch.data;
-                std::cout << std::endl;
-        }
+        if ( print_out_ || verbose_ || rec->retcode != 0 )
+                format_nested( std::cout, "      ", rec->output );
 };
 
 void print_exec_visitor::on_exec_end( const exec_record& rec )
