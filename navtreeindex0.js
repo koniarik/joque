@@ -136,7 +136,7 @@ var NAVTREEINDEX0 =
 "classjoque_1_1exec__visitor.html#afcbc132bdd81f1ada33111e645bf6c86":[4,0,0,4,1],
 "classjoque_1_1print__exec__visitor.html":[4,0,0,10],
 "classjoque_1_1print__exec__visitor.html#a2c3dbae94d6d17a085b8b50cdbc3b226":[4,0,0,10,2],
-"classjoque_1_1print__exec__visitor.html#a3da99edd9f32d951b4bd9eb1042c2300":[4,0,0,10,0],
+"classjoque_1_1print__exec__visitor.html#a6181c5610ac317b47c42c316b54cd3c5":[4,0,0,10,0],
 "classjoque_1_1print__exec__visitor.html#a6788e58d09038ec1cfb8832c9c947e89":[4,0,0,10,3],
 "classjoque_1_1print__exec__visitor.html#a9a45f243389aac8a29333cdde3b2b377":[4,0,0,10,1],
 "classjoque_1_1print__exec__visitor.html#add87df308b435a612c1342a4f9aa254a":[4,0,0,10,4],
@@ -159,9 +159,9 @@ var NAVTREEINDEX0 =
 "exec__visitor_8hpp_source.html":[5,0,0,0,4],
 "files.html":[5,0],
 "format_8hpp.html":[5,0,0,0,5],
-"format_8hpp.html#a4241c12a8cd87ae62818371490932431":[5,0,0,0,5,0],
 "format_8hpp.html#a6e417cbe50c1bc604a82b7283fa8f6e2":[5,0,0,0,5,1],
 "format_8hpp.html#a9008b6ac4dae49a587ff6a8f806db684":[5,0,0,0,5,2],
+"format_8hpp.html#ab9b69a2c0b10c31fe3d338739e00ddb0":[5,0,0,0,5,0],
 "format_8hpp_source.html":[5,0,0,0,5],
 "format__dag_8hpp.html":[5,0,0,0,6],
 "format__dag_8hpp.html#a646df1df475ba3ef43de01c38e5b1b5a":[5,0,0,0,6,1],
@@ -223,7 +223,6 @@ var NAVTREEINDEX0 =
 "namespacejoque.html#a2d12112e6bfdbfd376f492dd2504b524":[5,0,0,0,1,1,2],
 "namespacejoque.html#a363b8dd30145e824a7c28af8ac7d0e1c":[5,0,0,0,14,1,2],
 "namespacejoque.html#a379e3f69b4013da0858c1cfbf8cb1e33":[5,0,0,0,12,0,0],
-"namespacejoque.html#a4241c12a8cd87ae62818371490932431":[3,0,0,28],
 "namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde":[3,0,0,24],
 "namespacejoque.html#a4d2cbeafddfab680ac1004ff5efad270":[5,0,0,0,1,1,1],
 "namespacejoque.html#a525ab45d04dea0f5f92bf758b40ddd87":[5,0,0,0,1,1,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "namespacejoque.html#aa5154cd1eabbe477d3802a0098ec545a":[5,0,0,0,12,1,3],
 "namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c":[5,0,0,0,12,0,5],
 "namespacejoque.html#aab2b7811ce9d51cc7c0913e23e4637ad":[5,0,0,0,14,1,0],
-"namespacejoque.html#ab280046a1246db06f03c39cfb14a0085":[3,0,0,34]
+"namespacejoque.html#ab280046a1246db06f03c39cfb14a0085":[3,0,0,34],
+"namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08":[3,0,0,33]
 };

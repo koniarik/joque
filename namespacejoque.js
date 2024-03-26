@@ -28,7 +28,7 @@ var namespacejoque =
     [ "insert_set", "namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248", null ],
     [ "exec", "namespacejoque.html#ae7f069c04754480cd23a827dd9abe713", null ],
     [ "exec", "namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68", null ],
-    [ "format_nested", "namespacejoque.html#a4241c12a8cd87ae62818371490932431", null ],
+    [ "format_nested", "namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0", null ],
     [ "format_record", "namespacejoque.html#a6e417cbe50c1bc604a82b7283fa8f6e2", null ],
     [ "format_end", "namespacejoque.html#a9008b6ac4dae49a587ff6a8f806db684", null ],
     [ "format_dag", "namespacejoque.html#a6ff910573c74886895eaccde9dafefdf", null ],
