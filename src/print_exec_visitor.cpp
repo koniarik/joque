@@ -44,7 +44,7 @@ void print_exec_visitor::on_run_end(
         }
 
         if ( print_out_ || verbose_ || rec->retcode != 0 )
-                format_nested( std::cout, "      ", rec->output );
+                format_nested( std::cout, "        ", rec->output );
 };
 
 void print_exec_visitor::on_exec_end( const exec_record& rec )

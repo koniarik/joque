@@ -102,12 +102,19 @@ void format_nested(
     std::string_view                 indent,
     const std::list< output_chunk >& output )
 {
+        std::string_view prefix = indent;
+        char             lc     = '\n';
         for ( const output_chunk& ch : output )
-                for ( const char c : ch.data )
-                        if ( c != '\n' )
-                                os << c;
+                for ( const char c : ch.data ) {
+                        lc = c;
+                        os << prefix << c;
+                        if ( c == '\n' )
+                                prefix = indent;
                         else
-                                os << indent << '\n';
+                                prefix = "";
+                }
+        if ( lc != '\n' )
+                os << '\n';
 }
 
 void format_record( std::ostream& os, const exec_record& erec, const run_record& rec )
