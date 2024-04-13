@@ -20,6 +20,9 @@ struct resource
         std::string name;
 };
 
+template < typename T >
+using ref_vec = std::vector< std::reference_wrapper< const T > >;
+
 /// Single task that should be executed by the system.
 struct task
 {
@@ -28,13 +31,16 @@ struct task
 
         /// Dependencies of the task - all of these should be executed before this task. In case any
         /// of these is invalidated, this task is also invalidated.
-        std::vector< std::reference_wrapper< const task > > depends_on = {};
+        ref_vec< task > depends_on = {};
         /// Tasks that should be executed before this task. (`depends_on` task are implicitly
         /// included)
-        std::vector< std::reference_wrapper< const task > > run_after = {};
+        ref_vec< task > run_after = {};
+
+        ref_vec< task > invalidated_by = {};
+
         /// Resources used by this task, only one task can access any resource at single point in
         /// time.
-        std::vector< std::reference_wrapper< const resource > > resources = {};
+        ref_vec< resource > resources = {};
 
         /// In case this is set to true, this task should not be visible in standard reports.
         bool hidden = false;

@@ -3,6 +3,7 @@
 #include "joque/dag.hpp"
 #include "joque/exec_coro.hpp"
 #include "joque/exec_visitor.hpp"
+#include "joque/jexcp.hpp"
 #include "joque/records.hpp"
 #include "joque/run_result.hpp"
 #include "joque/task.hpp"
@@ -10,7 +11,7 @@
 #include "run_coro.hpp"
 
 #include <algorithm>
-#include <bits/chrono.h>
+#include <cassert>
 #include <chrono>
 #include <coroutine>
 #include <exception>
@@ -38,11 +39,19 @@ namespace
                 erec.runs.push_back( std::move( rrec ) );
         }
 
-        bool all_ready( const auto& edges )
+        bool all_done( auto& edges )
         {
                 return std::ranges::all_of( edges, [&]( const dag_edge& e ) -> bool {
-                        return e->target->done && !( e->is_dependency && e->target->failed );
+                        return e->target->done;
                 } );
+        }
+
+        bool any_dep_failed( const auto& edges )
+        {
+                return std::ranges::any_of(
+                    filter_edges< ekind::REQUIRES >( edges ), [&]( const dag_edge& e ) {
+                            return e->target->failed;
+                    } );
         }
 
         bool any_resource_used( const auto& resources, const auto& usage_set )
@@ -62,13 +71,14 @@ namespace
 
                 seen.insert( &n );
 
-                for ( const dag_edge& e : n.out_edges() ) {
+                auto es = filter_edges< ekind::AFTER >( n.out_edges() );
+                for ( const dag_edge& e : es ) {
                         dag_node* res = find_candidate( e->target, seen, used_res );
                         if ( res != nullptr )
                                 return res;
                 }
 
-                if ( !all_ready( n.out_edges() ) || any_resource_used( n->t.resources, used_res ) )
+                if ( !all_done( es ) || any_resource_used( n->t.resources, used_res ) )
                         return nullptr;
                 return &n;
         }
@@ -87,21 +97,13 @@ namespace
                 return n;
         }
 
-        bool is_invalidated( dag_node& n )
-        {
-                const bool dep_invalidated =
-                    std::ranges::any_of( n.out_edges(), [&]( dag_edge& e ) -> bool {
-                            return e->is_dependency && e->target->started;
-                    } );
-
-                return dep_invalidated || n->t.job->is_invalidated();
-        }
-
         run_coro run( dag_node& n, std::set< const resource* >& used_resources, std::launch l )
         {
                 run_record result{ .t = n->t, .name = n->name };
 
-                if ( !is_invalidated( n ) ) {
+                assert( n->invalidated != inval::UNKNOWN );
+
+                if ( any_dep_failed( n.out_edges() ) || n->invalidated == inval::VALID ) {
                         n->done        = true;
                         result.skipped = true;
                         co_return result;
@@ -164,6 +166,68 @@ namespace
                         return true;
                 } );
         }
+
+        void propagate_invalidation( std::set< dag_node* >& to_process )
+        {
+                std::set< dag_node* > to_propagate;
+                for ( dag_node* p : to_process ) {
+                        dag_node& n    = *p;
+                        n->invalidated = n->t.job->is_invalidated() ? inval::INVALID : inval::VALID;
+                        if ( n->invalidated == inval::INVALID )
+                                to_propagate.insert( &n );
+                }
+                std::set< dag_node* > seen = to_propagate;
+                while ( !to_propagate.empty() ) {
+                        dag_node* p = to_propagate.extract( to_propagate.begin() ).value();
+                        seen.insert( p );
+                        assert( ( *p )->invalidated == inval::INVALID );
+                        for ( dag_edge& e :
+                              filter_edges< ekind::INVALIDATED_BY >( p->in_edges() ) ) {
+
+                                if ( seen.contains( &e->source ) )
+                                        continue;
+
+                                e->source->invalidated = inval::INVALID;
+                                to_propagate.insert( &e->source );
+                        }
+                }
+        }
+
+        dag_node*
+        check_for_cycle( dag_node& n, std::set< dag_node* >& seen, std::vector< dag_node* >& stack )
+        {
+                auto [it1, not_seen] = seen.insert( &n );
+                bool on_stack        = std::ranges::find( stack, &n ) != stack.end();
+                if ( !not_seen ) {
+                        bool has_c = !not_seen && on_stack;
+                        return has_c ? &n : nullptr;
+                }
+                stack.push_back( &n );
+                auto es = filter_edges< ekind::AFTER >( n.out_edges() );
+                for ( auto& e : es )
+                        if ( dag_node* p = check_for_cycle( e->target, seen, stack ) ) {
+                                if ( p != &n )
+                                        return p;
+                                auto                       iter = std::ranges::find( stack, p );
+                                std::vector< const task* > cycle;
+                                cycle.reserve( stack.size() );
+                                while ( iter != stack.end() )
+                                        cycle.push_back( &( **iter++ )->t );
+                                throw cycle_excp( std::move( cycle ) );
+                        }
+                stack.pop_back();
+                return nullptr;
+        }
+        void check_for_cycle( const std::set< dag_node* >& to_process )
+        {
+                std::set< dag_node* >    seen;
+                std::vector< dag_node* > stack;
+
+                for ( dag_node* n : to_process ) {
+                        assert( stack.empty() );
+                        check_for_cycle( *n, seen, stack );
+                }
+        }
 }  // namespace
 
 exec_coro
@@ -176,12 +240,16 @@ exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec
 
 exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 {
+        exec_record           erec;
         std::set< dag_node* > to_process;
         for ( dag_node& n : g ) {
-                vis.on_node_enque( n );
                 to_process.insert( &n );
+                vis.on_node_enque( n );
         }
-        exec_record erec{ .total_count = to_process.size() };
+        erec.total_count = to_process.size();
+
+        check_for_cycle( to_process );
+        propagate_invalidation( to_process );
 
         std::set< const resource* > used_resources;
         std::vector< run_coro >     coros;
@@ -200,10 +268,13 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                                  thread_count == 0 ? std::launch::deferred : std::launch::async ) );
                 }
 
+                assert( !coros.empty() );
                 co_await std::suspend_always{};
         }
-        while ( !coros.empty() )
+        while ( !coros.empty() ) {
                 cleanup_coros( coros, erec, vis );
+                co_await std::suspend_always{};
+        }
 
         vis.on_exec_end( erec );
 

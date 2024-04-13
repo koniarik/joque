@@ -1,4 +1,5 @@
 #include "joque/exec.hpp"
+#include "joque/jexcp.hpp"
 #include "joque/process.hpp"
 #include "joque/run_result.hpp"
 #include "joque/task.hpp"
@@ -132,6 +133,108 @@ TEST( joque, filter )
                 std::sort( result.begin(), result.end() );
 
                 EXPECT_EQ( sequence, result ) << "thread count: " << i;
+        }
+}
+
+TEST( joque, failed_dep )
+{
+
+        task_set ts{};
+        ts.tasks["my_test_a"] = task{
+            .job = [&]( const task& ) -> run_result {
+                    return { 1 };
+            },
+        };
+
+        std::atomic< bool > v = false;
+        ts.tasks["my_test_b"] = task{
+            .job = [&]( const task& ) -> run_result {
+                    v = true;
+                    return { 0 };
+            },
+            .depends_on = { ts.tasks["my_test_a"] },
+        };
+        for ( const unsigned i : { 0u, 4u } ) {
+                exec( ts, i ).run();
+
+                EXPECT_FALSE( v );
+        }
+}
+
+struct test_job
+{
+        bool is_invalidated = false;
+};
+
+template <>
+struct job_traits< test_job >
+{
+        static bool is_invalidated( const test_job& j )
+        {
+                return j.is_invalidated;
+        }
+
+        static run_result run( const task&, test_job& )
+        {
+                return { 0 };
+        }
+};
+
+TEST( joque, cyclic_invalidation )
+{
+
+        for ( bool is_invalid : { true, false } ) {
+                task t{ .job = test_job{ is_invalid } };
+                task t2{ .job = test_job{ false } };
+
+                dag   g;
+                auto& n1 = g.emplace( "//test1", t );
+                auto& n2 = g.emplace( "//test2", t2 );
+                auto& n3 = g.emplace( "//test3", t2 );
+
+                add_edge( n1, n2, ekind::INVALIDATED_BY );
+                add_edge( n2, n3, ekind::INVALIDATED_BY );
+                add_edge( n3, n1, ekind::INVALIDATED_BY );
+
+                auto rec = exec( std::move( g ), 0 ).run();
+                EXPECT_EQ( rec->total_count, 3 );
+                EXPECT_EQ( rec->skipped_count, is_invalid ? 0 : 3 );
+        }
+}
+
+std::vector< const task* > normalize_vec( std::vector< const task* > vec )
+{
+        std::vector< const task* > res;
+
+        auto pivot = std::ranges::min_element( vec );
+        res.insert( res.end(), pivot, vec.end() );
+        res.insert( res.end(), vec.begin(), pivot );
+        return res;
+}
+
+TEST( joque, cyclic_after )
+{
+        task t1{ .job = test_job{} };
+        task t2{ .job = test_job{} };
+        task t3{ .job = test_job{} };
+
+        dag   g;
+        auto& n1 = g.emplace( "//test1", t1 );
+        auto& n2 = g.emplace( "//test2", t2 );
+        auto& n3 = g.emplace( "//test3", t3 );
+
+        add_edge( n1, n2, ekind::AFTER );
+        add_edge( n2, n3, ekind::AFTER );
+        add_edge( n3, n1, ekind::AFTER );
+
+        std::vector< const task* > expected = { &t1, &t2, &t3 };
+
+        try {
+                auto rec = exec( std::move( g ), 0 ).run();
+                FAIL();
+        }
+        catch ( cycle_excp& e ) {
+                EXPECT_EQ( normalize_vec( e.cycle ), normalize_vec( expected ) );
         }
 }
 

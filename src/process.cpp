@@ -4,7 +4,6 @@
 #include "joque/traits.hpp"
 
 #include <algorithm>
-#include <bits/ranges_algo.h>
 #include <cstddef>
 #include <cstdint>
 #include <filesystem>
@@ -15,7 +14,6 @@
 #include <reproc++/drain.hpp>
 #include <reproc++/reproc.hpp>
 #include <string>
-#include <string_view>
 #include <system_error>
 #include <tuple>
 #include <utility>

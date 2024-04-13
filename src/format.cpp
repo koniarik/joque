@@ -77,7 +77,7 @@ namespace
         {
 
                 std::string text;
-                text += std::format( "passed: {:<10}", erec.runs.size() - erec.skipped_count );
+                text += std::format( "run: {:<10}", erec.runs.size() - erec.skipped_count );
                 text += "  ";
                 text += std::format(
                     "{}skipped: {}{:<10}",

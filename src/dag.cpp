@@ -2,73 +2,84 @@
 
 #include "joque/task.hpp"
 
+#include <ostream>
 #include <ranges>
 #include <string>
-#include <type_traits>
 #include <unordered_map>
-#include <unordered_set>
 
 namespace joque
 {
 namespace
 {
 
-        template < typename T >
-                requires( std::same_as< std::remove_cvref_t< T >, dag_node > )
-        void dfs( T& n, std::unordered_set< dag_node* >& seen )
+        void dfs( dag& dag, const task& t, auto& tmp, auto& index )
         {
-                if ( seen.contains( &n ) )
+                if ( index.contains( &t ) )
                         return;
-                seen.insert( &n );
-                for ( const dag_edge& e :
-                      n.out_edges() | std::views::filter( []( const dag_edge& e ) {
-                              return e->is_dependency;
-                      } ) ) {
-                        dfs( e->target, seen );
+                index[&t] = &dag.emplace( tmp[&t], t );
+
+                for ( const task& d : t.depends_on ) {
+                        dfs( dag, d, tmp, index );
+
+                        add_edge( *index[&t], *index[&d], ekind::AFTER );
+                        add_edge( *index[&t], *index[&d], ekind::REQUIRES );
+                        add_edge( *index[&t], *index[&d], ekind::INVALIDATED_BY );
                 }
         }
-
-        void link_dependencies( dag& g, std::unordered_map< const task*, dag_node* >& index )
-        {
-                for ( dag_node& n : g ) {
-                        for ( const task& d : n->t.depends_on ) {
-                                dag_node* target = index[&d];
-                                dag_edge& e      = n.out_edges().emplace_front( true, n, *target );
-                                target->in_edges().link_front( e );
-                        }
-                        for ( const task& d : n->t.run_after ) {
-                                dag_node* target = index[&d];
-                                dag_edge& e      = n.out_edges().emplace_front( false, n, *target );
-                                target->in_edges().link_front( e );
-                        }
-                }
-        }
-
-        void filter_nodes( dag& g, const std::string& filter )
-        {
-                if ( filter == "" )
-                        return;
-                std::unordered_set< dag_node* > seen;
-                for ( dag_node& n : g )
-                        if ( n->name.find( filter ) != std::string::npos )
-                                dfs( n, seen );
-
-                g.clear_if( [&]( dag_node& node ) {
-                        return !seen.contains( &node );
-                } );
-        }
-
 }  // namespace
+
+std::ostream& operator<<( std::ostream& os, ekind k )
+{
+        switch ( k ) {
+        case ekind::AFTER:
+                return os << "after";
+        case ekind::INVALIDATED_BY:
+                return os << "invalidated by";
+        case ekind::REQUIRES:
+                return os << "requires";
+        }
+        return os;
+}
+
+std::ostream& operator<<( std::ostream& os, inval k )
+{
+        switch ( k ) {
+        case inval::VALID:
+                return os << "valid";
+        case inval::INVALID:
+                return os << "invalid";
+        case inval::UNKNOWN:
+                return os << "unknown";
+        }
+        return os;
+}
 
 void insert_set( dag& dag, const task_set& ts, const std::string& filter )
 {
 
-        std::unordered_map< const task*, dag_node* > index;
+        std::unordered_map< const task*, std::string > tmp;
         for_each_task( ts, [&]( const std::string& name, const task& t ) {
-                index[&t] = &dag.emplace( name, t );
+                tmp.emplace( &t, name );
         } );
 
-        link_dependencies( dag, index );
-        filter_nodes( dag, filter );
+        std::unordered_map< const task*, dag_node* > index;
+        for ( auto& [t, n] : tmp ) {
+                if ( n.find( filter ) == std::string::npos )
+                        continue;
+                dfs( dag, *t, tmp, index );
+        }
+
+        for ( auto&& [t, n] : index ) {
+                for ( const task& d : t->run_after ) {
+                        if ( !index.contains( &d ) )
+                                continue;
+                        add_edge( *n, *index[&d], ekind::AFTER );
+                }
+                for ( const task& d : t->invalidated_by ) {
+                        if ( !index.contains( &d ) )
+                                continue;
+                        add_edge( *n, *index[&d], ekind::INVALIDATED_BY );
+                }
+        }
 }
 }  // namespace joque
