@@ -25,8 +25,8 @@ struct job_traits
                 }
                 catch ( std::exception& e ) {
                         run_result res;
-                        record_output( res, output_chunk::ERROR, "Uncaught exception:" );
-                        record_output( res, output_chunk::ERROR, e.what() );
+                        insert_err( res, "Uncaught exception:" );
+                        insert_err( res, e.what() );
                         return res;
                 }
         }

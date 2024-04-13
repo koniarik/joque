@@ -32,10 +32,7 @@ namespace
 
         void push( exec_record& erec, run_record rrec )
         {
-                if ( rrec.skipped )
-                        erec.skipped_count += 1;
-                if ( rrec.retcode != 0 )
-                        erec.failed_count += 1;
+                erec.stats[rrec.status] += 1;
                 erec.runs.push_back( std::move( rrec ) );
         }
 
@@ -103,9 +100,16 @@ namespace
 
                 assert( n->invalidated != inval::UNKNOWN );
 
-                if ( any_dep_failed( n.out_edges() ) || n->invalidated == inval::VALID ) {
-                        n->done        = true;
-                        result.skipped = true;
+                if ( any_dep_failed( n.out_edges() ) ) {
+                        n->done       = true;
+                        result.status = run_status::DEPF;
+                        for ( auto& e : filter_edges< ekind::REQUIRES >( n.out_edges() ) )
+                                result.log.emplace_back( "Failed dep: " + e->target->name );
+                        co_return result;
+                }
+                if ( n->invalidated == inval::VALID ) {
+                        n->done       = true;
+                        result.status = run_status::SKIP;
                         co_return result;
                 }
 
@@ -122,18 +126,14 @@ namespace
                             }
                             catch ( std::exception& e ) {
                                     res.retcode = 1;
-                                    record_output(
+                                    insert_err(
                                         res,
-                                        output_chunk::ERROR,
                                         "job run failed due to exception: " +
                                             std::string{ e.what() } );
                             }
                             catch ( ... ) {
                                     res.retcode = 1;
-                                    record_output(
-                                        res,
-                                        output_chunk::ERROR,
-                                        "job run failed due to an unknown exception" );
+                                    insert_err( res, "job run failed due to an unknown exception" );
                             }
                             return res;
                     },
@@ -141,12 +141,17 @@ namespace
 
                 while ( fut.wait_for( 0ms ) == std::future_status::timeout )
                         co_await std::suspend_always{};
-                std::tie( result.retcode, result.output ) = fut.get();
+                run_result rr  = fut.get();
+                result.retcode = rr.retcode;
+                result.output  = std::move( rr.output );
+                result.log.merge( rr.log );
 
                 for ( const resource& r : n->t.resources )
                         used_resources.erase( &r );
-                if ( result.retcode != 0 )
-                        n->failed = true;
+                if ( result.retcode != 0 ) {
+                        n->failed     = true;
+                        result.status = run_status::FAIL;
+                }
                 n->done    = true;
                 result.end = std::chrono::system_clock::now();
                 co_return result;
@@ -154,11 +159,12 @@ namespace
 
         void cleanup_coros( std::vector< run_coro >& coros, exec_record& erec, exec_visitor& vis )
         {
-                std::erase_if( coros, [&]( auto& coro ) {
+                std::erase_if( coros, [&]( run_coro& coro ) {
                         coro.tick();
                         if ( !coro.done() )
                                 return false;
                         run_record* rec = coro.result();
+
                         vis.on_run_end( erec, rec, coro.get_node() );
 
                         if ( rec != nullptr )

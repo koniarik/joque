@@ -198,7 +198,7 @@ TEST( joque, cyclic_invalidation )
 
                 auto rec = exec( std::move( g ), 0 ).run();
                 EXPECT_EQ( rec->total_count, 3 );
-                EXPECT_EQ( rec->skipped_count, is_invalid ? 0 : 3 );
+                EXPECT_EQ( rec->stats[run_status::SKIP], is_invalid ? 0 : 3 );
         }
 }
 

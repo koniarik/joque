@@ -63,8 +63,7 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
             "testsuite",
             attr( "name", ts_name ),
             attr( "tests", exec_rec.runs.size() ),
-            attr( "failures", exec_rec.failed_count ),
-            attr( "skipped", exec_rec.skipped_count ),
+            attr( "failures", exec_rec.stats.at( run_status::FAIL ) ),
             attr( "time", t ),
             attr( "timestamp", std::format( "{:%FT%TZ}", std::chrono::system_clock::now() ) ) };
 
@@ -79,8 +78,6 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
 
                 if ( rec.retcode != 0 )
                         os << "<failure message=\"task failed\"/>\n";
-                if ( rec.skipped )
-                        os << "<failure message=\"task skipped\"/>\n";
         }
 }
 

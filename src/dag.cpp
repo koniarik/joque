@@ -28,30 +28,30 @@ namespace
         }
 }  // namespace
 
-std::ostream& operator<<( std::ostream& os, ekind k )
+std::string_view to_sv( const ekind& e )
 {
-        switch ( k ) {
+        switch ( e ) {
         case ekind::AFTER:
-                return os << "after";
+                return "after";
         case ekind::INVALIDATED_BY:
-                return os << "invalidated by";
+                return "invalidated by";
         case ekind::REQUIRES:
-                return os << "requires";
+                return "requires";
         }
-        return os;
+        return "";
 }
 
-std::ostream& operator<<( std::ostream& os, inval k )
+std::string_view to_sv( const inval& k )
 {
         switch ( k ) {
         case inval::VALID:
-                return os << "valid";
+                return "valid";
         case inval::INVALID:
-                return os << "invalid";
+                return "invalid";
         case inval::UNKNOWN:
-                return os << "unknown";
+                return "unknown";
         }
-        return os;
+        return "";
 }
 
 void insert_set( dag& dag, const task_set& ts, const std::string& filter )

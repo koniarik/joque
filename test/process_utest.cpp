@@ -52,8 +52,8 @@ TEST_F( joque_fixture, process_no_update )
         exec_coro                    c   = exec( ts );
         std::optional< exec_record > res = c.run();
         EXPECT_TRUE( res.has_value() );
-        EXPECT_EQ( res->skipped_count, 1 );
-        EXPECT_EQ( res->failed_count, 0 );
+        EXPECT_EQ( res->stats[run_status::SKIP], 1 );
+        EXPECT_EQ( res->stats[run_status::FAIL], 0 );
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 }
 
@@ -81,8 +81,8 @@ TEST_F( joque_fixture, update )
         exec_coro                    c   = exec( ts );
         std::optional< exec_record > res = c.run();
         EXPECT_TRUE( res.has_value() );
-        EXPECT_EQ( res->skipped_count, 0 );
-        EXPECT_EQ( res->failed_count, 0 );
+        EXPECT_EQ( res->stats[run_status::SKIP], 0 );
+        EXPECT_EQ( res->stats[run_status::FAIL], 0 );
 
         std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
 

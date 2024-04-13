@@ -28,7 +28,7 @@ enum class ekind
         REQUIRES
 };
 
-std::ostream& operator<<( std::ostream& os, ekind k );
+std::string_view to_sv( const ekind& e );
 
 struct edge_content
 {
@@ -59,7 +59,7 @@ enum class inval
         INVALID,
         UNKNOWN
 };
-std::ostream& operator<<( std::ostream& os, inval k );
+std::string_view to_sv( const inval& k );
 
 struct node_content
 {

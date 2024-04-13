@@ -29,6 +29,16 @@ namespace
                         return last_write_time( p );
                 return {};
         }
+
+        std::string format_cmd( const std::vector< std::string >& cmd )
+        {
+                std::string cmdline;
+                std::regex  re{ " " };
+                for ( const std::string& arg : cmd )
+                        cmdline += std::regex_replace( arg, re, "\\ " ) + " ";
+                cmdline += "\n";
+                return cmdline;
+        }
 }  // namespace
 
 process process::add_output( std::filesystem::path p ) &&
@@ -68,13 +78,13 @@ bool job_traits< process >::is_invalidated( const process& p )
                 } );
         }
 
-        std::input_iterator auto oldest_output_iter =
+        auto oldest_output_iter =
             std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
 
         if ( !exists( *oldest_output_iter ) )
                 return true;
 
-        std::input_iterator auto latest_input_iter =
+        auto latest_input_iter =
             std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
 
         auto oldest_output_t = path_to_write_time( *oldest_output_iter );
@@ -90,24 +100,23 @@ run_result job_traits< process >::run( const task&, const process& p )
         reproc::options opts;
         opts.redirect.err.type = reproc::redirect::pipe;
 
+        insert_log( res, "cmd:" + format_cmd( p.cmd ) );
+
         std::error_code ec = process.start( p.cmd, opts );
 
-        if ( ec == std::errc::no_such_file_or_directory ) {
-                res.output.emplace_back(
-                    output_chunk::ERROR,
-                    "Program not found. Make sure it's available from the PATH.\n" );
-                res.retcode = ec.value();
-                return res;
-        } else if ( ec ) {
-                res.output.emplace_back( output_chunk::ERROR, ec.message() );
+        if ( ec ) {
+                if ( ec == std::errc::no_such_file_or_directory )
+                        insert_err(
+                            res, "Program not found. Make sure it's available from the PATH.\n" );
+                else
+                        insert_err( res, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
-
         auto f =
             [&]( reproc::stream s, const uint8_t* buffer, std::size_t size ) -> std::error_code {
-                record_output(
+                insert(
                     res,
                     s == reproc::stream::out ? output_chunk::STANDARD : output_chunk::ERROR,
                     std::string( reinterpret_cast< const char* >( buffer ), size ) );
@@ -115,24 +124,20 @@ run_result job_traits< process >::run( const task&, const process& p )
         };
         ec = reproc::drain( process, f, f );
         if ( ec ) {
-                record_output( res, output_chunk::ERROR, ec.message() );
+                insert_err( res, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
         std::tie( res.retcode, ec ) = process.wait( reproc::infinite );
         if ( ec ) {
-                record_output( res, output_chunk::ERROR, ec.message() );
+                insert_err( res, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
         if ( res.retcode != 0 ) {
-                std::string cmdline = "cmd: ";
-                for ( const std::string& arg : p.cmd )
-                        cmdline += std::regex_replace( arg, std::regex{ " " }, "\\ " ) + " ";
-                cmdline += "\n";
-
+                std::string cmdline = "cmd: " + format_cmd( p.cmd );
                 res.output.emplace_front( output_chunk::STANDARD, cmdline );
         }
 

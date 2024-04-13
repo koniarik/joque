@@ -16,15 +16,22 @@ namespace joque
 namespace
 {
         static constexpr std::string_view GRAY  = "\033[38;5;239m";
-        static constexpr std::string_view SKIP  = "\033[38;5;226m";
-        static constexpr std::string_view FAIL  = "\033[38;5;196m";
         static constexpr std::string_view OK    = "\033[38;5;118m";
+        static constexpr std::string_view SKIP  = "\033[38;5;226m";
+        static constexpr std::string_view DEPF  = "\033[38;5;202m";
+        static constexpr std::string_view FAIL  = "\033[38;5;196m";
         static constexpr std::string_view END   = "\033[38;5;45m";
         static constexpr std::string_view NONE  = "";
         static constexpr std::string_view RESET = "\033[0m";
         // TODO: hardcoded yikes
         static constexpr std::string_view GRAY_DELIM = "\033[38;5;239m/\033[0m";
 
+        static const std::map< run_status, std::string_view > STAT_TO_COLOR{
+            { run_status::OK, OK },
+            { run_status::SKIP, SKIP },
+            { run_status::DEPF, DEPF },
+            { run_status::FAIL, FAIL },
+        };
 
         std::string fmt_time()
         {
@@ -77,21 +84,19 @@ namespace
         {
 
                 std::string text;
-                text += std::format( "run: {:<10}", erec.runs.size() - erec.skipped_count );
-                text += "  ";
                 text += std::format(
-                    "{}skipped: {}{:<10}",
-                    erec.skipped_count > 0 ? NONE : GRAY,
-                    erec.skipped_count > 0 ? SKIP : GRAY,
-                    erec.skipped_count );
-                text += RESET;
-                text += "  ";
-                text += std::format(
-                    "{}failed: {}{:<10}",
-                    erec.failed_count > 0 ? NONE : GRAY,
-                    erec.failed_count > 0 ? FAIL : GRAY,
-                    erec.failed_count );
-                text += RESET;
+                    "run: {:<10}",
+                    erec.stats.at( run_status::OK ) + erec.stats.at( run_status::FAIL ) );
+                for ( auto&& [key, count] : erec.stats ) {
+                        text += "  ";
+                        text += std::format(
+                            "{}{}: {}{:<10}",
+                            count > 0 ? NONE : GRAY,
+                            to_sv( key ),
+                            count > 0 ? STAT_TO_COLOR.at( key ) : GRAY,
+                            count );
+                        text += RESET;
+                }
                 return text;
         }
 
@@ -119,19 +124,16 @@ void format_nested(
 
 void format_record( std::ostream& os, const exec_record& erec, const run_record& rec )
 {
-        std::string_view color = rec.skipped ? SKIP : rec.retcode == 0 ? OK : FAIL;
-        std::string_view stat  = rec.skipped ? "SKIP" : rec.retcode == 0 ? "OK" : "FAIL";
-
         os << fmt_time();
         os << "  ";
         os << fmt_counter( erec.runs.size() + 1, erec.total_count ) << "/" << GRAY
            << fmt_counter( erec.total_count, erec.total_count ) << RESET;
         os << "  ";
-        os << fmt_status( stat, color );
+        os << fmt_status( to_sv( rec.status ), STAT_TO_COLOR.at( rec.status ) );
         os << "  ";
         os << fmt_text( rec.name );
         os << "  ";
-        if ( !rec.skipped )
+        if ( rec.status == run_status::OK || rec.status == run_status::FAIL )
                 os << fmt_dur( std::chrono::duration_cast< std::chrono::milliseconds >(
                     rec.end - rec.start ) );
 

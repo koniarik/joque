@@ -34,15 +34,27 @@ struct run_result
 
         std::list< output_chunk > output;
 
-        [[nodiscard]] operator std::tuple< int&, std::list< output_chunk >& >() &&
-        {
-                return { retcode, output };
-        }
+        std::list< std::string > log;
 };
 
-inline void record_output( run_result& res, output_chunk::type_e type, std::string data )
+void insert( auto& res, output_chunk::type_e type, std::string data )
 {
         res.output.emplace_back( type, std::move( data ) );
+}
+
+void insert_std( auto& res, std::string data )
+{
+        insert( res, output_chunk::STANDARD, std::move( data ) );
+}
+
+void insert_err( auto& res, std::string data )
+{
+        insert( res, output_chunk::ERROR, std::move( data ) );
+}
+
+void insert_log( auto& res, std::string data )
+{
+        res.log.emplace_back( std::move( data ) );
 }
 
 }  // namespace joque
