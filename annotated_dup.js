@@ -16,6 +16,8 @@ var annotated_dup =
       [ "node_content", "namespacejoque.html#structjoque_1_1node__content", "namespacejoque_structjoque_1_1node__content_dup" ],
       [ "exec_coro", "classjoque_1_1exec__coro.html", "classjoque_1_1exec__coro" ],
       [ "exec_visitor", "classjoque_1_1exec__visitor.html", "classjoque_1_1exec__visitor" ],
+      [ "jexcp", "structjoque_1_1jexcp.html", null ],
+      [ "cycle_excp", "structjoque_1_1cycle__excp.html", "structjoque_1_1cycle__excp" ],
       [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
       [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
       [ "job_ptr", "structjoque_1_1job__ptr.html", "structjoque_1_1job__ptr" ],

@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('dag_8hpp.html',''); initResizable(); }
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">dag.hpp File Reference</div>  </div>
@@ -95,7 +96,9 @@ $(document).ready(function(){initNavTree('dag_8hpp.html',''); initResizable(); }
 <div class="textblock"><code>#include &quot;<a class="el" href="bits_2dag_8hpp_source.html">joque/bits/dag.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="list_8hpp_source.html">joque/bits/list.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="task_8hpp_source.html">joque/task.hpp</a>&quot;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;ranges&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dag.hpp:</div>
@@ -130,8 +133,39 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:abf93bc50c67e1f9c2e23d68924c0e4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">DAG used to store data in single execution of tasks.  <a href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">More...</a><br /></td></tr>
 <tr class="separator:abf93bc50c67e1f9c2e23d68924c0e4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ac1651ada47645c4b00c3e2e3b8f3d158"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">joque::ekind</a> { <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158ac130fda0cb93540bf1574912e78964fb">joque::AFTER</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158aee368a2905d6d4a9449a9d421ffe735a">joque::INVALIDATED_BY</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158ab2fcf0b22686db7c2464a4cfb6082d7c">joque::REQUIRES</a>
+<br />
+ }</td></tr>
+<tr class="separator:ac1651ada47645c4b00c3e2e3b8f3d158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e010f82d030aaaa6db45a9da58e027"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">joque::inval</a> { <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027ac9f1a6384b1c466d4612f513bd8e13ea">joque::VALID</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027accc0377a8afbf50e7094f5c23a8af223">joque::INVALID</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027a696b031073e74bf2cb98e5ef201d4aa3">joque::UNKNOWN</a>
+<br />
+ }</td></tr>
+<tr class="separator:ab7e010f82d030aaaa6db45a9da58e027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae48630ddeff6b3f78bca256df63c833f"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae48630ddeff6b3f78bca256df63c833f">joque::operator&lt;&lt;</a> (std::ostream &amp;os, ekind k)</td></tr>
+<tr class="separator:ae48630ddeff6b3f78bca256df63c833f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memTemplParams" colspan="2">template&lt;ekind Kind, typename Edges &gt; </td></tr>
+<tr class="memitem:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aafbbb52ec9ef58b799ef730ee40ad151">joque::filter_edges</a> (Edges &amp;e)</td></tr>
+<tr class="separator:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memTemplParams" colspan="2">template&lt;typename Node , typename... Args&gt; </td></tr>
+<tr class="memitem:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a67ed815ce6f27f32b49397dc0ef1da10">joque::add_edge</a> (Node &amp;source, Node &amp;target, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7214c3a4891dc9b585af3952b857fd6e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7214c3a4891dc9b585af3952b857fd6e">joque::operator&lt;&lt;</a> (std::ostream &amp;os, inval k)</td></tr>
+<tr class="separator:a7214c3a4891dc9b585af3952b857fd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda511d9833d4dabfe4d9b53741dc248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248">joque::insert_set</a> (dag &amp;dag, const task_set &amp;ts, const std::string &amp;filter)</td></tr>
 <tr class="separator:abda511d9833d4dabfe4d9b53741dc248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -158,12 +192,6 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a99a738098079725d3a466310e6decf36"></a>bool</td>
-<td class="fieldname">
-is_dependency</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
 <a id="a7b901f44437116a976cbe16b48774042"></a><a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;</td>
 <td class="fieldname">
 source</td>
@@ -173,6 +201,12 @@ source</td>
 <a id="a85659438daf59848ee085b1d69a908d4"></a><a class="el" href="namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717">dag_node</a> &amp;</td>
 <td class="fieldname">
 target</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad48573453afc1737b85be891e4d9ef81"></a><a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">ekind</a></td>
+<td class="fieldname">
+kind</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -213,6 +247,12 @@ t</td>
 <td class="fielddoc">
 Reference to the task. </td></tr>
 <tr><td class="fieldtype">
+<a id="abc768326e9949db281f8963b384caae9"></a><a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">inval</a></td>
+<td class="fieldname">
+invalidated</td>
+<td class="fielddoc">
+Node validation status. </td></tr>
+<tr><td class="fieldtype">
 <a id="a2d12112e6bfdbfd376f492dd2504b524"></a>bool</td>
 <td class="fieldname">
 started</td>
@@ -240,7 +280,7 @@ Sets to <code>fail</code> if the task failed during execution. </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="dag_8hpp.html">dag.hpp</a></li>
-    <li class="footer">Generated on Fri Mar 29 2024 14:59:15 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 13 2024 09:51:36 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

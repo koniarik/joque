@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['header_5ftype_380',['HEADER_TYPE',['../classjoque_1_1bits_1_1list__ptr.html#a462a98a22d1486061a1d72141d73246ba64073616db661255aae3a7af1e824b45',1,'joque::bits::list_ptr']]]
+  ['error_411',['ERROR',['../structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30aadcf3cb07c0fa4ac5d7576185d48171b5',1,'joque::output_chunk']]]
 ];

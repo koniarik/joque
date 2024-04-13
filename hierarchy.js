@@ -1,6 +1,13 @@
 var hierarchy =
 [
     [ "joque::edge_content", "namespacejoque.html#structjoque_1_1edge__content", null ],
+    [ "std::exception", null, [
+      [ "std::runtime_error", null, [
+        [ "joque::jexcp", "structjoque_1_1jexcp.html", [
+          [ "joque::cycle_excp", "structjoque_1_1cycle__excp.html", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "joque::exec_coro", "classjoque_1_1exec__coro.html", null ],
     [ "joque::exec_record", "namespacejoque.html#structjoque_1_1exec__record", null ],
     [ "joque::exec_visitor", "classjoque_1_1exec__visitor.html", [

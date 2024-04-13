@@ -1,23 +1,4 @@
 var searchData=
 [
-  ['lheader_5faccessor_77',['lheader_accessor',['../structjoque_1_1bits_1_1lheader__accessor.html',1,'joque::bits']]],
-  ['lheader_5ftype_78',['lheader_type',['../classjoque_1_1bits_1_1gnode.html#a5f963207edf31123d93407394d5ff303',1,'joque::bits::gnode::lheader_type()'],['../classjoque_1_1bits_1_1gedge.html#aaab6b7298a0cabee0f8d2e6fc1793cf7',1,'joque::bits::gedge::lheader_type()']]],
-  ['link_5ffront_79',['link_front',['../classjoque_1_1bits_1_1list.html#a605d4df63f1ffc303c331cfe58cde4af',1,'joque::bits::list']]],
-  ['list_80',['list',['../classjoque_1_1bits_1_1list.html',1,'joque::bits::list&lt; ListHeader &gt;'],['../classjoque_1_1bits_1_1list.html#ae736de096e4bd5c96c0c7b57b679a898',1,'joque::bits::list::list(list &amp;&amp;)=default'],['../classjoque_1_1bits_1_1list.html#a675e1b232263c8b7b3a77b73acd2455c',1,'joque::bits::list::list(const list &amp;)=delete'],['../classjoque_1_1bits_1_1list.html#aa4e7c60ea508854b437217402daad931',1,'joque::bits::list::list()=default']]],
-  ['list_2ehpp_81',['list.hpp',['../list_8hpp.html',1,'']]],
-  ['list_5fdelete_5fall_5fnext_82',['list_delete_all_next',['../namespacejoque_1_1bits.html#a9bdb6c3348984157e9c5e0f09919d00c',1,'joque::bits']]],
-  ['list_5femplace_5fnext_83',['list_emplace_next',['../namespacejoque_1_1bits.html#a1dd9645f9fb32a7cb312b8694fec357c',1,'joque::bits']]],
-  ['list_5fheader_84',['list_header',['../structjoque_1_1bits_1_1list__header.html',1,'joque::bits::list_header&lt; Node, Accessor &gt;'],['../structjoque_1_1bits_1_1list__header.html#aef9841699ee7beaa89d34f250f5d522d',1,'joque::bits::list_header::list_header(list_header &amp;&amp;other) noexcept'],['../structjoque_1_1bits_1_1list__header.html#a5d52f22139450a96c0785eadcc209160',1,'joque::bits::list_header::list_header(const list_header &amp;)=delete'],['../structjoque_1_1bits_1_1list__header.html#a78671966399cfcf097fb6b57385a4819',1,'joque::bits::list_header::list_header()=default']]],
-  ['list_5fheader_3c_20gedge_2c_20lheader_5faccessor_20_3e_85',['list_header&lt; gedge, lheader_accessor &gt;',['../structjoque_1_1bits_1_1list__header.html',1,'joque::bits']]],
-  ['list_5fheader_3c_20gedge_2c_20lrheader_5faccessor_20_3e_86',['list_header&lt; gedge, lrheader_accessor &gt;',['../structjoque_1_1bits_1_1list__header.html',1,'joque::bits']]],
-  ['list_5fheader_3c_20gnode_2c_20lheader_5faccessor_20_3e_87',['list_header&lt; gnode, lheader_accessor &gt;',['../structjoque_1_1bits_1_1list__header.html',1,'joque::bits']]],
-  ['list_5fiterator_88',['list_iterator',['../classjoque_1_1bits_1_1list__iterator.html',1,'joque::bits::list_iterator&lt; ListHeader &gt;'],['../classjoque_1_1bits_1_1list__iterator.html#abe44622e67908787df11ec88432c8cf7',1,'joque::bits::list_iterator::list_iterator()=default'],['../classjoque_1_1bits_1_1list__iterator.html#a05912a6feb16ad3483c39d0acaac39d3',1,'joque::bits::list_iterator::list_iterator(value_type *node)']]],
-  ['list_5flink_5fnext_89',['list_link_next',['../namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03',1,'joque::bits']]],
-  ['list_5fptr_90',['list_ptr',['../classjoque_1_1bits_1_1list__ptr.html',1,'joque::bits::list_ptr&lt; Node, Header, Accessor &gt;'],['../classjoque_1_1bits_1_1list__ptr.html#a80982333b31eff1529bc4fddfb6f1418',1,'joque::bits::list_ptr::list_ptr() noexcept=default'],['../classjoque_1_1bits_1_1list__ptr.html#ade2fa188a3bc181cee57325f7b5e6043',1,'joque::bits::list_ptr::list_ptr(Header *item) noexcept'],['../classjoque_1_1bits_1_1list__ptr.html#a7bc8df9a048a6ac1b1cab765011cc572',1,'joque::bits::list_ptr::list_ptr(Node *item) noexcept'],['../classjoque_1_1bits_1_1list__ptr.html#a7d777e1f6494a433f04f42fb4f995130',1,'joque::bits::list_ptr::list_ptr(std::nullptr_t) noexcept']]],
-  ['list_5fptr_2ehpp_91',['list_ptr.hpp',['../list__ptr_8hpp.html',1,'']]],
-  ['list_5fptr_3c_20node_2c_20list_5fheader_2c_20accessor_20_3e_92',['list_ptr&lt; Node, list_header, Accessor &gt;',['../classjoque_1_1bits_1_1list__ptr.html',1,'joque::bits']]],
-  ['list_5ftype_93',['list_type',['../classjoque_1_1bits_1_1gedge.html#a1a3c68c01b968fe15d68778b007a2c37',1,'joque::bits::gedge::list_type()'],['../classjoque_1_1bits_1_1gnode.html#a90f67a97e76f883cf966593ca6851ae0',1,'joque::bits::gnode::list_type()']]],
-  ['list_5funlink_94',['list_unlink',['../namespacejoque_1_1bits.html#aa9f59846c9edd448a49597bae06389ea',1,'joque::bits']]],
-  ['lrheader_5faccessor_95',['lrheader_accessor',['../structjoque_1_1bits_1_1lrheader__accessor.html',1,'joque::bits']]],
-  ['lrheader_5ftype_96',['lrheader_type',['../classjoque_1_1bits_1_1gedge.html#a36f15752dad6173d80e294fed695c48a',1,'joque::bits::gedge']]]
+  ['kind_89',['kind',['../namespacejoque.html#ad48573453afc1737b85be891e4d9ef81',1,'joque::edge_content']]]
 ];

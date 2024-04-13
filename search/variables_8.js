@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['output_335',['output',['../structjoque_1_1process.html#aa2cabcdaf69f47bc01e599557d09303c',1,'joque::process::output()'],['../namespacejoque.html#abf7017a2ea6f4865832cd3660a7276a9',1,'joque::run_record::output()'],['../structjoque_1_1run__result.html#aec4795a84e52bc0aadbbaa050e71dfaf',1,'joque::run_result::output()']]]
+  ['name_361',['name',['../namespacejoque.html#a525ab45d04dea0f5f92bf758b40ddd87',1,'joque::node_content::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
+  ['next_362',['next',['../structjoque_1_1bits_1_1list__header.html#aeb5a633deae35b8569cd2e7e2161ac17',1,'joque::bits::list_header']]]
 ];

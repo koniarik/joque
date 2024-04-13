@@ -10,8 +10,8 @@ digraph "joque::task_set"
   Node3 [label="std::string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
   Node5 [label="joque::task",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$namespacejoque.html#structjoque_1_1task",tooltip="Single task that should be executed by the system."];
-  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sets" ,fontname="Helvetica"];
-  Node11 [label="std::map\< std::string,\l joque::task_set \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node1 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
-  Node3 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" keys" ,fontname="Helvetica"];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sets" ,fontname="Helvetica"];
+  Node9 [label="std::map\< std::string,\l joque::task_set \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
+  Node3 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" keys" ,fontname="Helvetica"];
 }

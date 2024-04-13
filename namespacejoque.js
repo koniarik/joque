@@ -5,6 +5,8 @@ var namespacejoque =
     [ "node_content", "namespacejoque.html#structjoque_1_1node__content", "namespacejoque_structjoque_1_1node__content_dup" ],
     [ "exec_coro", "classjoque_1_1exec__coro.html", "classjoque_1_1exec__coro" ],
     [ "exec_visitor", "classjoque_1_1exec__visitor.html", "classjoque_1_1exec__visitor" ],
+    [ "jexcp", "structjoque_1_1jexcp.html", null ],
+    [ "cycle_excp", "structjoque_1_1cycle__excp.html", "structjoque_1_1cycle__excp" ],
     [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
     [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
     [ "job_ptr", "structjoque_1_1job__ptr.html", "structjoque_1_1job__ptr" ],
@@ -25,6 +27,21 @@ var namespacejoque =
     [ "dag_node", "namespacejoque.html#a18c249b4b822aa877e8bca4e5048a717", null ],
     [ "dag", "namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1", null ],
     [ "tp", "namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde", null ],
+    [ "ref_vec", "namespacejoque.html#a2d36f0075f3513859f47948e488af3d6", null ],
+    [ "ekind", "namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158", [
+      [ "AFTER", "namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158ac130fda0cb93540bf1574912e78964fb", null ],
+      [ "INVALIDATED_BY", "namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158aee368a2905d6d4a9449a9d421ffe735a", null ],
+      [ "REQUIRES", "namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158ab2fcf0b22686db7c2464a4cfb6082d7c", null ]
+    ] ],
+    [ "inval", "namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027", [
+      [ "VALID", "namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027ac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "INVALID", "namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027accc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "UNKNOWN", "namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027a696b031073e74bf2cb98e5ef201d4aa3", null ]
+    ] ],
+    [ "operator<<", "namespacejoque.html#ae48630ddeff6b3f78bca256df63c833f", null ],
+    [ "filter_edges", "namespacejoque.html#aafbbb52ec9ef58b799ef730ee40ad151", null ],
+    [ "add_edge", "namespacejoque.html#a67ed815ce6f27f32b49397dc0ef1da10", null ],
+    [ "operator<<", "namespacejoque.html#a7214c3a4891dc9b585af3952b857fd6e", null ],
     [ "insert_set", "namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248", null ],
     [ "exec", "namespacejoque.html#ae7f069c04754480cd23a827dd9abe713", null ],
     [ "exec", "namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68", null ],

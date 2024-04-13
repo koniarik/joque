@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error_379',['ERROR',['../structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30aadcf3cb07c0fa4ac5d7576185d48171b5',1,'joque::output_chunk']]]
+  ['after_410',['AFTER',['../namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158ac130fda0cb93540bf1574912e78964fb',1,'joque']]]
 ];

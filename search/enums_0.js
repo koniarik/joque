@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mark_377',['mark',['../classjoque_1_1bits_1_1list__ptr.html#a462a98a22d1486061a1d72141d73246b',1,'joque::bits::list_ptr']]]
+  ['ekind_406',['ekind',['../namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158',1,'joque']]]
 ];
