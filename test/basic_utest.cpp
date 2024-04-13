@@ -202,14 +202,9 @@ TEST( joque, cyclic_invalidation )
         }
 }
 
-std::vector< const task* > normalize_vec( std::vector< const task* > vec )
+void normalize_vec( std::vector< const task* >& vec )
 {
-        std::vector< const task* > res;
-
-        auto pivot = std::ranges::min_element( vec );
-        res.insert( res.end(), pivot, vec.end() );
-        res.insert( res.end(), vec.begin(), pivot );
-        return res;
+        std::ranges::rotate( vec, std::ranges::min_element( vec ) );
 }
 
 TEST( joque, cyclic_after )
@@ -234,7 +229,9 @@ TEST( joque, cyclic_after )
                 FAIL();
         }
         catch ( cycle_excp& e ) {
-                EXPECT_EQ( normalize_vec( e.cycle ), normalize_vec( expected ) );
+                normalize_vec( e.cycle );
+                normalize_vec( expected );
+                EXPECT_EQ( e.cycle, expected );
         }
 }
 
