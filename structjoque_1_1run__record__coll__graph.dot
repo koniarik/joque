@@ -13,4 +13,7 @@ digraph "joque::run_record"
   Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
   Node5 [label="joque::output_chunk",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structjoque_1_1output__chunk.html",tooltip=" "];
   Node2 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" data" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" log" ,fontname="Helvetica"];
+  Node6 [label="std::list\< std::string \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elements" ,fontname="Helvetica"];
 }

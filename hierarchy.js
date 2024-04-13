@@ -40,7 +40,7 @@ var hierarchy =
     [ "joque::exec_coro::promise_type", "structjoque_1_1exec__coro_1_1promise__type.html", null ],
     [ "joque::resource", "namespacejoque.html#structjoque_1_1resource", null ],
     [ "joque::run_record", "namespacejoque.html#structjoque_1_1run__record", null ],
-    [ "joque::run_result", "structjoque_1_1run__result.html", null ],
+    [ "joque::run_result", "namespacejoque.html#structjoque_1_1run__result", null ],
     [ "joque::task", "namespacejoque.html#structjoque_1_1task", null ],
     [ "joque::task_set", "namespacejoque.html#structjoque_1_1task__set", null ],
     [ "std::unique_ptr< T >", null, [

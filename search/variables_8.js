@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['name_361',['name',['../namespacejoque.html#a525ab45d04dea0f5f92bf758b40ddd87',1,'joque::node_content::name()'],['../namespacejoque.html#a7603fa1d4c0d5180e976392b6bf2a084',1,'joque::run_record::name()'],['../namespacejoque.html#a01271751837bb5f8ae157756d2b82acf',1,'joque::resource::name()']]],
-  ['next_362',['next',['../structjoque_1_1bits_1_1list__header.html#aeb5a633deae35b8569cd2e7e2161ac17',1,'joque::bits::list_header']]]
+  ['log_369',['log',['../namespacejoque.html#a0a19a0d6a7c45145df4cd2026a852950',1,'joque::run_record::log()'],['../namespacejoque.html#aa7cc17a2564d222101d81027ae3fc34d',1,'joque::run_result::log()']]]
 ];

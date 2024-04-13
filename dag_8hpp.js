@@ -26,9 +26,9 @@ var dag_8hpp =
       [ "INVALID", "dag_8hpp.html#ab7e010f82d030aaaa6db45a9da58e027accc0377a8afbf50e7094f5c23a8af223", null ],
       [ "UNKNOWN", "dag_8hpp.html#ab7e010f82d030aaaa6db45a9da58e027a696b031073e74bf2cb98e5ef201d4aa3", null ]
     ] ],
-    [ "operator<<", "dag_8hpp.html#ae48630ddeff6b3f78bca256df63c833f", null ],
+    [ "to_sv", "dag_8hpp.html#a70012d77ec482fff1001bce248e85559", null ],
     [ "filter_edges", "dag_8hpp.html#aafbbb52ec9ef58b799ef730ee40ad151", null ],
     [ "add_edge", "dag_8hpp.html#a67ed815ce6f27f32b49397dc0ef1da10", null ],
-    [ "operator<<", "dag_8hpp.html#a7214c3a4891dc9b585af3952b857fd6e", null ],
+    [ "to_sv", "dag_8hpp.html#a3c9d613f42925ac8347a29e346ec1e91", null ],
     [ "insert_set", "dag_8hpp.html#abda511d9833d4dabfe4d9b53741dc248", null ]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['t_378',['t',['../namespacejoque.html#a4d2cbeafddfab680ac1004ff5efad270',1,'joque::node_content::t()'],['../namespacejoque.html#a379e3f69b4013da0858c1cfbf8cb1e33',1,'joque::run_record::t()']]],
-  ['target_379',['target',['../namespacejoque.html#a85659438daf59848ee085b1d69a908d4',1,'joque::edge_content']]],
-  ['tasks_380',['tasks',['../namespacejoque.html#a80cd0b463e34149a7c1b11b8592e4552',1,'joque::task_set']]],
-  ['thing_381',['thing',['../structjoque_1_1job.html#ad2432fcd75fc31ea08c7bf3ef04aa081',1,'joque::job']]],
-  ['total_5fcount_382',['total_count',['../namespacejoque.html#ab56e55c8b5fee3ca73a362f610c94968',1,'joque::exec_record']]],
-  ['type_383',['type',['../structjoque_1_1output__chunk.html#af51794bdfc3e805198c2e169373f1d58',1,'joque::output_chunk']]]
+  ['sets_381',['sets',['../namespacejoque.html#a9854101c7b1af4357c306e895989c675',1,'joque::task_set']]],
+  ['source_382',['source',['../namespacejoque.html#a7b901f44437116a976cbe16b48774042',1,'joque::edge_content']]],
+  ['start_383',['start',['../namespacejoque.html#aca4b4847dc82f3fadf9c002c0b378289',1,'joque::run_record']]],
+  ['started_384',['started',['../namespacejoque.html#a2d12112e6bfdbfd376f492dd2504b524',1,'joque::node_content']]],
+  ['stats_385',['stats',['../namespacejoque.html#a077f7400b98a4fad069f634194f47538',1,'joque::exec_record']]],
+  ['status_386',['status',['../namespacejoque.html#a35a628809ed118e72f97afbae59cfc5d',1,'joque::run_record']]]
 ];

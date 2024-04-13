@@ -148,9 +148,9 @@ Classes</h2></td></tr>
 <tr class="separator:structjoque_1_1exec__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1run__result.html">run_result</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of single traits run call. Information is stored in run record.  <a href="structjoque_1_1run__result.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1run__result"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__result">run_result</a></td></tr>
+<tr class="memdesc:structjoque_1_1run__result"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of single traits run call. Information is stored in run record.  <a href="namespacejoque.html#structjoque_1_1run__result">More...</a><br /></td></tr>
+<tr class="separator:structjoque_1_1run__result"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1resource"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1resource">resource</a></td></tr>
 <tr class="memdesc:structjoque_1_1resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction to model resource used by tasks.  <a href="namespacejoque.html#structjoque_1_1resource">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,19 +199,30 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ab7e010f82d030aaaa6db45a9da58e027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a> { <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ab85df04e922fe1dd3c1f0692faeaacef">SKIP</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8abff2dd0519b79b7bd13cf20b9ad5cb1d">DEPF</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ac2759effffc94bb9acc71d69fe3e8a1f">FAIL</a>
+<br />
+ }</td></tr>
+<tr class="separator:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae48630ddeff6b3f78bca256df63c833f"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae48630ddeff6b3f78bca256df63c833f">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">ekind</a> k)</td></tr>
-<tr class="separator:ae48630ddeff6b3f78bca256df63c833f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70012d77ec482fff1001bce248e85559"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a70012d77ec482fff1001bce248e85559">to_sv</a> (const <a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">ekind</a> &amp;e)</td></tr>
+<tr class="separator:a70012d77ec482fff1001bce248e85559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memTemplParams" colspan="2">template&lt;ekind Kind, typename Edges &gt; </td></tr>
 <tr class="memitem:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aafbbb52ec9ef58b799ef730ee40ad151">filter_edges</a> (Edges &amp;e)</td></tr>
 <tr class="separator:aafbbb52ec9ef58b799ef730ee40ad151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memTemplParams" colspan="2">template&lt;typename Node , typename... Args&gt; </td></tr>
 <tr class="memitem:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a67ed815ce6f27f32b49397dc0ef1da10">add_edge</a> (Node &amp;source, Node &amp;target, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a67ed815ce6f27f32b49397dc0ef1da10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7214c3a4891dc9b585af3952b857fd6e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a7214c3a4891dc9b585af3952b857fd6e">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">inval</a> k)</td></tr>
-<tr class="separator:a7214c3a4891dc9b585af3952b857fd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c9d613f42925ac8347a29e346ec1e91"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a3c9d613f42925ac8347a29e346ec1e91">to_sv</a> (const <a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">inval</a> &amp;k)</td></tr>
+<tr class="separator:a3c9d613f42925ac8347a29e346ec1e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda511d9833d4dabfe4d9b53741dc248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248">insert_set</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a>, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const std::string &amp;filter)</td></tr>
 <tr class="separator:abda511d9833d4dabfe4d9b53741dc248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
@@ -238,6 +249,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ab280046a1246db06f03c39cfb14a0085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">generate_junit_xml</a> (std::ostream &amp;os, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="memdesc:ab280046a1246db06f03c39cfb14a0085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>generate_junit_xml</code> that uses ostream instead of filename.  <a href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">More...</a><br /></td></tr>
 <tr class="separator:ab280046a1246db06f03c39cfb14a0085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe5a962101f094ef5d58747a41d4f68"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#adfe5a962101f094ef5d58747a41d4f68">to_sv</a> (const <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a> &amp;s)</td></tr>
+<tr class="separator:adfe5a962101f094ef5d58747a41d4f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad653661fdbccfefc758c582a6f36c80a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">map</a> (std::convertible_to&lt; <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &gt; auto &amp;rec, auto &amp;&amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
 <tr class="separator:ad653661fdbccfefc758c582a6f36c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19a8aecc5eb247a481d327aa0523edc"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aa19a8aecc5eb247a481d327aa0523edc">runtime_sum</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec)</td></tr>
@@ -246,8 +259,14 @@ Functions</h2></td></tr>
 <tr class="separator:ad23123cce8071889c8858b190e5e539d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55aad7cb7f454b3e3b0fca14486aaac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a55aad7cb7f454b3e3b0fca14486aaac1">map</a> (std::convertible_to&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt; auto &amp;rec, auto &amp;&amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
 <tr class="separator:a55aad7cb7f454b3e3b0fca14486aaac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c87c802e15f061e48c75764e7b3ca4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a05c87c802e15f061e48c75764e7b3ca4">record_output</a> (<a class="el" href="structjoque_1_1run__result.html">run_result</a> &amp;res, <a class="el" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">output_chunk::type_e</a> type, std::string data)</td></tr>
-<tr class="separator:a05c87c802e15f061e48c75764e7b3ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bad77700cbf1c9f214c5d3ae5533a51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a3bad77700cbf1c9f214c5d3ae5533a51">insert</a> (auto &amp;res, <a class="el" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30a">output_chunk::type_e</a> type, std::string data)</td></tr>
+<tr class="separator:a3bad77700cbf1c9f214c5d3ae5533a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac120499975a8cdfc94c02c238f40c8f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ac120499975a8cdfc94c02c238f40c8f9">insert_std</a> (auto &amp;res, std::string data)</td></tr>
+<tr class="separator:ac120499975a8cdfc94c02c238f40c8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f2c958ce0aad4bdbb79d876ba38f01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a14f2c958ce0aad4bdbb79d876ba38f01">insert_err</a> (auto &amp;res, std::string data)</td></tr>
+<tr class="separator:a14f2c958ce0aad4bdbb79d876ba38f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c00876973cb07e15def0e76afb818ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4c00876973cb07e15def0e76afb818ae">insert_log</a> (auto &amp;res, std::string data)</td></tr>
+<tr class="separator:a4c00876973cb07e15def0e76afb818ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Fun &gt; </td></tr>
 <tr class="memitem:af9daf6e2b940c98e701e9a28c5593433"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">requires</a> (std::same_as&lt; std::remove_cvref_t&lt; T &gt;, <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &gt;) void for_each_task(T &amp;ts</td></tr>
 <tr class="memdesc:af9daf6e2b940c98e701e9a28c5593433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively executes function <code>f</code> for each task in set <code>ts</code>.  <a href="namespacejoque.html#af9daf6e2b940c98e701e9a28c5593433">More...</a><br /></td></tr>
@@ -417,11 +436,11 @@ name</td>
 <td class="fielddoc">
 Full name of the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
+<a id="a35a628809ed118e72f97afbae59cfc5d"></a><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a></td>
 <td class="fieldname">
-skipped</td>
+status</td>
 <td class="fielddoc">
-Whenever the task was executed or skipped. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
 <a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
 <td class="fieldname">
@@ -444,6 +463,12 @@ End time of the execution. </td></tr>
 <a id="abf7017a2ea6f4865832cd3660a7276a9"></a>list&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt;</td>
 <td class="fieldname">
 output</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a0a19a0d6a7c45145df4cd2026a852950"></a>list&lt; string &gt;</td>
+<td class="fieldname">
+log</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -474,17 +499,11 @@ output</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
+<a id="a077f7400b98a4fad069f634194f47538"></a><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">map</a>&lt; <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a>, size_t &gt;</td>
 <td class="fieldname">
-skipped_count</td>
+stats</td>
 <td class="fielddoc">
-Number of skipped tasks. </td></tr>
-<tr><td class="fieldtype">
-<a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
-<td class="fieldname">
-failed_count</td>
-<td class="fielddoc">
-Number of failed tasks. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
 <a id="ab56e55c8b5fee3ca73a362f610c94968"></a>size_t</td>
 <td class="fieldname">
@@ -497,6 +516,50 @@ Total number of jobs. </td></tr>
 runs</td>
 <td class="fielddoc">
 Run record for each finished task in the set. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structjoque_1_1run__result" id="structjoque_1_1run__result"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1run__result">&#9670;&nbsp;</a></span>joque::run_result</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct joque::run_result</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Result of single traits run call. Information is stored in run record. </p>
+</div><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_result:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 4 -->
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a5bb7a849cbd9921c9a3130667d7b73ae"></a>int</td>
+<td class="fieldname">
+retcode</td>
+<td class="fielddoc">
+Return code of the run, 0 implies success. </td></tr>
+<tr><td class="fieldtype">
+<a id="aec4795a84e52bc0aadbbaa050e71dfaf"></a>list&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt;</td>
+<td class="fieldname">
+output</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa7cc17a2564d222101d81027ae3fc34d"></a>list&lt; string &gt;</td>
+<td class="fieldname">
+log</td>
+<td class="fielddoc">
+</td></tr>
 </table>
 
 </div>
@@ -514,12 +577,12 @@ Run record for each finished task in the set. </td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Abstraction to model resource used by tasks. </p>
 <p>Out of all tasks that reference single resource, only one may be executed at any point in time. </p>
-</div><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::resource:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::resource:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 4 -->
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 5 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -546,12 +609,12 @@ name</td>
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>Single task that should be executed by the system. </p>
-</div><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 5 -->
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 6 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -612,12 +675,12 @@ In case this is set to true, this task should not be visible in standard reports
 <div class="textblock"><p>A set of tasks that contains either tasks or another sets. </p>
 <p>This forms a tree representing the entire task set.</p>
 <p>Convetion is that names inside the structure are concatenated to form a full path. Task <code>x</code> in root set is referred as <code>//x</code>. Task <code>y</code> in subset <code>z</code> is referred as <code>//z/y</code>. </p>
-</div><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task_set:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::task_set:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><!-- SVG 6 -->
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 7 -->
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
@@ -768,29 +831,47 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a0ea6ef98beae13bf6353ff5e9a50c6c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea6ef98beae13bf6353ff5e9a50c6c8">&#9670;&nbsp;</a></span>run_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">joque::run_status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0ea6ef98beae13bf6353ff5e9a50c6c8ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0ea6ef98beae13bf6353ff5e9a50c6c8ab85df04e922fe1dd3c1f0692faeaacef"></a>SKIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0ea6ef98beae13bf6353ff5e9a50c6c8abff2dd0519b79b7bd13cf20b9ad5cb1d"></a>DEPF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0ea6ef98beae13bf6353ff5e9a50c6c8ac2759effffc94bb9acc71d69fe3e8a1f"></a>FAIL&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae48630ddeff6b3f78bca256df63c833f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae48630ddeff6b3f78bca256df63c833f">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
+<a id="a70012d77ec482fff1001bce248e85559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70012d77ec482fff1001bce248e85559">&#9670;&nbsp;</a></span>to_sv() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; joque::operator&lt;&lt; </td>
+          <td class="memname">std::string_view joque::to_sv </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">ekind</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#ac1651ada47645c4b00c3e2e3b8f3d158">ekind</a>&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -853,28 +934,18 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a7214c3a4891dc9b585af3952b857fd6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7214c3a4891dc9b585af3952b857fd6e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
+<a id="a3c9d613f42925ac8347a29e346ec1e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c9d613f42925ac8347a29e346ec1e91">&#9670;&nbsp;</a></span>to_sv() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; joque::operator&lt;&lt; </td>
+          <td class="memname">std::string_view joque::to_sv </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">inval</a> &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacejoque.html#ab7e010f82d030aaaa6db45a9da58e027">inval</a>&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1251,6 +1322,34 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="adfe5a962101f094ef5d58747a41d4f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe5a962101f094ef5d58747a41d4f68">&#9670;&nbsp;</a></span>to_sv() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view joque::to_sv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8abff2dd0519b79b7bd13cf20b9ad5cb1d">DEPF</a>, <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ac2759effffc94bb9acc71d69fe3e8a1f">FAIL</a>, <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>, and <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ab85df04e922fe1dd3c1f0692faeaacef">SKIP</a>.</p>
+
+</div>
+</div>
 <a id="ad653661fdbccfefc758c582a6f36c80a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad653661fdbccfefc758c582a6f36c80a">&#9670;&nbsp;</a></span>map() <span class="overload">[1/3]</span></h2>
 
@@ -1325,7 +1424,7 @@ template&lt;typename Node , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>.</p>
+<p class="reference">References <a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>, and <a class="el" href="namespacejoque.html#a70012d77ec482fff1001bce248e85559">to_sv()</a>.</p>
 
 </div>
 </div>
@@ -1359,19 +1458,16 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a05c87c802e15f061e48c75764e7b3ca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c87c802e15f061e48c75764e7b3ca4">&#9670;&nbsp;</a></span>record_output()</h2>
+<a id="a3bad77700cbf1c9f214c5d3ae5533a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bad77700cbf1c9f214c5d3ae5533a51">&#9670;&nbsp;</a></span>insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void joque::record_output </td>
+          <td class="memname">void joque::insert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjoque_1_1run__result.html">run_result</a> &amp;&#160;</td>
+          <td class="paramtype">auto &amp;&#160;</td>
           <td class="paramname"><em>res</em>, </td>
         </tr>
         <tr>
@@ -1392,14 +1488,95 @@ template&lt;typename Node , typename... Args&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structjoque_1_1run__result.html#aec4795a84e52bc0aadbbaa050e71dfaf">joque::run_result::output</a>.</p>
+</div>
+</div>
+<a id="ac120499975a8cdfc94c02c238f40c8f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac120499975a8cdfc94c02c238f40c8f9">&#9670;&nbsp;</a></span>insert_std()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::insert_std </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespacejoque.html#a3bad77700cbf1c9f214c5d3ae5533a51">insert()</a>, and <a class="el" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30aaf95b810301cf73bfbbe19bc94cff2c17">joque::output_chunk::STANDARD</a>.</p>
+
+</div>
+</div>
+<a id="a14f2c958ce0aad4bdbb79d876ba38f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14f2c958ce0aad4bdbb79d876ba38f01">&#9670;&nbsp;</a></span>insert_err()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::insert_err </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structjoque_1_1output__chunk.html#acb8ce61924e5ad8a65fca3508dd5d30aadcf3cb07c0fa4ac5d7576185d48171b5">joque::output_chunk::ERROR</a>, and <a class="el" href="namespacejoque.html#a3bad77700cbf1c9f214c5d3ae5533a51">insert()</a>.</p>
+
+</div>
+</div>
+<a id="a4c00876973cb07e15def0e76afb818ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c00876973cb07e15def0e76afb818ae">&#9670;&nbsp;</a></span>insert_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::insert_log </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1633,7 +1810,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sat Apr 13 2024 10:01:51 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 13 2024 21:13:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

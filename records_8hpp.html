@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('records_8hpp.html',''); initResizable(
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">records.hpp File Reference</div>  </div>
@@ -131,8 +132,24 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a46bf345485d4e1c535a63a3d5ad3ecde">joque::tp</a> = std::chrono::time_point&lt; std::chrono::system_clock &gt;</td></tr>
 <tr class="separator:a46bf345485d4e1c535a63a3d5ad3ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">joque::run_status</a> { <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ae0aa021e21dddbd6d8cecec71e9cf564">joque::OK</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ab85df04e922fe1dd3c1f0692faeaacef">joque::SKIP</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8abff2dd0519b79b7bd13cf20b9ad5cb1d">joque::DEPF</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ac2759effffc94bb9acc71d69fe3e8a1f">joque::FAIL</a>
+<br />
+ }</td></tr>
+<tr class="separator:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:adfe5a962101f094ef5d58747a41d4f68"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#adfe5a962101f094ef5d58747a41d4f68">joque::to_sv</a> (const run_status &amp;s)</td></tr>
+<tr class="separator:adfe5a962101f094ef5d58747a41d4f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad653661fdbccfefc758c582a6f36c80a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">joque::map</a> (std::convertible_to&lt; run_record &gt; auto &amp;rec, auto &amp;&amp;f)</td></tr>
 <tr class="separator:ad653661fdbccfefc758c582a6f36c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19a8aecc5eb247a481d327aa0523edc"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#aa19a8aecc5eb247a481d327aa0523edc">joque::runtime_sum</a> (const exec_record &amp;erec)</td></tr>
@@ -177,11 +194,11 @@ name</td>
 <td class="fielddoc">
 Full name of the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="abded0e3f3393cbe66f54467dcc7c1a24"></a>bool</td>
+<a id="a35a628809ed118e72f97afbae59cfc5d"></a><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a></td>
 <td class="fieldname">
-skipped</td>
+status</td>
 <td class="fielddoc">
-Whenever the task was executed or skipped. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
 <a id="ae0e9e6adfd7faba5c816a2632ebc3df0"></a>int</td>
 <td class="fieldname">
@@ -204,6 +221,12 @@ End time of the execution. </td></tr>
 <a id="abf7017a2ea6f4865832cd3660a7276a9"></a>list&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt;</td>
 <td class="fieldname">
 output</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a0a19a0d6a7c45145df4cd2026a852950"></a>list&lt; string &gt;</td>
+<td class="fieldname">
+log</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -234,17 +257,11 @@ output</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a6c4c083688e0a5d3c9ec3a29b4d2c3c4"></a>size_t</td>
+<a id="a077f7400b98a4fad069f634194f47538"></a><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">map</a>&lt; <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a>, size_t &gt;</td>
 <td class="fieldname">
-skipped_count</td>
+stats</td>
 <td class="fielddoc">
-Number of skipped tasks. </td></tr>
-<tr><td class="fieldtype">
-<a id="ac05a009de7468d21f5b1233f924159dc"></a>size_t</td>
-<td class="fieldname">
-failed_count</td>
-<td class="fielddoc">
-Number of failed tasks. </td></tr>
+</td></tr>
 <tr><td class="fieldtype">
 <a id="ab56e55c8b5fee3ca73a362f610c94968"></a>size_t</td>
 <td class="fieldname">
@@ -267,7 +284,7 @@ Run record for each finished task in the set. </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="records_8hpp.html">records.hpp</a></li>
-    <li class="footer">Generated on Sat Apr 13 2024 10:01:51 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 13 2024 21:13:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

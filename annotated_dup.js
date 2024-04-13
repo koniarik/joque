@@ -29,7 +29,7 @@ var annotated_dup =
       [ "run_record", "namespacejoque.html#structjoque_1_1run__record", "namespacejoque_structjoque_1_1run__record_dup" ],
       [ "exec_record", "namespacejoque.html#structjoque_1_1exec__record", "namespacejoque_structjoque_1_1exec__record_dup" ],
       [ "output_chunk", "structjoque_1_1output__chunk.html", "structjoque_1_1output__chunk" ],
-      [ "run_result", "structjoque_1_1run__result.html", "structjoque_1_1run__result" ],
+      [ "run_result", "namespacejoque.html#structjoque_1_1run__result", "namespacejoque_structjoque_1_1run__result_dup" ],
       [ "resource", "namespacejoque.html#structjoque_1_1resource", "namespacejoque_structjoque_1_1resource_dup" ],
       [ "task", "namespacejoque.html#structjoque_1_1task", "namespacejoque_structjoque_1_1task_dup" ],
       [ "task_set", "namespacejoque.html#structjoque_1_1task__set", "namespacejoque_structjoque_1_1task__set_dup" ],
