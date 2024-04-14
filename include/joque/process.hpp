@@ -57,7 +57,7 @@ struct job_traits< process >
 {
         /// Proces becames invalidated in case one of it's input files is more recent than any of
         /// output files.
-        [[nodiscard]] static bool is_invalidated( const process& p );
+        [[nodiscard]] static inval_result is_invalidated( const process& p );
 
         /// Executes the process, captures output of both stdout and stderr. Returns failure in case
         /// return code of subprocess is not 0.

@@ -13,9 +13,9 @@ struct task;
 template < typename T >
 struct job_traits
 {
-        [[nodiscard]] static bool is_invalidated( const T& )
+        [[nodiscard]] static inval_result is_invalidated( const T& )
         {
-                return true;
+                return { .invalidated = true, .log = { "always invalidated" } };
         }
 
         [[nodiscard]] static run_result run( const task& t, T& f )

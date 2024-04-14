@@ -85,12 +85,12 @@ namespace
 
                 std::string text;
                 text += std::format(
-                    "run: {:<10}",
+                    "run: {:<4}",
                     erec.stats.at( run_status::OK ) + erec.stats.at( run_status::FAIL ) );
                 for ( auto&& [key, count] : erec.stats ) {
                         text += "  ";
                         text += std::format(
-                            "{}{}: {}{:<10}",
+                            "{}{}: {}{:<5}",
                             count > 0 ? NONE : GRAY,
                             to_sv( key ),
                             count > 0 ? STAT_TO_COLOR.at( key ) : GRAY,

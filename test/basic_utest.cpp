@@ -1,5 +1,4 @@
 #include "joque/exec.hpp"
-#include "joque/jexcp.hpp"
 #include "joque/process.hpp"
 #include "joque/run_result.hpp"
 #include "joque/task.hpp"
@@ -169,9 +168,9 @@ struct test_job
 template <>
 struct job_traits< test_job >
 {
-        static bool is_invalidated( const test_job& j )
+        static inval_result is_invalidated( const test_job& j )
         {
-                return j.is_invalidated;
+                return { j.is_invalidated, "" };
         }
 
         static run_result run( const task&, test_job& )
@@ -202,10 +201,21 @@ TEST( joque, cyclic_invalidation )
         }
 }
 
-void normalize_vec( std::vector< const task* >& vec )
+void normalize_vec( auto& vec )
 {
         std::ranges::rotate( vec, std::ranges::min_element( vec ) );
 }
+
+struct cycle_test_vis : exec_visitor
+{
+        std::vector< const dag_node* > cycle;
+
+        void on_detected_cycle( std::span< const dag_node* > cyc ) override
+        {
+                cycle.insert( cycle.end(), cyc.begin(), cyc.end() );
+                normalize_vec( cycle );
+        }
+};
 
 TEST( joque, cyclic_after )
 {
@@ -222,17 +232,16 @@ TEST( joque, cyclic_after )
         add_edge( n2, n3, ekind::AFTER );
         add_edge( n3, n1, ekind::AFTER );
 
-        std::vector< const task* > expected = { &t1, &t2, &t3 };
+        cycle_test_vis                 vis;
+        std::vector< const dag_node* > expected = { &n1, &n2, &n3 };
+        normalize_vec( expected );
 
         try {
-                auto rec = exec( std::move( g ), 0 ).run();
-                FAIL();
+                auto rec = exec( std::move( g ), 0, vis ).run();
         }
-        catch ( cycle_excp& e ) {
-                normalize_vec( e.cycle );
-                normalize_vec( expected );
-                EXPECT_EQ( e.cycle, expected );
+        catch ( ... ) {
         }
+        EXPECT_EQ( vis.cycle, expected );
 }
 
 }  // namespace joque

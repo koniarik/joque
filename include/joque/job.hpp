@@ -13,7 +13,7 @@ namespace joque
 struct job_iface
 {
         /// Returns true in case the job is invalidated
-        [[nodiscard]] virtual bool is_invalidated() = 0;
+        [[nodiscard]] virtual inval_result is_invalidated() = 0;
 
         /// Executes one run of the task, returns `run_result` with properly filled information.
         [[nodiscard]] virtual run_result run( const task& ) = 0;
@@ -34,7 +34,7 @@ struct job : job_iface
         {
         }
 
-        [[nodiscard]] bool is_invalidated() override
+        [[nodiscard]] inval_result is_invalidated() override
         {
                 return job_traits< T >::is_invalidated( thing );
         }

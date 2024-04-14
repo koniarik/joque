@@ -8,7 +8,6 @@
 namespace joque
 {
 
-
 struct output_chunk
 {
         enum type_e
@@ -26,6 +25,7 @@ void map( std::convertible_to< output_chunk > auto& rec, auto&& f )
         f( "data", rec.data );
 }
 
+/// TODO: hide this
 /// Result of single traits run call. Information is stored in run record.
 struct run_result
 {
@@ -34,7 +34,14 @@ struct run_result
 
         std::list< output_chunk > output;
 
-        std::list< std::string > log;
+        std::string log;
+};
+
+struct inval_result
+{
+        bool invalidated;
+
+        std::string log;
 };
 
 void insert( auto& res, output_chunk::type_e type, std::string data )
@@ -50,11 +57,6 @@ void insert_std( auto& res, std::string data )
 void insert_err( auto& res, std::string data )
 {
         insert( res, output_chunk::ERROR, std::move( data ) );
-}
-
-void insert_log( auto& res, std::string data )
-{
-        res.log.emplace_back( std::move( data ) );
 }
 
 }  // namespace joque

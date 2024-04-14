@@ -36,4 +36,12 @@ void run_after_all_of( task& t, const task_set& ts )
         } );
 }
 
+void invalidated_by_all_of( task& t, const task_set& ts )
+{
+        for_each_task( ts, [&]( const std::string&, const task& other ) {
+                if ( &t != &other )
+                        t.invalidated_by.emplace_back( other );
+        } );
+}
+
 }  // namespace joque

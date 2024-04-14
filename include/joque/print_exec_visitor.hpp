@@ -4,6 +4,8 @@
 #include "joque/exec_visitor.hpp"
 #include "joque/records.hpp"
 
+#include <iostream>
+
 namespace joque
 {
 
@@ -13,12 +15,48 @@ class print_exec_visitor : public exec_visitor
 public:
         print_exec_visitor( bool verbose = false, bool print_out = false );
 
-        void on_node_enque( const dag_node& n ) override;
-        void on_run_start( const dag_node& n ) override;
-        void
-        on_run_end( const exec_record& erec, const run_record* rec, const dag_node& n ) override;
+        void after_node_enque( const dag_node& n ) override;
 
-        void on_exec_end( const exec_record& ) override;
+        void on_detected_cycle( std::span< const dag_node* > c ) override
+        {
+                std::cerr << "Cycle between nodes detected:\n";
+                for ( auto* p : c )
+                        std::cerr << "\t" << ( *p )->name << std::endl;
+        }
+
+        void after_job_is_inval( const dag_node& n, std::string_view log ) override
+        {
+                if ( !verbose_ )
+                        return;
+
+                if ( n->invalidated == inval::INVALID ) {
+                        std::cout << "Job " << n->name << " got invalidated: \n";
+                        std::cout << log << "\n";
+                }
+        }
+
+        void after_dep_inval( const dag_node& n, const dag_node& invalidator ) override
+        {
+                if ( !verbose_ )
+                        return;
+
+                std::cout << "Task " << n->name << " invalidated"
+                          << " by " << invalidator->name << '\n';
+        }
+        void before_run( const dag_node& n ) override;
+
+        void on_run_log( const dag_node& n, std::string_view log ) override
+        {
+                if ( !verbose_ )
+                        return;
+                std::cout << "Job " << n->name << " run log: \n";
+                std::cout << log << "\n";
+        }
+
+        void
+        after_run( const exec_record& erec, const run_record* rec, const dag_node& n ) override;
+
+        void after_execution( const exec_record& ) override;
 
 private:
         bool verbose_;

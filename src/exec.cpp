@@ -3,7 +3,6 @@
 #include "joque/dag.hpp"
 #include "joque/exec_coro.hpp"
 #include "joque/exec_visitor.hpp"
-#include "joque/jexcp.hpp"
 #include "joque/records.hpp"
 #include "joque/run_result.hpp"
 #include "joque/task.hpp"
@@ -19,7 +18,6 @@
 #include <future>
 #include <set>
 #include <string>
-#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -94,17 +92,24 @@ namespace
                 return n;
         }
 
-        run_coro run( dag_node& n, std::set< const resource* >& used_resources, std::launch l )
+        run_coro
+        run( dag_node&                    n,
+             std::set< const resource* >& used_resources,
+             std::launch                  l,
+             exec_visitor&                vis )
         {
                 run_record result{ .t = n->t, .name = n->name };
 
                 assert( n->invalidated != inval::UNKNOWN );
 
+                vis.before_run( *n );
+
                 if ( any_dep_failed( n.out_edges() ) ) {
                         n->done       = true;
                         result.status = run_status::DEPF;
-                        for ( auto& e : filter_edges< ekind::REQUIRES >( n.out_edges() ) )
-                                result.log.emplace_back( "Failed dep: " + e->target->name );
+                        // TODO: fixx
+                        // for ( auto& e : filter_edges< ekind::REQUIRES >( n.out_edges() ) )
+                        //       result.log.emplace_back( "Failed dep: " + e->target->name );
                         co_return result;
                 }
                 if ( n->invalidated == inval::VALID ) {
@@ -144,7 +149,7 @@ namespace
                 run_result rr  = fut.get();
                 result.retcode = rr.retcode;
                 result.output  = std::move( rr.output );
-                result.log.merge( rr.log );
+                vis.on_run_log( n, rr.log );
 
                 for ( const resource& r : n->t.resources )
                         used_resources.erase( &r );
@@ -165,7 +170,7 @@ namespace
                                 return false;
                         run_record* rec = coro.result();
 
-                        vis.on_run_end( erec, rec, coro.get_node() );
+                        vis.after_run( erec, rec, coro.get_node() );
 
                         if ( rec != nullptr )
                                 push( erec, std::move( *rec ) );
@@ -173,14 +178,19 @@ namespace
                 } );
         }
 
-        void propagate_invalidation( std::set< dag_node* >& to_process )
+        void propagate_invalidation( std::set< dag_node* >& to_process, exec_visitor& vis )
         {
                 std::set< dag_node* > to_propagate;
                 for ( dag_node* p : to_process ) {
-                        dag_node& n    = *p;
-                        n->invalidated = n->t.job->is_invalidated() ? inval::INVALID : inval::VALID;
-                        if ( n->invalidated == inval::INVALID )
+                        dag_node&    n    = *p;
+                        inval_result ires = n->t.job->is_invalidated();
+                        if ( ires.invalidated ) {
+                                n->invalidated = inval::INVALID;
                                 to_propagate.insert( &n );
+                        } else {
+                                n->invalidated = inval::VALID;
+                        }
+                        vis.after_job_is_inval( n, ires.log );
                 }
                 std::set< dag_node* > seen = to_propagate;
                 while ( !to_propagate.empty() ) {
@@ -195,12 +205,27 @@ namespace
 
                                 e->source->invalidated = inval::INVALID;
                                 to_propagate.insert( &e->source );
+                                vis.after_dep_inval( e->source, e->target );
                         }
                 }
         }
 
-        dag_node*
-        check_for_cycle( dag_node& n, std::set< dag_node* >& seen, std::vector< dag_node* >& stack )
+        std::vector< const dag_node* >
+        get_cycle( const std::vector< dag_node* >& stack, dag_node& n )
+        {
+                auto                           iter = std::ranges::find( stack, &n );
+                std::vector< const dag_node* > cycle;
+                cycle.reserve( stack.size() );
+                while ( iter != stack.end() )
+                        cycle.push_back( &( **iter++ ) );
+                return cycle;
+        }
+
+        dag_node* check_for_cycle(
+            dag_node&                 n,
+            std::set< dag_node* >&    seen,
+            std::vector< dag_node* >& stack,
+            exec_visitor&             vis )
         {
                 auto [it1, not_seen] = seen.insert( &n );
                 bool on_stack        = std::ranges::find( stack, &n ) != stack.end();
@@ -211,28 +236,25 @@ namespace
                 stack.push_back( &n );
                 auto es = filter_edges< ekind::AFTER >( n.out_edges() );
                 for ( auto& e : es )
-                        if ( dag_node* p = check_for_cycle( e->target, seen, stack ) ) {
+                        if ( dag_node* p = check_for_cycle( e->target, seen, stack, vis ) ) {
                                 if ( p != &n )
                                         return p;
-                                auto                       iter = std::ranges::find( stack, p );
-                                std::vector< const task* > cycle;
-                                cycle.reserve( stack.size() );
-                                while ( iter != stack.end() )
-                                        cycle.push_back( &( **iter++ )->t );
-                                throw cycle_excp( std::move( cycle ) );
+                                std::vector< const dag_node* > cycle = get_cycle( stack, *p );
+                                vis.on_detected_cycle( cycle );
+                                return p;
                         }
                 stack.pop_back();
                 return nullptr;
         }
-        void check_for_cycle( const std::set< dag_node* >& to_process )
+        bool has_cycle( const std::set< dag_node* >& to_process, exec_visitor& vis )
         {
                 std::set< dag_node* >    seen;
                 std::vector< dag_node* > stack;
 
-                for ( dag_node* n : to_process ) {
+                return std::ranges::any_of( to_process, [&]( dag_node* n ) {
                         assert( stack.empty() );
-                        check_for_cycle( *n, seen, stack );
-                }
+                        return check_for_cycle( *n, seen, stack, vis ) != nullptr;
+                } );
         }
 }  // namespace
 
@@ -250,12 +272,13 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
         std::set< dag_node* > to_process;
         for ( dag_node& n : g ) {
                 to_process.insert( &n );
-                vis.on_node_enque( n );
+                vis.after_node_enque( n );
         }
         erec.total_count = to_process.size();
 
-        check_for_cycle( to_process );
-        propagate_invalidation( to_process );
+        if ( has_cycle( to_process, vis ) )
+                throw std::runtime_error( "Cycle detected" );
+        propagate_invalidation( to_process, vis );
 
         std::set< const resource* > used_resources;
         std::vector< run_coro >     coros;
@@ -267,11 +290,11 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                 if ( n != nullptr ) {
                         to_process.erase( n );
 
-                        vis.on_run_start( *n );
                         coros.push_back(
                             run( *n,
                                  used_resources,
-                                 thread_count == 0 ? std::launch::deferred : std::launch::async ) );
+                                 thread_count == 0 ? std::launch::deferred : std::launch::async,
+                                 vis ) );
                 }
 
                 assert( !coros.empty() );
@@ -282,7 +305,7 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                 co_await std::suspend_always{};
         }
 
-        vis.on_exec_end( erec );
+        vis.after_execution( erec );
 
         co_return erec;
 }

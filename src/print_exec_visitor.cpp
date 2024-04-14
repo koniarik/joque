@@ -17,19 +17,19 @@ print_exec_visitor::print_exec_visitor( bool verbose, bool print_out )
 {
 }
 
-void print_exec_visitor::on_node_enque( const dag_node& n )
+void print_exec_visitor::after_node_enque( const dag_node& n )
 {
         if ( n->t.job == nullptr )
                 std::cerr << "Task " << n->name << " has no job" << std::endl;
 };
 
-void print_exec_visitor::on_run_start( const dag_node& n )
+void print_exec_visitor::before_run( const dag_node& n )
 {
         if ( verbose_ )
                 std::cout << "Running task " << n->name << std::endl;
 };
 
-void print_exec_visitor::on_run_end(
+void print_exec_visitor::after_run(
     const exec_record& erec,
     const run_record*  rec,
     const dag_node&    n )
@@ -47,7 +47,7 @@ void print_exec_visitor::on_run_end(
                 format_nested( std::cout, "        ", rec->output );
 };
 
-void print_exec_visitor::on_exec_end( const exec_record& rec )
+void print_exec_visitor::after_execution( const exec_record& rec )
 {
         format_end( std::cout, rec );
 }

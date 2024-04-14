@@ -57,40 +57,57 @@ process process::set_retcode_file( std::filesystem::path p ) &&
         return *this;
 }
 
-bool job_traits< process >::is_invalidated( const process& p )
+inval_result job_traits< process >::is_invalidated( const process& p )
 {
         if ( p.retcode_file ) {
                 if ( !std::filesystem::exists( *p.retcode_file ) )
-                        return true;
+                        return { true, "no retcode file" + p.retcode_file->string() };
+
                 int           last_retcode = 0;
                 std::ifstream retfile( *p.retcode_file );
                 retfile >> last_retcode;
                 if ( last_retcode != 0 )
-                        return true;
+                        return {
+                            true,
+                            std::format(
+                                "last retcode is nonzero: {} in {}",
+                                last_retcode,
+                                p.retcode_file->string() ) };
         }
 
         if ( p.output.empty() )
-                return true;
+                return { true, "no output" };
 
         if ( p.input.empty() ) {
-                return std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
-                        return exists( p );
-                } );
+                bool out_exists =
+                    std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
+                            return exists( p );
+                    } );
+
+                return { out_exists, "output existance" };
         }
 
         auto oldest_output_iter =
             std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
 
         if ( !exists( *oldest_output_iter ) )
-                return true;
+                return { true, "missing output: " + oldest_output_iter->string() };
 
         auto latest_input_iter =
             std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
 
         auto oldest_output_t = path_to_write_time( *oldest_output_iter );
+        auto latest_input_t  = path_to_write_time( *latest_input_iter );
 
-        auto latest_input_t = path_to_write_time( *latest_input_iter );
-        return oldest_output_t <= latest_input_t;
+        return {
+            .invalidated = oldest_output_t <= latest_input_t,
+            .log         = std::format(
+                "oldest output {} t: {} \n latest input {} t: {}",
+                oldest_output_iter->string(),
+                oldest_output_t,
+                latest_input_iter->string(),
+                latest_input_t ),
+        };
 }
 
 run_result job_traits< process >::run( const task&, const process& p )
@@ -100,7 +117,7 @@ run_result job_traits< process >::run( const task&, const process& p )
         reproc::options opts;
         opts.redirect.err.type = reproc::redirect::pipe;
 
-        insert_log( res, "cmd:" + format_cmd( p.cmd ) );
+        res.log = "cmd:" + format_cmd( p.cmd );
 
         std::error_code ec = process.start( p.cmd, opts );
 

@@ -97,7 +97,7 @@ TEST( joque, corner_cases )
         // if no output is given, is invalidated is always true
         EXPECT_TRUE( p.output.empty() );
         EXPECT_FALSE( p.input.empty() );
-        EXPECT_TRUE( job_traits< process >::is_invalidated( p ) );
+        EXPECT_TRUE( job_traits< process >::is_invalidated( p ).invalidated );
 
         p.input.clear();
         p.output.push_back( "/tmp/nothing.txt" );
@@ -105,7 +105,7 @@ TEST( joque, corner_cases )
         // if no input is given, is invalidated is true if file does not exists
         EXPECT_FALSE( p.output.empty() );
         EXPECT_TRUE( p.input.empty() );
-        EXPECT_FALSE( job_traits< process >::is_invalidated( p ) );
+        EXPECT_FALSE( job_traits< process >::is_invalidated( p ).invalidated );
 }
 
 }  // namespace joque

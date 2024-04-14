@@ -61,8 +61,6 @@ struct run_record
         tp end = std::chrono::system_clock::now();
 
         std::list< output_chunk > output;
-
-        std::list< std::string > log;
 };
 
 void map( std::convertible_to< run_record > auto& rec, auto&& f )
@@ -74,7 +72,6 @@ void map( std::convertible_to< run_record > auto& rec, auto&& f )
         f( "start", rec.start );
         f( "end", rec.end );
         f( "output", rec.output );
-        f( "log", rec.log );
 }
 
 /// Record of execution of entire task set. Is valid only as long as the original task set was not

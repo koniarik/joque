@@ -78,6 +78,8 @@ void run_each_after( task_set& ts, const task& t );
 /// Recursively adds run after relationship so that task `t` is run after all tasks in set `ts`.
 void run_after_all_of( task& t, const task_set& ts );
 
+void invalidated_by_all_of( task& t, const task_set& ts );
+
 template < typename T, typename Fun >
 void for_each_task_impl( T& ts, Fun&& f, const std::string& prefix )
 {
