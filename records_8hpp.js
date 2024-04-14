@@ -7,8 +7,7 @@ var records_8hpp =
       [ "retcode", "namespacejoque.html#ae0e9e6adfd7faba5c816a2632ebc3df0", null ],
       [ "start", "namespacejoque.html#aca4b4847dc82f3fadf9c002c0b378289", null ],
       [ "end", "namespacejoque.html#aaa5258498d4efdadf2e178d901f48d7c", null ],
-      [ "output", "namespacejoque.html#abf7017a2ea6f4865832cd3660a7276a9", null ],
-      [ "log", "namespacejoque.html#a0a19a0d6a7c45145df4cd2026a852950", null ]
+      [ "output", "namespacejoque.html#abf7017a2ea6f4865832cd3660a7276a9", null ]
     ] ],
     [ "exec_record", "namespacejoque.html#structjoque_1_1exec__record", [
       [ "stats", "namespacejoque.html#a077f7400b98a4fad069f634194f47538", null ],

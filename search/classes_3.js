@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['jexcp_217',['jexcp',['../structjoque_1_1jexcp.html',1,'joque']]],
   ['job_218',['job',['../structjoque_1_1job.html',1,'joque']]],
   ['job_5fiface_219',['job_iface',['../structjoque_1_1job__iface.html',1,'joque']]],
   ['job_5fptr_220',['job_ptr',['../structjoque_1_1job__ptr.html',1,'joque']]],

@@ -92,12 +92,36 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>add_output()
 : <a class="el" href="structjoque_1_1process.html#a3c83d2a9e375177e756f8b9db98cf367">joque::process</a>
 </li>
+<li>after_dep_inval()
+: <a class="el" href="classjoque_1_1exec__visitor.html#aea7d6d95cfc156f1e21a8caec41e6643">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#abdc703ceab9b0d6448c81fd8ac57535a">joque::print_exec_visitor</a>
+</li>
+<li>after_execution()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a9884e2159fdfcd89d59b8711c9a27a68">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#a10c57a25bcdff4579e163350046adc69">joque::print_exec_visitor</a>
+</li>
+<li>after_job_is_inval()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a016d24a69400d1cb8a2bc9146c8b77e2">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#ad0d8fda5a5857ad16b64b1f9e9a2df0f">joque::print_exec_visitor</a>
+</li>
+<li>after_node_enque()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a17aef2715b473b61530e88a065930a70">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#a592ec1cdae7407c2c9b92d2d3ba4a202">joque::print_exec_visitor</a>
+</li>
+<li>after_run()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a712d2fb7257973756e969f3a594fc3e3">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#a982ea3a205035c631d6464e498ed0663">joque::print_exec_visitor</a>
+</li>
 </ul>
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>back()
 : <a class="el" href="classjoque_1_1bits_1_1list.html#a35558133e13a90203bc7ef6ce7395dc2">joque::bits::list&lt; ListHeader &gt;</a>
+</li>
+<li>before_run()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a6b7505cda427de07ae02a39b07777153">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#a800c069af7a1cb2522c441d38105b1ee">joque::print_exec_visitor</a>
 </li>
 <li>begin()
 : <a class="el" href="classjoque_1_1bits_1_1graph.html#a765d142e41166b6303add9817912056b">joque::bits::graph&lt; NodeType &gt;</a>
@@ -110,9 +134,6 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>clear_if()
 : <a class="el" href="classjoque_1_1bits_1_1graph.html#afde5f0c7fb3ba0e7a7a4b497d5334bac">joque::bits::graph&lt; NodeType &gt;</a>
 , <a class="el" href="classjoque_1_1bits_1_1list.html#a8480b77c68940141ce39d2e1d0ae2272">joque::bits::list&lt; ListHeader &gt;</a>
-</li>
-<li>cycle_excp()
-: <a class="el" href="structjoque_1_1cycle__excp.html#a1c07a2912ac259895bf76d89a164a74a">joque::cycle_excp</a>
 </li>
 </ul>
 
@@ -192,10 +213,10 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="structjoque_1_1exec__coro_1_1promise__type.html#a9fa92e36ef9f44f1ef267fe60a7c7cf4">joque::exec_coro::promise_type</a>
 </li>
 <li>is_invalidated()
-: <a class="el" href="structjoque_1_1job.html#ae839e70ad11492f4d50d08c1c1d3572b">joque::job&lt; T &gt;</a>
-, <a class="el" href="structjoque_1_1job__iface.html#a9c09700afdd5010c4b24df8e0daf287a">joque::job_iface</a>
-, <a class="el" href="structjoque_1_1job__traits.html#a415e33d8c648e79778165b4e7cb20289">joque::job_traits&lt; T &gt;</a>
-, <a class="el" href="structjoque_1_1job__traits_3_01process_01_4.html#a6ca6b595f24695c1f731a353366057f4">joque::job_traits&lt; process &gt;</a>
+: <a class="el" href="structjoque_1_1job.html#a8200f9ba2aa5971d8f6e3f341bd08872">joque::job&lt; T &gt;</a>
+, <a class="el" href="structjoque_1_1job__iface.html#ac9da204746ea1126ef9fba1730ad1d7e">joque::job_iface</a>
+, <a class="el" href="structjoque_1_1job__traits.html#a9eb6f37895b69a275c7b621cd6045077">joque::job_traits&lt; T &gt;</a>
+, <a class="el" href="structjoque_1_1job__traits_3_01process_01_4.html#a68ecda2ff3aad13f5def704b78593a51">joque::job_traits&lt; process &gt;</a>
 </li>
 </ul>
 
@@ -237,21 +258,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
-<li>on_exec_end()
-: <a class="el" href="classjoque_1_1exec__visitor.html#a47f3ae82b13f924c2876cebb02a67dd6">joque::exec_visitor</a>
-, <a class="el" href="classjoque_1_1print__exec__visitor.html#add87df308b435a612c1342a4f9aa254a">joque::print_exec_visitor</a>
+<li>on_detected_cycle()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a3c9323bef1a40f79ca8f0a7cdebd9467">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#a890ea51c6f40518d9ff0146cc80fbbbb">joque::print_exec_visitor</a>
 </li>
-<li>on_node_enque()
-: <a class="el" href="classjoque_1_1exec__visitor.html#afcbc132bdd81f1ada33111e645bf6c86">joque::exec_visitor</a>
-, <a class="el" href="classjoque_1_1print__exec__visitor.html#a9a45f243389aac8a29333cdde3b2b377">joque::print_exec_visitor</a>
-</li>
-<li>on_run_end()
-: <a class="el" href="classjoque_1_1exec__visitor.html#a0154ede464e91c3bb38cb9b87a2d2588">joque::exec_visitor</a>
-, <a class="el" href="classjoque_1_1print__exec__visitor.html#a6788e58d09038ec1cfb8832c9c947e89">joque::print_exec_visitor</a>
-</li>
-<li>on_run_start()
-: <a class="el" href="classjoque_1_1exec__visitor.html#a4e54a57e7bf5a2d80263118fe46e54ac">joque::exec_visitor</a>
-, <a class="el" href="classjoque_1_1print__exec__visitor.html#a2c3dbae94d6d17a085b8b50cdbc3b226">joque::print_exec_visitor</a>
+<li>on_run_log()
+: <a class="el" href="classjoque_1_1exec__visitor.html#a2a7821653922d8f3adcec691edd20e1c">joque::exec_visitor</a>
+, <a class="el" href="classjoque_1_1print__exec__visitor.html#ab8b56989322176692a140f8bc580219e">joque::print_exec_visitor</a>
 </li>
 <li>operator*()
 : <a class="el" href="classjoque_1_1bits_1_1gedge.html#abeed41156eb4a0618085462aef8822e3">joque::bits::gedge&lt; T &gt;</a>
@@ -259,7 +272,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a6fb7df91e3cb9e21b0dda4b8b32ed684">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator++()
-: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#ad0b97707cdf39a6d58f4ef4d47174a24">joque::bits::list_iterator&lt; ListHeader &gt;</a>
+: <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a19f852f00ecc5f30b77b64a5f030a3f9">joque::bits::list_iterator&lt; ListHeader &gt;</a>
 </li>
 <li>operator--()
 : <a class="el" href="classjoque_1_1bits_1_1list__iterator.html#a49ff639f53273ad927c881d5f0f668b7">joque::bits::list_iterator&lt; ListHeader &gt;</a>
@@ -277,7 +290,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="classjoque_1_1bits_1_1gedge.html#a7afe7f7e293156d0f31e99be8d66588b">joque::bits::gedge&lt; T &gt;</a>
 , <a class="el" href="classjoque_1_1bits_1_1gnode.html#a4965ba2cc4675fa2f1e3b40f68da8f25">joque::bits::gnode&lt; T, EdgeType &gt;</a>
 , <a class="el" href="classjoque_1_1bits_1_1graph.html#a5393f581a29b254dc134d7855d289f47">joque::bits::graph&lt; NodeType &gt;</a>
-, <a class="el" href="classjoque_1_1bits_1_1list.html#af42158bd4b3437ae5575a62fff48d2d5">joque::bits::list&lt; ListHeader &gt;</a>
+, <a class="el" href="classjoque_1_1bits_1_1list.html#a25e39a865b9fbb0214a318ff31378cf2">joque::bits::list&lt; ListHeader &gt;</a>
 , <a class="el" href="structjoque_1_1bits_1_1list__header.html#a5212772bcb89ebd46beab025d9aea4e8">joque::bits::list_header&lt; Node, Accessor &gt;</a>
 , <a class="el" href="classjoque_1_1exec__coro.html#a522a2e01000a50094fd1bbd36b543b91">joque::exec_coro</a>
 , <a class="el" href="structjoque_1_1job__ptr.html#a205bc603714efbb2d659c125bdc1cea0">joque::job_ptr</a>
@@ -364,7 +377,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Apr 13 2024 21:13:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 14 2024 14:24:51 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

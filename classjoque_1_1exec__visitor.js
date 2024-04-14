@@ -1,8 +1,12 @@
 var classjoque_1_1exec__visitor =
 [
     [ "~exec_visitor", "classjoque_1_1exec__visitor.html#a40ac41702bd73deda169de32636372d3", null ],
-    [ "on_node_enque", "classjoque_1_1exec__visitor.html#afcbc132bdd81f1ada33111e645bf6c86", null ],
-    [ "on_run_start", "classjoque_1_1exec__visitor.html#a4e54a57e7bf5a2d80263118fe46e54ac", null ],
-    [ "on_run_end", "classjoque_1_1exec__visitor.html#a0154ede464e91c3bb38cb9b87a2d2588", null ],
-    [ "on_exec_end", "classjoque_1_1exec__visitor.html#a47f3ae82b13f924c2876cebb02a67dd6", null ]
+    [ "after_node_enque", "classjoque_1_1exec__visitor.html#a17aef2715b473b61530e88a065930a70", null ],
+    [ "on_detected_cycle", "classjoque_1_1exec__visitor.html#a3c9323bef1a40f79ca8f0a7cdebd9467", null ],
+    [ "after_job_is_inval", "classjoque_1_1exec__visitor.html#a016d24a69400d1cb8a2bc9146c8b77e2", null ],
+    [ "after_dep_inval", "classjoque_1_1exec__visitor.html#aea7d6d95cfc156f1e21a8caec41e6643", null ],
+    [ "before_run", "classjoque_1_1exec__visitor.html#a6b7505cda427de07ae02a39b07777153", null ],
+    [ "on_run_log", "classjoque_1_1exec__visitor.html#a2a7821653922d8f3adcec691edd20e1c", null ],
+    [ "after_run", "classjoque_1_1exec__visitor.html#a712d2fb7257973756e969f3a594fc3e3", null ],
+    [ "after_execution", "classjoque_1_1exec__visitor.html#a9884e2159fdfcd89d59b8711c9a27a68", null ]
 ];

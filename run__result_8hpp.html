@@ -111,8 +111,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjoque_1_1output__chunk.html">joque::output_chunk</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structjoque_1_1run__result"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1run__result">joque::run_result</a></td></tr>
-<tr class="memdesc:structjoque_1_1run__result"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of single traits run call. Information is stored in run record.  <a href="namespacejoque.html#structjoque_1_1run__result">More...</a><br /></td></tr>
+<tr class="memdesc:structjoque_1_1run__result"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: hide this Result of single traits run call.  <a href="namespacejoque.html#structjoque_1_1run__result">More...</a><br /></td></tr>
 <tr class="separator:structjoque_1_1run__result"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structjoque_1_1inval__result"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#structjoque_1_1inval__result">joque::inval_result</a></td></tr>
+<tr class="separator:structjoque_1_1inval__result"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -129,8 +131,6 @@ Functions</h2></td></tr>
 <tr class="separator:ac120499975a8cdfc94c02c238f40c8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f2c958ce0aad4bdbb79d876ba38f01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a14f2c958ce0aad4bdbb79d876ba38f01">joque::insert_err</a> (auto &amp;res, std::string data)</td></tr>
 <tr class="separator:a14f2c958ce0aad4bdbb79d876ba38f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c00876973cb07e15def0e76afb818ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4c00876973cb07e15def0e76afb818ae">joque::insert_log</a> (auto &amp;res, std::string data)</td></tr>
-<tr class="separator:a4c00876973cb07e15def0e76afb818ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structjoque_1_1run__result" id="structjoque_1_1run__result"></a>
@@ -144,7 +144,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Result of single traits run call. Information is stored in run record. </p>
+<div class="textblock"><p>TODO: hide this Result of single traits run call. </p>
+<p>Information is stored in run record. </p>
 </div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::run_result:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -168,7 +169,44 @@ output</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="aa7cc17a2564d222101d81027ae3fc34d"></a>list&lt; string &gt;</td>
+<a id="ae94486f5c0e9dffe6d04aeb3b2b28b9f"></a>string</td>
+<td class="fieldname">
+log</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structjoque_1_1inval__result" id="structjoque_1_1inval__result"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structjoque_1_1inval__result">&#9670;&nbsp;</a></span>joque::inval_result</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct joque::inval_result</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for joque::inval_result:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 2 -->
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a19f0d62769d38d6d14dd82e1f8566c68"></a>bool</td>
+<td class="fieldname">
+invalidated</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a5926c54e14d23e3eed9d1c97292b09b3"></a>string</td>
 <td class="fieldname">
 log</td>
 <td class="fielddoc">
@@ -183,7 +221,7 @@ log</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="run__result_8hpp.html">run_result.hpp</a></li>
-    <li class="footer">Generated on Sat Apr 13 2024 21:13:58 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 14 2024 14:24:51 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -12,10 +12,6 @@ var dir_916b1fbc85adebe3dcf185df84ff0d91 =
     ] ],
     [ "format.hpp", "format_8hpp.html", "format_8hpp" ],
     [ "format_dag.hpp", "format__dag_8hpp.html", "format__dag_8hpp" ],
-    [ "jexcp.hpp", "jexcp_8hpp.html", [
-      [ "jexcp", "structjoque_1_1jexcp.html", null ],
-      [ "cycle_excp", "structjoque_1_1cycle__excp.html", "structjoque_1_1cycle__excp" ]
-    ] ],
     [ "job.hpp", "job_8hpp.html", [
       [ "job_iface", "structjoque_1_1job__iface.html", "structjoque_1_1job__iface" ],
       [ "job", "structjoque_1_1job.html", "structjoque_1_1job" ],
