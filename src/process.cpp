@@ -117,7 +117,7 @@ run_result job_traits< process >::run( const task&, const process& p )
         reproc::options opts;
         opts.redirect.err.type = reproc::redirect::pipe;
 
-        res.log = "cmd:" + format_cmd( p.cmd );
+        res.log = "cmd: " + format_cmd( p.cmd );
 
         std::error_code ec = process.start( p.cmd, opts );
 
