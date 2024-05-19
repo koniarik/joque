@@ -101,6 +101,30 @@ TEST( joque, dep )
         }
 }
 
+TEST( joque, depf )
+{
+        task_set    ts{};
+        std::size_t counter;
+        std::mutex  m;
+
+        auto f = [&]( const task& ) -> run_result {
+                const std::lock_guard _{ m };
+                counter += 1;
+                return { 1 };
+        };
+
+        ts.tasks["a"] = task{ .job = f };
+        ts.tasks["b"] = task{ .job = f, .depends_on = { ts.tasks["a"] } };
+        ts.tasks["c"] = task{ .job = f, .depends_on = { ts.tasks["b"] } };
+
+
+        for ( const unsigned i : { 0u, 4u } ) {
+                exec( ts, i ).run();
+                EXPECT_EQ( counter, 1 );
+                counter = 0;
+        }
+}
+
 TEST( joque, filter )
 {
 

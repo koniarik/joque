@@ -106,6 +106,7 @@ namespace
 
                 if ( any_dep_failed( n.out_edges() ) ) {
                         n->done       = true;
+                        n->failed     = true;
                         result.status = run_status::DEPF;
                         // TODO: fixx
                         // for ( auto& e : filter_edges< ekind::REQUIRES >( n.out_edges() ) )
