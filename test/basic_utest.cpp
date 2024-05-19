@@ -104,7 +104,7 @@ TEST( joque, dep )
 TEST( joque, depf )
 {
         task_set    ts{};
-        std::size_t counter;
+        std::size_t counter = 0;
         std::mutex  m;
 
         auto f = [&]( const task& ) -> run_result {
