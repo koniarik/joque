@@ -23,7 +23,7 @@ TEST( joque, compile_test )
 
         task& t1 =
             ( ts.tasks["my_test"] = task{
-                  .job       = process::derive( "ls", "./", out( "/tmp/out.txt" ) ),
+                  .job = process::derive( "ls", "./", out( "/tmp/out.txt" ) ),
                   .resources = { my_dev },
               } );
 
@@ -97,7 +97,8 @@ TEST( joque, dep )
         for ( const unsigned i : { 0u, 4u } ) {
                 finished.clear();
                 exec( ts, i ).run();
-                EXPECT_EQ( finished.size(), ts.tasks.size() ) << "thread count: " << i;
+                EXPECT_EQ( finished.size(), ts.tasks.size() )
+                    << "thread count: " << i;
         }
 }
 
@@ -134,10 +135,11 @@ TEST( joque, filter )
         std::mutex         w_m;
 
         task_set ts{};
-        ts.tasks["unwanted_test"] = task{ .job = [&]( const task& ) -> run_result {
-                ADD_FAILURE();
-                return { 0 };
-        } };
+        ts.tasks["unwanted_test"] =
+            task{ .job = [&]( const task& ) -> run_result {
+                    ADD_FAILURE();
+                    return { 0 };
+            } };
         for ( const int i : sequence ) {
                 ts.tasks["my_test_" + std::to_string( i )] = task{
                     .job = [&, i = i]( const task& ) -> run_result {

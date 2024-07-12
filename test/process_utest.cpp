@@ -44,7 +44,8 @@ TEST_F( joque_fixture, process_no_update )
 
         task_set ts;
 
-        ts.tasks["p"] = task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
+        ts.tasks["p"] =
+            task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
 
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 
@@ -73,7 +74,8 @@ TEST_F( joque_fixture, update )
 
         task_set ts;
 
-        ts.tasks["p"] = task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
+        ts.tasks["p"] =
+            task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
 
         EXPECT_LT( last_write_time( f2_name ), last_write_time( f1_name ) );
 

@@ -7,7 +7,8 @@ namespace joque
 
 auto out( std::string_view s )
 {
-        return std::list{ output_chunk{ output_chunk::STANDARD, std::string{ s } } };
+        return std::list{
+            output_chunk{ output_chunk::STANDARD, std::string{ s } } };
 }
 
 TEST( joq, fmt_nested )

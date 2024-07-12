@@ -25,7 +25,8 @@ public:
          *
          * doxygen test documentation
          *
-         * @param test this is the only parameter of this test function. It does nothing!
+         * @param test this is the only parameter of this test function. It does
+         * nothing!
          *
          * # Supported elements
          *
@@ -35,11 +36,12 @@ public:
          *
          * The table content is scrollable if the table gets too wide.
          *
-         * | first_column | second_column | third_column | fourth_column | fifth_column |
-         * sixth_column | seventh_column | eighth_column | ninth_column |
+         * | first_column | second_column | third_column | fourth_column |
+         * fifth_column | sixth_column | seventh_column | eighth_column |
+         * ninth_column |
          * |--------------|---------------|--------------|---------------|--------------|--------------|----------------|---------------|--------------|
-         * | 1            | 2             | 3            | 4             | 5            | 6 | 7 | 8
-         * | 9            |
+         * | 1            | 2             | 3            | 4             | 5 | 6
+         * | 7 | 8 | 9            |
          *
          *
          * ## Lists
@@ -55,9 +57,10 @@ public:
          *
          * ## Quotes
          *
-         * > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-         * incididunt > ut labore et dolore magna aliqua. Vitae proin sagittis nisl rhoncus mattis
-         * rhoncus urna neque viverra. > Velit sed ullamcorper morbi tincidunt ornare.
+         * > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+         * eiusmod tempor incididunt > ut labore et dolore magna aliqua. Vitae
+         * proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. >
+         * Velit sed ullamcorper morbi tincidunt ornare.
          * >
          * > Lorem ipsum dolor sit amet consectetur adipiscing elit duis.
          * *- jothepro*
@@ -81,16 +84,18 @@ public:
          *     auto test = std::shared_ptr<Example(5);
          *
          *
-         * Inline `code` elements in a text. *Lorem ipsum dolor sit amet, consectetur adipiscing
-         * elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.* This also works
-         * within multiline text and does not break the `layout`.
+         * Inline `code` elements in a text. *Lorem ipsum dolor sit amet,
+         * consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+         * labore et dolore magna aliqua.* This also works within multiline text
+         * and does not break the `layout`.
          *
          *
          * ## Special hints
          *
          * @warning this is a warning only for demonstration purposes
          *
-         * @note this is a note to show that notes work. They can also include `code`:
+         * @note this is a note to show that notes work. They can also include
+         * `code`:
          * @code{.c}
          * void this_looks_awesome();
          * @endcode

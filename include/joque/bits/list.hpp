@@ -17,7 +17,9 @@ struct list_header;
 /// for `n` being const or non-const.
 template < typename T, typename Node >
 concept header_accessor = requires( Node& n, const Node& cn ) {
-        { T::get( n ) } -> std::convertible_to< list_header< Node, T >& >;
+        {
+                T::get( n )
+        } -> std::convertible_to< list_header< Node, T >& >;
         {
                 T::get( cn )
         } -> std::convertible_to< const list_header< Node, T >& >;
@@ -90,9 +92,9 @@ public:
         using header_type     = ListHeader;
         using difference_type = std::ptrdiff_t;
         using value_type      = std::conditional_t<
-                 is_const,
-                 const typename header_type::node_type,
-                 typename header_type::node_type >;
+            is_const,
+            const typename header_type::node_type,
+            typename header_type::node_type >;
         using accessor_type = typename header_type::accessor_type;
 
         list_iterator() = default;

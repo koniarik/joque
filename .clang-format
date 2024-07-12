@@ -37,7 +37,7 @@ BraceWrapping:
 MaxEmptyLinesToKeep: 2
 BreakBeforeTernaryOperators: false
 BreakConstructorInitializersBeforeComma: true
-ColumnLimit:    100
+ColumnLimit:    80
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 2
 ContinuationIndentWidth: 4
