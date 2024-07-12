@@ -89,11 +89,11 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="contents">
 <a href="exec_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dag_8hpp.html">joque/dag.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exec__coro_8hpp.html">joque/exec_coro.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exec__visitor_8hpp.html">joque/exec_visitor.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="print__exec__visitor_8hpp.html">joque/print_exec_visitor.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="task_8hpp.html">joque/task.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dag_8hpp.html">dag.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exec__coro_8hpp.html">exec_coro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exec__visitor_8hpp.html">exec_visitor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="print__exec__visitor_8hpp.html">print_exec_visitor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="task_8hpp.html">task.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
@@ -101,18 +101,18 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejoque.html">joque</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">   38</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a>(</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp;    ts,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">unsigned</span>           thread_count = std::thread::hardware_concurrency(),</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> std::string&amp; filter       = <span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classjoque_1_1exec__visitor.html">exec_visitor</a>&amp;      vis          = <a class="code" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a> );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">   46</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a>(</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classjoque_1_1bits_1_1graph.html">dag</a>           g,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">unsigned</span>      thread_count = std::thread::hardware_concurrency(),</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classjoque_1_1exec__visitor.html">exec_visitor</a>&amp; vis          = <a class="code" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a> );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">   39</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a>(</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1task__set">task_set</a>&amp;    ts,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">unsigned</span>           thread_count = std::thread::hardware_concurrency(),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> std::string&amp; filter       = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classjoque_1_1exec__visitor.html">exec_visitor</a>&amp;      vis          = <a class="code" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a> );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">   48</a></span>&#160;[[nodiscard]] <a class="code" href="classjoque_1_1exec__coro.html">exec_coro</a> <a class="code" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a>(</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classjoque_1_1bits_1_1graph.html">dag</a>           g,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">unsigned</span>      thread_count = std::thread::hardware_concurrency(),</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classjoque_1_1exec__visitor.html">exec_visitor</a>&amp; vis          = <a class="code" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a> );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1graph_html"><div class="ttname"><a href="classjoque_1_1bits_1_1graph.html">joque::bits::graph</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:146</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__coro_html"><div class="ttname"><a href="classjoque_1_1exec__coro.html">joque::exec_coro</a></div><div class="ttdoc">Coroutine representing one execution of entire task set.</div><div class="ttdef"><b>Definition:</b> exec_coro.hpp:15</div></div>
 <div class="ttc" id="aclassjoque_1_1exec__visitor_html"><div class="ttname"><a href="classjoque_1_1exec__visitor.html">joque::exec_visitor</a></div><div class="ttdoc">Execution visitor interface, used by execution.</div><div class="ttdef"><b>Definition:</b> exec_visitor.hpp:12</div></div>
@@ -120,9 +120,9 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div class="ttc" id="aexec__coro_8hpp_html"><div class="ttname"><a href="exec__coro_8hpp.html">exec_coro.hpp</a></div></div>
 <div class="ttc" id="aexec__visitor_8hpp_html"><div class="ttname"><a href="exec__visitor_8hpp.html">exec_visitor.hpp</a></div></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
-<div class="ttc" id="anamespacejoque_html_acb89a59f33a42bec7e56ae35ecd06530"><div class="ttname"><a href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">joque::PRINT_VISITOR</a></div><div class="ttdeci">print_exec_visitor PRINT_VISITOR</div><div class="ttdoc">Global instnace of print visitor used as default argument for exec</div></div>
+<div class="ttc" id="anamespacejoque_html_acb89a59f33a42bec7e56ae35ecd06530"><div class="ttname"><a href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">joque::PRINT_VISITOR</a></div><div class="ttdeci">print_exec_visitor PRINT_VISITOR</div><div class="ttdoc">Global instance of print visitor used as default argument for exec</div><div class="ttdef"><b>Definition:</b> print_exec_visitor.hpp:47</div></div>
 <div class="ttc" id="anamespacejoque_html_ae7f069c04754480cd23a827dd9abe713"><div class="ttname"><a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">joque::exec</a></div><div class="ttdeci">exec_coro exec(const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)</div><div class="ttdoc">Runs execution of tasks within one taskset.</div></div>
-<div class="ttc" id="anamespacejoque_html_structjoque_1_1task__set"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a></div><div class="ttdoc">A set of tasks that contains either tasks or another sets.</div><div class="ttdef"><b>Definition:</b> task.hpp:56</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1task__set"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1task__set">joque::task_set</a></div><div class="ttdoc">A set of tasks that contains either tasks or another sets.</div><div class="ttdef"><b>Definition:</b> task.hpp:61</div></div>
 <div class="ttc" id="aprint__exec__visitor_8hpp_html"><div class="ttname"><a href="print__exec__visitor_8hpp.html">print_exec_visitor.hpp</a></div></div>
 <div class="ttc" id="atask_8hpp_html"><div class="ttname"><a href="task_8hpp.html">task.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('exec_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun May 19 2024 20:00:38 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 12 2024 19:41:21 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

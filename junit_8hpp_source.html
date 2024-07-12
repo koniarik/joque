@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('junit_8hpp_source.html',''); initResiz
 <div class="contents">
 <a href="junit_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="records_8hpp.html">joque/records.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="records_8hpp.html">records.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
@@ -98,20 +98,20 @@ $(document).ready(function(){initNavTree('junit_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejoque.html">joque</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a>(</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> std::filesystem::path&amp; p,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">const</span> std::string&amp;           ts_name,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>&amp;           exec_rec );</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a>(</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::ostream&amp;      os,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">const</span> std::string&amp; ts_name,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>&amp; exec_rec );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}  <span class="comment">// namespace joque</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a>(</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">const</span> std::filesystem::path&amp; p,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> std::string&amp;           ts_name,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>&amp;           exec_rec );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacejoque.html#ab280046a1246db06f03c39cfb14a0085">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a>(</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::ostream&amp;      os,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> std::string&amp; ts_name,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a>&amp; exec_rec );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}  <span class="comment">// namespace joque</span></div>
 <div class="ttc" id="anamespacejoque_html"><div class="ttname"><a href="namespacejoque.html">joque</a></div><div class="ttdef"><b>Definition:</b> dag.hpp:6</div></div>
 <div class="ttc" id="anamespacejoque_html_ab3de9d15ac1fd3290afa6412e051ca08"><div class="ttname"><a href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">joque::generate_junit_xml</a></div><div class="ttdeci">void generate_junit_xml(const std::filesystem::path &amp;p, const std::string &amp;ts_name, const exec_record &amp;exec_rec)</div><div class="ttdoc">Generates JUnit XML file, expects that execution record represents some form of test execution.</div></div>
-<div class="ttc" id="anamespacejoque_html_structjoque_1_1exec__record"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1exec__record">joque::exec_record</a></div><div class="ttdoc">Record of execution of entire task set.</div><div class="ttdef"><b>Definition:</b> records.hpp:80</div></div>
+<div class="ttc" id="anamespacejoque_html_structjoque_1_1exec__record"><div class="ttname"><a href="namespacejoque.html#structjoque_1_1exec__record">joque::exec_record</a></div><div class="ttdoc">Record of execution of entire task set.</div><div class="ttdef"><b>Definition:</b> records.hpp:70</div></div>
 <div class="ttc" id="arecords_8hpp_html"><div class="ttname"><a href="records_8hpp.html">records.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('junit_8hpp_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="junit_8hpp.html">junit.hpp</a></li>
-    <li class="footer">Generated on Sun May 19 2024 20:00:38 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 12 2024 19:41:21 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

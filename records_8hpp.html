@@ -93,14 +93,16 @@ $(document).ready(function(){initNavTree('records_8hpp.html',''); initResizable(
 <div class="title">records.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="run__result_8hpp_source.html">joque/run_result.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="task_8hpp_source.html">joque/task.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="run__result_8hpp_source.html">run_result.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="task_8hpp_source.html">task.hpp</a>&quot;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;format&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;list&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for records.hpp:</div>
@@ -134,17 +136,17 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">joque::run_status</a> { <br />
-&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ae0aa021e21dddbd6d8cecec71e9cf564">joque::OK</a>
+<tr class="memitem:a2d82fee006543a7bbf6671affd21770f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770f">joque::run_status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770fae0aa021e21dddbd6d8cecec71e9cf564">joque::OK</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ab85df04e922fe1dd3c1f0692faeaacef">joque::SKIP</a>
+&#160;&#160;<a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770fab85df04e922fe1dd3c1f0692faeaacef">joque::SKIP</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8abff2dd0519b79b7bd13cf20b9ad5cb1d">joque::DEPF</a>
+&#160;&#160;<a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770fabff2dd0519b79b7bd13cf20b9ad5cb1d">joque::DEPF</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8ac2759effffc94bb9acc71d69fe3e8a1f">joque::FAIL</a>
+&#160;&#160;<a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770fac2759effffc94bb9acc71d69fe3e8a1f">joque::FAIL</a>
 <br />
  }</td></tr>
-<tr class="separator:a0ea6ef98beae13bf6353ff5e9a50c6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a2d82fee006543a7bbf6671affd21770f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -194,7 +196,7 @@ name</td>
 <td class="fielddoc">
 Full name of the task. </td></tr>
 <tr><td class="fieldtype">
-<a id="a35a628809ed118e72f97afbae59cfc5d"></a><a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a></td>
+<a id="a35a628809ed118e72f97afbae59cfc5d"></a><a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770f">run_status</a></td>
 <td class="fieldname">
 status</td>
 <td class="fielddoc">
@@ -251,7 +253,7 @@ output</td>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a077f7400b98a4fad069f634194f47538"></a><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">map</a>&lt; <a class="el" href="namespacejoque.html#a0ea6ef98beae13bf6353ff5e9a50c6c8">run_status</a>, size_t &gt;</td>
+<a id="a077f7400b98a4fad069f634194f47538"></a><a class="el" href="namespacejoque.html#ad653661fdbccfefc758c582a6f36c80a">map</a>&lt; <a class="el" href="namespacejoque.html#a2d82fee006543a7bbf6671affd21770f">run_status</a>, size_t &gt;</td>
 <td class="fieldname">
 stats</td>
 <td class="fielddoc">
@@ -278,7 +280,7 @@ Run record for each finished task in the set. </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="records_8hpp.html">records.hpp</a></li>
-    <li class="footer">Generated on Sun May 19 2024 20:00:38 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 12 2024 19:41:21 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
