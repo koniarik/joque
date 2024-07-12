@@ -23,7 +23,8 @@ namespace joque
 
 namespace
 {
-        std::filesystem::file_time_type path_to_write_time( const std::filesystem::path& p )
+        std::filesystem::file_time_type
+        path_to_write_time( const std::filesystem::path& p )
         {
                 if ( exists( p ) )
                         return last_write_time( p );
@@ -61,7 +62,9 @@ inval_result job_traits< process >::is_invalidated( const process& p )
 {
         if ( p.retcode_file ) {
                 if ( !std::filesystem::exists( *p.retcode_file ) )
-                        return { true, "no retcode file" + p.retcode_file->string() };
+                        return {
+                            true,
+                            "no retcode file" + p.retcode_file->string() };
 
                 int           last_retcode = 0;
                 std::ifstream retfile( *p.retcode_file );
@@ -79,22 +82,23 @@ inval_result job_traits< process >::is_invalidated( const process& p )
                 return { true, "no output" };
 
         if ( p.input.empty() ) {
-                bool out_exists =
-                    std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
+                bool out_exists = std::ranges::all_of(
+                    p.output, [&]( const std::filesystem::path& p ) {
                             return exists( p );
                     } );
 
                 return { out_exists, "output existance" };
         }
 
-        auto oldest_output_iter =
-            std::ranges::min_element( p.output, std::ranges::less{}, path_to_write_time );
+        auto oldest_output_iter = std::ranges::min_element(
+            p.output, std::ranges::less{}, path_to_write_time );
 
         if ( !exists( *oldest_output_iter ) )
-                return { true, "missing output: " + oldest_output_iter->string() };
+                return {
+                    true, "missing output: " + oldest_output_iter->string() };
 
-        auto latest_input_iter =
-            std::ranges::max_element( p.input, std::ranges::less{}, path_to_write_time );
+        auto latest_input_iter = std::ranges::max_element(
+            p.input, std::ranges::less{}, path_to_write_time );
 
         auto oldest_output_t = path_to_write_time( *oldest_output_iter );
         auto latest_input_t  = path_to_write_time( *latest_input_iter );
@@ -124,19 +128,23 @@ run_result job_traits< process >::run( const task&, const process& p )
         if ( ec ) {
                 if ( ec == std::errc::no_such_file_or_directory )
                         insert_err(
-                            res, "Program not found. Make sure it's available from the PATH.\n" );
+                            res,
+                            "Program not found. Make sure it's available from the PATH.\n" );
                 else
                         insert_err( res, ec.message() );
                 res.retcode = ec.value();
                 return res;
         }
 
-        auto f =
-            [&]( reproc::stream s, const uint8_t* buffer, std::size_t size ) -> std::error_code {
+        auto f = [&]( reproc::stream s,
+                      const uint8_t* buffer,
+                      std::size_t    size ) -> std::error_code {
                 insert(
                     res,
-                    s == reproc::stream::out ? output_chunk::STANDARD : output_chunk::ERROR,
-                    std::string( reinterpret_cast< const char* >( buffer ), size ) );
+                    s == reproc::stream::out ? output_chunk::STANDARD :
+                                               output_chunk::ERROR,
+                    std::string(
+                        reinterpret_cast< const char* >( buffer ), size ) );
                 return {};
         };
         ec = reproc::drain( process, f, f );
@@ -154,7 +162,7 @@ run_result job_traits< process >::run( const task&, const process& p )
         }
 
         if ( res.retcode != 0 ) {
-                std::string cmdline = "cmd: " + format_cmd( p.cmd );
+                const std::string cmdline = "cmd: " + format_cmd( p.cmd );
                 res.output.emplace_front( output_chunk::STANDARD, cmdline );
         }
 

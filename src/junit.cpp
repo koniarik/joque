@@ -22,7 +22,10 @@ namespace
                 std::ostream& os;
                 std::string   name;
 
-                xml_node( std::ostream& os, std::string node_name, auto&&... args )
+                xml_node(
+                    std::ostream& os,
+                    std::string   node_name,
+                    auto&&... args )
                   : os( os )
                   , name( std::move( node_name ) )
                 {
@@ -39,7 +42,9 @@ namespace
 
         auto attr( auto&& fmt, auto&& arg )
         {
-                return std::vformat( std::string{ fmt } + "=\"{}\"", std::make_format_args( arg ) );
+                return std::vformat(
+                    std::string{ fmt } + "=\"{}\"",
+                    std::make_format_args( arg ) );
         };
 }  // namespace
 
@@ -52,7 +57,10 @@ void generate_junit_xml(
         generate_junit_xml( of, ts_name, exec_rec );
 }
 
-void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exec_record& exec_rec )
+void generate_junit_xml(
+    std::ostream&      os,
+    const std::string& ts_name,
+    const exec_record& exec_rec )
 {
         auto t = runtime_sum( exec_rec );
 
@@ -65,7 +73,10 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
             attr( "tests", exec_rec.runs.size() ),
             attr( "failures", exec_rec.stats.at( run_status::FAIL ) ),
             attr( "time", t ),
-            attr( "timestamp", std::format( "{:%FT%TZ}", std::chrono::system_clock::now() ) ) };
+            attr(
+                "timestamp",
+                std::format(
+                    "{:%FT%TZ}", std::chrono::system_clock::now() ) ) };
 
         for ( const run_record& rec : exec_rec.runs ) {
                 const xml_node tc{
@@ -74,7 +85,9 @@ void generate_junit_xml( std::ostream& os, const std::string& ts_name, const exe
                     attr( "name", rec.name ),
                     attr(
                         "time",
-                        std::chrono::duration_cast< sec_time >( rec.end - rec.start ).count() ) };
+                        std::chrono::duration_cast< sec_time >(
+                            rec.end - rec.start )
+                            .count() ) };
 
                 if ( rec.retcode != 0 )
                         os << "<failure message=\"task failed\"/>\n";

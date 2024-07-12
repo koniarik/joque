@@ -110,22 +110,22 @@ public:
                 return content_;
         }
 
-        edge_list& out_edges()
+        [[nodiscard]] edge_list& out_edges()
         {
                 return out_edges_;
         }
 
-        const edge_list& out_edges() const
+        [[nodiscard]] const edge_list& out_edges() const
         {
                 return out_edges_;
         }
 
-        edge_rlist& in_edges()
+        [[nodiscard]] edge_rlist& in_edges()
         {
                 return in_edges_;
         }
 
-        const edge_rlist& in_edges() const
+        [[nodiscard]] const edge_rlist& in_edges() const
         {
                 return in_edges_;
         }

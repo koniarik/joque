@@ -1,15 +1,14 @@
 #pragma once
 
-#include "joque/run_result.hpp"
-
+#include "run_result.hpp"
 
 namespace joque
 {
 
 struct task;
 
-/// Default job traits for all types. Assumes that the type is callable with signature
-/// `run_result(const task*)`.
+/// Default job traits for all types. Assumes that the type is callable with
+/// signature `run_result(const task*)`.
 template < typename T >
 struct job_traits
 {

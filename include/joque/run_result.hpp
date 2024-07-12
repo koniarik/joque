@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <list>
 #include <string>
 #include <string_view>
@@ -10,7 +11,7 @@ namespace joque
 
 struct output_chunk
 {
-        enum type_e
+        enum type_e : uint8_t
         {
                 ERROR,
                 STANDARD

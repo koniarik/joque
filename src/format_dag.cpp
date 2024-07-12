@@ -28,7 +28,9 @@ namespace
         }
 }  // namespace
 
-void format_dag( const dag& d, const std::function< void( std::string_view ) >& f )
+void format_dag(
+    const dag&                                       d,
+    const std::function< void( std::string_view ) >& f )
 {
 
         for ( const dag_node& n : d ) {

@@ -13,15 +13,18 @@ namespace joque
 {
 [[nodiscard]] exec_coro exec_coro::promise_type::get_return_object()
 {
-        return exec_coro{ std::coroutine_handle< promise_type >::from_promise( *this ) };
+        return exec_coro{
+            std::coroutine_handle< promise_type >::from_promise( *this ) };
 }
 
-[[nodiscard]] std::suspend_always exec_coro::promise_type::initial_suspend() const
+[[nodiscard]] std::suspend_always
+exec_coro::promise_type::initial_suspend() const
 {
         return {};
 }
 
-[[nodiscard]] std::suspend_always exec_coro::promise_type::final_suspend() const noexcept
+[[nodiscard]] std::suspend_always
+exec_coro::promise_type::final_suspend() const noexcept
 {
         return {};
 }
@@ -63,7 +66,7 @@ exec_coro& exec_coro::operator=( exec_coro&& other ) noexcept
                 return std::nullopt;
         if ( h_.promise().excep )
                 std::rethrow_exception( h_.promise().excep );
-        std::optional< exec_record >& val = h_.promise().value;
+        const std::optional< exec_record >& val = h_.promise().value;
         return val;
 }
 

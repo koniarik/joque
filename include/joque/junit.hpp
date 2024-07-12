@@ -1,6 +1,6 @@
 #pragma once
 
-#include "joque/records.hpp"
+#include "records.hpp"
 
 #include <filesystem>
 #include <ostream>
@@ -9,7 +9,9 @@
 namespace joque
 {
 
-/// Generates JUnit XML file, expects that execution record represents some form of test execution.
+/// Generates JUnit XML file, expects that execution record represents some form
+/// of test execution.
+///
 /// \param p output file to which the XML should be generated
 /// \param ts_name name of the test suite
 /// \param exec_rec execution record

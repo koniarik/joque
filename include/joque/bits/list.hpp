@@ -12,13 +12,12 @@ namespace joque::bits
 template < typename Node, typename Accessor >
 struct list_header;
 
-/// Header accessor is a type that has static member function `get(n)` which returns reference to
-/// list header stored in node `n`. Function should exist for `n` being const or non-const.
+/// Header accessor is a type that has static member function `get(n)` which
+/// returns reference to list header stored in node `n`. Function should exist
+/// for `n` being const or non-const.
 template < typename T, typename Node >
 concept header_accessor = requires( Node& n, const Node& cn ) {
-        {
-                T::get( n )
-        } -> std::convertible_to< list_header< Node, T >& >;
+        { T::get( n ) } -> std::convertible_to< list_header< Node, T >& >;
         {
                 T::get( cn )
         } -> std::convertible_to< const list_header< Node, T >& >;
@@ -26,10 +25,10 @@ concept header_accessor = requires( Node& n, const Node& cn ) {
 
 // \brief List header (next/prev pointer) for double linked list node.
 //
-// Stores next/prev pointers for list node. Models a pattern where header stores pointers to the
-// type of the node and has static accessor to get appropiate header from next/prev node. This makes
-// it possible to have multiple different headers per node. (And hence each node can be part of
-// multiple linked lists)
+// Stores next/prev pointers for list node. Models a pattern where header stores
+// pointers to the type of the node and has static accessor to get appropiate
+// header from next/prev node. This makes it possible to have multiple different
+// headers per node. (And hence each node can be part of multiple linked lists)
 //
 // \tparam Node type of nodes in the linked list
 // \tparam Accessor
@@ -91,9 +90,9 @@ public:
         using header_type     = ListHeader;
         using difference_type = std::ptrdiff_t;
         using value_type      = std::conditional_t<
-            is_const,
-            const typename header_type::node_type,
-            typename header_type::node_type >;
+                 is_const,
+                 const typename header_type::node_type,
+                 typename header_type::node_type >;
         using accessor_type = typename header_type::accessor_type;
 
         list_iterator() = default;
@@ -136,7 +135,7 @@ public:
         using accessor_type  = typename header_type::accessor_type;
         using iterator       = list_iterator< header_type >;
         using const_iterator = list_iterator< const header_type >;
-        using ptr_type       = list_ptr< node_type, header_type, accessor_type >;
+        using ptr_type = list_ptr< node_type, header_type, accessor_type >;
 
         list()                         = default;
         list( const list& )            = delete;
@@ -251,25 +250,29 @@ list_iterator< ListHeader >::list_iterator( value_type* node )
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*()
+list_iterator< ListHeader >::value_type&
+list_iterator< ListHeader >::operator*()
 {
         return *node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*() const
+list_iterator< ListHeader >::value_type&
+list_iterator< ListHeader >::operator*() const
 {
         return *node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->()
+list_iterator< ListHeader >::value_type*
+list_iterator< ListHeader >::operator->()
 {
         return node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->() const
+list_iterator< ListHeader >::value_type*
+list_iterator< ListHeader >::operator->() const
 {
         return node_;
 }
@@ -332,9 +335,11 @@ list< ListHeader >::const_iterator list< ListHeader >::end() const
 
 template < typename ListHeader >
 template < typename... Args >
-list< ListHeader >::node_type& list< ListHeader >::emplace_front( Args&&... args )
+list< ListHeader >::node_type&
+list< ListHeader >::emplace_front( Args&&... args )
 {
-        return list_emplace_next( ptr_type{ &header_ }, std::forward< Args >( args )... );
+        return list_emplace_next(
+            ptr_type{ &header_ }, std::forward< Args >( args )... );
 }
 
 template < typename ListHeader >

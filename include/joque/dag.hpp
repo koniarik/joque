@@ -1,8 +1,8 @@
 #pragma once
 
-#include "joque/bits/dag.hpp"
-#include "joque/bits/list.hpp"
-#include "joque/task.hpp"
+#include "bits/dag.hpp"
+#include "bits/list.hpp"
+#include "task.hpp"
 
 #include <iosfwd>
 #include <memory>
@@ -18,7 +18,7 @@ using dag_edge = bits::gedge< edge_content >;
 struct node_content;
 using dag_node = bits::gnode< node_content, dag_edge >;
 
-enum class ekind
+enum class ekind : uint8_t
 {
         // A after B => A shall be executed after B finishes
         AFTER,
@@ -48,12 +48,12 @@ auto filter_edges( Edges& e )
 template < typename Node, typename... Args >
 void add_edge( Node& source, Node& target, Args&&... args )
 {
-        auto& e =
-            source.out_edges().emplace_front( source, target, std::forward< Args >( args )... );
+        auto& e = source.out_edges().emplace_front(
+            source, target, std::forward< Args >( args )... );
         target.in_edges().link_front( e );
 }
 
-enum class inval
+enum class inval : uint8_t
 {
         VALID,
         INVALID,
@@ -73,7 +73,8 @@ struct node_content
 
         /// Sets to `true` once the task is scheduled for execution
         bool started = false;
-        /// Sets to `done` if the task finished it's execution (correctly or incorrectly)
+        /// Sets to `done` if the task finished it's execution (correctly or
+        /// incorrectly)
         bool done = false;
         /// Sets to `fail` if the task failed during execution
         bool failed = false;

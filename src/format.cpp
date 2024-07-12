@@ -36,8 +36,10 @@ namespace
         std::string fmt_time()
         {
                 auto now = std::chrono::system_clock::now();
-                auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
-                return std::format( "{}{:%H}{:%M}{:%S}{}", GRAY, s, s, s, RESET );
+                auto s =
+                    std::chrono::time_point_cast< std::chrono::seconds >( now );
+                return std::format(
+                    "{}{:%H}{:%M}{:%S}{}", GRAY, s, s, s, RESET );
         }
 
         std::size_t counter_width( std::size_t max_count )
@@ -52,7 +54,8 @@ namespace
                 std::string count_ws = std::to_string( count_w );
 
                 return std::vformat(
-                    "{:0>" + count_ws + "}", std::make_format_args( count, max_count ) );
+                    "{:0>" + count_ws + "}",
+                    std::make_format_args( count, max_count ) );
         }
 
         std::string fmt_status( std::string_view stat, std::string_view color )
@@ -86,7 +89,8 @@ namespace
                 std::string text;
                 text += std::format(
                     "run: {:<4}",
-                    erec.stats.at( run_status::OK ) + erec.stats.at( run_status::FAIL ) );
+                    erec.stats.at( run_status::OK ) +
+                        erec.stats.at( run_status::FAIL ) );
                 for ( auto&& [key, count] : erec.stats ) {
                         text += "  ";
                         text += std::format(
@@ -122,20 +126,25 @@ void format_nested(
                 os << '\n';
 }
 
-void format_record( std::ostream& os, const exec_record& erec, const run_record& rec )
+void format_record(
+    std::ostream&      os,
+    const exec_record& erec,
+    const run_record&  rec )
 {
         os << fmt_time();
         os << "  ";
-        os << fmt_counter( erec.runs.size() + 1, erec.total_count ) << "/" << GRAY
-           << fmt_counter( erec.total_count, erec.total_count ) << RESET;
+        os << fmt_counter( erec.runs.size() + 1, erec.total_count ) << "/"
+           << GRAY << fmt_counter( erec.total_count, erec.total_count )
+           << RESET;
         os << "  ";
         os << fmt_status( to_sv( rec.status ), STAT_TO_COLOR.at( rec.status ) );
         os << "  ";
         os << fmt_text( rec.name );
         os << "  ";
         if ( rec.status == run_status::OK || rec.status == run_status::FAIL )
-                os << fmt_dur( std::chrono::duration_cast< std::chrono::milliseconds >(
-                    rec.end - rec.start ) );
+                os << fmt_dur(
+                    std::chrono::duration_cast< std::chrono::milliseconds >(
+                        rec.end - rec.start ) );
 
         os << "\n";
 }
@@ -151,7 +160,8 @@ void format_end( std::ostream& os, const exec_record& erec )
 
         os << fmt_time();
         os << "  ";
-        os << std::vformat( "{:>" + count_ws + "}", std::make_format_args( erec.total_count ) );
+        os << std::vformat(
+            "{:>" + count_ws + "}", std::make_format_args( erec.total_count ) );
         os << "  ";
         os << fmt_status( "END", END );
         os << "  ";

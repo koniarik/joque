@@ -36,12 +36,13 @@ public:
         list_ptr( Header* item ) noexcept
         {
                 if ( item != nullptr ) {
-                        auto raw = reinterpret_cast< std::uintptr_t >( item ) | 0x01;
-                        ptr_     = reinterpret_cast< void* >( raw );
+                        auto raw =
+                            reinterpret_cast< std::uintptr_t >( item ) | 0x01;
+                        ptr_ = reinterpret_cast< void* >( raw );
                 }
         }
 
-        mark type() const
+        [[nodiscard]] mark type() const
         {
                 static_assert( alignof( Node ) > 1 );
                 static_assert( alignof( Header ) > 1 );
@@ -59,7 +60,7 @@ public:
         }
 
         template < typename K >
-        const K* get() const
+        [[nodiscard]] const K* get() const
         {
                 return get_impl< const K, K >( *this );
         }
@@ -69,7 +70,7 @@ public:
                 return get_impl< Node, Node >( *this );
         }
 
-        const Node* get_node() const
+        [[nodiscard]] const Node* get_node() const
         {
                 return get_impl< const Node, Node >( *this );
         }
@@ -79,7 +80,7 @@ public:
                 return find_header_impl< Header >( *this );
         }
 
-        const Header* find_header() const
+        [[nodiscard]] const Header* find_header() const
         {
                 return find_header_impl< const Header >( *this );
         }
@@ -106,14 +107,17 @@ private:
         template < typename RetType, typename K >
         static RetType* get_impl( auto& self )
         {
-                static_assert( std::same_as< K, Header > || std::same_as< K, Node > );
+                static_assert(
+                    std::same_as< K, Header > || std::same_as< K, Node > );
 
                 if constexpr ( std::same_as< K, Header > ) {
                         if ( self.type() == mark::HEADER_TYPE )
-                                return reinterpret_cast< RetType* >( self.pure_ptr() );
+                                return reinterpret_cast< RetType* >(
+                                    self.pure_ptr() );
                 } else {
                         if ( self.type() == mark::NODE_TYPE )
-                                return reinterpret_cast< RetType* >( self.pure_ptr() );
+                                return reinterpret_cast< RetType* >(
+                                    self.pure_ptr() );
                 }
                 return nullptr;
         }
@@ -141,7 +145,8 @@ private:
                 return reinterpret_cast< std::uintptr_t >( ptr_ ) & 0x01;
         }
 
-        static constexpr std::uintptr_t mask = ~static_cast< std::uintptr_t >( 0x01 );
+        static constexpr std::uintptr_t mask =
+            ~static_cast< std::uintptr_t >( 0x01 );
 
         [[nodiscard]] void* pure_ptr() const
         {

@@ -2,9 +2,9 @@
 
 #include "joque/task.hpp"
 
-#include <ostream>
 #include <ranges>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 
 namespace joque
@@ -23,7 +23,8 @@ namespace
 
                         add_edge( *index[&t], *index[&d], ekind::AFTER );
                         add_edge( *index[&t], *index[&d], ekind::REQUIRES );
-                        add_edge( *index[&t], *index[&d], ekind::INVALIDATED_BY );
+                        add_edge(
+                            *index[&t], *index[&d], ekind::INVALIDATED_BY );
                 }
         }
 }  // namespace

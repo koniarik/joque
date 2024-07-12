@@ -1,20 +1,22 @@
 #pragma once
 
-#include "joque/run_result.hpp"
-#include "joque/task.hpp"
+#include "run_result.hpp"
+#include "task.hpp"
 
 #include <chrono>
 #include <cstddef>
 #include <format>
 #include <functional>
 #include <list>
+#include <map>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace joque
 {
 
-enum class run_status
+enum class run_status : uint8_t
 {
         OK,
         SKIP,
@@ -22,25 +24,13 @@ enum class run_status
         FAIL,
 };
 
-inline std::string_view to_sv( const run_status& s )
-{
-        switch ( s ) {
-        case joque::run_status::OK:
-                return "OK";
-        case joque::run_status::SKIP:
-                return "SKIP";
-        case joque::run_status::DEPF:
-                return "DEPF";
-        case joque::run_status::FAIL:
-                return "FAIL";
-        }
-        return "";
-}
+std::string_view to_sv( const run_status& s );
 
 using tp = std::chrono::time_point< std::chrono::system_clock >;
 
-/// Record storing information about a run of one task, produced during single execution once for
-/// each task. Note that this valid only as long as the input task set was not modified.
+/// Record storing information about a run of one task, produced during single
+/// execution once for each task. Note that this valid only as long as the input
+/// task set was not modified.
 struct run_record
 {
         /// Executed task
@@ -74,8 +64,8 @@ void map( std::convertible_to< run_record > auto& rec, auto&& f )
         f( "output", rec.output );
 }
 
-/// Record of execution of entire task set. Is valid only as long as the original task set was not
-/// modified.
+/// Record of execution of entire task set. Is valid only as long as the
+/// original task set was not modified.
 struct exec_record
 {
         std::map< run_status, std::size_t > stats{
@@ -102,30 +92,11 @@ void map( std::convertible_to< exec_record > auto& rec, auto&& f )
 
 #ifdef NLOHMANN_JSON_NAMESPACE_VERSION
 
+void to_json( nlohmann::json& j, const output_chunk& rec );
 
-inline void to_json( nlohmann::json& j, const output_chunk& rec )
-{
-        map( rec, [&]( const std::string_view key, auto& val ) {
-                j[key] = val;
-        } );
-}
+void to_json( nlohmann::json& j, const run_record& rec );
 
-inline void to_json( nlohmann::json& j, const run_record& rec )
-{
-        map( rec, [&]< typename T >( const std::string_view key, T& val ) {
-                if constexpr ( std::same_as< T, const tp > )
-                        j[key] = std::format( "{}", val );
-                else if constexpr ( !std::same_as< T, const std::reference_wrapper< const task > > )
-                        j[key] = val;
-        } );
-}
-
-inline void to_json( nlohmann::json& j, const exec_record& rec )
-{
-        map( rec, [&]( const std::string_view key, auto& val ) {
-                j[key] = val;
-        } );
-}
+void to_json( nlohmann::json& j, const exec_record& rec );
 
 #endif
 

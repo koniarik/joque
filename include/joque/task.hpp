@@ -1,6 +1,6 @@
 #pragma once
 
-#include "joque/job.hpp"
+#include "job.hpp"
 
 #include <functional>
 #include <map>
@@ -13,8 +13,8 @@
 namespace joque
 {
 
-/// Abstraction to model resource used by tasks. Out of all tasks that reference single resource,
-/// only one may be executed at any point in time.
+/// Abstraction to model resource used by tasks. Out of all tasks that reference
+/// single resource, only one may be executed at any point in time.
 struct resource
 {
         std::string name;
@@ -29,29 +29,34 @@ struct task
         /// Job being executed for the task
         job_ptr job;
 
-        /// Dependencies of the task - all of these should be executed before this task. In case any
-        /// of these is invalidated, this task is also invalidated.
+        /// Dependencies of the task - all of these should be executed before
+        /// this task. In case any of these is invalidated, this task is also
+        /// invalidated.
         ref_vec< task > depends_on = {};
-        /// Tasks that should be executed before this task. (`depends_on` task are implicitly
-        /// included)
+
+        /// Tasks that should be executed before this task. (`depends_on` task
+        /// are implicitly included)
         ref_vec< task > run_after = {};
 
+        /// Tasks which invalidation also invalidates this task
         ref_vec< task > invalidated_by = {};
 
-        /// Resources used by this task, only one task can access any resource at single point in
-        /// time.
+        /// Resources used by this task, only one task can access any resource
+        /// at single point in time.
         ref_vec< resource > resources = {};
 
-        /// In case this is set to true, this task should not be visible in standard reports.
+        /// In case this is set to true, this task should not be visible in
+        /// standard reports.
         bool hidden = false;
 };
 
 
-/// A set of tasks that contains either tasks or another sets. This forms a tree representing the
-/// entire task set.
+/// A set of tasks that contains either tasks or another sets. This forms a tree
+/// representing the entire task set.
 ///
-/// Convetion is that names inside the structure are concatenated to form a full path. Task `x` in
-/// root set is referred as `//x`. Task `y` in subset `z` is referred as `//z/y`.
+/// Convention is that names inside the structure are concatenated to form a
+/// full path. Task `x` in root set is referred as `//x`. Task `y` in subset `z`
+/// is referred as `//z/y`.
 struct task_set
 {
         /// Tasks of this set
@@ -60,22 +65,27 @@ struct task_set
         std::map< std::string, task_set > sets;
 };
 
-/// Recursively executes function `f` for each task in set `ts`. Function is given full name of the
-/// task and reference to the task. Respects qualifiers of the input task set.
+/// Recursively executes function `f` for each task in set `ts`. Function is
+/// given full name of the task and reference to the task. Respects qualifiers
+/// of the input task set.
 template < typename T, typename Fun >
         requires( std::same_as< std::remove_cvref_t< T >, task_set > )
 void for_each_task( T& ts, Fun&& f );
 
-/// Recursively adds dependency on `dep` for each task in `ts`, except for `dep` itself.
+/// Recursively adds dependency on `dep` for each task in `ts`, except for `dep`
+/// itself.
 void for_each_add_dep( task_set& ts, const task& dep );
 
-/// Recursively adds dependency on each task in `ts` to task `t`, except for `t` itself.
+/// Recursively adds dependency on each task in `ts` to task `t`, except for `t`
+/// itself.
 void add_dep_to_each( task& t, const task_set& ts );
 
-/// Recursively adds run after relationship so that all tasks in `ts` are run after `t`.
+/// Recursively adds run after relationship so that all tasks in `ts` are run
+/// after `t`.
 void run_each_after( task_set& ts, const task& t );
 
-/// Recursively adds run after relationship so that task `t` is run after all tasks in set `ts`.
+/// Recursively adds run after relationship so that task `t` is run after all
+/// tasks in set `ts`.
 void run_after_all_of( task& t, const task_set& ts );
 
 void invalidated_by_all_of( task& t, const task_set& ts );

@@ -25,7 +25,9 @@ public:
                 [[nodiscard]] run_coro get_return_object()
                 {
                         return run_coro{
-                            n, std::coroutine_handle< promise_type >::from_promise( *this ) };
+                            n,
+                            std::coroutine_handle< promise_type >::from_promise(
+                                *this ) };
                 }
 
                 [[nodiscard]] std::suspend_always initial_suspend() const

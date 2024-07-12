@@ -1,7 +1,7 @@
 #pragma once
 
-#include "joque/run_result.hpp"
-#include "joque/traits.hpp"
+#include "run_result.hpp"
+#include "traits.hpp"
 
 #include <memory>
 #include <type_traits>
@@ -15,15 +15,15 @@ struct job_iface
         /// Returns true in case the job is invalidated
         [[nodiscard]] virtual inval_result is_invalidated() = 0;
 
-        /// Executes one run of the task, returns `run_result` with properly filled information.
+        /// Executes one run of the task
         [[nodiscard]] virtual run_result run( const task& ) = 0;
 
         virtual ~job_iface() = default;
 };
 
-/// Implementation of job interface, storing the specific job type that shall be used. Uses
-/// job_traits of the job type to run specific behavior. Use the traits for any customization over
-/// overriding this.
+/// Implementation of job interface, storing the specific job type that shall be
+/// used. Uses job_traits of the job type to run specific behavior. Use the
+/// traits for any customization over overriding this.
 template < typename T >
 struct job : job_iface
 {
@@ -45,8 +45,9 @@ struct job : job_iface
         }
 };
 
-/// Custom unique_ptr wrapper that simplifies syntax of tasks. Allows writing `.job = <expr?>` in
-/// instantiation of new task as long as expr representings something convertible to valid `job<T>`.
+/// Custom unique_ptr wrapper that simplifies syntax of tasks. Allows writing
+/// `.job = <expr?>` in instantiation of new task as long as expr representing
+/// something convertible to valid `job<T>`.
 struct job_ptr : std::unique_ptr< job_iface >
 {
         job_ptr() = default;

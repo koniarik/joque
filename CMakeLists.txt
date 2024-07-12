@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.12)
 
 project(joque)
 
+option(JOQUE_TESTS_ENABLED "Run joque tests" ON)
+
+# XXX: switch to target properties
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(NOT TARGET reproc++)
   include(FetchContent)
@@ -29,10 +30,8 @@ add_library(
   src/junit.cpp
   src/records.cpp
   src/print_exec_visitor.cpp
-  src/process.cpp
   src/task.cpp)
-target_link_libraries(joque PUBLIC reproc++)
-target_include_directories(joque PUBLIC include)
+target_include_directories(joque PUBLIC include/)
 target_compile_options(
   joque
   PRIVATE -Wall
@@ -42,6 +41,13 @@ target_compile_options(
           -Wunused
           -Wconversion
           -Wno-missing-field-initializers)
+
+add_library(joque_reproc STATIC src/process.cpp)
+target_link_libraries(joque_reproc PUBLIC reproc++)
+target_include_directories(joque_reproc PUBLIC include/)
+target_link_libraries(joque PUBLIC joque_reproc)
+
+if(JOQUE_TESTS_ENABLED)
 
 include(CTest)
 if(BUILD_TESTING)
@@ -58,4 +64,9 @@ if(BUILD_TESTING)
   add_joque_test(format_utest)
   add_joque_test(list_utest)
   add_joque_test(list_ptr_utest)
+endif()
+
+add_executable(example example.cpp)
+target_link_libraries(example PUBLIC joque)
+
 endif()

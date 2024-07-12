@@ -36,24 +36,27 @@ namespace
 
         bool all_done( auto& edges )
         {
-                return std::ranges::all_of( edges, [&]( const dag_edge& e ) -> bool {
-                        return e->target->done;
-                } );
+                return std::ranges::all_of(
+                    edges, [&]( const dag_edge& e ) -> bool {
+                            return e->target->done;
+                    } );
         }
 
         bool any_dep_failed( const auto& edges )
         {
                 return std::ranges::any_of(
-                    filter_edges< ekind::REQUIRES >( edges ), [&]( const dag_edge& e ) {
+                    filter_edges< ekind::REQUIRES >( edges ),
+                    [&]( const dag_edge& e ) {
                             return e->target->failed;
                     } );
         }
 
         bool any_resource_used( const auto& resources, const auto& usage_set )
         {
-                return std::ranges::any_of( resources, [&]( const resource& p ) {
-                        return usage_set.contains( &p );
-                } );
+                return std::ranges::any_of(
+                    resources, [&]( const resource& p ) {
+                            return usage_set.contains( &p );
+                    } );
         }
 
         dag_node* find_candidate(
@@ -68,12 +71,14 @@ namespace
 
                 auto es = filter_edges< ekind::AFTER >( n.out_edges() );
                 for ( const dag_edge& e : es ) {
-                        dag_node* res = find_candidate( e->target, seen, used_res );
+                        dag_node* res =
+                            find_candidate( e->target, seen, used_res );
                         if ( res != nullptr )
                                 return res;
                 }
 
-                if ( !all_done( es ) || any_resource_used( n->t.resources, used_res ) )
+                if ( !all_done( es ) ||
+                     any_resource_used( n->t.resources, used_res ) )
                         return nullptr;
                 return &n;
         }
@@ -109,8 +114,10 @@ namespace
                         n->failed     = true;
                         result.status = run_status::DEPF;
                         // TODO: fixx
-                        // for ( auto& e : filter_edges< ekind::REQUIRES >( n.out_edges() ) )
-                        //       result.log.emplace_back( "Failed dep: " + e->target->name );
+                        // for ( auto& e : filter_edges< ekind::REQUIRES >(
+                        // n.out_edges() ) )
+                        //       result.log.emplace_back( "Failed dep: " +
+                        //       e->target->name );
                         co_return result;
                 }
                 if ( n->invalidated == inval::VALID ) {
@@ -139,7 +146,9 @@ namespace
                             }
                             catch ( ... ) {
                                     res.retcode = 1;
-                                    insert_err( res, "job run failed due to an unknown exception" );
+                                    insert_err(
+                                        res,
+                                        "job run failed due to an unknown exception" );
                             }
                             return res;
                     },
@@ -163,7 +172,10 @@ namespace
                 co_return result;
         }
 
-        void cleanup_coros( std::vector< run_coro >& coros, exec_record& erec, exec_visitor& vis )
+        void cleanup_coros(
+            std::vector< run_coro >& coros,
+            exec_record&             erec,
+            exec_visitor&            vis )
         {
                 std::erase_if( coros, [&]( run_coro& coro ) {
                         coro.tick();
@@ -179,7 +191,9 @@ namespace
                 } );
         }
 
-        void propagate_invalidation( std::set< dag_node* >& to_process, exec_visitor& vis )
+        void propagate_invalidation(
+            std::set< dag_node* >& to_process,
+            exec_visitor&          vis )
         {
                 std::set< dag_node* > to_propagate;
                 for ( dag_node* p : to_process ) {
@@ -195,11 +209,14 @@ namespace
                 }
                 std::set< dag_node* > seen = to_propagate;
                 while ( !to_propagate.empty() ) {
-                        dag_node* p = to_propagate.extract( to_propagate.begin() ).value();
+                        dag_node* p =
+                            to_propagate.extract( to_propagate.begin() )
+                                .value();
                         seen.insert( p );
                         assert( ( *p )->invalidated == inval::INVALID );
                         for ( dag_edge& e :
-                              filter_edges< ekind::INVALIDATED_BY >( p->in_edges() ) ) {
+                              filter_edges< ekind::INVALIDATED_BY >(
+                                  p->in_edges() ) ) {
 
                                 if ( seen.contains( &e->source ) )
                                         continue;
@@ -214,7 +231,7 @@ namespace
         std::vector< const dag_node* >
         get_cycle( const std::vector< dag_node* >& stack, dag_node& n )
         {
-                auto                           iter = std::ranges::find( stack, &n );
+                auto iter = std::ranges::find( stack, &n );
                 std::vector< const dag_node* > cycle;
                 cycle.reserve( stack.size() );
                 while ( iter != stack.end() )
@@ -229,7 +246,7 @@ namespace
             exec_visitor&             vis )
         {
                 auto [it1, not_seen] = seen.insert( &n );
-                bool on_stack        = std::ranges::find( stack, &n ) != stack.end();
+                bool on_stack = std::ranges::find( stack, &n ) != stack.end();
                 if ( !not_seen ) {
                         bool has_c = !not_seen && on_stack;
                         return has_c ? &n : nullptr;
@@ -237,30 +254,37 @@ namespace
                 stack.push_back( &n );
                 auto es = filter_edges< ekind::AFTER >( n.out_edges() );
                 for ( auto& e : es )
-                        if ( dag_node* p = check_for_cycle( e->target, seen, stack, vis ) ) {
+                        if ( dag_node* p = check_for_cycle(
+                                 e->target, seen, stack, vis ) ) {
                                 if ( p != &n )
                                         return p;
-                                std::vector< const dag_node* > cycle = get_cycle( stack, *p );
+                                std::vector< const dag_node* > cycle =
+                                    get_cycle( stack, *p );
                                 vis.on_detected_cycle( cycle );
                                 return p;
                         }
                 stack.pop_back();
                 return nullptr;
         }
-        bool has_cycle( const std::set< dag_node* >& to_process, exec_visitor& vis )
+        bool
+        has_cycle( const std::set< dag_node* >& to_process, exec_visitor& vis )
         {
                 std::set< dag_node* >    seen;
                 std::vector< dag_node* > stack;
 
                 return std::ranges::any_of( to_process, [&]( dag_node* n ) {
                         assert( stack.empty() );
-                        return check_for_cycle( *n, seen, stack, vis ) != nullptr;
+                        return check_for_cycle( *n, seen, stack, vis ) !=
+                               nullptr;
                 } );
         }
 }  // namespace
 
-exec_coro
-exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec_visitor& vis )
+exec_coro exec(
+    const task_set&    ts,
+    unsigned           thread_count,
+    const std::string& filter,
+    exec_visitor&      vis )
 {
         dag g;
         insert_set( g, ts, filter );
@@ -294,7 +318,8 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                         coros.push_back(
                             run( *n,
                                  used_resources,
-                                 thread_count == 0 ? std::launch::deferred : std::launch::async,
+                                 thread_count == 0 ? std::launch::deferred :
+                                                     std::launch::async,
                                  vis ) );
                 }
 
