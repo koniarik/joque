@@ -14,6 +14,6 @@ var searchData=
   ['format_5fexec_5fend_56',['format_exec_end',['../namespacejoque.html#a9d4a4563fbc1543d707050586993bb63',1,'joque']]],
   ['format_5fnested_57',['format_nested',['../namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0',1,'joque']]],
   ['format_5frun_5fend_58',['format_run_end',['../namespacejoque.html#a12b38324b2d8aea4454620d16d007594',1,'joque']]],
-  ['format_5frun_5fstart_59',['format_run_start',['../namespacejoque.html#a123ae59001eda64706daa07421439838',1,'joque']]],
+  ['format_5fstatus_59',['format_status',['../namespacejoque.html#a6a78432a8c9e003b71cc7ea5b5a51aa9',1,'joque']]],
   ['front_60',['front',['../classjoque_1_1bits_1_1list.html#af8ac54657a12aee88196bc725e3527a9',1,'joque::bits::list::front() const'],['../classjoque_1_1bits_1_1list.html#aad694db77704a99ae8e5ad685b832dfa',1,'joque::bits::list::front()']]]
 ];

@@ -8,5 +8,6 @@ var classjoque_1_1exec__visitor =
     [ "before_run", "classjoque_1_1exec__visitor.html#a1d5ee93dbc85c843cecef7f29b190a83", null ],
     [ "on_run_log", "classjoque_1_1exec__visitor.html#a2a7821653922d8f3adcec691edd20e1c", null ],
     [ "after_run", "classjoque_1_1exec__visitor.html#a712d2fb7257973756e969f3a594fc3e3", null ],
+    [ "on_tick", "classjoque_1_1exec__visitor.html#a3c9eb5660162b39aa9cdc6bd158358a2", null ],
     [ "after_execution", "classjoque_1_1exec__visitor.html#a9884e2159fdfcd89d59b8711c9a27a68", null ]
 ];

@@ -53,7 +53,7 @@ var namespacejoque =
     [ "format_nested", "namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0", null ],
     [ "format_run_end", "namespacejoque.html#a12b38324b2d8aea4454620d16d007594", null ],
     [ "format_exec_end", "namespacejoque.html#a9d4a4563fbc1543d707050586993bb63", null ],
-    [ "format_run_start", "namespacejoque.html#a123ae59001eda64706daa07421439838", null ],
+    [ "format_status", "namespacejoque.html#a6a78432a8c9e003b71cc7ea5b5a51aa9", null ],
     [ "format_dag", "namespacejoque.html#a6ff910573c74886895eaccde9dafefdf", null ],
     [ "print_dag", "namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a", null ],
     [ "to_json", "namespacejoque.html#a69c9c04f90cfee9b5ff1536a1facf92e", null ],
