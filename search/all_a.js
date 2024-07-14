@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kind_97',['kind',['../namespacejoque.html#ad48573453afc1737b85be891e4d9ef81',1,'joque::edge_content']]]
+  ['kind_98',['kind',['../namespacejoque.html#ad48573453afc1737b85be891e4d9ef81',1,'joque::edge_content']]]
 ];

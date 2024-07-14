@@ -232,11 +232,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0">format_nested</a> (std::ostream &amp;os, std::string_view indent, const std::list&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt; &amp;output)</td></tr>
 <tr class="memdesc:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assumes that <code>msg</code> is multiline message, streams each line into <code>os</code>, and prefixes each line with <code>indent</code> string.  <a href="namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0">More...</a><br /></td></tr>
 <tr class="separator:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6e417cbe50c1bc604a82b7283fa8f6e2">format_record</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
-<tr class="memdesc:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a6e417cbe50c1bc604a82b7283fa8f6e2">More...</a><br /></td></tr>
-<tr class="separator:a6e417cbe50c1bc604a82b7283fa8f6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9008b6ac4dae49a587ff6a8f806db684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9008b6ac4dae49a587ff6a8f806db684">format_end</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec)</td></tr>
-<tr class="separator:a9008b6ac4dae49a587ff6a8f806db684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b38324b2d8aea4454620d16d007594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a12b38324b2d8aea4454620d16d007594">format_run_end</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
+<tr class="memdesc:a12b38324b2d8aea4454620d16d007594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats information about record <code>rec</code> and streams it into <code>os</code>.  <a href="namespacejoque.html#a12b38324b2d8aea4454620d16d007594">More...</a><br /></td></tr>
+<tr class="separator:a12b38324b2d8aea4454620d16d007594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4a4563fbc1543d707050586993bb63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9d4a4563fbc1543d707050586993bb63">format_exec_end</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec)</td></tr>
+<tr class="separator:a9d4a4563fbc1543d707050586993bb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123ae59001eda64706daa07421439838"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a123ae59001eda64706daa07421439838">format_run_start</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;erec, std::string_view name)</td></tr>
+<tr class="separator:a123ae59001eda64706daa07421439838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff910573c74886895eaccde9dafefdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ff910573c74886895eaccde9dafefdf">format_dag</a> (const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d, const std::function&lt; void(std::string_view) &gt; &amp;<a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a>)</td></tr>
 <tr class="separator:a6ff910573c74886895eaccde9dafefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d)</td></tr>
@@ -1144,14 +1146,14 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a6e417cbe50c1bc604a82b7283fa8f6e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e417cbe50c1bc604a82b7283fa8f6e2">&#9670;&nbsp;</a></span>format_record()</h2>
+<a id="a12b38324b2d8aea4454620d16d007594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b38324b2d8aea4454620d16d007594">&#9670;&nbsp;</a></span>format_run_end()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void joque::format_record </td>
+          <td class="memname">void joque::format_run_end </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
@@ -1180,14 +1182,14 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a9008b6ac4dae49a587ff6a8f806db684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9008b6ac4dae49a587ff6a8f806db684">&#9670;&nbsp;</a></span>format_end()</h2>
+<a id="a9d4a4563fbc1543d707050586993bb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4a4563fbc1543d707050586993bb63">&#9670;&nbsp;</a></span>format_exec_end()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void joque::format_end </td>
+          <td class="memname">void joque::format_exec_end </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
@@ -1197,6 +1199,40 @@ template&lt;typename Node , typename... Args&gt; </div>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
           <td class="paramname"><em>erec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a123ae59001eda64706daa07421439838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123ae59001eda64706daa07421439838">&#9670;&nbsp;</a></span>format_run_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::format_run_start </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>erec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1830,7 +1866,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Fri Jul 12 2024 19:42:14 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jul 14 2024 06:40:18 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
