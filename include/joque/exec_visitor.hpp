@@ -51,6 +51,10 @@ public:
         {
         }
 
+        virtual void on_tick( const exec_record& )
+        {
+        }
+
         /// Run after execution finished
         virtual void after_execution( const exec_record& )
         {

@@ -108,7 +108,7 @@ namespace
 
                 assert( n->invalidated != inval::UNKNOWN );
 
-                vis.before_run( erec, *n );
+                vis.before_run( erec, n );
 
                 if ( any_dep_failed( n.out_edges() ) ) {
                         n->done       = true;
@@ -310,7 +310,12 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
         std::vector< run_coro >     coros;
 
         while ( !to_process.empty() ) {
+                vis.on_tick( erec );
                 cleanup_coros( coros, erec, vis );
+                if ( coros.size() >= thread_count ) {
+                        co_await std::suspend_always{};
+                        continue;
+                }
 
                 dag_node* n = find_candidate( to_process, used_resources );
                 if ( n != nullptr ) {
@@ -324,7 +329,6 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
                                                      std::launch::async,
                                  vis ) );
                 }
-
                 assert( !coros.empty() );
                 co_await std::suspend_always{};
         }

@@ -36,10 +36,16 @@ public:
             const run_record*  rec,
             const dag_node&    n ) override;
 
+        void on_tick( const exec_record& erec ) override;
+
         void after_execution( const exec_record& ) override;
 
+        ~print_exec_visitor();
+
 private:
-        bool verbose_;
+        struct impl;
+
+        std::unique_ptr< impl > impl_;
 };
 
 /// Global instance of print visitor used as default argument for `exec`

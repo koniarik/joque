@@ -6,13 +6,22 @@
 #include "joque/traits.hpp"
 
 #include <iostream>
+#include <set>
 #include <string_view>
 
 namespace joque
 {
 
+struct print_exec_visitor::impl
+{
+        bool                        verbose;
+        std::set< dag_node const* > queued;
+};
+
 print_exec_visitor::print_exec_visitor( bool verbose )
-  : verbose_( verbose )
+  : impl_( new print_exec_visitor::impl{
+        .verbose = verbose,
+    } )
 {
 }
 
@@ -33,7 +42,7 @@ void print_exec_visitor::after_job_is_inval(
     const dag_node&  n,
     std::string_view log )
 {
-        if ( !verbose_ )
+        if ( !impl_->verbose )
                 return;
 
         if ( n->invalidated == inval::INVALID ) {
@@ -46,7 +55,7 @@ void print_exec_visitor::after_dep_inval(
     const dag_node& n,
     const dag_node& invalidator )
 {
-        if ( !verbose_ )
+        if ( !impl_->verbose )
                 return;
 
         std::cout << "Task " << n->name << " invalidated"
@@ -56,7 +65,7 @@ void print_exec_visitor::after_dep_inval(
 void print_exec_visitor::on_run_log( const dag_node& n, std::string_view log )
 
 {
-        if ( !verbose_ )
+        if ( !impl_->verbose )
                 return;
         std::cout << "Job " << n->name << " run log: \n";
         std::cout << log << "\n";
@@ -66,9 +75,12 @@ void print_exec_visitor::before_run(
     const exec_record& erec,
     const dag_node&    n )
 {
-        format_run_start( std::cout, erec, n->name );
-        std::cout << "\033[?25l" << "\r\033[?25h";
-        std::cout.flush();
+        if ( !n->t.hidden || impl_->verbose ) {
+                impl_->queued.insert( &n );
+                format_status( std::cout, erec, n->name );
+                std::cout << "\033[?25l" << "\r" << "\033[?25h";
+                std::cout.flush();
+        }
 };
 
 void print_exec_visitor::after_run(
@@ -81,14 +93,26 @@ void print_exec_visitor::after_run(
                           << n->name << std::endl;
                 return;
         }
-        if ( !rec->t.get().hidden || verbose_ || rec->retcode != 0 ) {
+        if ( !rec->t.get().hidden || impl_->verbose || rec->retcode != 0 ) {
                 format_run_end( std::cout, erec, *rec );
                 std::cout << std::endl;
         }
 
-        if ( verbose_ || rec->retcode != 0 )
+        if ( impl_->verbose || rec->retcode != 0 )
                 format_nested( std::cout, "        ", rec->output );
+
+        impl_->queued.erase( &n );
+        if ( !impl_->queued.empty() ) {
+                dag_node const* m = *impl_->queued.begin();
+                format_status( std::cout, erec, ( *m )->name );
+                std::cout << "\033[?25l" << "\r" << "\033[?25h";
+                std::cout.flush();
+        }
 };
+
+void print_exec_visitor::on_tick( const exec_record& )
+{
+}
 
 void print_exec_visitor::after_execution( const exec_record& rec )
 {
@@ -97,5 +121,7 @@ void print_exec_visitor::after_execution( const exec_record& rec )
         format_exec_end( std::cout, rec );
         std::cout << std::endl;
 }
+
+print_exec_visitor::~print_exec_visitor() = default;
 
 }  // namespace joque

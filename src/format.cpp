@@ -87,7 +87,7 @@ namespace
 
                 std::string text;
                 text += std::format(
-                    "run: {:<4}",
+                    "run: {:<9}",
                     erec.stats.at( run_status::OK ) +
                         erec.stats.at( run_status::FAIL ) );
                 for ( auto&& [key, count] : erec.stats ) {
@@ -103,14 +103,18 @@ namespace
                 return text;
         }
 
+        using time_var = std::variant<
+            std::monostate,
+            std::chrono::milliseconds,
+            std::chrono::seconds >;
         void format_line(
-            std::ostream&                              os,
-            std::chrono::sys_seconds                   t,
-            std::size_t                                count,
-            std::optional< std::size_t >               total_count,
-            std::string_view                           status,
-            std::string_view                           text,
-            std::optional< std::chrono::milliseconds > dur )
+            std::ostream&                os,
+            std::chrono::sys_seconds     t,
+            std::size_t                  count,
+            std::optional< std::size_t > total_count,
+            std::string_view             status,
+            std::string_view             text,
+            time_var                     dur )
         {
                 os << fmt_time( t );
                 os << "  ";
@@ -133,14 +137,18 @@ namespace
                 os << "  ";
                 os << text;
                 os << "  ";
-                if ( dur )
-                        os << fmt_dur( *dur );
+                std::visit(
+                    [&]< typename T >( T& item ) {
+                            if constexpr ( !std::same_as< T, std::monostate > )
+                                    os << fmt_dur( item );
+                    },
+                    dur );
         }
 
 
 }  // namespace
 
-void format_run_start(
+void format_status(
     std::ostream&      os,
     const exec_record& erec,
     std::string_view   name )
@@ -154,7 +162,7 @@ void format_run_start(
             erec.total_count,
             "STRT",
             fmt_text( name ),
-            std::nullopt );
+            std::monostate{} );
 }
 
 void format_nested(
@@ -185,7 +193,7 @@ void format_run_end(
         auto now = std::chrono::system_clock::now();
         auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
 
-        std::optional< std::chrono::milliseconds > dur;
+        time_var dur;
         if ( rec.status == run_status::OK || rec.status == run_status::FAIL )
                 dur = std::chrono::duration_cast< std::chrono::milliseconds >(
                     rec.end - rec.start );

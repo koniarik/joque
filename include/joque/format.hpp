@@ -25,7 +25,7 @@ void format_run_end(
 
 void format_exec_end( std::ostream& os, const exec_record& erec );
 
-void format_run_start(
+void format_status(
     std::ostream&      os,
     const exec_record& erec,
     std::string_view   name );

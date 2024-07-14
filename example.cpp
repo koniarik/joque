@@ -9,7 +9,7 @@ joque::task_set gen_tasks( std::size_t n )
         for ( std::size_t i = 0; i < n; i++ ) {
                 res.tasks["task_" + std::to_string( i )] = joque::task{
                     .job = []( const joque::task& ) -> joque::run_result {
-                            std::this_thread::sleep_for( 20ms );
+                            std::this_thread::sleep_for( 200ms );
 
                             return { 0 };
                     },

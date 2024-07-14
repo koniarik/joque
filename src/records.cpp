@@ -1,5 +1,6 @@
 #include "joque/records.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <numeric>
 #include <string_view>
@@ -24,13 +25,16 @@ std::string_view to_sv( const run_status& s )
 
 std::chrono::seconds runtime_sum( const exec_record& erec )
 {
-        return std::chrono::ceil< std::chrono::seconds >( std::accumulate(
-            erec.runs.begin(),
-            erec.runs.end(),
-            std::chrono::system_clock::duration{ 0u },
-            [&]( auto sum, const run_record& rec ) {
-                    return sum + ( rec.end - rec.start );
-            } ) );
+        auto min = std::ranges::min_element(
+            erec.runs, [&]( auto const& lh, auto const& rh ) {
+                    return lh.start < rh.start;
+            } );
+        auto max = std::ranges::max_element(
+            erec.runs, [&]( auto const& lh, auto const& rh ) {
+                    return lh.end < rh.end;
+            } );
+        return std::chrono::ceil< std::chrono::seconds >(
+            max->end - min->start );
 }
 
 }  // namespace joque
