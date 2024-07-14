@@ -17,7 +17,7 @@ add_library(
   src/records.cpp
   src/print_exec_visitor.cpp
   src/task.cpp)
-target_compile_features(joque INTERFACE cxx_std_20)
+target_compile_features(joque PRIVATE cxx_std_20)
 target_include_directories(joque PUBLIC include/)
 target_compile_options(
   joque
@@ -82,6 +82,7 @@ if(JOQUE_TESTS_ENABLED)
     function(add_joque_test test)
       add_executable(joque_${test} test/${test}.cpp)
       add_test(NAME joque_${test}_test COMMAND joque_${test})
+      target_compile_features(joque_${test} PRIVATE cxx_std_20)
       target_link_libraries(joque_${test} PUBLIC joque GTest::GTest GTest::Main)
     endfunction()
 
@@ -93,6 +94,7 @@ if(JOQUE_TESTS_ENABLED)
   endif()
 
   add_executable(example example.cpp)
+  target_compile_features(example PRIVATE cxx_std_20)
   target_link_libraries(example PUBLIC joque)
 
 endif()
