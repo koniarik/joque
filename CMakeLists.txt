@@ -6,9 +6,6 @@ option(JOQUE_TESTS_ENABLED "Run joque tests" ON)
 option(JOQUE_NLOHMANN_JSON_ENABLED "Enable nlohmann json" OFF)
 option(JOQUE_REPROC_ENABLED "Enable reproc++" OFF)
 
-# XXX: switch to target properties
-set(CMAKE_CXX_STANDARD 20)
-
 add_library(
   joque STATIC
   src/dag.cpp
