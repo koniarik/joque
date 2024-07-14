@@ -5,7 +5,6 @@
 
 #include <chrono>
 #include <cstddef>
-#include <format>
 #include <functional>
 #include <list>
 #include <map>
@@ -90,14 +89,5 @@ void map( std::convertible_to< exec_record > auto& rec, auto&& f )
         f( "runs", rec.runs );
 }
 
-#ifdef NLOHMANN_JSON_NAMESPACE_VERSION
-
-void to_json( nlohmann::json& j, const output_chunk& rec );
-
-void to_json( nlohmann::json& j, const run_record& rec );
-
-void to_json( nlohmann::json& j, const exec_record& rec );
-
-#endif
 
 }  // namespace joque

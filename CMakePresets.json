@@ -9,7 +9,9 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "JOQUE_TESTS_ENABLED": "ON"
+        "JOQUE_TESTS_ENABLED": "ON",
+        "JOQUE_REPROC_ENABLED": "ON",
+        "JOQUE_NLOHMANN_JSON_ENABLED": "ON"
       }
     }
   ],
