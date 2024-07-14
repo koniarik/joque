@@ -11,9 +11,8 @@
 namespace joque
 {
 
-print_exec_visitor::print_exec_visitor( bool verbose, bool print_out )
+print_exec_visitor::print_exec_visitor( bool verbose )
   : verbose_( verbose )
-  , print_out_( print_out )
 {
 }
 
@@ -21,12 +20,6 @@ void print_exec_visitor::after_node_enque( const dag_node& n )
 {
         if ( n->t.job == nullptr )
                 std::cerr << "Task " << n->name << " has no job" << std::endl;
-};
-
-void print_exec_visitor::before_run( const dag_node& n )
-{
-        if ( verbose_ )
-                std::cout << "Running task " << n->name << std::endl;
 };
 
 void print_exec_visitor::on_detected_cycle( std::span< const dag_node* > c )
@@ -69,6 +62,15 @@ void print_exec_visitor::on_run_log( const dag_node& n, std::string_view log )
         std::cout << log << "\n";
 }
 
+void print_exec_visitor::before_run(
+    const exec_record& erec,
+    const dag_node&    n )
+{
+        format_run_start( std::cout, erec, n->name );
+        std::cout << "\033[?25l" << "\r\033[?25h";
+        std::cout.flush();
+};
+
 void print_exec_visitor::after_run(
     const exec_record& erec,
     const run_record*  rec,
@@ -80,17 +82,20 @@ void print_exec_visitor::after_run(
                 return;
         }
         if ( !rec->t.get().hidden || verbose_ || rec->retcode != 0 ) {
-                format_record( std::cout, erec, *rec );
-                std::cout.flush();
+                format_run_end( std::cout, erec, *rec );
+                std::cout << std::endl;
         }
 
-        if ( print_out_ || verbose_ || rec->retcode != 0 )
+        if ( verbose_ || rec->retcode != 0 )
                 format_nested( std::cout, "        ", rec->output );
 };
 
 void print_exec_visitor::after_execution( const exec_record& rec )
 {
-        format_end( std::cout, rec );
+
+        std::cout << "\033[?25l" << "\r\033[?25h";
+        format_exec_end( std::cout, rec );
+        std::cout << std::endl;
 }
 
 }  // namespace joque

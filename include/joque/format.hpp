@@ -18,11 +18,16 @@ void format_nested(
     const std::list< output_chunk >& output );
 
 /// Formats information about record `rec` and streams it into `os`.
-void format_record(
+void format_run_end(
     std::ostream&      os,
     const exec_record& erec,
     const run_record&  rec );
 
-void format_end( std::ostream& os, const exec_record& erec );
+void format_exec_end( std::ostream& os, const exec_record& erec );
+
+void format_run_start(
+    std::ostream&      os,
+    const exec_record& erec,
+    std::string_view   name );
 
 }  // namespace joque

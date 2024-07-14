@@ -32,7 +32,7 @@ public:
         }
 
         /// Executed once execution starts for the node.
-        virtual void before_run( const dag_node& )
+        virtual void before_run( const exec_record&, const dag_node& )
         {
         }
 

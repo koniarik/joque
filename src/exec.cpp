@@ -99,6 +99,7 @@ namespace
 
         run_coro
         run( dag_node&                    n,
+             exec_record const&           erec,
              std::set< const resource* >& used_resources,
              std::launch                  l,
              exec_visitor&                vis )
@@ -107,7 +108,7 @@ namespace
 
                 assert( n->invalidated != inval::UNKNOWN );
 
-                vis.before_run( *n );
+                vis.before_run( erec, *n );
 
                 if ( any_dep_failed( n.out_edges() ) ) {
                         n->done       = true;
@@ -317,6 +318,7 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 
                         coros.push_back(
                             run( *n,
+                                 erec,
                                  used_resources,
                                  thread_count == 0 ? std::launch::deferred :
                                                      std::launch::async,

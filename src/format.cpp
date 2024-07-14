@@ -15,29 +15,28 @@ namespace joque
 {
 namespace
 {
-        static constexpr std::string_view GRAY  = "\033[38;5;239m";
+        static constexpr std::string_view START = "\033[38;5;33m";
         static constexpr std::string_view OK    = "\033[38;5;118m";
-        static constexpr std::string_view SKIP  = "\033[38;5;226m";
-        static constexpr std::string_view DEPF  = "\033[38;5;202m";
         static constexpr std::string_view FAIL  = "\033[38;5;196m";
+        static constexpr std::string_view DEPF  = "\033[38;5;202m";
+        static constexpr std::string_view SKIP  = "\033[38;5;226m";
+        static constexpr std::string_view GRAY  = "\033[38;5;239m";
         static constexpr std::string_view END   = "\033[38;5;45m";
         static constexpr std::string_view NONE  = "";
         static constexpr std::string_view RESET = "\033[0m";
         // TODO: hardcoded yikes
         static constexpr std::string_view GRAY_DELIM = "\033[38;5;239m/\033[0m";
 
-        static const std::map< run_status, std::string_view > STAT_TO_COLOR{
-            { run_status::OK, OK },
-            { run_status::SKIP, SKIP },
-            { run_status::DEPF, DEPF },
-            { run_status::FAIL, FAIL },
-        };
+        static const std::map< std::string_view, std::string_view >
+            STAT_TO_COLOR{
+                { "OK", OK },
+                { "SKIP", SKIP },
+                { "DEPF", DEPF },
+                { "FAIL", FAIL },
+                { "STRT", START } };
 
-        std::string fmt_time()
+        std::string fmt_time( const std::chrono::sys_seconds& s )
         {
-                auto now = std::chrono::system_clock::now();
-                auto s =
-                    std::chrono::time_point_cast< std::chrono::seconds >( now );
                 return std::format(
                     "{}{:%H}{:%M}{:%S}{}", GRAY, s, s, s, RESET );
         }
@@ -63,9 +62,9 @@ namespace
                 return std::format( "{}{:>4}{}", color, stat, RESET );
         }
 
-        std::string fmt_text( std::string text )
+        std::string fmt_text( std::string_view text )
         {
-                std::string str = std::format( "{:<60}", text );
+                std::string str = std::format( "{:<60}", text.substr( 0, 60 ) );
 
                 std::size_t index = 0;
                 while ( true ) {
@@ -97,14 +96,66 @@ namespace
                             "{}{}: {}{:<5}",
                             count > 0 ? NONE : GRAY,
                             to_sv( key ),
-                            count > 0 ? STAT_TO_COLOR.at( key ) : GRAY,
+                            count > 0 ? STAT_TO_COLOR.at( to_sv( key ) ) : GRAY,
                             count );
                         text += RESET;
                 }
                 return text;
         }
 
+        void format_line(
+            std::ostream&                              os,
+            std::chrono::sys_seconds                   t,
+            std::size_t                                count,
+            std::optional< std::size_t >               total_count,
+            std::string_view                           status,
+            std::string_view                           text,
+            std::optional< std::chrono::milliseconds > dur )
+        {
+                os << fmt_time( t );
+                os << "  ";
+                if ( total_count ) {
+                        os << fmt_counter( count, *total_count ) << "/" << GRAY
+                           << fmt_counter( *total_count, *total_count )
+                           << RESET;
+                } else {
+                        auto count_w = counter_width( count );
+                        for ( std::size_t i = 0; i < count_w + 1; i++ )
+                                os << " ";
+                        os << fmt_counter( count, count );
+                }
+                os << "  ";
+                auto iter = STAT_TO_COLOR.find( status );
+                if ( iter == STAT_TO_COLOR.end() )
+                        os << fmt_status( status, NONE );
+                else
+                        os << fmt_status( status, iter->second );
+                os << "  ";
+                os << text;
+                os << "  ";
+                if ( dur )
+                        os << fmt_dur( *dur );
+        }
+
+
 }  // namespace
+
+void format_run_start(
+    std::ostream&      os,
+    const exec_record& erec,
+    std::string_view   name )
+{
+        auto now = std::chrono::system_clock::now();
+        auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
+        format_line(
+            os,
+            s,
+            erec.runs.size() + 1,
+            erec.total_count,
+            "STRT",
+            fmt_text( name ),
+            std::nullopt );
+}
 
 void format_nested(
     std::ostream&                    os,
@@ -126,49 +177,43 @@ void format_nested(
                 os << '\n';
 }
 
-void format_record(
+void format_run_end(
     std::ostream&      os,
     const exec_record& erec,
     const run_record&  rec )
 {
-        os << fmt_time();
-        os << "  ";
-        os << fmt_counter( erec.runs.size() + 1, erec.total_count ) << "/"
-           << GRAY << fmt_counter( erec.total_count, erec.total_count )
-           << RESET;
-        os << "  ";
-        os << fmt_status( to_sv( rec.status ), STAT_TO_COLOR.at( rec.status ) );
-        os << "  ";
-        os << fmt_text( rec.name );
-        os << "  ";
-        if ( rec.status == run_status::OK || rec.status == run_status::FAIL )
-                os << fmt_dur(
-                    std::chrono::duration_cast< std::chrono::milliseconds >(
-                        rec.end - rec.start ) );
+        auto now = std::chrono::system_clock::now();
+        auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
 
-        os << "\n";
+        std::optional< std::chrono::milliseconds > dur;
+        if ( rec.status == run_status::OK || rec.status == run_status::FAIL )
+                dur = std::chrono::duration_cast< std::chrono::milliseconds >(
+                    rec.end - rec.start );
+
+        format_line(
+            os,
+            s,
+            erec.runs.size() + 1,
+            erec.total_count,
+            to_sv( rec.status ),
+            fmt_text( rec.name ),
+            dur );
 }
 
-void format_end( std::ostream& os, const exec_record& erec )
+void format_exec_end( std::ostream& os, const exec_record& erec )
 {
-        using namespace std::string_literals;
 
-        auto        max_c    = erec.total_count;
-        auto        count_w  = counter_width( max_c );
-        std::string count_ws = std::to_string( count_w * 2 + 1 );
+        auto now = std::chrono::system_clock::now();
+        auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
 
-
-        os << fmt_time();
-        os << "  ";
-        os << std::vformat(
-            "{:>" + count_ws + "}", std::make_format_args( erec.total_count ) );
-        os << "  ";
-        os << fmt_status( "END", END );
-        os << "  ";
-        os << end_text( erec ) << " ";
-        os << "  ";
-        os << fmt_dur( runtime_sum( erec ) );
-        os << std::endl;
+        format_line(
+            os,
+            s,
+            erec.total_count,
+            std::nullopt,
+            END,
+            end_text( erec ),
+            runtime_sum( erec ) );
 }
 
 }  // namespace joque
