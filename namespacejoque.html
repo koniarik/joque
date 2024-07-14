@@ -243,6 +243,12 @@ Functions</h2></td></tr>
 <tr class="separator:a6ff910573c74886895eaccde9dafefdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a646df1df475ba3ef43de01c38e5b1b5a">print_dag</a> (std::ostream &amp;os, const <a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;d)</td></tr>
 <tr class="separator:a646df1df475ba3ef43de01c38e5b1b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69c9c04f90cfee9b5ff1536a1facf92e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a69c9c04f90cfee9b5ff1536a1facf92e">to_json</a> (nlohmann::json &amp;j, const <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &amp;rec)</td></tr>
+<tr class="separator:a69c9c04f90cfee9b5ff1536a1facf92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6155333a28ea61baa72cbf1e0425db6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6155333a28ea61baa72cbf1e0425db6e">to_json</a> (nlohmann::json &amp;j, const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;rec)</td></tr>
+<tr class="separator:a6155333a28ea61baa72cbf1e0425db6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8821fc1bec6a7ff01e068f957db26da0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a8821fc1bec6a7ff01e068f957db26da0">to_json</a> (nlohmann::json &amp;j, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;rec)</td></tr>
+<tr class="separator:a8821fc1bec6a7ff01e068f957db26da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3de9d15ac1fd3290afa6412e051ca08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">generate_junit_xml</a> (const std::filesystem::path &amp;p, const std::string &amp;ts_name, const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;exec_rec)</td></tr>
 <tr class="memdesc:ab3de9d15ac1fd3290afa6412e051ca08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates JUnit XML file, expects that execution record represents some form of test execution.  <a href="namespacejoque.html#ab3de9d15ac1fd3290afa6412e051ca08">More...</a><br /></td></tr>
 <tr class="separator:ab3de9d15ac1fd3290afa6412e051ca08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1300,6 +1306,90 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a69c9c04f90cfee9b5ff1536a1facf92e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69c9c04f90cfee9b5ff1536a1facf92e">&#9670;&nbsp;</a></span>to_json() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::to_json </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &amp;&#160;</td>
+          <td class="paramname"><em>rec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6155333a28ea61baa72cbf1e0425db6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6155333a28ea61baa72cbf1e0425db6e">&#9670;&nbsp;</a></span>to_json() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::to_json </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1run__record">run_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>rec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8821fc1bec6a7ff01e068f957db26da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8821fc1bec6a7ff01e068f957db26da0">&#9670;&nbsp;</a></span>to_json() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void joque::to_json </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1exec__record">exec_record</a> &amp;&#160;</td>
+          <td class="paramname"><em>rec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab3de9d15ac1fd3290afa6412e051ca08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3de9d15ac1fd3290afa6412e051ca08">&#9670;&nbsp;</a></span>generate_junit_xml() <span class="overload">[1/2]</span></h2>
 
@@ -1866,7 +1956,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Jul 14 2024 06:40:18 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jul 14 2024 07:15:06 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

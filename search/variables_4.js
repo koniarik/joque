@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['header_5faccessor_364',['header_accessor',['../namespacejoque_1_1bits.html#ad19d5c1e40e4e1477951ac2d8be52412',1,'joque::bits']]],
-  ['hidden_365',['hidden',['../namespacejoque.html#a6339748bbc1b731785446cfa91a3798e',1,'joque::task']]]
+  ['header_5faccessor_368',['header_accessor',['../namespacejoque_1_1bits.html#ad19d5c1e40e4e1477951ac2d8be52412',1,'joque::bits']]],
+  ['hidden_369',['hidden',['../namespacejoque.html#a6339748bbc1b731785446cfa91a3798e',1,'joque::task']]]
 ];
