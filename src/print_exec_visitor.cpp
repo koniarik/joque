@@ -120,6 +120,7 @@ void print_exec_visitor::after_execution( const exec_record& rec )
         std::cout << "\033[?25l" << "\r\033[?25h";
         format_exec_end( std::cout, rec );
         std::cout << std::endl;
+        impl_->queued.clear();
 }
 
 print_exec_visitor::~print_exec_visitor() = default;

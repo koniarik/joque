@@ -312,7 +312,7 @@ exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
         while ( !to_process.empty() ) {
                 vis.on_tick( erec );
                 cleanup_coros( coros, erec, vis );
-                if ( coros.size() >= thread_count ) {
+                if ( coros.size() >= thread_count && thread_count != 0 ) {
                         co_await std::suspend_always{};
                         continue;
                 }
