@@ -29,20 +29,12 @@ target_compile_options(
           -Wconversion
           -Wno-missing-field-initializers)
 
-if(JOQUE_REPROC_ENABLED)
-  include(FetchContent)
+include(cmake/CPM.cmake)
 
+if(JOQUE_REPROC_ENABLED)
   set(REPROC++ ON)
-  FetchContent_Declare(
-    reproc
-    SYSTEM
-    GIT_REPOSITORY https://github.com/DaanDeMeyer/reproc/
-    GIT_TAG v14.2.4
-    GIT_SHALLOW TRUE
-    FIND_PACKAGE_ARGS NAMES reproc
-    )
-  FetchContent_MakeAvailable(reproc)
-  target_compile_options(reproc++ PRIVATE -Wno-changes-meaning)
+
+  CPMAddPackage("gh:DaanDeMeyer/reproc@14.2.5")
 
   add_library(joque_reproc STATIC src/process.cpp)
   target_compile_features(joque_reproc PRIVATE cxx_std_20)
@@ -53,17 +45,7 @@ if(JOQUE_REPROC_ENABLED)
 endif()
 
 if(JOQUE_NLOHMANN_JSON_ENABLED)
-  include(FetchContent)
-
-  FetchContent_Declare(
-      nlohmann_json 
-      SYSTEM
-      GIT_REPOSITORY https://github.com/nlohmann/json.git
-      GIT_TAG v3.11.3
-      GIT_SHALLOW TRUE
-      FIND_PACKAGE_ARGS NAMES nlohmann_json
-  )
-  FetchContent_MakeAvailable(nlohmann_json)
+  CPMAddPackage("gh:nlohmann/json@3.10.5")
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_features(joque_json PRIVATE cxx_std_20)
@@ -77,13 +59,14 @@ if(JOQUE_TESTS_ENABLED)
 
   include(CTest)
   if(BUILD_TESTING)
+    CPMAddPackage("gh:nlohmann/json@3.10.5")
     find_package(GTest REQUIRED)
 
     function(add_joque_test test)
       add_executable(joque_${test} test/${test}.cpp)
       add_test(NAME joque_${test}_test COMMAND joque_${test})
       target_compile_features(joque_${test} PRIVATE cxx_std_20)
-      target_link_libraries(joque_${test} PUBLIC joque GTest::GTest GTest::Main)
+      target_link_libraries(joque_${test} PUBLIC joque gtest GTest::Main)
     endfunction()
 
     add_joque_test(basic_utest)
