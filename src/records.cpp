@@ -25,6 +25,8 @@ std::string_view to_sv( const run_status& s )
 
 std::chrono::seconds runtime_sum( const exec_record& erec )
 {
+        if ( erec.runs.empty() )
+                return std::chrono::seconds{ 0 };
         auto min = std::ranges::min_element(
             erec.runs, [&]( auto const& lh, auto const& rh ) {
                     return lh.start < rh.start;
