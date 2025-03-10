@@ -45,7 +45,7 @@ if(JOQUE_REPROC_ENABLED)
 endif()
 
 if(JOQUE_NLOHMANN_JSON_ENABLED)
-  cpmaddpackage("gh:nlohmann/json@3.10.5")
+  cpmaddpackage("gh:nlohmann/json@3.11.3")
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_features(joque_json PRIVATE cxx_std_20)
