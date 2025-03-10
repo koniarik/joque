@@ -59,14 +59,20 @@ if(JOQUE_TESTS_ENABLED)
 
   include(CTest)
   if(BUILD_TESTING)
-    cpmaddpackage("gh:nlohmann/json@3.10.5")
-    find_package(GTest REQUIRED)
+    cpmaddpackage("gh:nlohmann/json@3.11.3")
+    CPMAddPackage(
+    NAME googletest
+    GITHUB_REPOSITORY google/googletest
+    GIT_TAG release-1.12.1
+    VERSION 1.12.1
+    OPTIONS "INSTALL_GTEST OFF" "gtest_force_shared_crt"
+    )
 
     function(add_joque_test test)
       add_executable(joque_${test} test/${test}.cpp)
       add_test(NAME joque_${test}_test COMMAND joque_${test})
       target_compile_features(joque_${test} PRIVATE cxx_std_20)
-      target_link_libraries(joque_${test} PUBLIC joque gtest GTest::Main)
+      target_link_libraries(joque_${test} PUBLIC joque gtest gtest_main)
     endfunction()
 
     add_joque_test(basic_utest)
