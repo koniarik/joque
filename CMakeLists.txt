@@ -70,7 +70,7 @@ if(JOQUE_TESTS_ENABLED)
 
   file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
       add_executable(joque_utest ${TESTS})
-      add_test(NAME joque_utest COMMAND joque_utests)
+      add_test(NAME joque_utest COMMAND joque_utest)
       target_compile_features(joque_utest PRIVATE cxx_std_20)
       target_link_libraries(joque_utest PUBLIC joque gtest gtest_main)
 
