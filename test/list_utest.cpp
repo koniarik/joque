@@ -25,23 +25,25 @@
 
 namespace joque::bits
 {
-
-struct taccessor;
-
-struct tnode
+namespace
 {
-        int i;
+        struct taccessor;
 
-        list_header< tnode, taccessor > lheader = {};
-};
-
-struct taccessor
-{
-        static auto& get( auto& n )
+        struct tnode
         {
-                return n.lheader;
-        }
-};
+                int i;
+
+                list_header< tnode, taccessor > lheader = {};
+        };
+
+        struct taccessor
+        {
+                static auto& get( auto& n )
+                {
+                        return n.lheader;
+                }
+        };
+}  // namespace
 
 using titer = list_iterator< list_header< tnode, taccessor > >;
 using tlist = list< list_header< tnode, taccessor > >;

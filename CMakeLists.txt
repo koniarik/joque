@@ -68,18 +68,12 @@ if(JOQUE_TESTS_ENABLED)
     OPTIONS "INSTALL_GTEST OFF" "gtest_force_shared_crt"
     )
 
-    function(add_joque_test test)
-      add_executable(joque_${test} test/${test}.cpp)
-      add_test(NAME joque_${test}_test COMMAND joque_${test})
-      target_compile_features(joque_${test} PRIVATE cxx_std_20)
-      target_link_libraries(joque_${test} PUBLIC joque gtest gtest_main)
-    endfunction()
+  file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
+      add_executable(joque_utest ${TESTS})
+      add_test(NAME joque_utest COMMAND joque_utests)
+      target_compile_features(joque_utest PRIVATE cxx_std_20)
+      target_link_libraries(joque_utest PUBLIC joque gtest gtest_main)
 
-    add_joque_test(basic_utest)
-    add_joque_test(process_utest)
-    add_joque_test(format_utest)
-    add_joque_test(list_utest)
-    add_joque_test(list_ptr_utest)
   endif()
 
   add_executable(example example.cpp)

@@ -25,29 +25,31 @@
 
 namespace joque::bits
 {
-
-struct taccessor;
-
-struct tnode
+namespace
 {
-        int i;
+        struct taccessor;
 
-        list_header< tnode, taccessor > lheader = {};
-};
-
-struct taccessor
-{
-        static auto& get( auto& n )
+        struct tnode
         {
-                return n.lheader;
-        }
-};
+                int i;
+
+                list_header< tnode, taccessor > lheader = {};
+        };
+
+        struct taccessor
+        {
+                static auto& get( auto& n )
+                {
+                        return n.lheader;
+                }
+        };
+}  // namespace
 
 using tlist   = list< list_header< tnode, taccessor > >;
 using tptr    = typename tlist::ptr_type;
 using theader = typename tlist::header_type;
 
-TEST( list_header, empty )
+TEST( list_header_ptr, empty )
 {
         tptr        p;
         const tptr& cp = p;
@@ -102,7 +104,7 @@ TEST( list_header, empty )
         }
 }
 
-TEST( list_header, node )
+TEST( list_header_ptr, node )
 {
         tnode n;
 
@@ -150,7 +152,7 @@ TEST( list_header, node )
         }
 }
 
-TEST( list_header, header )
+TEST( list_header_ptr, header )
 {
         theader h;
 
