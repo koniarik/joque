@@ -1,3 +1,24 @@
+/// MIT License
+///
+/// Copyright (c) 2025 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
 #pragma once
 
 #include "job.hpp"
@@ -50,7 +71,6 @@ struct task
         bool hidden = false;
 };
 
-
 /// A set of tasks that contains either tasks or another sets. This forms a tree
 /// representing the entire task set.
 ///
@@ -69,7 +89,7 @@ struct task_set
 /// given full name of the task and reference to the task. Respects qualifiers
 /// of the input task set.
 template < typename T, typename Fun >
-        requires( std::same_as< std::remove_cvref_t< T >, task_set > )
+requires( std::same_as< std::remove_cvref_t< T >, task_set > )
 void for_each_task( T& ts, Fun&& f );
 
 /// Recursively adds dependency on `dep` for each task in `ts`, except for `dep`
@@ -100,7 +120,7 @@ void for_each_task_impl( T& ts, Fun&& f, const std::string& prefix )
 }
 
 template < typename T, typename Fun >
-        requires( std::same_as< std::remove_cvref_t< T >, task_set > )
+requires( std::same_as< std::remove_cvref_t< T >, task_set > )
 void for_each_task( T& ts, Fun&& f )
 {
         for_each_task_impl( ts, f, "/" );

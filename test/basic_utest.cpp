@@ -1,3 +1,24 @@
+/// MIT License
+///
+/// Copyright (c) 2025 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
 #include "joque/exec.hpp"
 #include "joque/process.hpp"
 #include "joque/run_result.hpp"
@@ -23,7 +44,7 @@ TEST( joque, compile_test )
 
         task& t1 =
             ( ts.tasks["my_test"] = task{
-                  .job = process::derive( "ls", "./", out( "/tmp/out.txt" ) ),
+                  .job       = process::derive( "ls", "./", out( "/tmp/out.txt" ) ),
                   .resources = { my_dev },
               } );
 
@@ -97,8 +118,7 @@ TEST( joque, dep )
         for ( const unsigned i : { 0u, 4u } ) {
                 finished.clear();
                 exec( ts, i ).run();
-                EXPECT_EQ( finished.size(), ts.tasks.size() )
-                    << "thread count: " << i;
+                EXPECT_EQ( finished.size(), ts.tasks.size() ) << "thread count: " << i;
         }
 }
 
@@ -118,7 +138,6 @@ TEST( joque, depf )
         ts.tasks["b"] = task{ .job = f, .depends_on = { ts.tasks["a"] } };
         ts.tasks["c"] = task{ .job = f, .depends_on = { ts.tasks["b"] } };
 
-
         for ( const unsigned i : { 0u, 4u } ) {
                 exec( ts, i ).run();
                 EXPECT_EQ( counter, 1 );
@@ -135,11 +154,10 @@ TEST( joque, filter )
         std::mutex         w_m;
 
         task_set ts{};
-        ts.tasks["unwanted_test"] =
-            task{ .job = [&]( const task& ) -> run_result {
-                    ADD_FAILURE();
-                    return { 0 };
-            } };
+        ts.tasks["unwanted_test"] = task{ .job = [&]( const task& ) -> run_result {
+                ADD_FAILURE();
+                return { 0 };
+        } };
         for ( const int i : sequence ) {
                 ts.tasks["my_test_" + std::to_string( i )] = task{
                     .job = [&, i = i]( const task& ) -> run_result {
@@ -150,7 +168,6 @@ TEST( joque, filter )
                     .run_after = { ts.tasks["unwanted_test"] },
                 };
         }
-
 
         for ( const unsigned i : { 0u, 4u } ) {
                 result.clear();

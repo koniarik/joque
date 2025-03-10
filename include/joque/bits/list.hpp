@@ -1,3 +1,24 @@
+/// MIT License
+///
+/// Copyright (c) 2025 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
 #pragma once
 
 #include "joque/bits/list_ptr.hpp"
@@ -17,12 +38,8 @@ struct list_header;
 /// for `n` being const or non-const.
 template < typename T, typename Node >
 concept header_accessor = requires( Node& n, const Node& cn ) {
-        {
-                T::get( n )
-        } -> std::convertible_to< list_header< Node, T >& >;
-        {
-                T::get( cn )
-        } -> std::convertible_to< const list_header< Node, T >& >;
+        { T::get( n ) } -> std::convertible_to< list_header< Node, T >& >;
+        { T::get( cn ) } -> std::convertible_to< const list_header< Node, T >& >;
 };
 
 // \brief List header (next/prev pointer) for double linked list node.
@@ -49,10 +66,12 @@ struct list_header
 
         list_header( const list_header& )            = delete;
         list_header& operator=( const list_header& ) = delete;
+
         list_header( list_header&& other ) noexcept
         {
                 *this = std::move( other );
         }
+
         list_header& operator=( list_header&& other ) noexcept
         {
                 if ( this == &other )
@@ -92,9 +111,9 @@ public:
         using header_type     = ListHeader;
         using difference_type = std::ptrdiff_t;
         using value_type      = std::conditional_t<
-            is_const,
-            const typename header_type::node_type,
-            typename header_type::node_type >;
+                 is_const,
+                 const typename header_type::node_type,
+                 typename header_type::node_type >;
         using accessor_type = typename header_type::accessor_type;
 
         list_iterator() = default;
@@ -137,7 +156,7 @@ public:
         using accessor_type  = typename header_type::accessor_type;
         using iterator       = list_iterator< header_type >;
         using const_iterator = list_iterator< const header_type >;
-        using ptr_type = list_ptr< node_type, header_type, accessor_type >;
+        using ptr_type       = list_ptr< node_type, header_type, accessor_type >;
 
         list()                         = default;
         list( const list& )            = delete;
@@ -155,6 +174,7 @@ public:
         {
                 return *begin();
         }
+
         [[nodiscard]] const node_type& front() const
         {
                 return *begin();
@@ -164,6 +184,7 @@ public:
         {
                 return *++end();
         }
+
         [[nodiscard]] const node_type& back() const
         {
                 return *++end();
@@ -183,7 +204,6 @@ public:
 private:
         header_type header_;
 };
-
 
 template < typename Node, typename Accessor >
 list_header< Node, Accessor >::~list_header()
@@ -252,29 +272,25 @@ list_iterator< ListHeader >::list_iterator( value_type* node )
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type&
-list_iterator< ListHeader >::operator*()
+list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*()
 {
         return *node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type&
-list_iterator< ListHeader >::operator*() const
+list_iterator< ListHeader >::value_type& list_iterator< ListHeader >::operator*() const
 {
         return *node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type*
-list_iterator< ListHeader >::operator->()
+list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->()
 {
         return node_;
 }
 
 template < typename ListHeader >
-list_iterator< ListHeader >::value_type*
-list_iterator< ListHeader >::operator->() const
+list_iterator< ListHeader >::value_type* list_iterator< ListHeader >::operator->() const
 {
         return node_;
 }
@@ -337,11 +353,9 @@ list< ListHeader >::const_iterator list< ListHeader >::end() const
 
 template < typename ListHeader >
 template < typename... Args >
-list< ListHeader >::node_type&
-list< ListHeader >::emplace_front( Args&&... args )
+list< ListHeader >::node_type& list< ListHeader >::emplace_front( Args&&... args )
 {
-        return list_emplace_next(
-            ptr_type{ &header_ }, std::forward< Args >( args )... );
+        return list_emplace_next( ptr_type{ &header_ }, std::forward< Args >( args )... );
 }
 
 template < typename ListHeader >
@@ -371,6 +385,5 @@ list< ListHeader >::~list()
 {
         list_delete_all_next( header_ );
 }
-
 
 }  // namespace joque::bits

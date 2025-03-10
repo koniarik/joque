@@ -34,7 +34,7 @@ include(cmake/CPM.cmake)
 if(JOQUE_REPROC_ENABLED)
   set(REPROC++ ON)
 
-  CPMAddPackage("gh:DaanDeMeyer/reproc@14.2.5")
+  cpmaddpackage("gh:DaanDeMeyer/reproc@14.2.5")
 
   add_library(joque_reproc STATIC src/process.cpp)
   target_compile_features(joque_reproc PRIVATE cxx_std_20)
@@ -45,7 +45,7 @@ if(JOQUE_REPROC_ENABLED)
 endif()
 
 if(JOQUE_NLOHMANN_JSON_ENABLED)
-  CPMAddPackage("gh:nlohmann/json@3.10.5")
+  cpmaddpackage("gh:nlohmann/json@3.10.5")
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_features(joque_json PRIVATE cxx_std_20)
@@ -59,7 +59,7 @@ if(JOQUE_TESTS_ENABLED)
 
   include(CTest)
   if(BUILD_TESTING)
-    CPMAddPackage("gh:nlohmann/json@3.10.5")
+    cpmaddpackage("gh:nlohmann/json@3.10.5")
     find_package(GTest REQUIRED)
 
     function(add_joque_test test)

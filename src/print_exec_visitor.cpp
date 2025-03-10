@@ -1,3 +1,24 @@
+/// MIT License
+///
+/// Copyright (c) 2025 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
 #include "joque/print_exec_visitor.hpp"
 
 #include "joque/dag.hpp"
@@ -38,9 +59,7 @@ void print_exec_visitor::on_detected_cycle( std::span< const dag_node* > c )
                 std::cerr << "\t" << ( *p )->name << std::endl;
 }
 
-void print_exec_visitor::after_job_is_inval(
-    const dag_node&  n,
-    std::string_view log )
+void print_exec_visitor::after_job_is_inval( const dag_node& n, std::string_view log )
 {
         if ( !impl_->verbose )
                 return;
@@ -51,15 +70,12 @@ void print_exec_visitor::after_job_is_inval(
         }
 }
 
-void print_exec_visitor::after_dep_inval(
-    const dag_node& n,
-    const dag_node& invalidator )
+void print_exec_visitor::after_dep_inval( const dag_node& n, const dag_node& invalidator )
 {
         if ( !impl_->verbose )
                 return;
 
-        std::cout << "Task " << n->name << " invalidated"
-                  << " by " << invalidator->name << '\n';
+        std::cout << "Task " << n->name << " invalidated" << " by " << invalidator->name << '\n';
 }
 
 void print_exec_visitor::on_run_log( const dag_node& n, std::string_view log )
@@ -71,9 +87,7 @@ void print_exec_visitor::on_run_log( const dag_node& n, std::string_view log )
         std::cout << log << "\n";
 }
 
-void print_exec_visitor::before_run(
-    const exec_record& erec,
-    const dag_node&    n )
+void print_exec_visitor::before_run( const exec_record& erec, const dag_node& n )
 {
         if ( !n->t.hidden || impl_->verbose ) {
                 impl_->queued.insert( &n );
@@ -89,8 +103,7 @@ void print_exec_visitor::after_run(
     const dag_node&    n )
 {
         if ( rec == nullptr ) {
-                std::cerr << "Failed to get result from coro for task: "
-                          << n->name << std::endl;
+                std::cerr << "Failed to get result from coro for task: " << n->name << std::endl;
                 return;
         }
         if ( !rec->t.get().hidden || impl_->verbose || rec->retcode != 0 ) {

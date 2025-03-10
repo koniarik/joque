@@ -1,3 +1,24 @@
+/// MIT License
+///
+/// Copyright (c) 2025 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
 #include "joque/exec.hpp"
 #include "joque/exec_coro.hpp"
 #include "joque/out.hpp"
@@ -44,8 +65,7 @@ TEST_F( joque_fixture, process_no_update )
 
         task_set ts;
 
-        ts.tasks["p"] =
-            task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
+        ts.tasks["p"] = task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
 
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 
@@ -74,8 +94,7 @@ TEST_F( joque_fixture, update )
 
         task_set ts;
 
-        ts.tasks["p"] =
-            task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
+        ts.tasks["p"] = task{ .job = process::derive( "cp", f1_name, out( f2_name ) ) };
 
         EXPECT_LT( last_write_time( f2_name ), last_write_time( f1_name ) );
 
