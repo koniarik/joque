@@ -31,6 +31,7 @@
 #include <list>
 #include <regex>
 #include <string_view>
+#include <variant>
 
 namespace joque
 {
