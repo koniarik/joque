@@ -22,6 +22,7 @@
 #pragma once
 
 #include <concepts>
+#include <cstddef>
 #include <cstdint>
 
 namespace joque::bits
