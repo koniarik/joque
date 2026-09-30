@@ -26,12 +26,15 @@
 #include "joque/traits.hpp"
 
 #include <algorithm>
+#include <atomic>
+#include <chrono>
 #include <gtest/gtest.h>
 #include <mutex>
 #include <numeric>
 #include <ranges>
 #include <set>
 #include <string>
+#include <thread>
 #include <vector>
 
 namespace joque
@@ -285,6 +288,39 @@ TEST( joque, cyclic_after )
         catch ( ... ) {
         }
         EXPECT_EQ( vis.cycle, expected );
+}
+
+struct node_check_vis : exec_visitor
+{
+        int calls      = 0;
+        int mismatches = 0;
+
+        void after_run( const exec_record&, const run_record* rec, const dag_node& n ) override
+        {
+                ++calls;
+                if ( rec != nullptr && rec->name != n->name )
+                        ++mismatches;
+        }
+};
+
+TEST( joque, after_run_gets_the_finished_node )
+{
+        // The first job finishes at once while the others still run, so its coroutine is
+        // removed from in front of theirs.
+        std::atomic< int > started{ 0 };
+        task_set           ts;
+        for ( int i = 0; i < 3; ++i )
+                ts.tasks["t" + std::to_string( i )] =
+                    task{ .job = [&]( const task& ) -> run_result {
+                            if ( started.fetch_add( 1 ) != 0 )
+                                    std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
+                            return { 0 };
+                    } };
+
+        node_check_vis vis;
+        exec( ts, 4, "", vis ).run();
+        EXPECT_EQ( vis.calls, 3 );
+        EXPECT_EQ( vis.mismatches, 0 );
 }
 
 }  // namespace joque

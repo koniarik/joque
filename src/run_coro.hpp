@@ -76,7 +76,7 @@ public:
         };
 
         run_coro( dag_node& n, std::coroutine_handle< promise_type > h )
-          : node_( n )
+          : node_( &n )
           , h_( h )
         {
         }
@@ -89,6 +89,7 @@ public:
 
         run_coro& operator=( run_coro&& other ) noexcept
         {
+                std::swap( node_, other.node_ );
                 std::swap( h_, other.h_ );
                 return *this;
         }
@@ -126,12 +127,12 @@ public:
 
         [[nodiscard]] dag_node& get_node()
         {
-                return node_;
+                return *node_;
         }
 
         [[nodiscard]] const dag_node& get_node() const
         {
-                return node_;
+                return *node_;
         }
 
         ~run_coro()
@@ -141,7 +142,7 @@ public:
         }
 
 private:
-        dag_node&                             node_;
+        dag_node*                             node_;
         std::coroutine_handle< promise_type > h_;
 };
 
