@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 project(joque)
 
-option(JOQUE_TESTS_ENABLED "Run joque tests" ON)
+option(JOQUE_TESTS_ENABLED "Run joque tests" OFF)
 option(JOQUE_NLOHMANN_JSON_ENABLED "Enable nlohmann json" OFF)
 option(JOQUE_REPROC_ENABLED "Enable reproc++" OFF)
 
@@ -56,23 +56,31 @@ if(JOQUE_NLOHMANN_JSON_ENABLED)
 endif()
 
 if(JOQUE_TESTS_ENABLED)
+  if(NOT JOQUE_REPROC_ENABLED)
+    message(FATAL_ERROR "JOQUE_TESTS_ENABLED requires JOQUE_REPROC_ENABLED")
+  endif()
 
   include(CTest)
   if(BUILD_TESTING)
     cpmaddpackage("gh:nlohmann/json@3.11.3")
-    CPMAddPackage(
-    NAME googletest
-    GITHUB_REPOSITORY google/googletest
-    GIT_TAG release-1.12.1
-    VERSION 1.12.1
-    OPTIONS "INSTALL_GTEST OFF" "gtest_force_shared_crt"
-    )
+    cpmaddpackage(
+      NAME
+      googletest
+      GITHUB_REPOSITORY
+      google/googletest
+      GIT_TAG
+      release-1.12.1
+      VERSION
+      1.12.1
+      OPTIONS
+      "INSTALL_GTEST OFF"
+      "gtest_force_shared_crt")
 
-  file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
-      add_executable(joque_utest ${TESTS})
-      add_test(NAME joque_utest COMMAND joque_utest)
-      target_compile_features(joque_utest PRIVATE cxx_std_20)
-      target_link_libraries(joque_utest PUBLIC joque gtest gtest_main)
+    file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
+    add_executable(joque_utest ${TESTS})
+    add_test(NAME joque_utest COMMAND joque_utest)
+    target_compile_features(joque_utest PRIVATE cxx_std_20)
+    target_link_libraries(joque_utest PUBLIC joque gtest gtest_main)
 
   endif()
 
