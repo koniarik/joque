@@ -4,7 +4,7 @@
     {
       "name": "debug_cfg",
       "generator": "Ninja",
-      "binaryDir": "build",
+      "binaryDir": "${sourceDir}/_build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
