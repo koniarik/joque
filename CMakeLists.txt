@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.14)
 
 project(joque)
 
@@ -29,12 +29,28 @@ target_compile_options(
           -Wconversion
           -Wno-missing-field-initializers)
 
-include(cmake/CPM.cmake)
+include(FetchContent)
+
+FetchContent_Declare(
+  reproc
+  GIT_REPOSITORY https://github.com/DaanDeMeyer/reproc.git
+  GIT_TAG v14.2.5
+  GIT_SHALLOW TRUE)
+FetchContent_Declare(
+  nlohmann_json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.11.3
+  GIT_SHALLOW TRUE)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
+  GIT_SHALLOW TRUE)
 
 if(JOQUE_REPROC_ENABLED)
   set(REPROC++ ON)
 
-  cpmaddpackage("gh:DaanDeMeyer/reproc@14.2.5")
+  FetchContent_MakeAvailable(reproc)
 
   add_library(joque_reproc STATIC src/process.cpp)
   target_compile_features(joque_reproc PRIVATE cxx_std_20)
@@ -45,7 +61,7 @@ if(JOQUE_REPROC_ENABLED)
 endif()
 
 if(JOQUE_NLOHMANN_JSON_ENABLED)
-  cpmaddpackage("gh:nlohmann/json@3.11.3")
+  FetchContent_MakeAvailable(nlohmann_json)
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_features(joque_json PRIVATE cxx_std_20)
@@ -62,19 +78,13 @@ if(JOQUE_TESTS_ENABLED)
 
   include(CTest)
   if(BUILD_TESTING)
-    cpmaddpackage("gh:nlohmann/json@3.11.3")
-    cpmaddpackage(
-      NAME
-      googletest
-      GITHUB_REPOSITORY
-      google/googletest
-      GIT_TAG
-      release-1.12.1
-      VERSION
-      1.12.1
-      OPTIONS
-      "INSTALL_GTEST OFF"
-      "gtest_force_shared_crt")
+    set(INSTALL_GTEST
+        OFF
+        CACHE BOOL "")
+    set(gtest_force_shared_crt
+        ON
+        CACHE BOOL "")
+    FetchContent_MakeAvailable(nlohmann_json googletest)
 
     file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
     add_executable(joque_utest ${TESTS})
