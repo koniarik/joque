@@ -234,9 +234,9 @@ void list_unlink( Node& node )
 template < typename Ptr, typename... Args >
 auto& list_emplace_next( Ptr ptr, Args&&... args )
 {
-        using Node = typename Ptr::node_type;
+        using node_type = typename Ptr::node_type;
 
-        Node* nnode = new Node{ std::forward< Args >( args )... };
+        auto* nnode = new node_type{ std::forward< Args >( args )... };
         list_link_next( ptr, *nnode );
         return *nnode;
 }
@@ -245,10 +245,10 @@ template < typename Ptr, typename Node >
 void list_link_next( Ptr ptr, Node& next )
 {
         static_assert( std::same_as< typename Ptr::node_type, Node > );
-        using Accessor = typename Ptr::accessor_type;
-        using Header   = typename Ptr::header_type;
+        using accessor_type = typename Ptr::accessor_type;
+        using header_type   = typename Ptr::header_type;
 
-        Header& nnode = Accessor::get( next );
+        header_type& nnode = accessor_type::get( next );
 
         nnode.next = ptr.find_header()->next;
         if ( nnode.next != nullptr )

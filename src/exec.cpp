@@ -38,13 +38,13 @@
 #include <functional>
 #include <future>
 #include <set>
+#include <stdexcept>
 #include <string>
 #include <utility>
 #include <vector>
 
 namespace joque
 {
-using namespace std::chrono_literals;
 
 namespace
 {
@@ -169,7 +169,8 @@ namespace
                     },
                     std::ref( n ) );
 
-                while ( fut.wait_for( 0ms ) == std::future_status::timeout )
+                while ( fut.wait_for( std::chrono::milliseconds( 0 ) ) ==
+                        std::future_status::timeout )
                         co_await std::suspend_always{};
                 run_result rr  = fut.get();
                 result.retcode = rr.retcode;
@@ -207,8 +208,8 @@ namespace
         {
                 std::set< dag_node* > to_propagate;
                 for ( dag_node* p : to_process ) {
-                        dag_node&    n    = *p;
-                        inval_result ires = n->t.job->is_invalidated();
+                        dag_node&          n    = *p;
+                        inval_result const ires = n->t.job->is_invalidated();
                         if ( ires.invalidated ) {
                                 n->invalidated = inval::INVALID;
                                 to_propagate.insert( &n );
@@ -253,9 +254,9 @@ namespace
             exec_visitor&             vis )
         {
                 auto [it1, not_seen] = seen.insert( &n );
-                bool on_stack        = std::ranges::find( stack, &n ) != stack.end();
+                bool const on_stack  = std::ranges::find( stack, &n ) != stack.end();
                 if ( !not_seen ) {
-                        bool has_c = !not_seen && on_stack;
+                        bool const has_c = !not_seen && on_stack;
                         return has_c ? &n : nullptr;
                 }
                 stack.push_back( &n );

@@ -75,9 +75,9 @@ struct exec_coro::promise_type
 {
         [[nodiscard]] exec_coro get_return_object();
 
-        [[nodiscard]] std::suspend_always initial_suspend() const;
+        [[nodiscard]] static std::suspend_always initial_suspend();
 
-        [[nodiscard]] std::suspend_always final_suspend() const noexcept;
+        [[nodiscard]] static std::suspend_always final_suspend() noexcept;
 
         void unhandled_exception();
 

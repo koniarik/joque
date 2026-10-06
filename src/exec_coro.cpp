@@ -37,12 +37,12 @@ namespace joque
         return exec_coro{ std::coroutine_handle< promise_type >::from_promise( *this ) };
 }
 
-[[nodiscard]] std::suspend_always exec_coro::promise_type::initial_suspend() const
+[[nodiscard]] std::suspend_always exec_coro::promise_type::initial_suspend()
 {
         return {};
 }
 
-[[nodiscard]] std::suspend_always exec_coro::promise_type::final_suspend() const noexcept
+[[nodiscard]] std::suspend_always exec_coro::promise_type::final_suspend() noexcept
 {
         return {};
 }

@@ -32,7 +32,7 @@ template < typename Node, typename Header, typename Accessor >
 class list_ptr
 {
 public:
-        enum class mark : std::uintptr_t
+        enum class mark : std::uintptr_t  // NOLINT(performance-enum-size)
         {
                 NODE_TYPE   = 0x00,
                 HEADER_TYPE = 0x01,
@@ -58,7 +58,8 @@ public:
         {
                 if ( item != nullptr ) {
                         auto raw = reinterpret_cast< std::uintptr_t >( item ) | 0x01;
-                        ptr_     = reinterpret_cast< void* >( raw );
+                        ptr_ =
+                            reinterpret_cast< void* >( raw );  // NOLINT(performance-no-int-to-ptr)
                 }
         }
 
@@ -152,7 +153,7 @@ private:
         {
                 if ( auto* ptr = self.template get< Header >() )
                         return ptr;
-                else if ( auto* ptr = self.get_node() )
+                if ( auto* ptr = self.get_node() )
                         return &Accessor::get( *ptr );
                 return nullptr;
         }
@@ -168,7 +169,7 @@ private:
         {
                 auto raw = reinterpret_cast< std::uintptr_t >( ptr_ );
                 raw      = raw & mask;
-                return reinterpret_cast< void* >( raw );
+                return reinterpret_cast< void* >( raw );  // NOLINT(performance-no-int-to-ptr)
         }
 
         void* ptr_ = nullptr;

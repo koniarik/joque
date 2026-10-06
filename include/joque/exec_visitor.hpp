@@ -33,48 +33,49 @@ class exec_visitor
 {
 public:
         /// Run after node is enqued
-        virtual void after_node_enque( const dag_node& )
+        virtual void after_node_enque( const dag_node& /*n*/ )
         {
         }
 
         /// Ran in case cycle is detected
-        virtual void on_detected_cycle( std::span< const dag_node* > )
+        virtual void on_detected_cycle( std::span< const dag_node* > /*cycle*/ )
         {
         }
 
         /// Run after check whenever job was invalidated
-        virtual void after_job_is_inval( const dag_node&, std::string_view )
+        virtual void after_job_is_inval( const dag_node& /*n*/, std::string_view /*log*/ )
         {
         }
 
         /// Run after node became invalidated because of other node
-        virtual void after_dep_inval( const dag_node&, const dag_node& )
+        virtual void after_dep_inval( const dag_node& /*source*/, const dag_node& /*target*/ )
         {
         }
 
         /// Executed once execution starts for the node.
-        virtual void before_run( const exec_record&, const dag_node& )
+        virtual void before_run( const exec_record& /*erec*/, const dag_node& /*n*/ )
         {
         }
 
         /// Run after job finished execution
-        virtual void on_run_log( const dag_node&, std::string_view )
+        virtual void on_run_log( const dag_node& /*n*/, std::string_view /*log*/ )
         {
         }
 
         /// Executed after execution of node.
         /// \param rec If run produces a run record, it is passed, nullptr on
         /// errors
-        virtual void after_run( const exec_record&, const run_record* /*rec*/, const dag_node& )
+        virtual void
+        after_run( const exec_record& /*erec*/, const run_record* /*rec*/, const dag_node& /*n*/ )
         {
         }
 
-        virtual void on_tick( const exec_record& )
+        virtual void on_tick( const exec_record& /*erec*/ )
         {
         }
 
         /// Run after execution finished
-        virtual void after_execution( const exec_record& )
+        virtual void after_execution( const exec_record& /*erec*/ )
         {
         }
 

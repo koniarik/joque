@@ -55,9 +55,9 @@ public:
 
         void on_tick( const exec_record& erec ) override;
 
-        void after_execution( const exec_record& ) override;
+        void after_execution( const exec_record& /*erec*/ ) override;
 
-        ~print_exec_visitor();
+        ~print_exec_visitor() override;
 
 private:
         struct impl;

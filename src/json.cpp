@@ -21,6 +21,15 @@
 /// SOFTWARE.
 #include "joque/json.hpp"
 
+#include "joque/records.hpp"
+#include "joque/run_result.hpp"
+#include "joque/task.hpp"
+
+#include <concepts>
+#include <functional>
+#include <nlohmann/json_fwd.hpp>
+#include <string_view>
+
 namespace joque
 {
 

@@ -27,7 +27,6 @@
 #include <filesystem>
 #include <format>
 #include <fstream>
-#include <numeric>
 #include <ostream>
 #include <string>
 #include <utility>

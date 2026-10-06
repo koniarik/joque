@@ -28,6 +28,7 @@
 
 #include <iostream>
 #include <set>
+#include <span>
 #include <string_view>
 
 namespace joque
@@ -55,7 +56,7 @@ void print_exec_visitor::after_node_enque( const dag_node& n )
 void print_exec_visitor::on_detected_cycle( std::span< const dag_node* > c )
 {
         std::cerr << "Cycle between nodes detected:\n";
-        for ( auto* p : c )
+        for ( const auto* p : c )
                 std::cerr << "\t" << ( *p )->name << std::endl;
 }
 
@@ -123,7 +124,7 @@ void print_exec_visitor::after_run(
         }
 };
 
-void print_exec_visitor::on_tick( const exec_record& )
+void print_exec_visitor::on_tick( const exec_record& /*erec*/ )
 {
 }
 

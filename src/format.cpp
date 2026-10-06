@@ -26,10 +26,14 @@
 
 #include <chrono>
 #include <cmath>
+#include <concepts>
+#include <cstddef>
 #include <format>
 #include <iostream>
 #include <list>
-#include <regex>
+#include <map>
+#include <optional>
+#include <string>
 #include <string_view>
 #include <variant>
 
@@ -37,28 +41,28 @@ namespace joque
 {
 namespace
 {
-        static constexpr std::string_view START = "\033[38;5;33m";
-        static constexpr std::string_view OK    = "\033[38;5;118m";
-        static constexpr std::string_view FAIL  = "\033[38;5;196m";
-        static constexpr std::string_view DEPF  = "\033[38;5;202m";
-        static constexpr std::string_view SKIP  = "\033[38;5;226m";
-        static constexpr std::string_view GRAY  = "\033[38;5;239m";
-        static constexpr std::string_view END   = "\033[38;5;45m";
-        static constexpr std::string_view NONE  = "";
-        static constexpr std::string_view RESET = "\033[0m";
+        constexpr std::string_view start = "\033[38;5;33m";
+        constexpr std::string_view ok    = "\033[38;5;118m";
+        constexpr std::string_view fail  = "\033[38;5;196m";
+        constexpr std::string_view depf  = "\033[38;5;202m";
+        constexpr std::string_view skip  = "\033[38;5;226m";
+        constexpr std::string_view gray  = "\033[38;5;239m";
+        constexpr std::string_view end   = "\033[38;5;45m";
+        constexpr std::string_view none;
+        constexpr std::string_view reset = "\033[0m";
         // TODO: hardcoded yikes
-        static constexpr std::string_view GRAY_DELIM = "\033[38;5;239m/\033[0m";
+        constexpr std::string_view gray_delim = "\033[38;5;239m/\033[0m";
 
-        static const std::map< std::string_view, std::string_view > STAT_TO_COLOR{
-            { "OK", OK },
-            { "SKIP", SKIP },
-            { "DEPF", DEPF },
-            { "FAIL", FAIL },
-            { "STRT", START } };
+        const std::map< std::string_view, std::string_view > stat_to_color{
+            { "OK", ok },
+            { "SKIP", skip },
+            { "DEPF", depf },
+            { "FAIL", fail },
+            { "STRT", start } };
 
         std::string fmt_time( const std::chrono::sys_seconds& s )
         {
-                return std::format( "{}{:%H}{:%M}{:%S}{}", GRAY, s, s, s, RESET );
+                return std::format( "{}{:%H}{:%M}{:%S}{}", gray, s, s, s, reset );
         }
 
         std::size_t counter_width( std::size_t max_count )
@@ -69,8 +73,8 @@ namespace
 
         std::string fmt_counter( std::size_t count, std::size_t max_count )
         {
-                auto        count_w  = counter_width( max_count );
-                std::string count_ws = std::to_string( count_w );
+                auto              count_w  = counter_width( max_count );
+                std::string const count_ws = std::to_string( count_w );
 
                 return std::vformat(
                     "{:0>" + count_ws + "}", std::make_format_args( count, max_count ) );
@@ -78,7 +82,7 @@ namespace
 
         std::string fmt_status( std::string_view stat, std::string_view color )
         {
-                return std::format( "{}{:>4}{}", color, stat, RESET );
+                return std::format( "{}{:>4}{}", color, stat, reset );
         }
 
         std::string fmt_text( std::string_view text )
@@ -90,15 +94,15 @@ namespace
                         index = str.find( '/', index );
                         if ( index == std::string::npos )
                                 break;
-                        str.replace( index, 1, GRAY_DELIM );
-                        index += GRAY_DELIM.size();
+                        str.replace( index, 1, gray_delim );
+                        index += gray_delim.size();
                 };
                 return str;
         }
 
         std::string fmt_dur( auto t )
         {
-                return std::format( "  {}{:>8}{}", GRAY, t, RESET );
+                return std::format( "  {}{:>8}{}", gray, t, reset );
         }
 
         std::string end_text( const exec_record& erec )
@@ -112,11 +116,11 @@ namespace
                         text += "  ";
                         text += std::format(
                             "{}{}: {}{:<5}",
-                            count > 0 ? NONE : GRAY,
+                            count > 0 ? none : gray,
                             to_sv( key ),
-                            count > 0 ? STAT_TO_COLOR.at( to_sv( key ) ) : GRAY,
+                            count > 0 ? stat_to_color.at( to_sv( key ) ) : gray,
                             count );
-                        text += RESET;
+                        text += reset;
                 }
                 return text;
         }
@@ -136,8 +140,8 @@ namespace
                 os << fmt_time( t );
                 os << "  ";
                 if ( total_count ) {
-                        os << fmt_counter( count, *total_count ) << "/" << GRAY
-                           << fmt_counter( *total_count, *total_count ) << RESET;
+                        os << fmt_counter( count, *total_count ) << "/" << gray
+                           << fmt_counter( *total_count, *total_count ) << reset;
                 } else {
                         auto count_w = counter_width( count );
                         for ( std::size_t i = 0; i < count_w + 1; i++ )
@@ -145,9 +149,9 @@ namespace
                         os << fmt_counter( count, count );
                 }
                 os << "  ";
-                auto iter = STAT_TO_COLOR.find( status );
-                if ( iter == STAT_TO_COLOR.end() )
-                        os << fmt_status( status, NONE );
+                auto iter = stat_to_color.find( status );
+                if ( iter == stat_to_color.end() )
+                        os << fmt_status( status, none );
                 else
                         os << fmt_status( status, iter->second );
                 os << "  ";
@@ -224,7 +228,7 @@ void format_exec_end( std::ostream& os, const exec_record& erec )
         auto s   = std::chrono::time_point_cast< std::chrono::seconds >( now );
 
         format_line(
-            os, s, erec.total_count, std::nullopt, END, end_text( erec ), runtime_sum( erec ) );
+            os, s, erec.total_count, std::nullopt, end, end_text( erec ), runtime_sum( erec ) );
 }
 
 }  // namespace joque

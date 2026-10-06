@@ -28,6 +28,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <functional>
 #include <iostream>
@@ -38,6 +39,7 @@
 #include <system_error>
 #include <tuple>
 #include <utility>
+#include <vector>
 
 namespace joque
 {
@@ -53,8 +55,8 @@ namespace
 
         std::string format_cmd( const std::vector< std::string >& cmd )
         {
-                std::string cmdline;
-                std::regex  re{ " " };
+                std::string      cmdline;
+                std::regex const re{ " " };
                 for ( const std::string& arg : cmd )
                         cmdline += std::regex_replace( arg, re, "\\ " ) + " ";
                 cmdline += "\n";
@@ -102,7 +104,7 @@ inval_result job_traits< process >::is_invalidated( const process& p )
                 return { true, "no output" };
 
         if ( p.input.empty() ) {
-                bool out_exists =
+                bool const out_exists =
                     std::ranges::all_of( p.output, [&]( const std::filesystem::path& p ) {
                             return exists( p );
                     } );
@@ -133,7 +135,7 @@ inval_result job_traits< process >::is_invalidated( const process& p )
         };
 }
 
-run_result job_traits< process >::run( const task&, const process& p )
+run_result job_traits< process >::run( const task& /*t*/, const process& p )
 {
         run_result      res;
         reproc::process process;

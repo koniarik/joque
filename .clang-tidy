@@ -7,9 +7,9 @@ Checks: >
   misc*,-misc-no-recursion,
   performance*,-performance-avoid-endl,
   portability*,
-  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,
-WarningsAsErrors: true
-HeaderFilterRegex: '.*'
+  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,-readability-redundant-member-init,-readability-static-accessed-through-instance,
+WarningsAsErrors: "*"
+HeaderFilterRegex: 'include/joque/'
 FormatStyle:     file
 CheckOptions:
   - key:             readability-identifier-naming.IgnoreFailedSplit

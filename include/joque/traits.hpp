@@ -33,7 +33,7 @@ struct task;
 template < typename T >
 struct job_traits
 {
-        [[nodiscard]] static inval_result is_invalidated( const T& )
+        [[nodiscard]] static inval_result is_invalidated( const T& /*thing*/ )
         {
                 return { .invalidated = true, .log = { "always invalidated" } };
         }

@@ -13,4 +13,4 @@ test: build
 	ctest --preset "$(PRESET)"
 
 clang-tidy:
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p _build/$(PRESET) {}
+	find src/ -iname "*.cpp" -print0 | parallel -0 clang-tidy -p _build/$(PRESET) {}
