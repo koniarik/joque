@@ -15,10 +15,10 @@ jobs:
             run: sudo apt install ninja-build ccache
 
           - name: configure
-            run: make configure SANITIZER=address
+            run: make configure PRESET=asan
 
           - name: build
-            run: make build
+            run: make build PRESET=asan
 
           - name: test
-            run: make test
+            run: make test PRESET=asan

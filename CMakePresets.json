@@ -1,8 +1,8 @@
 {
-  "version": 2,
+  "version": 6,
   "configurePresets": [
     {
-      "name": "debug_cfg",
+      "name": "debug",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/_build/${presetName}",
       "cacheVariables": {
@@ -11,20 +11,78 @@
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
         "JOQUE_TESTS_ENABLED": "ON",
         "JOQUE_REPROC_ENABLED": "ON",
-        "JOQUE_NLOHMANN_JSON_ENABLED": "ON"
+        "JOQUE_NLOHMANN_JSON_ENABLED": "ON",
+        "CMAKE_CXX_FLAGS": "$penv{CXXFLAGS}"
+      }
+    },
+    {
+      "name": "asan",
+      "inherits": "debug",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-fsanitize=address $penv{CXXFLAGS}"
+      }
+    },
+    {
+      "name": "ubsan",
+      "inherits": "debug",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-fsanitize=undefined -fno-sanitize-recover=all $penv{CXXFLAGS}"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": "debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     }
   ],
   "buildPresets": [
     {
-      "name": "debug_build",
-      "configurePreset": "debug_cfg"
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan"
+    },
+    {
+      "name": "ubsan",
+      "configurePreset": "ubsan"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
     }
   ],
   "testPresets": [
     {
-      "name": "debug_utest",
-      "configurePreset": "debug_cfg"
+      "name": "debug",
+      "configurePreset": "debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "ubsan",
+      "configurePreset": "ubsan",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "output": {
+        "outputOnFailure": true
+      }
     }
   ]
 }

@@ -1,14 +1,16 @@
 
 .PHONY: build configure test clang-tidy
 
+PRESET ?= debug
+
 build:
-	cmake --build --preset "debug_build"
+	cmake --build --preset "$(PRESET)"
 
 configure:
-	cmake --preset "debug_cfg" $(if $(SANITIZER), -DCMAKE_CXX_FLAGS="-fsanitize=$(SANITIZER)")
+	cmake --preset "$(PRESET)"
 
 test: build
-	ctest --preset "debug_utest"
+	ctest --preset "$(PRESET)"
 
 clang-tidy:
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p _build/debug_cfg {}
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p _build/$(PRESET) {}
