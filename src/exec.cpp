@@ -24,6 +24,7 @@
 #include "joque/dag.hpp"
 #include "joque/exec_coro.hpp"
 #include "joque/exec_visitor.hpp"
+#include "joque/print_exec_visitor.hpp"
 #include "joque/records.hpp"
 #include "joque/run_result.hpp"
 #include "joque/task.hpp"
@@ -37,6 +38,7 @@
 #include <exception>
 #include <functional>
 #include <future>
+#include <optional>
 #include <set>
 #include <stdexcept>
 #include <string>
@@ -283,63 +285,86 @@ namespace
                         return check_for_cycle( *n, seen, stack, vis ) != nullptr;
                 } );
         }
+
+        exec_coro exec_impl( dag g, unsigned thread_count, exec_visitor* user_vis )
+        {
+                std::optional< print_exec_visitor > own_vis;
+                exec_visitor& vis = user_vis != nullptr ? *user_vis : own_vis.emplace();
+
+                exec_record           erec;
+                std::set< dag_node* > to_process;
+                for ( dag_node& n : g ) {
+                        to_process.insert( &n );
+                        vis.after_node_enque( n );
+                }
+                erec.total_count = to_process.size();
+
+                if ( has_cycle( to_process, vis ) )
+                        throw std::runtime_error( "Cycle detected" );
+                propagate_invalidation( to_process, vis );
+
+                std::set< const resource* > used_resources;
+                std::vector< run_coro >     coros;
+
+                while ( !to_process.empty() ) {
+                        vis.on_tick( erec );
+                        cleanup_coros( coros, erec, vis );
+                        if ( coros.size() >= thread_count && thread_count != 0 ) {
+                                co_await std::suspend_always{};
+                                continue;
+                        }
+
+                        dag_node* n = find_candidate( to_process, used_resources );
+                        if ( n != nullptr ) {
+                                to_process.erase( n );
+
+                                coros.push_back( run(
+                                    *n,
+                                    erec,
+                                    used_resources,
+                                    thread_count == 0 ? std::launch::deferred : std::launch::async,
+                                    vis ) );
+                        }
+                        assert( !coros.empty() );
+                        co_await std::suspend_always{};
+                }
+                while ( !coros.empty() ) {
+                        cleanup_coros( coros, erec, vis );
+                        co_await std::suspend_always{};
+                }
+
+                vis.after_execution( erec );
+
+                co_return erec;
+        }
+
+        dag make_dag( const task_set& ts, const std::string& filter )
+        {
+                dag g;
+                insert_set( g, ts, filter );
+                return g;
+        }
 }  // namespace
+
+exec_coro exec( const task_set& ts, unsigned thread_count, const std::string& filter )
+{
+        return exec_impl( make_dag( ts, filter ), thread_count, nullptr );
+}
 
 exec_coro
 exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec_visitor& vis )
 {
-        dag g;
-        insert_set( g, ts, filter );
-        return exec( std::move( g ), thread_count, vis );
+        return exec_impl( make_dag( ts, filter ), thread_count, &vis );
+}
+
+exec_coro exec( dag g, unsigned thread_count )
+{
+        return exec_impl( std::move( g ), thread_count, nullptr );
 }
 
 exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis )
 {
-        exec_record           erec;
-        std::set< dag_node* > to_process;
-        for ( dag_node& n : g ) {
-                to_process.insert( &n );
-                vis.after_node_enque( n );
-        }
-        erec.total_count = to_process.size();
-
-        if ( has_cycle( to_process, vis ) )
-                throw std::runtime_error( "Cycle detected" );
-        propagate_invalidation( to_process, vis );
-
-        std::set< const resource* > used_resources;
-        std::vector< run_coro >     coros;
-
-        while ( !to_process.empty() ) {
-                vis.on_tick( erec );
-                cleanup_coros( coros, erec, vis );
-                if ( coros.size() >= thread_count && thread_count != 0 ) {
-                        co_await std::suspend_always{};
-                        continue;
-                }
-
-                dag_node* n = find_candidate( to_process, used_resources );
-                if ( n != nullptr ) {
-                        to_process.erase( n );
-
-                        coros.push_back(
-                            run( *n,
-                                 erec,
-                                 used_resources,
-                                 thread_count == 0 ? std::launch::deferred : std::launch::async,
-                                 vis ) );
-                }
-                assert( !coros.empty() );
-                co_await std::suspend_always{};
-        }
-        while ( !coros.empty() ) {
-                cleanup_coros( coros, erec, vis );
-                co_await std::suspend_always{};
-        }
-
-        vis.after_execution( erec );
-
-        co_return erec;
+        return exec_impl( std::move( g ), thread_count, &vis );
 }
 
 }  // namespace joque

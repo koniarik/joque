@@ -55,20 +55,24 @@ namespace joque
 /// \param thread_count Number of threads to use
 /// \param filter String filtering out tasks that either match it, or are
 /// dependencies of matched tasks
-/// \param vis Visitor called by the execution on various events
+///
+/// Progress is reported to a `print_exec_visitor` owned by the returned coroutine.
 ///
 [[nodiscard]] exec_coro exec(
     const task_set&    ts,
     unsigned           thread_count = std::thread::hardware_concurrency(),
-    const std::string& filter       = "",
-    exec_visitor&      vis          = PRINT_VISITOR );
+    const std::string& filter       = "" );
+
+/// Overload of `exec` that reports to `vis` instead. `vis` has to outlive the returned coroutine.
+[[nodiscard]] exec_coro
+exec( const task_set& ts, unsigned thread_count, const std::string& filter, exec_visitor& vis );
 
 /// Overload of `exec` which uses dag as an input instead of task set. It's not
 /// recommended to use it, but it exists in case users want to customize the
 /// dag.
-[[nodiscard]] exec_coro exec(
-    dag           g,
-    unsigned      thread_count = std::thread::hardware_concurrency(),
-    exec_visitor& vis          = PRINT_VISITOR );
+[[nodiscard]] exec_coro exec( dag g, unsigned thread_count = std::thread::hardware_concurrency() );
+
+/// Overload of the dag `exec` that reports to `vis`, which has to outlive the returned coroutine.
+[[nodiscard]] exec_coro exec( dag g, unsigned thread_count, exec_visitor& vis );
 
 }  // namespace joque

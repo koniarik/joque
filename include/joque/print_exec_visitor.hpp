@@ -65,7 +65,4 @@ private:
         std::unique_ptr< impl > impl_;
 };
 
-/// Global instance of print visitor used as default argument for `exec`
-inline print_exec_visitor PRINT_VISITOR;
-
 }  // namespace joque
