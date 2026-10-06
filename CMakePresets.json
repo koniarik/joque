@@ -35,6 +35,20 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
+    },
+    {
+      "name": "windows-debug",
+      "inherits": "debug",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_CXX_COMPILER_LAUNCHER": ""
+      }
     }
   ],
   "buildPresets": [
@@ -53,6 +67,10 @@
     {
       "name": "release",
       "configurePreset": "release"
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-debug"
     }
   ],
   "testPresets": [
@@ -80,6 +98,13 @@
     {
       "name": "release",
       "configurePreset": "release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-debug",
       "output": {
         "outputOnFailure": true
       }
