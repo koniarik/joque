@@ -19,15 +19,15 @@ add_library(
   src/task.cpp)
 target_compile_features(joque PRIVATE cxx_std_20)
 target_include_directories(joque PUBLIC include/)
-target_compile_options(
-  joque
-  PRIVATE -Wall
-          -Wextra
-          -Wpedantic
-          -Wnon-virtual-dtor
-          -Wunused
-          -Wconversion
-          -Wno-missing-field-initializers)
+set(JOQUE_WARNINGS
+    -Wall
+    -Wextra
+    -Wpedantic
+    -Wnon-virtual-dtor
+    -Wunused
+    -Wconversion
+    -Wno-missing-field-initializers)
+target_compile_options(joque PRIVATE ${JOQUE_WARNINGS})
 
 include(FetchContent)
 
@@ -53,6 +53,7 @@ if(JOQUE_REPROC_ENABLED)
   FetchContent_MakeAvailable(reproc)
 
   add_library(joque_reproc STATIC src/process.cpp)
+  target_compile_options(joque_reproc PRIVATE ${JOQUE_WARNINGS})
   target_compile_features(joque_reproc PRIVATE cxx_std_20)
   target_link_libraries(joque_reproc PUBLIC reproc++)
   target_include_directories(joque_reproc PUBLIC include/)
@@ -64,6 +65,7 @@ if(JOQUE_NLOHMANN_JSON_ENABLED)
   FetchContent_MakeAvailable(nlohmann_json)
 
   add_library(joque_json STATIC src/json.cpp)
+  target_compile_options(joque_json PRIVATE ${JOQUE_WARNINGS})
   target_compile_features(joque_json PRIVATE cxx_std_20)
   target_link_libraries(joque_json PUBLIC nlohmann_json::nlohmann_json)
   target_include_directories(joque_json PUBLIC include/)
@@ -88,6 +90,7 @@ if(JOQUE_TESTS_ENABLED)
 
     file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
     add_executable(joque_utest ${TESTS})
+    target_compile_options(joque_utest PRIVATE ${JOQUE_WARNINGS})
     add_test(NAME joque_utest COMMAND joque_utest)
     target_compile_features(joque_utest PRIVATE cxx_std_20)
     target_link_libraries(joque_utest PUBLIC joque gtest gtest_main)
@@ -95,6 +98,7 @@ if(JOQUE_TESTS_ENABLED)
   endif()
 
   add_executable(example example.cpp)
+  target_compile_options(example PRIVATE ${JOQUE_WARNINGS})
   target_compile_features(example PRIVATE cxx_std_20)
   target_link_libraries(example PUBLIC joque)
 
