@@ -96,10 +96,10 @@ process process::derive( Args&&... args )
 
         auto f = [&]< typename T >( T&& thing ) {
                 if constexpr ( std::derived_from< std::decay_t< T >, out_tag > ) {
-                        res.cmd.push_back( thing.p );
+                        res.cmd.push_back( thing.p.string() );
                         res.output.push_back( thing.p );
                 } else if constexpr ( std::same_as< std::decay_t< T >, std::filesystem::path > ) {
-                        res.cmd.push_back( thing );
+                        res.cmd.push_back( thing.string() );
                         res.input.push_back( thing );
                 } else {
                         res.cmd.push_back( thing );

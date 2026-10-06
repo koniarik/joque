@@ -44,8 +44,8 @@ public:
 
         ~joque_fixture()
         {
-                std::remove( f1_name.c_str() );
-                std::remove( f2_name.c_str() );
+                std::filesystem::remove( f1_name );
+                std::filesystem::remove( f2_name );
         }
 };
 
