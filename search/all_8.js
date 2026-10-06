@@ -1,7 +1,7 @@
 var searchData=
 [
   ['in_5fedges_72',['in_edges',['../classjoque_1_1bits_1_1gnode.html#aa9e5ef1830d3083223480de63d96b27c',1,'joque::bits::gnode::in_edges()'],['../classjoque_1_1bits_1_1gnode.html#aa66f5dd5b8b9f3ae21ae96cfbb35225e',1,'joque::bits::gnode::in_edges() const']]],
-  ['initial_5fsuspend_73',['initial_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a9fa92e36ef9f44f1ef267fe60a7c7cf4',1,'joque::exec_coro::promise_type']]],
+  ['initial_5fsuspend_73',['initial_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a42ff00e4198047744ca25aeddea1ea59',1,'joque::exec_coro::promise_type']]],
   ['input_74',['input',['../structjoque_1_1process.html#aec664caac3a94b9b747b6b3619d0e07f',1,'joque::process']]],
   ['insert_75',['insert',['../namespacejoque.html#a3bad77700cbf1c9f214c5d3ae5533a51',1,'joque']]],
   ['insert_5ferr_76',['insert_err',['../namespacejoque.html#a14f2c958ce0aad4bdbb79d876ba38f01',1,'joque']]],

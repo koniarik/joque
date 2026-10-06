@@ -299,9 +299,9 @@ $(document).ready(function(){initNavTree('list_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Ptr, <span class="keyword">typename</span>... Args &gt;</div>
 <div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="namespacejoque_1_1bits.html#a1dd9645f9fb32a7cb312b8694fec357c">  235</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespacejoque_1_1bits.html#a1dd9645f9fb32a7cb312b8694fec357c">list_emplace_next</a>( Ptr ptr, Args&amp;&amp;... args )</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keyword">using</span> Node = <span class="keyword">typename</span> Ptr::node_type;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keyword">using</span> node_type = <span class="keyword">typename</span> Ptr::node_type;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        Node* nnode = <span class="keyword">new</span> Node{ std::forward&lt; Args &gt;( args )... };</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keyword">auto</span>* nnode = <span class="keyword">new</span> node_type{ std::forward&lt; Args &gt;( args )... };</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <a class="code" href="namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03">list_link_next</a>( ptr, *nnode );</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">return</span> *nnode;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
@@ -310,10 +310,10 @@ $(document).ready(function(){initNavTree('list_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03">  245</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejoque_1_1bits.html#adb956582a5b75f0586d05cfaaf43fa03">list_link_next</a>( Ptr ptr, Node&amp; next )</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        static_assert( std::same_as&lt; typename Ptr::node_type, Node &gt; );</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keyword">using</span> Accessor = <span class="keyword">typename</span> Ptr::accessor_type;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keyword">using</span> Header   = <span class="keyword">typename</span> Ptr::header_type;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keyword">using</span> accessor_type = <span class="keyword">typename</span> Ptr::accessor_type;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keyword">using</span> header_type   = <span class="keyword">typename</span> Ptr::header_type;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        Header&amp; nnode = Accessor::get( next );</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        header_type&amp; nnode = accessor_type::get( next );</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        nnode.next = ptr.find_header()-&gt;next;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">if</span> ( nnode.next != <span class="keyword">nullptr</span> )</div>
@@ -465,8 +465,8 @@ $(document).ready(function(){initNavTree('list_8hpp_source.html',''); initResiza
 <div class="ttc" id="aclassjoque_1_1bits_1_1list__iterator_html_adae9d44f5cce7192640c1fd4639e752c"><div class="ttname"><a href="classjoque_1_1bits_1_1list__iterator.html#adae9d44f5cce7192640c1fd4639e752c">joque::bits::list_iterator::operator-&gt;</a></div><div class="ttdeci">value_type * operator-&gt;()</div><div class="ttdef"><b>Definition:</b> list.hpp:287</div></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1list__iterator_html_aec21202220e17cfe551db8092444764b"><div class="ttname"><a href="classjoque_1_1bits_1_1list__iterator.html#aec21202220e17cfe551db8092444764b">joque::bits::list_iterator::accessor_type</a></div><div class="ttdeci">typename header_type::accessor_type accessor_type</div><div class="ttdef"><b>Definition:</b> list.hpp:117</div></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1list__ptr_html"><div class="ttname"><a href="classjoque_1_1bits_1_1list__ptr.html">joque::bits::list_ptr&lt; Node, list_header, Accessor &gt;</a></div></div>
-<div class="ttc" id="aclassjoque_1_1bits_1_1list__ptr_html_a734f8f6a79160f8283239deb988672ab"><div class="ttname"><a href="classjoque_1_1bits_1_1list__ptr.html#a734f8f6a79160f8283239deb988672ab">joque::bits::list_ptr::get_node</a></div><div class="ttdeci">Node * get_node()</div><div class="ttdef"><b>Definition:</b> list_ptr.hpp:88</div></div>
-<div class="ttc" id="aclassjoque_1_1bits_1_1list__ptr_html_aea5e9797e8aac98de932a11cde4b63df"><div class="ttname"><a href="classjoque_1_1bits_1_1list__ptr.html#aea5e9797e8aac98de932a11cde4b63df">joque::bits::list_ptr::find_header</a></div><div class="ttdeci">Header * find_header()</div><div class="ttdef"><b>Definition:</b> list_ptr.hpp:98</div></div>
+<div class="ttc" id="aclassjoque_1_1bits_1_1list__ptr_html_a734f8f6a79160f8283239deb988672ab"><div class="ttname"><a href="classjoque_1_1bits_1_1list__ptr.html#a734f8f6a79160f8283239deb988672ab">joque::bits::list_ptr::get_node</a></div><div class="ttdeci">Node * get_node()</div><div class="ttdef"><b>Definition:</b> list_ptr.hpp:89</div></div>
+<div class="ttc" id="aclassjoque_1_1bits_1_1list__ptr_html_aea5e9797e8aac98de932a11cde4b63df"><div class="ttname"><a href="classjoque_1_1bits_1_1list__ptr.html#aea5e9797e8aac98de932a11cde4b63df">joque::bits::list_ptr::find_header</a></div><div class="ttdeci">Header * find_header()</div><div class="ttdef"><b>Definition:</b> list_ptr.hpp:99</div></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1list_html"><div class="ttname"><a href="classjoque_1_1bits_1_1list.html">joque::bits::list</a></div><div class="ttdef"><b>Definition:</b> list.hpp:152</div></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1list_html_a0b23a9fb7b7a0692747591f315875bcd"><div class="ttname"><a href="classjoque_1_1bits_1_1list.html#a0b23a9fb7b7a0692747591f315875bcd">joque::bits::list::header_type</a></div><div class="ttdeci">ListHeader header_type</div><div class="ttdef"><b>Definition:</b> list.hpp:154</div></div>
 <div class="ttc" id="aclassjoque_1_1bits_1_1list_html_a13ebbead1000ee7eabe25acc7716ab4c"><div class="ttname"><a href="classjoque_1_1bits_1_1list.html#a13ebbead1000ee7eabe25acc7716ab4c">joque::bits::list::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdef"><b>Definition:</b> list.hpp:368</div></div>
@@ -513,7 +513,7 @@ $(document).ready(function(){initNavTree('list_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="dir_4088e79be6624661209e69bb81b5c917.html">bits</a></li><li class="navelem"><a class="el" href="list_8hpp.html">list.hpp</a></li>
-    <li class="footer">Generated on Sun Dec 14 2025 21:59:42 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 6 2026 17:40:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

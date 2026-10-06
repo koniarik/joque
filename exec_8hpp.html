@@ -116,12 +116,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, exec_visitor &amp;vis=PRINT_VISITOR)</td></tr>
-<tr class="memdesc:ae7f069c04754480cd23a827dd9abe713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">More...</a><br /></td></tr>
-<tr class="separator:ae7f069c04754480cd23a827dd9abe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">joque::exec</a> (dag g, unsigned thread_count=std::thread::hardware_concurrency(), exec_visitor &amp;vis=PRINT_VISITOR)</td></tr>
-<tr class="memdesc:a9eb9fb3fe4cfe732504452deb2928e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">More...</a><br /></td></tr>
-<tr class="separator:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">joque::exec</a> (const task_set &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">More...</a><br /></td></tr>
+<tr class="separator:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670c9fdecc2656fd58deae9e68a68615"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a670c9fdecc2656fd58deae9e68a68615">joque::exec</a> (const task_set &amp;ts, unsigned thread_count, const std::string &amp;filter, exec_visitor &amp;vis)</td></tr>
+<tr class="memdesc:a670c9fdecc2656fd58deae9e68a68615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> that reports to <code>vis</code> instead. <code>vis</code> has to outlive the returned coroutine.  <a href="namespacejoque.html#a670c9fdecc2656fd58deae9e68a68615">More...</a><br /></td></tr>
+<tr class="separator:a670c9fdecc2656fd58deae9e68a68615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60fe46e028c9970a5f745e9bb443ebc1"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a60fe46e028c9970a5f745e9bb443ebc1">joque::exec</a> (dag g, unsigned thread_count=std::thread::hardware_concurrency())</td></tr>
+<tr class="memdesc:a60fe46e028c9970a5f745e9bb443ebc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a60fe46e028c9970a5f745e9bb443ebc1">More...</a><br /></td></tr>
+<tr class="separator:a60fe46e028c9970a5f745e9bb443ebc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc2b39e76389fbae6c2640b96c1136c"><td class="memItemLeft" align="right" valign="top">exec_coro&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4dc2b39e76389fbae6c2640b96c1136c">joque::exec</a> (dag g, unsigned thread_count, exec_visitor &amp;vis)</td></tr>
+<tr class="memdesc:a4dc2b39e76389fbae6c2640b96c1136c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the dag <code>exec</code> that reports to <code>vis</code>, which has to outlive the returned coroutine.  <a href="namespacejoque.html#a4dc2b39e76389fbae6c2640b96c1136c">More...</a><br /></td></tr>
+<tr class="separator:a4dc2b39e76389fbae6c2640b96c1136c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -129,7 +135,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_916b1fbc85adebe3dcf185df84ff0d91.html">joque</a></li><li class="navelem"><a class="el" href="exec_8hpp.html">exec.hpp</a></li>
-    <li class="footer">Generated on Sun Dec 14 2025 21:59:42 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 6 2026 17:40:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

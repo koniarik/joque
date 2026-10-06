@@ -48,8 +48,10 @@ var namespacejoque =
     [ "add_edge", "namespacejoque.html#a67ed815ce6f27f32b49397dc0ef1da10", null ],
     [ "to_sv", "namespacejoque.html#a3c9d613f42925ac8347a29e346ec1e91", null ],
     [ "insert_set", "namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248", null ],
-    [ "exec", "namespacejoque.html#ae7f069c04754480cd23a827dd9abe713", null ],
-    [ "exec", "namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68", null ],
+    [ "exec", "namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6", null ],
+    [ "exec", "namespacejoque.html#a670c9fdecc2656fd58deae9e68a68615", null ],
+    [ "exec", "namespacejoque.html#a60fe46e028c9970a5f745e9bb443ebc1", null ],
+    [ "exec", "namespacejoque.html#a4dc2b39e76389fbae6c2640b96c1136c", null ],
     [ "format_nested", "namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0", null ],
     [ "format_run_end", "namespacejoque.html#a12b38324b2d8aea4454620d16d007594", null ],
     [ "format_exec_end", "namespacejoque.html#a9d4a4563fbc1543d707050586993bb63", null ],
@@ -76,6 +78,5 @@ var namespacejoque =
     [ "run_after_all_of", "namespacejoque.html#a9255c56d839b5272715fe46da331a6a0", null ],
     [ "invalidated_by_all_of", "namespacejoque.html#a786fc02a3a611e58e6164f1be73614bf", null ],
     [ "for_each_task_impl", "namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937", null ],
-    [ "PRINT_VISITOR", "namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530", null ],
     [ "f", "namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc", null ]
 ];

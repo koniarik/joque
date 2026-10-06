@@ -227,12 +227,18 @@ Functions</h2></td></tr>
 <tr class="separator:a3c9d613f42925ac8347a29e346ec1e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda511d9833d4dabfe4d9b53741dc248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#abda511d9833d4dabfe4d9b53741dc248">insert_set</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> &amp;<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a>, const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, const std::string &amp;filter)</td></tr>
 <tr class="separator:abda511d9833d4dabfe4d9b53741dc248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7f069c04754480cd23a827dd9abe713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
-<tr class="memdesc:ae7f069c04754480cd23a827dd9abe713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#ae7f069c04754480cd23a827dd9abe713">More...</a><br /></td></tr>
-<tr class="separator:ae7f069c04754480cd23a827dd9abe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">exec</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency(), <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis=<a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a>)</td></tr>
-<tr class="memdesc:a9eb9fb3fe4cfe732504452deb2928e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a9eb9fb3fe4cfe732504452deb2928e68">More...</a><br /></td></tr>
-<tr class="separator:a9eb9fb3fe4cfe732504452deb2928e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count=std::thread::hardware_concurrency(), const std::string &amp;filter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs execution of tasks within one taskset.  <a href="namespacejoque.html#a6ac581ebef73a0b2c0a042d9f1eff8d6">More...</a><br /></td></tr>
+<tr class="separator:a6ac581ebef73a0b2c0a042d9f1eff8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670c9fdecc2656fd58deae9e68a68615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a670c9fdecc2656fd58deae9e68a68615">exec</a> (const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;ts, unsigned thread_count, const std::string &amp;filter, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis)</td></tr>
+<tr class="memdesc:a670c9fdecc2656fd58deae9e68a68615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> that reports to <code>vis</code> instead. <code>vis</code> has to outlive the returned coroutine.  <a href="namespacejoque.html#a670c9fdecc2656fd58deae9e68a68615">More...</a><br /></td></tr>
+<tr class="separator:a670c9fdecc2656fd58deae9e68a68615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60fe46e028c9970a5f745e9bb443ebc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a60fe46e028c9970a5f745e9bb443ebc1">exec</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> g, unsigned thread_count=std::thread::hardware_concurrency())</td></tr>
+<tr class="memdesc:a60fe46e028c9970a5f745e9bb443ebc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <code>exec</code> which uses dag as an input instead of task set.  <a href="namespacejoque.html#a60fe46e028c9970a5f745e9bb443ebc1">More...</a><br /></td></tr>
+<tr class="separator:a60fe46e028c9970a5f745e9bb443ebc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc2b39e76389fbae6c2640b96c1136c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#a4dc2b39e76389fbae6c2640b96c1136c">exec</a> (<a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a> g, unsigned thread_count, <a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;vis)</td></tr>
+<tr class="memdesc:a4dc2b39e76389fbae6c2640b96c1136c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the dag <code>exec</code> that reports to <code>vis</code>, which has to outlive the returned coroutine.  <a href="namespacejoque.html#a4dc2b39e76389fbae6c2640b96c1136c">More...</a><br /></td></tr>
+<tr class="separator:a4dc2b39e76389fbae6c2640b96c1136c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0">format_nested</a> (std::ostream &amp;os, std::string_view indent, const std::list&lt; <a class="el" href="structjoque_1_1output__chunk.html">output_chunk</a> &gt; &amp;output)</td></tr>
 <tr class="memdesc:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assumes that <code>msg</code> is multiline message, streams each line into <code>os</code>, and prefixes each line with <code>indent</code> string.  <a href="namespacejoque.html#ab9b69a2c0b10c31fe3d338739e00ddb0">More...</a><br /></td></tr>
 <tr class="separator:ab9b69a2c0b10c31fe3d338739e00ddb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,15 +305,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:acb89a59f33a42bec7e56ae35ecd06530"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjoque_1_1print__exec__visitor.html">print_exec_visitor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a></td></tr>
-<tr class="memdesc:acb89a59f33a42bec7e56ae35ecd06530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global instance of print visitor used as default argument for <code>exec</code>  <a href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">More...</a><br /></td></tr>
-<tr class="separator:acb89a59f33a42bec7e56ae35ecd06530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac391d87f5d214cafcaf8879dfec116bc"><td class="memItemLeft" align="right" valign="top">Fun &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejoque.html#ac391d87f5d214cafcaf8879dfec116bc">f</a></td></tr>
 <tr class="separator:ac391d87f5d214cafcaf8879dfec116bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MIT License. </p>
-<p>Copyright (c) 2025 Jan Veverak Koniarik</p>
+<p>Copyright (c) 2025-2026 Jan Veverak Koniarik</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
@@ -1034,8 +1037,8 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="ae7f069c04754480cd23a827dd9abe713"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7f069c04754480cd23a827dd9abe713">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/2]</span></h2>
+<a id="a6ac581ebef73a0b2c0a042d9f1eff8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac581ebef73a0b2c0a042d9f1eff8d6">&#9670;&nbsp;</a></span>exec() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1056,13 +1059,7 @@ template&lt;typename Node , typename... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;&#160;</td>
-          <td class="paramname"><em>vis</em> = <code><a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a></code>&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1081,16 +1078,58 @@ template&lt;typename Node , typename... Args&gt; </div>
   <table class="params">
     <tr><td class="paramname">ts</td><td>Input task set to process </td></tr>
     <tr><td class="paramname">thread_count</td><td>Number of threads to use </td></tr>
-    <tr><td class="paramname">filter</td><td>String filtering out tasks that either match it, or are dependencies of matched tasks </td></tr>
-    <tr><td class="paramname">vis</td><td>Visitor called by the execution on various events </td></tr>
+    <tr><td class="paramname">filter</td><td>String filtering out tasks that either match it, or are dependencies of matched tasks</td></tr>
   </table>
   </dd>
 </dl>
+<p>Progress is reported to a <code><a class="el" href="classjoque_1_1print__exec__visitor.html" title="Default visitor for execution. Prints information on stdout or stderr.">print_exec_visitor</a></code> owned by the returned coroutine. </p>
 
 </div>
 </div>
-<a id="a9eb9fb3fe4cfe732504452deb2928e68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb9fb3fe4cfe732504452deb2928e68">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/2]</span></h2>
+<a id="a670c9fdecc2656fd58deae9e68a68615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670c9fdecc2656fd58deae9e68a68615">&#9670;&nbsp;</a></span>exec() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> joque::exec </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacejoque.html#structjoque_1_1task__set">task_set</a> &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>thread_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;&#160;</td>
+          <td class="paramname"><em>vis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overload of <code>exec</code> that reports to <code>vis</code> instead. <code>vis</code> has to outlive the returned coroutine. </p>
+
+</div>
+</div>
+<a id="a60fe46e028c9970a5f745e9bb443ebc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60fe46e028c9970a5f745e9bb443ebc1">&#9670;&nbsp;</a></span>exec() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1105,13 +1144,7 @@ template&lt;typename Node , typename... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>thread_count</em> = <code>std::thread::hardware_concurrency()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;&#160;</td>
-          <td class="paramname"><em>vis</em> = <code><a class="el" href="namespacejoque.html#acb89a59f33a42bec7e56ae35ecd06530">PRINT_VISITOR</a></code>&#160;</td>
+          <td class="paramname"><em>thread_count</em> = <code>std::thread::hardware_concurrency()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1123,6 +1156,42 @@ template&lt;typename Node , typename... Args&gt; </div>
 
 <p>Overload of <code>exec</code> which uses dag as an input instead of task set. </p>
 <p>It's not recommended to use it, but it exists in case users want to customize the dag. </p>
+
+</div>
+</div>
+<a id="a4dc2b39e76389fbae6c2640b96c1136c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc2b39e76389fbae6c2640b96c1136c">&#9670;&nbsp;</a></span>exec() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classjoque_1_1exec__coro.html">exec_coro</a> joque::exec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacejoque.html#abf93bc50c67e1f9c2e23d68924c0e4b1">dag</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>thread_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjoque_1_1exec__visitor.html">exec_visitor</a> &amp;&#160;</td>
+          <td class="paramname"><em>vis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overload of the dag <code>exec</code> that reports to <code>vis</code>, which has to outlive the returned coroutine. </p>
 
 </div>
 </div>
@@ -1918,30 +1987,6 @@ template&lt;typename T , typename Fun &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="acb89a59f33a42bec7e56ae35ecd06530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb89a59f33a42bec7e56ae35ecd06530">&#9670;&nbsp;</a></span>PRINT_VISITOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classjoque_1_1print__exec__visitor.html">print_exec_visitor</a> joque::PRINT_VISITOR</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Global instance of print visitor used as default argument for <code>exec</code> </p>
-
-</div>
-</div>
 <a id="ac391d87f5d214cafcaf8879dfec116bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac391d87f5d214cafcaf8879dfec116bc">&#9670;&nbsp;</a></span>f</h2>
 
@@ -1966,7 +2011,7 @@ template&lt;typename T , typename Fun &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacejoque.html">joque</a></li>
-    <li class="footer">Generated on Sun Dec 14 2025 21:59:42 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 6 2026 17:40:59 for joque by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -4,7 +4,7 @@ var searchData=
   ['fail_46',['FAIL',['../namespacejoque.html#a2d82fee006543a7bbf6671affd21770fac2759effffc94bb9acc71d69fe3e8a1f',1,'joque']]],
   ['failed_47',['failed',['../namespacejoque.html#ae674c4bfdca171003f8e847318928ba8',1,'joque::node_content']]],
   ['filter_5fedges_48',['filter_edges',['../namespacejoque.html#aafbbb52ec9ef58b799ef730ee40ad151',1,'joque']]],
-  ['final_5fsuspend_49',['final_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a26fa94ab6fc8a2835c9a9080ce3c3060',1,'joque::exec_coro::promise_type']]],
+  ['final_5fsuspend_49',['final_suspend',['../structjoque_1_1exec__coro_1_1promise__type.html#a5ae511cb122a8b9f9be74600bbb2e610',1,'joque::exec_coro::promise_type']]],
   ['find_5fheader_50',['find_header',['../classjoque_1_1bits_1_1list__ptr.html#aea5e9797e8aac98de932a11cde4b63df',1,'joque::bits::list_ptr::find_header()'],['../classjoque_1_1bits_1_1list__ptr.html#a58c36c619024e11bc8fe83c2a7617e97',1,'joque::bits::list_ptr::find_header() const']]],
   ['for_5feach_5fadd_5fdep_51',['for_each_add_dep',['../namespacejoque.html#a8e3b0f45b1aa8c495527fae2d1dbd0e7',1,'joque']]],
   ['for_5feach_5ftask_5fimpl_52',['for_each_task_impl',['../namespacejoque.html#af5ca33039b5b2b2459052d8090ffc937',1,'joque']]],
