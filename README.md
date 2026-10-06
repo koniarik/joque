@@ -16,7 +16,7 @@ Recommended way of installing is to use CMakes FetchContent, or use git submodul
 FetchContent_Declare(
   joque
   GIT_REPOSITORY https://github.com/koniarik/joque
-  GIT_TAG v0.1
+  GIT_TAG v2.0.0
 )
 FetchContent_MakeAvailable(joque)
 ```
