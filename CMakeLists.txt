@@ -17,8 +17,11 @@ add_library(
   src/records.cpp
   src/print_exec_visitor.cpp
   src/task.cpp)
-target_compile_features(joque PRIVATE cxx_std_20)
-target_include_directories(joque PUBLIC include/)
+target_compile_features(joque PUBLIC cxx_std_20)
+target_include_directories(
+  joque PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+               $<INSTALL_INTERFACE:include>)
+add_library(joque::joque ALIAS joque)
 set(JOQUE_WARNINGS
     -Wall
     -Wextra
@@ -44,6 +47,9 @@ FetchContent_Declare(
 
 if(JOQUE_REPROC_ENABLED)
   set(REPROC++ ON)
+  set(REPROC_INSTALL
+      ON
+      CACHE BOOL "" FORCE)
 
   FetchContent_MakeAvailable(reproc)
 
@@ -51,22 +57,53 @@ if(JOQUE_REPROC_ENABLED)
   target_compile_options(joque_reproc PRIVATE ${JOQUE_WARNINGS})
   target_compile_features(joque_reproc PRIVATE cxx_std_20)
   target_link_libraries(joque_reproc PUBLIC reproc++)
-  target_include_directories(joque_reproc PUBLIC include/)
+  target_include_directories(
+    joque_reproc PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                        $<INSTALL_INTERFACE:include>)
   target_link_libraries(joque PUBLIC joque_reproc)
 
 endif()
 
 if(JOQUE_NLOHMANN_JSON_ENABLED)
+  set(JSON_Install
+      ON
+      CACHE BOOL "" FORCE)
   FetchContent_MakeAvailable(nlohmann_json)
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_options(joque_json PRIVATE ${JOQUE_WARNINGS})
   target_compile_features(joque_json PRIVATE cxx_std_20)
   target_link_libraries(joque_json PUBLIC nlohmann_json::nlohmann_json)
-  target_include_directories(joque_json PUBLIC include/)
+  target_include_directories(
+    joque_json PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                      $<INSTALL_INTERFACE:include>)
   target_link_libraries(joque PUBLIC joque_json)
 
 endif()
+
+set(JOQUE_INSTALL_TARGETS joque)
+if(JOQUE_REPROC_ENABLED)
+  list(APPEND JOQUE_INSTALL_TARGETS joque_reproc)
+endif()
+if(JOQUE_NLOHMANN_JSON_ENABLED)
+  list(APPEND JOQUE_INSTALL_TARGETS joque_json)
+endif()
+
+install(DIRECTORY include/joque DESTINATION include)
+install(
+  TARGETS ${JOQUE_INSTALL_TARGETS}
+  EXPORT joque
+  ARCHIVE DESTINATION lib
+  INCLUDES
+  DESTINATION include)
+install(
+  EXPORT joque
+  FILE joque-targets.cmake
+  NAMESPACE joque::
+  DESTINATION lib/cmake/joque)
+configure_file(cmake/joque-config.cmake.in joque-config.cmake @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/joque-config.cmake
+        DESTINATION lib/cmake/joque)
 
 if(JOQUE_TESTS_ENABLED)
   if(NOT JOQUE_REPROC_ENABLED)
