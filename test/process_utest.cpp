@@ -39,13 +39,15 @@ namespace joque
 class joque_fixture : public ::testing::Test
 {
 public:
-        std::filesystem::path f1_name = std::tmpnam( nullptr );
-        std::filesystem::path f2_name = std::tmpnam( nullptr );
+        std::filesystem::path f1_name      = std::tmpnam( nullptr );
+        std::filesystem::path f2_name      = std::tmpnam( nullptr );
+        std::filesystem::path missing_name = std::tmpnam( nullptr );
 
         ~joque_fixture()
         {
                 std::filesystem::remove( f1_name );
                 std::filesystem::remove( f2_name );
+                std::filesystem::remove( missing_name );
         }
 };
 
@@ -110,6 +112,39 @@ TEST_F( joque_fixture, update )
         EXPECT_LT( last_write_time( f1_name ), last_write_time( f2_name ) );
 }
 
+TEST_F( joque_fixture, missing_output_invalidates )
+{
+        {
+                std::ofstream os{ f1_name };
+                os << "test";
+        }
+
+        std::this_thread::sleep_for( std::chrono::milliseconds( 50 ) );
+
+        {
+                std::ofstream os{ f2_name };
+        }
+
+        process p;
+        p.input.push_back( f1_name );
+        p.output.push_back( f2_name );
+        EXPECT_FALSE( job_traits< process >::is_invalidated( p ).invalidated );
+
+        p.output.push_back( missing_name );
+        EXPECT_TRUE( job_traits< process >::is_invalidated( p ).invalidated );
+}
+
+TEST_F( joque_fixture, no_input_existing_output )
+{
+        {
+                std::ofstream os{ f1_name };
+        }
+
+        process p;
+        p.output.push_back( f1_name );
+        EXPECT_FALSE( job_traits< process >::is_invalidated( p ).invalidated );
+}
+
 TEST( joque, corner_cases )
 {
         process p;
@@ -126,7 +161,7 @@ TEST( joque, corner_cases )
         // if no input is given, is invalidated is true if file does not exists
         EXPECT_FALSE( p.output.empty() );
         EXPECT_TRUE( p.input.empty() );
-        EXPECT_FALSE( job_traits< process >::is_invalidated( p ).invalidated );
+        EXPECT_TRUE( job_traits< process >::is_invalidated( p ).invalidated );
 }
 
 }  // namespace joque

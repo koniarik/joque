@@ -50,7 +50,7 @@ namespace
         {
                 if ( exists( p ) )
                         return last_write_time( p );
-                return {};
+                return std::filesystem::file_time_type::min();
         }
 
         std::string format_cmd( const std::vector< std::string >& cmd )
@@ -109,7 +109,7 @@ inval_result job_traits< process >::is_invalidated( const process& p )
                             return exists( p );
                     } );
 
-                return { out_exists, "output existance" };
+                return { !out_exists, "output existance" };
         }
 
         auto oldest_output_iter =
