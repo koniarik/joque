@@ -9,7 +9,7 @@ set(INSTALL_GTEST
 set(gtest_force_shared_crt
     ON
     CACHE BOOL "")
-FetchContent_MakeAvailable(nlohmann_json googletest)
+FetchContent_MakeAvailable(json googletest)
 
 file(GLOB TESTS *.cpp)
 add_executable(joque_utest ${TESTS})

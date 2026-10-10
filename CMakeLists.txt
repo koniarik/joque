@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.21)
 
 project(joque)
 
+option(JOQUE_INSTALL "Generate install rules" ${PROJECT_IS_TOP_LEVEL})
 option(JOQUE_TESTS_ENABLED "Run joque tests" OFF)
 option(JOQUE_NLOHMANN_JSON_ENABLED "Enable nlohmann json" OFF)
 option(JOQUE_REPROC_ENABLED "Enable reproc++" OFF)
@@ -40,7 +41,7 @@ FetchContent_Declare(
   GIT_TAG v14.2.5
   GIT_SHALLOW TRUE)
 FetchContent_Declare(
-  nlohmann_json
+  json
   GIT_REPOSITORY https://github.com/nlohmann/json.git
   GIT_TAG v3.11.3
   GIT_SHALLOW TRUE)
@@ -68,7 +69,7 @@ if(JOQUE_NLOHMANN_JSON_ENABLED)
   set(JSON_Install
       ON
       CACHE BOOL "" FORCE)
-  FetchContent_MakeAvailable(nlohmann_json)
+  FetchContent_MakeAvailable(json)
 
   add_library(joque_json STATIC src/json.cpp)
   target_compile_options(joque_json PRIVATE ${JOQUE_WARNINGS})
@@ -81,29 +82,31 @@ if(JOQUE_NLOHMANN_JSON_ENABLED)
 
 endif()
 
-set(JOQUE_INSTALL_TARGETS joque)
-if(JOQUE_REPROC_ENABLED)
-  list(APPEND JOQUE_INSTALL_TARGETS joque_reproc)
-endif()
-if(JOQUE_NLOHMANN_JSON_ENABLED)
-  list(APPEND JOQUE_INSTALL_TARGETS joque_json)
-endif()
+if(JOQUE_INSTALL)
+  set(JOQUE_INSTALL_TARGETS joque)
+  if(JOQUE_REPROC_ENABLED)
+    list(APPEND JOQUE_INSTALL_TARGETS joque_reproc)
+  endif()
+  if(JOQUE_NLOHMANN_JSON_ENABLED)
+    list(APPEND JOQUE_INSTALL_TARGETS joque_json)
+  endif()
 
-install(DIRECTORY include/joque DESTINATION include)
-install(
-  TARGETS ${JOQUE_INSTALL_TARGETS}
-  EXPORT joque
-  ARCHIVE DESTINATION lib
-  INCLUDES
-  DESTINATION include)
-install(
-  EXPORT joque
-  FILE joque-targets.cmake
-  NAMESPACE joque::
-  DESTINATION lib/cmake/joque)
-configure_file(cmake/joque-config.cmake.in joque-config.cmake @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/joque-config.cmake
-        DESTINATION lib/cmake/joque)
+  install(DIRECTORY include/joque DESTINATION include)
+  install(
+    TARGETS ${JOQUE_INSTALL_TARGETS}
+    EXPORT joque
+    ARCHIVE DESTINATION lib
+    INCLUDES
+    DESTINATION include)
+  install(
+    EXPORT joque
+    FILE joque-targets.cmake
+    NAMESPACE joque::
+    DESTINATION lib/cmake/joque)
+  configure_file(cmake/joque-config.cmake.in joque-config.cmake @ONLY)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/joque-config.cmake
+          DESTINATION lib/cmake/joque)
+endif()
 
 if(JOQUE_TESTS_ENABLED)
   if(NOT JOQUE_REPROC_ENABLED)
